@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CommitComments>	<CommitComment>Drobne poprawki synchronizacji, wczytywania i rysowania, skalowanie y tymczasowo wylaczone</CommitComment>
+	<CommitComment>Wyswietlanie linii</CommitComment>
+	<CommitComment>Panowanie nad algorytmem</CommitComment>
+	<CommitComment>Poprawiono watek sledzenia zmian dokonywanych przez zewnetrzny algorytm</CommitComment>
+	<CommitComment>stala wielkosc rysunku punktu</CommitComment>
+	<CommitComment>Ulepszony zoom, wyswietlanie labeli</CommitComment>
+	<CommitComment>Drobne zmany -etykiety i przesuwanie obiektow</CommitComment>
+	<CommitComment>ladowanie z/do pliku</CommitComment>
+	<CommitComment>drobne zmiany architektury</CommitComment>
+	<CommitComment>Kolorowanie -bugfix</CommitComment>
+</CommitComments>

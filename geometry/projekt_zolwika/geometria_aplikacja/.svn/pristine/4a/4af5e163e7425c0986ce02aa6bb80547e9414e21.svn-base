@@ -1,0 +1,33 @@
+package view;
+
+import model.Model;
+import formatter.IFormatter;
+
+public class Watcher implements Runnable {
+
+	private IController control;
+	private IFormatter form;
+	private Model model;
+
+	public Watcher(IController c, IFormatter form){
+		this.control = c;
+		this.form = form;
+	}
+
+	@Override
+	public void run() {
+		try {
+			while(true){
+				Thread.sleep(1000);
+				this.model = form.getNextStep(System.in, control.GetModel());
+				control.Refresh(model);
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+}

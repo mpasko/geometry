@@ -1,0 +1,75 @@
+package formatter.csv;
+
+import java.awt.Color;
+import java.awt.geom.Point2D;
+import java.io.InputStream;
+import java.io.PrintStream;
+import java.util.List;
+import java.util.Scanner;
+
+import model.Model;
+import model.PointModel;
+import formatter.IFormatter;
+
+public class CSVFormatter implements IFormatter {
+
+	PointModel readPoint(Scanner scan){
+		String[] items = scan.nextLine().split(",");
+		float x,y;
+		x = Float.parseFloat(items[0]);
+		y = Float.parseFloat(items[1]);
+		Color color = Color.decode("0x"+items[2]);
+		String label = items[3];
+		int shape = Integer.parseInt(items[4]);
+		PointModel m = new PointModel(new Point2D.Float(x, y),color,label,shape);
+		return m;
+	}
+	
+	String savePoint(PointModel m){
+		StringBuilder builder = new StringBuilder();
+		builder.append(m.point.x).append(",");
+		builder.append(m.point.y).append(",");
+		String rgb = Integer.toHexString(m.color.getRGB());
+		rgb = rgb.substring(2, rgb.length());
+		builder.append(rgb).append(",");
+		builder.append(m.label);
+		builder.append(m.shape);
+		return builder.toString();
+	}
+	
+	@Override
+	public Model loadAll(InputStream in) {
+		Scanner scan = new Scanner(in);
+		Model m = new Model();
+		while(scan.hasNext()){
+			m.points.add(readPoint(scan));
+		}
+		return m;
+	}
+
+	@Override
+	public void saveAll(PrintStream out, Model points) {
+		for(PointModel point: points.points){
+			out.println(savePoint(point));
+		}
+	}
+
+	@Override
+	public Model getNextStep(InputStream in, Model current) {
+		Scanner scan = new Scanner(in);
+		PointModel newPoint = readPoint(scan);
+		boolean change = false;
+		for(PointModel oldPoint : current.points){
+			if(newPoint.equals(oldPoint)){
+				oldPoint.color = newPoint.color;
+				oldPoint.label = newPoint.label;
+				change = true;
+			}
+		}
+		if(!change){
+			current.points.add(newPoint);
+		}
+		return current;
+	}
+
+}

@@ -1,0 +1,53 @@
+package view;
+import java.awt.BorderLayout;
+
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
+import view.Watcher;
+
+import formatter.csv.CSVFormatter;
+
+
+public class MainWindow extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3880026026104218593L;
+	
+	PlanePanel plane;
+
+	private ToolBoxPanel toolbox;
+	
+	public MainWindow()
+	{
+		setLayout(new BorderLayout());
+		plane = new PlanePanel();
+		plane.SetFormatter(new CSVFormatter());
+		
+		toolbox = new ToolBoxPanel();
+		toolbox.setController(plane);
+		add(plane, BorderLayout.CENTER);
+		add(toolbox, BorderLayout.EAST);
+		
+		setTitle("Geometry");
+		setSize(1024, 768);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		Watcher w = new Watcher(plane, new CSVFormatter());
+		Thread t = new Thread(w);
+		t.start();
+	}
+
+	public static void main(String[] args)
+	{
+		SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+            	MainWindow app = new MainWindow();
+                app.setVisible(true);
+            }
+        });
+	}
+}

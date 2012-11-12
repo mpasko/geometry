@@ -1,0 +1,47 @@
+package model;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.geom.Point2D;
+
+
+public class PointModel{
+	public static int pointW = 5;
+	
+	public Point2D.Double point;
+	public Color color;
+	public String label;
+	public int shape;
+	
+	public PointModel(Point2D p, Color c, String l, int shapeID){
+		point = new Point2D.Double(p.getX(), p.getY());
+		color = c;
+		label = l;
+		shape = shapeID;
+	}
+	
+	public void Draw(Graphics2D g2d){
+		g2d.setColor(color);
+		g2d.drawRect((int)(point.x - pointW), (int)(point.y - pointW), 2*pointW, 2*pointW);
+		g2d.setColor(Color.white);
+		g2d.fillRect((int)(point.x - pointW)+1, (int)(point.y - pointW)+1, 2*pointW-2, 2*pointW-2);
+		int txtx = (int)(point.x - pointW);
+		int txty = (int)(point.y + 4*pointW);
+		int fontw = g2d.getFontMetrics().stringWidth(label);
+		int fonth = g2d.getFontMetrics().getHeight();
+		g2d.fillRect(txtx, (int)(point.y + 2*pointW), fontw, fonth);
+		g2d.setColor(color);
+		g2d.drawString(label,txtx, txty);
+	}
+	
+	@Override
+	public boolean equals(Object o){
+		if(o instanceof PointModel){
+			PointModel pm = (PointModel)o;
+			boolean match = Math.abs(point.x - pm.point.x)<0.01
+					&& Math.abs(point.y - pm.point.y)<0.01;
+			return match;
+		}else{
+			return false;
+		}
+	}
+}

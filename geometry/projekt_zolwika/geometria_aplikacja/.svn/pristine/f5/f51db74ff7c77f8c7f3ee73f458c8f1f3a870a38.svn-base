@@ -1,0 +1,15 @@
+import javax.swing.JPanel;
+
+
+public class ToolBoxPanel extends JPanel {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1824950985899816256L;
+	
+	public ToolBoxPanel(){
+		
+	}
+
+}
