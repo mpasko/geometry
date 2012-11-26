@@ -2,6 +2,7 @@ package formatter.csv;
 
 import java.awt.Color;
 import java.awt.geom.Point2D;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
@@ -43,11 +44,20 @@ public class CSVFormatter implements IFormatter {
 	
 	@Override
 	public Model loadAll(InputStream in) {
-		if(scan == null)
-			scan = new Scanner(in);
+		if(scan != null)
+			scan.close();
+		scan = new Scanner(in);
 		Model m = new Model();
 		while(scan.hasNext()){
-			m.points.add(readPoint());
+			PointModel p = readPoint();
+			if(p != null)
+				m.points.add(p);
+		}
+		try {
+			in.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return m;
 	}
@@ -68,20 +78,23 @@ public class CSVFormatter implements IFormatter {
 			scan = null;
 			return current;
 		}
-		PointModel newPoint = readPoint();
-		if(newPoint==null){
-			return current;
-		}
-		boolean change = false;
-		for(PointModel oldPoint : current.points){
-			if(newPoint.equals(oldPoint)){
-				oldPoint.color = newPoint.color;
-				oldPoint.label = newPoint.label;
-				change = true;
+		PointModel newPoint = null;
+		while(newPoint==null || newPoint.color.equals(Color.black)){
+			newPoint = readPoint();
+			if(newPoint==null){
+				return current;
 			}
-		}
-		if(!change){
-			current.points.add(newPoint);
+			boolean change = false;
+			for(PointModel oldPoint : current.points){
+				if(newPoint.equals(oldPoint)){
+					oldPoint.color = newPoint.color;
+					oldPoint.label = newPoint.label;
+					change = true;
+				}
+			}
+			if(!change && newPoint != null){
+				current.points.add(newPoint);
+			}
 		}
 		//scan.close();
 		return current;

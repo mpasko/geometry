@@ -20,6 +20,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -179,11 +180,16 @@ public class PlanePanel extends JComponent implements MouseMotionListener, Mouse
 	
 	synchronized private void DrawPoints(Graphics2D g2d, AffineTransform at)
 	{
+/* *x/
 		synchronized(_all_points){
+/* */
 			for(PointModel point : _all_points.points){
 	        	point.Draw(g2d, at);
 	        }
+/* *x/
+			_all_points.notifyAll();
 		}
+/* */
 	}
 
 	@Override
@@ -389,7 +395,10 @@ public class PlanePanel extends JComponent implements MouseMotionListener, Mouse
 		Map<Integer,List<PointModel>> map  = new HashMap<Integer, List<PointModel>>();
 		this.shapes.clear();
 		for(PointModel p : _all_points.points){
-			List<PointModel> shape = map.get(p.shape);
+			List<PointModel> shape = null;
+			if(p!=null){
+				shape = map.get(p.shape);
+			}
 			if(shape == null){
 				shape = new ArrayList<PointModel>();
 				map.put(p.shape, shape);
@@ -412,6 +421,12 @@ public class PlanePanel extends JComponent implements MouseMotionListener, Mouse
 		}else{
 			selection = null;
 		}
+		java.util.Collections.sort(this.shapes, new Comparator<model.ShapeWrap>() {
+			@Override
+			public int compare(ShapeWrap arg0, ShapeWrap arg1) {
+				return arg0.GetPoints().length - arg1.GetPoints().length;
+			}
+		});
 		this.repaint();
 	}
 

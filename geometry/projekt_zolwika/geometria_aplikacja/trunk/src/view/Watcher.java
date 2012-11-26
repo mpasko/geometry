@@ -57,7 +57,9 @@ public class Watcher implements Runnable, IAlgorithmController {
 				synchronized (control.GetModel()) {
 					this.model = form.getNextStep(bis, control.GetModel());
 					control.Refresh(model);
+					//control.GetModel().notifyAll();
 				}
+				
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
