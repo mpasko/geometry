@@ -40,6 +40,11 @@
           </incDir>
           <warningLevel>2</warningLevel>
         </ccTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerLibFileItem>../cpp/geometry/dist/Debug/Cygwin-Windows/libgeometry.a</linkerLibFileItem>
+          </linkerLibItems>
+        </linkerTool>
         <requiredProjects>
           <makeArtifact PL="../cpp/geometry"
                         CT="3"

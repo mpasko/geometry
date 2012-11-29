@@ -14,8 +14,27 @@
 
 using namespace std;
 
-
+/*Zalozenie: os y biegnie do gory*/
 class QuadTree{
+    
+    void match(Point* p){
+        class QuadTree*dest = NULL;
+        if(p->x <= center->x){
+            if(p->y <= center->y){
+                dest = SW;
+            }else{
+                dest = NW;
+            }
+        }else{
+            if(p->y <= center->y){
+                dest = SE;
+            }else{
+                dest = NE;
+            }
+        }
+        dest->putNextPoint(p);
+    }
+
 public:
     class QuadTree* NE;
     class QuadTree* NW;
@@ -24,36 +43,61 @@ public:
     
     Point* center;
     float width;
+    float half;
+    Point* chunk;
     
-    QuadTree(float cx, float cy, float w): NE(NULL),NW(NULL),SE(NULL),SW(NULL),width(w){   
+    QuadTree(float cx, float cy, float w): NE(NULL),NW(NULL),SE(NULL),SW(NULL){   
         center = new Point(cx,cy);
+        half = w/2;
+        width = w;
+        chunk = NULL;
+    }
+    
+    bool isLeaf() const {
+        return (NE==NULL)&&(NW==NULL)&&(SE==NULL)&&(SW==NULL);
     }
     
     void subdivide(){
-        if((NE==NULL)&&(NW==NULL)&&(SE==NULL)&&(SW==NULL)){
-            float nw_wdh = width/2;
+        if(isLeaf()){
             float cntr = width/4;
-            NE = new QuadTree(center->x-cntr,center->y-cntr,nw_wdh);
-            NW = new QuadTree(center->x+cntr,center->y-cntr,nw_wdh);
-            SE = new QuadTree(center->x-cntr,center->y+cntr,nw_wdh);
-            SW = new QuadTree(center->x+cntr,center->y+cntr,nw_wdh);
+            NE = new QuadTree(center->x+cntr,center->y+cntr,half);
+            NW = new QuadTree(center->x-cntr,center->y+cntr,half);
+            SE = new QuadTree(center->x+cntr,center->y-cntr,half);
+            SW = new QuadTree(center->x-cntr,center->y-cntr,half);
+        }
+    }
+    
+    void putNextPoint(Point * p){
+        if(isLeaf()){
+            if(chunk == NULL){
+                chunk = p;
+                return;
+            }else{
+                subdivide();
+                match(chunk);
+                match(p);
+                chunk = NULL;
+            }
+            return;
+        }else{
+            match(p);
         }
     }
     
     friend ostream& operator<<(ostream& out, const QuadTree& tree){
-        if((tree.NE==NULL)&&(tree.NW==NULL)&&(tree.SE==NULL)&&(tree.SW==NULL)){
-            float bndr = tree.width/2;
+        if(tree.isLeaf()){
             float x = tree.center->x;
             float y = tree.center->y;
-            drawline(out,x-bndr,y-bndr,x-bndr,y+bndr,green);
-            drawline(out,x+bndr,y+bndr,x-bndr,y+bndr,green);
-            drawline(out,x-bndr,y+bndr,x-bndr,y-bndr,green);
-            drawline(out,x-bndr,y+bndr,x+bndr,y+bndr,green);
+            float half = tree.half;
+            drawline(out,x-half,y-half,x-half,y+half,green);
+            drawline(out,x+half,y+half,x-half,y+half,green);
+            drawline(out,x+half,y-half,x-half,y-half,green);
+            drawline(out,x+half,y-half,x+half,y+half,green);
         }else{
-            out<<tree.NE;
-            out<<tree.NW;
-            out<<tree.SE;
-            out<<tree.SW;
+            out<<*(tree.NE);
+            out<<*(tree.NW);
+            out<<*(tree.SE);
+            out<<*(tree.SW);
         }
         return out;
     }
@@ -78,9 +122,17 @@ Polygon* load_data(int size){
 }
 
 QuadTree* init_mesh(Polygon* p){
-    QuadTree* qt = new QuadTree(0.0,0.0,100.0);
-    qt->subdivide();
-    cout << qt;
+    QuadTree* qt = new QuadTree(0.0,0.0,1600.0);
+    //qt->subdivide();
+    Point a(206.0,205.5);
+    Point b(206.0,204.5);
+    Point c(204.0,205.5);
+    Point d(204.0,204.5);
+    qt->putNextPoint(&a);
+    qt->putNextPoint(&b);
+    qt->putNextPoint(&c);
+    qt->putNextPoint(&d);
+    cout << *qt;
     return qt;
 }
 
