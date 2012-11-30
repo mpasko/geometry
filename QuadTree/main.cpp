@@ -11,6 +11,8 @@
 #include <iostream>
 #include "Visualization.h"
 #include "Polygon.h"
+#include <fstream>
+#include "trimmer.h"
 
 using namespace std;
 
@@ -115,15 +117,45 @@ public:
     }
 };
 
-Polygon* load_data(int size){
-    Polygon * p = new Polygon(size);
-    
+Polygon* load_data(int size, char* filename){
+    Polygon * p = new Polygon(size+1);
+    ifstream file(filename);
+    Point * prev = NULL;
+    Point * first = NULL;
+    FlushTable<Point> flush(size+1);
+    for (int i=0; i<size; ++i){
+        float x,y;
+        string sx, sy, empty;
+        getline(file, sx, ',');
+        sx = trim(sx);
+        x = atof(sx.c_str());
+        getline(file, sy, ',');
+        sx = trim(sy);
+        y = atof(sy.c_str());
+        getline(file, empty, ',');
+        getline(file, empty, ',');
+        getline(file, empty, '\n');
+        
+        Point * current = new Point(x,y);
+        flush += current;
+        *p += current;
+        if (prev != NULL){
+            drawline(cout,prev,current,blue);
+        }else{
+            first = current;
+        }
+        prev = current;
+    }
+    drawline(cout,prev,first,blue);
+    file.close();
     return p;
 }
 
 QuadTree* init_mesh(Polygon* p){
     QuadTree* qt = new QuadTree(0.0,0.0,1600.0);
-    //qt->subdivide();
+ /* *x/
+    qt->subdivide();
+ /* *x/
     Point a(206.0,205.5);
     Point b(206.0,204.5);
     Point c(204.0,205.5);
@@ -132,6 +164,10 @@ QuadTree* init_mesh(Polygon* p){
     qt->putNextPoint(&b);
     qt->putNextPoint(&c);
     qt->putNextPoint(&d);
+ /* */
+    for(int j=0; j<p->length(); ++j){
+        qt->putNextPoint((*p)[j]);
+    }
     cout << *qt;
     return qt;
 }
@@ -142,12 +178,18 @@ QuadTree* init_mesh(Polygon* p){
  */
 int main(int argc, char** argv) {
     int size;
-    if(argc == 2){
+    char* filen;
+//    ofstream fl("input.in");
+//    fl << "no-hello!";
+//    fl.close();
+    if(argc >= 3){
             size = atoi(argv[1]);
+            filen = argv[2];
     }else{
-        size = 100;
+        size = 23;
+        filen = "input.in";
     }
-    Polygon* p = load_data(size);
+    Polygon* p = load_data(size,filen);
     QuadTree* qt = init_mesh(p);
     delete p;
     delete qt;
