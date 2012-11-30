@@ -14,28 +14,32 @@ GREP=grep
 NM=nm
 CCADMIN=CCadmin
 RANLIB=ranlib
-CC=gcc.exe
-CCC=g++.exe
-CXX=g++.exe
-FC=
-AS=as.exe
+CC=gcc
+CCC=g++
+CXX=g++
+FC=gfortran
+AS=as
 
 # Macros
 CND_PLATFORM=MinGW-Windows
+CND_DLIB_EXT=dll
 CND_CONF=Release
 CND_DISTDIR=dist
+CND_BUILDDIR=build
 
 # Include project Makefile
 include Makefile
 
 # Object Directory
-OBJECTDIR=build/${CND_CONF}/${CND_PLATFORM}
+OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/General_exception.o \
 	${OBJECTDIR}/Point.o \
+	${OBJECTDIR}/FlushTable.o \
 	${OBJECTDIR}/geometry.o \
+	${OBJECTDIR}/Polygon.o \
 	${OBJECTDIR}/Segment.o
 
 
@@ -57,13 +61,13 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-Release.mk dist/Release/MinGW-Windows/libgeometry.a
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgeometry.a
 
-dist/Release/MinGW-Windows/libgeometry.a: ${OBJECTFILES}
-	${MKDIR} -p dist/Release/MinGW-Windows
-	${RM} dist/Release/MinGW-Windows/libgeometry.a
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgeometry.a: ${OBJECTFILES}
+	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgeometry.a
 	${AR} -rv ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgeometry.a ${OBJECTFILES} 
-	$(RANLIB) dist/Release/MinGW-Windows/libgeometry.a
+	$(RANLIB) ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgeometry.a
 
 ${OBJECTDIR}/General_exception.o: General_exception.cpp 
 	${MKDIR} -p ${OBJECTDIR}
@@ -75,10 +79,20 @@ ${OBJECTDIR}/Point.o: Point.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/Point.o Point.cpp
 
+${OBJECTDIR}/FlushTable.o: FlushTable.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/FlushTable.o FlushTable.cpp
+
 ${OBJECTDIR}/geometry.o: geometry.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/geometry.o geometry.cpp
+
+${OBJECTDIR}/Polygon.o: Polygon.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/Polygon.o Polygon.cpp
 
 ${OBJECTDIR}/Segment.o: Segment.cpp 
 	${MKDIR} -p ${OBJECTDIR}
@@ -90,8 +104,8 @@ ${OBJECTDIR}/Segment.o: Segment.cpp
 
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
-	${RM} -r build/Release
-	${RM} dist/Release/MinGW-Windows/libgeometry.a
+	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgeometry.a
 
 # Subprojects
 .clean-subprojects:

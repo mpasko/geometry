@@ -14,22 +14,24 @@ GREP=grep
 NM=nm
 CCADMIN=CCadmin
 RANLIB=ranlib
-CC=gcc.exe
-CCC=g++.exe
-CXX=g++.exe
-FC=
-AS=as.exe
+CC=gcc
+CCC=g++
+CXX=g++
+FC=gfortran
+AS=as
 
 # Macros
 CND_PLATFORM=MinGW-Windows
+CND_DLIB_EXT=dll
 CND_CONF=Release
 CND_DISTDIR=dist
+CND_BUILDDIR=build
 
 # Include project Makefile
 include Makefile
 
 # Object Directory
-OBJECTDIR=build/${CND_CONF}/${CND_PLATFORM}
+OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
@@ -60,13 +62,13 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-Release.mk dist/Release/MinGW-Windows/libgraphical_simulation.a
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgraphical_simulation.a
 
-dist/Release/MinGW-Windows/libgraphical_simulation.a: ${OBJECTFILES}
-	${MKDIR} -p dist/Release/MinGW-Windows
-	${RM} dist/Release/MinGW-Windows/libgraphical_simulation.a
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgraphical_simulation.a: ${OBJECTFILES}
+	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgraphical_simulation.a
 	${AR} -rv ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgraphical_simulation.a ${OBJECTFILES} 
-	$(RANLIB) dist/Release/MinGW-Windows/libgraphical_simulation.a
+	$(RANLIB) ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgraphical_simulation.a
 
 ${OBJECTDIR}/Figures_factory.o: Figures_factory.cpp 
 	${MKDIR} -p ${OBJECTDIR}
@@ -108,8 +110,8 @@ ${OBJECTDIR}/GPolygon.o: GPolygon.cpp
 
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
-	${RM} -r build/Release
-	${RM} dist/Release/MinGW-Windows/libgraphical_simulation.a
+	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgraphical_simulation.a
 
 # Subprojects
 .clean-subprojects:

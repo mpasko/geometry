@@ -16,10 +16,17 @@ class Polygon{
     float*coord_y;
     
     FlushTable<Point> * flushtable;
+    
+    int index;
+    int len;
 public:
     Polygon(int size);
     
     Point* operator[](int index);
+    
+    void operator+=(Point* p);
+    
+    int length();
     
     virtual ~Polygon();
 };
