@@ -32,7 +32,7 @@
     <conf name="Debug" type="1">
       <toolsSet>
         <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
-        <compilerSet>default</compilerSet>
+        <compilerSet>MinGW|MinGW</compilerSet>
       </toolsSet>
       <compileType>
         <ccTool>
@@ -43,7 +43,7 @@
         </ccTool>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>../cpp/geometry/dist/Debug/Cygwin-Windows/libgeometry.a</linkerLibFileItem>
+            <linkerLibFileItem>../cpp/geometry/dist/Debug/MinGW-Windows/libgeometry.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <requiredProjects>

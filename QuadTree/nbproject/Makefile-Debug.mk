@@ -21,7 +21,7 @@ FC=gfortran
 AS=as.exe
 
 # Macros
-CND_PLATFORM=Cygwin-Windows
+CND_PLATFORM=MinGW-Windows
 CND_DLIB_EXT=dll
 CND_CONF=Debug
 CND_DISTDIR=dist
@@ -52,13 +52,13 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=../cpp/geometry/dist/Debug/Cygwin-Windows/libgeometry.a
+LDLIBSOPTIONS=../cpp/geometry/dist/Debug/MinGW-Windows/libgeometry.a
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
 	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree.exe: ../cpp/geometry/dist/Debug/Cygwin-Windows/libgeometry.a
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree.exe: ../cpp/geometry/dist/Debug/MinGW-Windows/libgeometry.a
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}

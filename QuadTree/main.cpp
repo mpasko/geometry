@@ -168,7 +168,9 @@ QuadTree* init_mesh(Polygon* p){
     for(int j=0; j<p->length(); ++j){
         qt->putNextPoint((*p)[j]);
     }
-    cout << *qt;
+    ofstream out_stream("output.txt");
+    out_stream << *p;
+    out_stream << *qt;
     return qt;
 }
 
@@ -187,7 +189,7 @@ int main(int argc, char** argv) {
             filen = argv[2];
     }else{
         size = 23;
-        filen = "input.in";
+        filen = (char*)"input.in";
     }
     Polygon* p = load_data(size,filen);
     QuadTree* qt = init_mesh(p);
