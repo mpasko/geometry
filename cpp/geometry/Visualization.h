@@ -17,9 +17,9 @@ int seq = 0;
 
 #ifdef PASKO
 
-char* red = "ff0000";
-char* green = "00ff00";
-char* blue = "0000ff";
+char* red = (char*)"ff0000";
+char* green = (char*)"00ff00";
+char* blue = (char*)"0000ff";
 
 void drawpoint(std::ostream& out, float x1, float y1, char*color){
     out << x1 <<", "<< y1 <<", "<< color << ", " << seq << ", " << seq << std::endl;

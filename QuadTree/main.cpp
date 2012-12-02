@@ -169,7 +169,6 @@ QuadTree* init_mesh(Polygon* p){
         qt->putNextPoint((*p)[j]);
     }
     ofstream out_stream("output.txt");
-    out_stream << *p;
     out_stream << *qt;
     return qt;
 }
