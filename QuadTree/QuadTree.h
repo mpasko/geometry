@@ -28,6 +28,8 @@ public:
     float half;
     Point* chunk;
     
+    int depth;
+    
     QuadTree(float cx, float cy, float w);
     
     bool isLeaf() const;

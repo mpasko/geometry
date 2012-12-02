@@ -32,6 +32,7 @@ void QuadTree::match(Point* p){
         half = w/2;
         width = w;
         chunk = NULL;
+        depth = 0;
     }
     
     bool QuadTree::isLeaf() const {
@@ -39,12 +40,18 @@ void QuadTree::match(Point* p){
     }
     
     void QuadTree::subdivide(){
+        ++depth;
         if(isLeaf()){
             float cntr = width/4;
             NE = new QuadTree(center->x+cntr,center->y+cntr,half);
             NW = new QuadTree(center->x-cntr,center->y+cntr,half);
             SE = new QuadTree(center->x+cntr,center->y-cntr,half);
             SW = new QuadTree(center->x-cntr,center->y-cntr,half);
+        }else{
+            NE->subdivide();
+            NW->subdivide();
+            SE->subdivide();
+            SW->subdivide();
         }
     }
     
