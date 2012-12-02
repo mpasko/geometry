@@ -21,7 +21,7 @@ FC=gfortran
 AS=as.exe
 
 # Macros
-CND_PLATFORM=MinGW-Windows
+CND_PLATFORM=Cygwin-Windows
 CND_DLIB_EXT=dll
 CND_CONF=Debug
 CND_DISTDIR=dist
@@ -67,7 +67,7 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/librandom_generators.a: ${OBJECTFILES
 ${OBJECTDIR}/random_generators.o: random_generators.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -I../graphical_simulation -I../geometry -MMD -MP -MF $@.d -o ${OBJECTDIR}/random_generators.o random_generators.cpp
+	$(COMPILE.cc) -g -I../graphical_simulation -I../geometry -MMD -MP -MF $@.d -o ${OBJECTDIR}/random_generators.o random_generators.cpp
 
 # Subprojects
 .build-subprojects:

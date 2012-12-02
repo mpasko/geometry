@@ -1,0 +1,48 @@
+import java.awt.GridLayout;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+
+public class ToolBoxPanel extends JPanel {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1824950985899816256L;
+	private JButton save;
+	private JButton open;
+	private JButton generate;
+	private JButton addPoint;
+	private JButton movePoint;
+	private JButton closeShape;
+	private JButton setColour;
+	
+	public ToolBoxPanel(){
+		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		JPanel file = new JPanel();
+		file.setLayout(new GridLayout(3,1));
+		save = new JButton("Zapisz");
+		open = new JButton("Otworz");
+		generate = new JButton("Generuj");
+		file.add(open);
+		file.add(save);
+		file.add(generate);
+		
+		JPanel edit = new JPanel();
+		edit.setLayout(new GridLayout(4,1));
+		addPoint = new JButton("Dodaj punkt");
+		movePoint = new JButton("Przesun punkt");
+		closeShape = new JButton("Zamknij wielokat");
+		setColour = new JButton("Ustaw kolor");
+		
+		edit.add(addPoint);
+		edit.add(movePoint);
+		edit.add(closeShape);
+		edit.add(setColour);
+		this.add(file);
+		this.add(edit);
+	}
+
+}

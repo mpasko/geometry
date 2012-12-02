@@ -1,13 +1,15 @@
-INDEX VERSION 1.126+D:\Studia\Semestr VII\Geometria obliczeniowa\geometry\geometry\projekt_zolwika\.metadata\.plugins\org.eclipse.jdt.core
-2793267240.index
-4082537798.index
-2039191121.index
-1787174850.index
-2629140249.index
-1345617098.index
-1609445237.index
-3328314506.index
-4032786600.index
-352446498.index
-51610724.index
-1128114483.index
+INDEX VERSION 1.126+/run/media/nr/Storage/Repo/Studia/SEM7/geo_obl/projekt_zolwika/.metadata/.plugins/org.eclipse.jdt.core
+4251720398.index
+66320351.index
+3785549106.index
+405963332.index
+3531158634.index
+1008526176.index
+737544839.index
+1363979024.index
+1433764416.index
+4242434539.index
+1030048865.index
+1111480947.index
+2874051150.index
+2665002534.index
