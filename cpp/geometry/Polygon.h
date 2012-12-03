@@ -22,11 +22,13 @@ class Polygon{
 public:
     Polygon(int size);
     
-    Point* operator[](int index);
+    Point* operator[](int index) const;
     
     void operator+=(Point* p);
     
-    int length();
+    friend std::ostream& operator<<(std::ostream& out, const Polygon& tree);
+    
+    int length() const;
     
     virtual ~Polygon();
 };

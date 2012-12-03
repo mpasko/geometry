@@ -25,6 +25,7 @@
       <itemPath>Point.cpp</itemPath>
       <itemPath>Polygon.cpp</itemPath>
       <itemPath>Segment.cpp</itemPath>
+      <itemPath>Visualization.cpp</itemPath>
       <itemPath>geometry.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -47,11 +48,12 @@
     <conf name="Debug" type="3">
       <toolsSet>
         <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
-        <compilerSet>Cygwin|Cygwin</compilerSet>
+        <compilerSet>MinGW|MinGW</compilerSet>
       </toolsSet>
       <compileType>
         <ccTool>
           <commandLine>-lm</commandLine>
+          <warningLevel>2</warningLevel>
         </ccTool>
         <archiverTool>
         </archiverTool>

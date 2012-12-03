@@ -12,49 +12,33 @@
 
 #include "Point.h"
 #include <iostream>
+#include <fstream>
 
-int seq = 0;
+//FIXME co to jest? :)
+static int seq = 0;
 
 #ifdef PASKO
 
-char* red = "ff0000";
-char* green = "00ff00";
-char* blue = "0000ff";
-
-void drawpoint(std::ostream& out, float x1, float y1, char*color){
-    out << x1 <<", "<< y1 <<", "<< color << ", " << seq << ", " << seq << std::endl;
-    ++seq;
-}
-
-void drawline(std::ostream& out, float x1, float y1, float x2, float y2, char*color){
-    out << x1 <<", "<< y1 <<", "<< color << ", " << seq << ", " << seq << std::endl;
-    out << x2 <<", "<< y2 <<", "<< color << ", " << seq << ", " << seq << std::endl;
-    ++seq;
-}
+static const char* red = "ff0000";
+static const char* green = "00ff00";
+static const char* blue = "0000ff";
+static const char* black = "000000";
 
 #else
 
-char* red = "RED";
-char* green = "GREEN";
-char* blue = "BLUE";
-
-void drawline(std::ostream& out, float x1,float y1, float x2, float y2, char*color){
-    
-}
-
-void drawpoint(std::ostream& out, float x1, float y1, char*color){
-    
-}
+static const char* red = "RED";
+static const char* green = "GREEN";
+static const char* blue = "BLUE";
 
 #endif
 
-void drawline(std::ostream& out, Point*p1, char*color){
-    drawpoint(out,p1->x,p1->y,color);
-}
+void drawpoint(std::ostream& out, const float x1, const float y1, const char*color);
 
-void drawline(std::ostream& out, Point*p1, Point*p2, char*color){
-    drawline(out,p1->x,p1->y,p2->x,p2->y,color);
-}
+void drawline(std::ostream& out, const float x1, const float y1, const float x2, const float y2, const char*color);
+
+void drawline(std::ostream& out, const Point*p1, const char*color);
+
+void drawline(std::ostream& out, const Point*p1, const Point*p2, const char*color);
 
 #endif	/* VISUALIZATION_H */
 
