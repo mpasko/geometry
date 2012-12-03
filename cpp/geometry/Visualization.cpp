@@ -2,14 +2,18 @@
 
 #ifdef PASKO
 
+//FIXME co to jest? :) -> tego tu byc nie powinno...
+//tylko powinno byc tutaj: :)
+static int seq = 0;
+
 void drawpoint(std::ostream& out, const float x1, const float y1, const char*color){
-    out << x1 <<", "<< y1 <<", "<< color << ", " << seq << ", " << seq << std::endl;
+    out << x1 <<", "<< y1 <<", "<< color << ", " << 2*seq << ", " << seq << std::endl;
     ++seq;
 }
 
 void drawline(std::ostream& out, const float x1, const float y1, const float x2, float y2, const char*color){
-    out << x1 <<", "<< y1 <<", "<< color << ", " << seq << ", " << seq << std::endl;
-    out << x2 <<", "<< y2 <<", "<< color << ", " << seq << ", " << seq << std::endl;
+    out << x1 <<", "<< y1 <<", "<< color << ", " << 2*seq   << ", " << seq << std::endl;
+    out << x2 <<", "<< y2 <<", "<< color << ", " << 2*seq+1 << ", " << seq << std::endl;
     ++seq;
 }
 

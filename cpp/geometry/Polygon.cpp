@@ -13,7 +13,7 @@
 Polygon::Polygon(int size) : index(0), len(size) {
     coord_x = new float[size];
     coord_y = new float[size];
-    flushtable = new FlushTable<Point > (size * 10);
+    flushtable = new FlushTable<Point > ((size+1) * 10);
 }
 
 Point* Polygon::operator[](int index) const {
@@ -26,7 +26,7 @@ void Polygon::operator+=(Point* p) {
     coord_x[index] = p->x;
     coord_y[index] = p->y;
     ++index;
-    if (index >= len) {
+    if (index > len) {
         std::cout << "Error! Polygon overflow!\n";
         throw len;
     }
@@ -40,6 +40,7 @@ std::ostream& operator<<(std::ostream& out, const Polygon& polygon) {
         drawline(out, polygon[i]->x, polygon[i]->y, polygon[i + 1]->x, polygon[i + 1]->y, black);
     }
     drawline(out, polygon[polygon.length() - 1]->x, polygon[polygon.length() - 1]->y, polygon[0]->x, polygon[0]->y, black);
+    return out;
 }
 
 int Polygon::length() const {

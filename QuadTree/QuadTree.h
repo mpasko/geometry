@@ -40,6 +40,9 @@ public:
     
     friend ostream& operator<<(ostream& out, const QuadTree& tree);
     
+    Point* getCrossing(Point*a, Point* b);
+    QuadTree* getNeighbour(int direction);
+    
     virtual ~QuadTree();
 };
 

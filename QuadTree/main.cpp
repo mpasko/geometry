@@ -15,13 +15,14 @@
 #include "trimmer.h"
 #include "QuadTree.h"
 #include "Visualization.h"
+#include "triangulation.h"
 
 using namespace std;
 
 /*Zalozenie: os y biegnie do gory*/
 
 Polygon* load_data(int size, char* filename){
-    Polygon * p = new Polygon(size+1);
+    Polygon * p = new Polygon(size);
     ifstream file(filename);
     Point * prev = NULL;
     Point * first = NULL;
@@ -54,13 +55,13 @@ Polygon* load_data(int size, char* filename){
     return p;
 }
 
-QuadTree* init_mesh(Polygon* p){
+QuadTree* init_mesh(ostream&out_stream, Polygon* p){
     QuadTree* qt = new QuadTree(0.0,0.0,1600.0);
     
     for(int j=0; j<p->length(); ++j){
         qt->putNextPoint((*p)[j]);
     }
-    ofstream out_stream("sim_output.txt");
+    out_stream << *p;
     out_stream << *qt;
     return qt;
 }
@@ -81,8 +82,10 @@ int main(int argc, char** argv) {
         size = 23;
         filen = (char*)"input.in";
     }
+    ofstream out_stream("sim_output.txt");
     Polygon* p = load_data(size,filen);
-    QuadTree* qt = init_mesh(p);
+    QuadTree* qt = init_mesh(out_stream,p);
+    triangulate(out_stream,p,qt);
     delete p;
     delete qt;
     return 0;

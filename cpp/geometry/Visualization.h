@@ -14,8 +14,8 @@
 #include <iostream>
 #include <fstream>
 
-//FIXME co to jest? :)
-static int seq = 0;
+//FIXME co to jest? :) -> tego tu byc nie powinno...
+//static int seq = 0;
 
 #ifdef PASKO
 
