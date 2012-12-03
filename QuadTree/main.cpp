@@ -9,11 +9,12 @@
 #include "Point.h"
 #include <exception>
 #include <iostream>
-#include "Visualization.h"
+#include <ostream>
 #include "Polygon.h"
 #include <fstream>
 #include "trimmer.h"
 #include "QuadTree.h"
+#include "Visualization.h"
 
 using namespace std;
 
@@ -42,13 +43,13 @@ Polygon* load_data(int size, char* filename){
         flush += current;
         *p += current;
         if (prev != NULL){
-            drawline(cout,prev,current,blue);
+//            drawline(cout,prev,current,blue);
         }else{
             first = current;
         }
         prev = current;
     }
-    drawline(cout,prev,first,blue);
+//    drawline(cout,prev,first,blue);
     file.close();
     return p;
 }
@@ -59,7 +60,7 @@ QuadTree* init_mesh(Polygon* p){
     for(int j=0; j<p->length(); ++j){
         qt->putNextPoint((*p)[j]);
     }
-    ofstream out_stream("output.txt");
+    ofstream out_stream("sim_output.txt");
     out_stream << *qt;
     return qt;
 }

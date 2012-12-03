@@ -43,5 +43,7 @@ public:
     virtual ~QuadTree();
 };
 
+
+
 #endif	/* QUADTREE_H */
 

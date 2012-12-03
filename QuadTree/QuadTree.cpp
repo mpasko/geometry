@@ -9,6 +9,8 @@
 #include <cstdlib>
 #include "Visualization.h"
 
+using namespace std;
+
 void QuadTree::match(Point* p){
         class QuadTree*dest = NULL;
         if(p->x <= center->x){
@@ -72,13 +74,11 @@ void QuadTree::match(Point* p){
         }
     }
     
-    using namespace std;
-    
-    friend ostream& QuadTree::operator<<(ostream& out, const QuadTree::QuadTree& tree){
+    ostream& operator<<(ostream& out, const QuadTree& tree){
         if(tree.isLeaf()){
             float x = tree.center->x;
             float y = tree.center->y;
-            float half = tree.half;
+            float half =tree.half;
             drawline(out,x-half,y-half,x-half,y+half,green);
             drawline(out,x+half,y+half,x-half,y+half,green);
             drawline(out,x+half,y-half,x-half,y-half,green);
