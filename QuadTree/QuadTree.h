@@ -14,20 +14,18 @@
 
 using namespace std;
 
-#define DIRECTION_N 0
-#define DIRECTION_W 1
-#define DIRECTION_S 2
-#define DIRECTION_E 3
-#define DIRECTION_NW 4
-#define DIRECTION_NE 5
-#define DIRECTION_SW 6
-#define DIRECTION_SE 7
+
 
 class QuadTree{
+    enum Direction { N, NE, E, SE, S, SW, W, NW};
+    enum DiagonalDir {NE, NW, SE, SW};
+    enum PerpendicularDir {N, E, S, W};
     
     void match(Point* p);
     FlushTable<Point> * flush;
     
+    QuadTree* getChildByRegion(DiagonalDir region);
+    void create_extended_neighbour(Direction direction);
     Point * NECorner;
     Point * NWCorner;
     Point * SECorner;
@@ -40,6 +38,8 @@ public:
     class QuadTree* SW;
     class QuadTree* parent;
     
+    /**w ktorej czesci rodzica znajduje sie dany node.*/
+    DiagonalDir parent_region;
     Point* center;
     float width;
     float half;
@@ -52,13 +52,17 @@ public:
     bool isLeaf() const;
     
     void subdivide();
+    void subdivide(DiagonalDir region, int target_depth);
+    void create_extended_neighbours();
     
     void putNextPoint(Point * p);
     
     friend ostream& operator<<(ostream& out, const QuadTree& tree);
     
     Point* getCrossing(Point*a, Point* b);
+    
     QuadTree* getNeighbour(int direction);
+    QuadTree* getNeighbour(Direction direction);
     
     Point* getNECorner();
     Point* getSECorner();

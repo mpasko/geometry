@@ -136,4 +136,3 @@ void QuadTree::match(Point* p){
         delete center;
         delete flush;
     }
-

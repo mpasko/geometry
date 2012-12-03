@@ -32,7 +32,7 @@
     <conf name="Debug" type="3">
       <toolsSet>
         <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
-        <compilerSet>Cygwin|Cygwin</compilerSet>
+        <compilerSet>MinGW|MinGW</compilerSet>
       </toolsSet>
       <compileType>
         <ccTool>

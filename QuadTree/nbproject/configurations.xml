@@ -15,6 +15,7 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>QuadTree.cpp</itemPath>
+      <itemPath>QuadTreeGeneration.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
       <itemPath>triangulation.cpp</itemPath>
       <itemPath>triangulation.h</itemPath>
@@ -36,7 +37,7 @@
     <conf name="Debug" type="1">
       <toolsSet>
         <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
-        <compilerSet>Cygwin|Cygwin</compilerSet>
+        <compilerSet>MinGW|MinGW</compilerSet>
       </toolsSet>
       <compileType>
         <ccTool>
