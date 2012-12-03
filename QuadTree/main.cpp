@@ -56,7 +56,7 @@ Polygon* load_data(int size, char* filename){
 }
 
 QuadTree* init_mesh(ostream&out_stream, Polygon* p){
-    QuadTree* qt = new QuadTree(0.0,0.0,1600.0);
+    QuadTree* qt = new QuadTree(0.0,0.0,1600.0,NULL);
     
     for(int j=0; j<p->length(); ++j){
         qt->putNextPoint((*p)[j]);

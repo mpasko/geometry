@@ -8,8 +8,38 @@ Point* QuadTree::getCrossing(Point*a, Point* b){
     return NULL;
 }
 
-QuadTree* getNeighbour(int direction){
+QuadTree* QuadTree::getNeighbour(int direction){
     //TODO
+    if(parent == NULL){
+        return NULL;
+    }
+    switch(direction){
+        case DIRECTION_N:
+            
+            break;
+        case DIRECTION_W:
+            
+            break;
+        case DIRECTION_S:
+            
+            break;
+        case DIRECTION_E:
+            
+            break;
+        case DIRECTION_NW:
+            
+            break;
+        case DIRECTION_NE:
+            
+            break;
+        case DIRECTION_SW:
+            
+            break;
+        case DIRECTION_SE:
+            
+            break;
+            
+    }
     return NULL;
 }
 
@@ -26,15 +56,15 @@ Polygon* filter(Polygon* p, QuadTree *qt){
 
 void triangulate(std::ostream&out, Polygon* p, QuadTree*qt){
     if(qt->isLeaf()){
-        float hw = qt->half;
-        if(qt->chunk == NULL){
-            drawline(out, qt->center->x, qt->center->y, qt->center->x+hw, qt->center->y+hw, red);
-            drawline(out, qt->center->x, qt->center->y, qt->center->x-hw, qt->center->y+hw, red);
-            drawline(out, qt->center->x, qt->center->y, qt->center->x+hw, qt->center->y-hw, red);
-            drawline(out, qt->center->x, qt->center->y, qt->center->x-hw, qt->center->y-hw, red);
-        }else{
-            //TODO
-        }
+ //       float hw = qt->half;
+ //       if(qt->chunk == NULL){
+            drawline(out, qt->getSteiner(), qt->getNECorner(), red);
+            drawline(out, qt->getSteiner(), qt->getNWCorner(), red);
+            drawline(out, qt->getSteiner(), qt->getSECorner(), red);
+            drawline(out, qt->getSteiner(), qt->getSWCorner(), red);
+ //       }else{
+ //           //TODO
+ //       }
     }else{
         Polygon * p2 = filter(p,qt);
         triangulate(out, p2, qt->NE);

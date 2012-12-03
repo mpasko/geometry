@@ -8,6 +8,7 @@
 #include "QuadTree.h"
 #include <cstdlib>
 #include "Visualization.h"
+#include "FlushTable.h"
 
 using namespace std;
 
@@ -29,12 +30,23 @@ void QuadTree::match(Point* p){
         dest->putNextPoint(p);
     }
     
-    QuadTree::QuadTree(float cx, float cy, float w): NE(NULL),NW(NULL),SE(NULL),SW(NULL){   
+    QuadTree::QuadTree(float cx, float cy, float w, QuadTree * par): 
+    NE(NULL),NW(NULL),SE(NULL),SW(NULL),parent(par)
+    {   
         center = new Point(cx,cy);
         half = w/2;
         width = w;
         chunk = NULL;
         depth = 0;
+        flush = new FlushTable<Point>(20);
+        NECorner = new Point(cx-half,cy+half);
+        *flush += NECorner;
+        SECorner = new Point(cx-half,cy-half);
+        *flush += SECorner;
+        NWCorner = new Point(cx+half,cy+half);
+        *flush += NWCorner;
+        SWCorner = new Point(cx+half,cy-half);
+        *flush += SWCorner;
     }
     
     bool QuadTree::isLeaf() const {
@@ -45,10 +57,10 @@ void QuadTree::match(Point* p){
         ++depth;
         if(isLeaf()){
             float cntr = width/4;
-            NE = new QuadTree(center->x+cntr,center->y+cntr,half);
-            NW = new QuadTree(center->x-cntr,center->y+cntr,half);
-            SE = new QuadTree(center->x+cntr,center->y-cntr,half);
-            SW = new QuadTree(center->x-cntr,center->y-cntr,half);
+            NE = new QuadTree(center->x+cntr,center->y+cntr,half,this);
+            NW = new QuadTree(center->x-cntr,center->y+cntr,half,this);
+            SE = new QuadTree(center->x+cntr,center->y-cntr,half,this);
+            SW = new QuadTree(center->x-cntr,center->y-cntr,half,this);
         }else{
             NE->subdivide();
             NW->subdivide();
@@ -78,7 +90,7 @@ void QuadTree::match(Point* p){
         if(tree.isLeaf()){
             float x = tree.center->x;
             float y = tree.center->y;
-            float half =tree.half;
+            float half = tree.half;
             drawline(out,x-half,y-half,x-half,y+half,green);
             drawline(out,x+half,y+half,x-half,y+half,green);
             drawline(out,x+half,y-half,x-half,y-half,green);
@@ -92,6 +104,26 @@ void QuadTree::match(Point* p){
         return out;
     }
     
+    Point* QuadTree::getNECorner(){
+        return NECorner;
+    }
+    
+    Point* QuadTree::getSECorner(){
+        return SECorner;
+    }
+    
+    Point* QuadTree::getNWCorner(){
+        return NWCorner;
+    }
+    
+    Point* QuadTree::getSWCorner(){
+        return SWCorner;
+    }
+    
+    Point* QuadTree::getSteiner(){
+        return center;
+    }
+    
     QuadTree::~QuadTree(){
 #define DEL(D) if(D!=NULL){\
             delete D;\
@@ -102,5 +134,6 @@ void QuadTree::match(Point* p){
         DEL(SW)
         NE = NW = SE = SW = NULL;
         delete center;
+        delete flush;
     }
 
