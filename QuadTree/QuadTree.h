@@ -14,12 +14,11 @@
 
 using namespace std;
 
-
-
 class QuadTree{
-    enum Direction { N, NE, E, SE, S, SW, W, NW};
-    enum DiagonalDir {NE, NW, SE, SW};
-    enum PerpendicularDir {N, E, S, W};
+    
+    enum Direction { Dir_N, Dir_NE, Dir_E, Dir_SE, Dir_S, Dir_SW, Dir_W, Dir_NW};
+    enum DiagonalDir {Diag_NE, Diag_NW, Diag_SE, Diag_SW};
+    enum PerpendicularDir {Per_N, Per_E, Per_S, Per_W};
     
     void match(Point* p);
     FlushTable<Point> * flush;
@@ -32,10 +31,10 @@ class QuadTree{
     Point * SWCorner;
 
 public:
-    class QuadTree* NE;
-    class QuadTree* NW;
-    class QuadTree* SE;
-    class QuadTree* SW;
+    class QuadTree* NEChild;
+    class QuadTree* NWChild;
+    class QuadTree* SEChild;
+    class QuadTree* SWChild;
     class QuadTree* parent;
     
     /**w ktorej czesci rodzica znajduje sie dany node.*/

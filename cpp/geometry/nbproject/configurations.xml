@@ -4,14 +4,6 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>FlushTable.h</itemPath>
-      <itemPath>General_exception.h</itemPath>
-      <itemPath>Point.h</itemPath>
-      <itemPath>Polygon.h</itemPath>
-      <itemPath>Segment.h</itemPath>
-      <itemPath>Unexpected_enum_value_exception.h</itemPath>
-      <itemPath>Visualization.h</itemPath>
-      <itemPath>geometry.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -20,13 +12,6 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>FlushTable.cpp</itemPath>
-      <itemPath>General_exception.cpp</itemPath>
-      <itemPath>Point.cpp</itemPath>
-      <itemPath>Polygon.cpp</itemPath>
-      <itemPath>Segment.cpp</itemPath>
-      <itemPath>Visualization.cpp</itemPath>
-      <itemPath>geometry.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -48,7 +33,7 @@
     <conf name="Debug" type="3">
       <toolsSet>
         <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
-        <compilerSet>MinGW|MinGW</compilerSet>
+        <compilerSet>Cygwin|Cygwin</compilerSet>
       </toolsSet>
       <compileType>
         <ccTool>

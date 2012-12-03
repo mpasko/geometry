@@ -2,41 +2,41 @@
 
  
 
-QuadTree::subdivide(DiagonalDir region, int target_depth) {
+void QuadTree::subdivide(QuadTree::DiagonalDir region, int target_depth) {
     if (depth >= target_depth) {
         return;
     }
     QuadTree* child = getChildByRegion(region);
     if (child != NULL){
-        subdivide(child);
+//        subdivide(child);
     } else {
         subdivide();
-        subdivide(getChildByRegion(region));
+//        subdivide(getChildByRegion(region));
     }
 
 }
 
 void QuadTree::create_extended_neighbours(){
     switch (parent_region){
-        case DiagonalDir::NE:
-            create_extended_neighbour(Direction::N);
-            create_extended_neighbour(Direction::NE);
-            create_extended_neighbour(Direction::E);
+        case Diag_NE:
+            create_extended_neighbour(Dir_N);
+            create_extended_neighbour(Dir_NE);
+            create_extended_neighbour(Dir_E);
             break;
-        case DiagonalDir::NW:
-            create_extended_neighbour(Direction::N);
-            create_extended_neighbour(Direction::NW);
-            create_extended_neighbour(Direction::W);
+        case Diag_NW:
+            create_extended_neighbour(Dir_N);
+            create_extended_neighbour(Dir_NW);
+            create_extended_neighbour(Dir_W);
             break;
-        case DiagonalDir::SE:
-            create_extended_neighbour(Direction::SE);
-            create_extended_neighbour(Direction::S);
-            create_extended_neighbour(Direction::SW);
+        case Diag_SE:
+            create_extended_neighbour(Dir_SE);
+            create_extended_neighbour(Dir_S);
+            create_extended_neighbour(Dir_SW);
             break;
-        case DiagonalDir::SW:
-            create_extended_neighbour(Direction::SW);
-            create_extended_neighbour(Direction::S);
-            create_extended_neighbour(Direction::SE);
+        case Diag_SW:
+            create_extended_neighbour(Dir_SW);
+            create_extended_neighbour(Dir_S);
+            create_extended_neighbour(Dir_SE);
             break;
     }
 }
@@ -45,15 +45,15 @@ void QuadTree::create_extended_neighbour(Direction direction){
     QuadTree* node = getNeighbour(direction);
 }
 
-QuadTree::getChildByRegion(DiagonalDir region) {
+QuadTree* QuadTree::getChildByRegion(DiagonalDir region) {
     switch (region) {
-        case DiagonalDir::NE:
-            return NE;
-        case DiagonalDir::NW:
-            return NW;
-        case DiagonalDir::SE:
-            return SE;
-        case DiagonalDir::SW:
-            return SW;
+        case Diag_NE:
+            return NEChild;
+        case Diag_NW:
+            return NWChild;
+        case Diag_SE:
+            return SEChild;
+        case Diag_SW:
+            return SWChild;
     }
 }

@@ -16,22 +16,22 @@ void QuadTree::match(Point* p){
         class QuadTree*dest = NULL;
         if(p->x <= center->x){
             if(p->y <= center->y){
-                dest = SW;
+                dest = SWChild;
             }else{
-                dest = NW;
+                dest = NWChild;
             }
         }else{
             if(p->y <= center->y){
-                dest = SE;
+                dest = SEChild;
             }else{
-                dest = NE;
+                dest = NEChild;
             }
         }
         dest->putNextPoint(p);
     }
     
     QuadTree::QuadTree(float cx, float cy, float w, QuadTree * par): 
-    NE(NULL),NW(NULL),SE(NULL),SW(NULL),parent(par)
+    NEChild(NULL),NWChild(NULL),SEChild(NULL),SWChild(NULL),parent(par)
     {   
         center = new Point(cx,cy);
         half = w/2;
@@ -50,22 +50,22 @@ void QuadTree::match(Point* p){
     }
     
     bool QuadTree::isLeaf() const {
-        return (NE==NULL)&&(NW==NULL)&&(SE==NULL)&&(SW==NULL);
+        return (NEChild==NULL)&&(NWChild==NULL)&&(SEChild==NULL)&&(SWChild==NULL);
     }
     
     void QuadTree::subdivide(){
         ++depth;
         if(isLeaf()){
             float cntr = width/4;
-            NE = new QuadTree(center->x+cntr,center->y+cntr,half,this);
-            NW = new QuadTree(center->x-cntr,center->y+cntr,half,this);
-            SE = new QuadTree(center->x+cntr,center->y-cntr,half,this);
-            SW = new QuadTree(center->x-cntr,center->y-cntr,half,this);
+            NEChild = new QuadTree(center->x+cntr,center->y+cntr,half,this);
+            NWChild = new QuadTree(center->x-cntr,center->y+cntr,half,this);
+            SEChild = new QuadTree(center->x+cntr,center->y-cntr,half,this);
+            SWChild = new QuadTree(center->x-cntr,center->y-cntr,half,this);
         }else{
-            NE->subdivide();
-            NW->subdivide();
-            SE->subdivide();
-            SW->subdivide();
+            NEChild->subdivide();
+            NWChild->subdivide();
+            SEChild->subdivide();
+            SWChild->subdivide();
         }
     }
     
@@ -96,10 +96,10 @@ void QuadTree::match(Point* p){
             drawline(out,x+half,y-half,x-half,y-half,green);
             drawline(out,x+half,y-half,x+half,y+half,green);
         }else{
-            out<<*(tree.NE);
-            out<<*(tree.NW);
-            out<<*(tree.SE);
-            out<<*(tree.SW);
+            out<<*(tree.NEChild);
+            out<<*(tree.NWChild);
+            out<<*(tree.SEChild);
+            out<<*(tree.SWChild);
         }
         return out;
     }
@@ -128,11 +128,11 @@ void QuadTree::match(Point* p){
 #define DEL(D) if(D!=NULL){\
             delete D;\
         }
-        DEL(NE)
-        DEL(NW)
-        DEL(SE)
-        DEL(SW)
-        NE = NW = SE = SW = NULL;
+        DEL(NEChild)
+        DEL(NWChild)
+        DEL(SEChild)
+        DEL(SWChild)
+        NEChild = NWChild = SEChild = SWChild = NULL;
         delete center;
         delete flush;
     }

@@ -8,34 +8,35 @@ Point* QuadTree::getCrossing(Point*a, Point* b){
     return NULL;
 }
 
-QuadTree* QuadTree::getNeighbour(int direction){
+
+QuadTree* QuadTree::getNeighbour(Direction direction){
     //TODO
     if(parent == NULL){
         return NULL;
     }
     switch(direction){
-        case DIRECTION_N:
+        case Dir_N:
             
             break;
-        case DIRECTION_W:
+        case Dir_W:
             
             break;
-        case DIRECTION_S:
+        case Dir_S:
             
             break;
-        case DIRECTION_E:
+        case Dir_E:
             
             break;
-        case DIRECTION_NW:
+        case Dir_NW:
             
             break;
-        case DIRECTION_NE:
+        case Dir_NE:
             
             break;
-        case DIRECTION_SW:
+        case Dir_SW:
             
             break;
-        case DIRECTION_SE:
+        case Dir_SE:
             
             break;
             
@@ -43,6 +44,7 @@ QuadTree* QuadTree::getNeighbour(int direction){
     return NULL;
 }
 
+ 
 #ifdef METHOD_1
 
 /* 
@@ -67,10 +69,10 @@ void triangulate(std::ostream&out, Polygon* p, QuadTree*qt){
  //       }
     }else{
         Polygon * p2 = filter(p,qt);
-        triangulate(out, p2, qt->NE);
-        triangulate(out, p2, qt->NW);
-        triangulate(out, p2, qt->SE);
-        triangulate(out, p2, qt->SW);
+        triangulate(out, p2, qt->NEChild);
+        triangulate(out, p2, qt->NWChild);
+        triangulate(out, p2, qt->SEChild);
+        triangulate(out, p2, qt->SWChild);
     }
 }
 
