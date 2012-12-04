@@ -30,6 +30,7 @@ class QuadTree {
     void match(Point* p);
     FlushTable<Point> * flush;
     
+    Polygon* polygon;
     Point * NECorner;
     Point * NWCorner;
     Point * SECorner;
