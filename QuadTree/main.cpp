@@ -59,7 +59,7 @@ QuadTree* init_mesh(ostream&out_stream, Polygon* p){
     QuadTree* qt = new QuadTree(0.0,0.0,1600.0,NULL);
     
     for(int j=0; j<p->length(); ++j){
-        qt->putNextPoint((*p)[j]);
+        qt->putNextPoint((*p)[j]); 
     }
     out_stream << *p;
     out_stream << *qt;

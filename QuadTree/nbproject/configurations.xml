@@ -14,6 +14,7 @@
       <itemPath>Visualization.h</itemPath>
       <itemPath>geometry.h</itemPath>
       <itemPath>trimmer.h</itemPath>
+      <itemPath>unexpected_subdivision.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -62,18 +63,10 @@
       </toolsSet>
       <compileType>
         <ccTool>
-          <incDir>
-            <pElem>../cpp/geometry</pElem>
-          </incDir>
           <warningLevel>2</warningLevel>
         </ccTool>
       </compileType>
       <folder path="TestFiles/f1">
-        <cTool>
-          <incDir>
-            <pElem>.</pElem>
-          </incDir>
-        </cTool>
         <ccTool>
           <incDir>
             <pElem>.</pElem>
@@ -90,9 +83,6 @@
         <compilerSet>default</compilerSet>
       </toolsSet>
       <compileType>
-        <cTool>
-          <developmentMode>5</developmentMode>
-        </cTool>
         <ccTool>
           <developmentMode>5</developmentMode>
         </ccTool>
