@@ -4,7 +4,15 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>FlushTable.h</itemPath>
+      <itemPath>General_exception.h</itemPath>
+      <itemPath>Point.h</itemPath>
+      <itemPath>Polygon.h</itemPath>
       <itemPath>QuadTree.h</itemPath>
+      <itemPath>Segment.h</itemPath>
+      <itemPath>Unexpected_enum_value_exception.h</itemPath>
+      <itemPath>Visualization.h</itemPath>
+      <itemPath>geometry.h</itemPath>
       <itemPath>trimmer.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -14,8 +22,15 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>FlushTable.cpp</itemPath>
+      <itemPath>General_exception.cpp</itemPath>
+      <itemPath>Point.cpp</itemPath>
+      <itemPath>Polygon.cpp</itemPath>
       <itemPath>QuadTree.cpp</itemPath>
       <itemPath>QuadTreeGeneration.cpp</itemPath>
+      <itemPath>Segment.cpp</itemPath>
+      <itemPath>Visualization.cpp</itemPath>
+      <itemPath>geometry.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
       <itemPath>triangulation.cpp</itemPath>
       <itemPath>triangulation.h</itemPath>
@@ -24,6 +39,12 @@
                    displayName="Test Files"
                    projectFiles="false"
                    kind="TEST_LOGICAL_FOLDER">
+      <logicalFolder name="f1"
+                     displayName="New C++ Simple Test"
+                     projectFiles="true"
+                     kind="TEST">
+        <itemPath>tests/newsimpletest.cpp</itemPath>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -46,12 +67,22 @@
           </incDir>
           <warningLevel>2</warningLevel>
         </ccTool>
-        <linkerTool>
-          <linkerLibItems>
-            <linkerLibFileItem>../cpp/geometry/dist/Debug/Cygwin-Windows/libgeometry.a</linkerLibFileItem>
-          </linkerLibItems>
-        </linkerTool>
       </compileType>
+      <folder path="TestFiles/f1">
+        <cTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f1</output>
+        </linkerTool>
+      </folder>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
