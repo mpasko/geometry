@@ -63,6 +63,7 @@ public:
     bool isLeaf() const;
 
     void subdivide();
+    void subdevide(PerpendicularDir side, int target_depth, double side_middle);
     void subdivide(DiagonalDir region, int target_depth);
     void create_extended_neighbours();
 

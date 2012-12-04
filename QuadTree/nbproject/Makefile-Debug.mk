@@ -17,7 +17,7 @@ RANLIB=ranlib
 CC=gcc.exe
 CCC=g++.exe
 CXX=g++.exe
-FC=gfortran
+FC=gfortran.exe
 AS=as.exe
 
 # Macros
@@ -35,7 +35,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/main.o
+	${OBJECTDIR}/main.o \
+	${OBJECTDIR}/triangulation.o \
+	${OBJECTDIR}/QuadTree.o \
+	${OBJECTDIR}/QuadTreeGeneration.o
 
 
 # C Compiler Flags
@@ -52,13 +55,11 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=../cpp/geometry/dist/Debug/MinGW-Windows/libgeometry.a
+LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
 	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree.exe
-
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree.exe: ../cpp/geometry/dist/Debug/MinGW-Windows/libgeometry.a
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
@@ -67,7 +68,22 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree.exe: ${OBJECTFILES}
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -I../cpp/geometry -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
+
+${OBJECTDIR}/triangulation.o: triangulation.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/triangulation.o triangulation.cpp
+
+${OBJECTDIR}/QuadTree.o: QuadTree.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/QuadTree.o QuadTree.cpp
+
+${OBJECTDIR}/QuadTreeGeneration.o: QuadTreeGeneration.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/QuadTreeGeneration.o QuadTreeGeneration.cpp
 
 # Subprojects
 .build-subprojects:

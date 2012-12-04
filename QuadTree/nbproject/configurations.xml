@@ -58,13 +58,10 @@
     <conf name="Debug" type="1">
       <toolsSet>
         <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
-        <compilerSet>Cygwin|Cygwin</compilerSet>
+        <compilerSet>MinGW|MinGW</compilerSet>
       </toolsSet>
       <compileType>
         <ccTool>
-          <incDir>
-            <pElem>../cpp/geometry</pElem>
-          </incDir>
           <warningLevel>2</warningLevel>
         </ccTool>
       </compileType>

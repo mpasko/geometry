@@ -17,11 +17,11 @@ RANLIB=ranlib
 CC=gcc.exe
 CCC=g++.exe
 CXX=g++.exe
-FC=gfortran
+FC=gfortran.exe
 AS=as.exe
 
 # Macros
-CND_PLATFORM=Cygwin-Windows
+CND_PLATFORM=MinGW-Windows
 CND_DLIB_EXT=dll
 CND_CONF=Debug
 CND_DISTDIR=dist

@@ -17,7 +17,7 @@ RANLIB=ranlib
 CC=gcc.exe
 CCC=g++.exe
 CXX=g++.exe
-FC=gfortran
+FC=gfortran.exe
 AS=as.exe
 
 # Macros
@@ -35,7 +35,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/main.o
+	${OBJECTDIR}/main.o \
+	${OBJECTDIR}/triangulation.o \
+	${OBJECTDIR}/QuadTree.o \
+	${OBJECTDIR}/QuadTreeGeneration.o
 
 
 # C Compiler Flags
@@ -66,6 +69,21 @@ ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
+
+${OBJECTDIR}/triangulation.o: triangulation.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/triangulation.o triangulation.cpp
+
+${OBJECTDIR}/QuadTree.o: QuadTree.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/QuadTree.o QuadTree.cpp
+
+${OBJECTDIR}/QuadTreeGeneration.o: QuadTreeGeneration.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/QuadTreeGeneration.o QuadTreeGeneration.cpp
 
 # Subprojects
 .build-subprojects:

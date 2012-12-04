@@ -14,11 +14,11 @@ GREP=grep
 NM=nm
 CCADMIN=CCadmin
 RANLIB=ranlib
-CC=gcc
-CCC=g++
-CXX=g++
-FC=gfortran
-AS=as
+CC=gcc.exe
+CCC=g++.exe
+CXX=g++.exe
+FC=gfortran.exe
+AS=as.exe
 
 # Macros
 CND_PLATFORM=MinGW-Windows
@@ -40,6 +40,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/FlushTable.o \
 	${OBJECTDIR}/geometry.o \
 	${OBJECTDIR}/Polygon.o \
+	${OBJECTDIR}/Visualization.o \
 	${OBJECTDIR}/Segment.o
 
 
@@ -93,6 +94,11 @@ ${OBJECTDIR}/Polygon.o: Polygon.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/Polygon.o Polygon.cpp
+
+${OBJECTDIR}/Visualization.o: Visualization.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/Visualization.o Visualization.cpp
 
 ${OBJECTDIR}/Segment.o: Segment.cpp 
 	${MKDIR} -p ${OBJECTDIR}

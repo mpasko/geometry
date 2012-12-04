@@ -17,11 +17,11 @@ RANLIB=ranlib
 CC=gcc.exe
 CCC=g++.exe
 CXX=g++.exe
-FC=gfortran
+FC=gfortran.exe
 AS=as.exe
 
 # Macros
-CND_PLATFORM=Cygwin-Windows
+CND_PLATFORM=MinGW-Windows
 CND_DLIB_EXT=dll
 CND_CONF=Debug
 CND_DISTDIR=dist
@@ -40,6 +40,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/FlushTable.o \
 	${OBJECTDIR}/geometry.o \
 	${OBJECTDIR}/Polygon.o \
+	${OBJECTDIR}/Visualization.o \
 	${OBJECTDIR}/Segment.o
 
 
@@ -72,32 +73,37 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgeometry.a: ${OBJECTFILES}
 ${OBJECTDIR}/General_exception.o: General_exception.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/General_exception.o General_exception.cpp
+	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/General_exception.o General_exception.cpp
 
 ${OBJECTDIR}/Point.o: Point.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/Point.o Point.cpp
+	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/Point.o Point.cpp
 
 ${OBJECTDIR}/FlushTable.o: FlushTable.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/FlushTable.o FlushTable.cpp
+	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/FlushTable.o FlushTable.cpp
 
 ${OBJECTDIR}/geometry.o: geometry.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/geometry.o geometry.cpp
+	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/geometry.o geometry.cpp
 
 ${OBJECTDIR}/Polygon.o: Polygon.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/Polygon.o Polygon.cpp
+	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/Polygon.o Polygon.cpp
+
+${OBJECTDIR}/Visualization.o: Visualization.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/Visualization.o Visualization.cpp
 
 ${OBJECTDIR}/Segment.o: Segment.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/Segment.o Segment.cpp
+	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/Segment.o Segment.cpp
 
 # Subprojects
 .build-subprojects:
