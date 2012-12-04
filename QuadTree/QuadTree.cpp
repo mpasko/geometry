@@ -82,7 +82,7 @@ QuadTree* QuadTree::match(Point* p){
             SWChild->parent_region = Diag_SW;
             SWChild->depth = depth + 1;
             if (chunk != NULL){
-                match(chunk);
+                match(chunk)->chunk = chunk;
                 chunk = NULL;
             }
         }else{
