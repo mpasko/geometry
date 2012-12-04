@@ -1,4 +1,9 @@
+#include <cmath>
+
 #include "QuadTree.h"
+#include "Unexpected_enum_value_exception.h"
+#include "EmptyNodeException.h"
+#include "Polygon.h"
 
 QuadTree* QuadTree::getChildContainingCoord(PerpendicularDir side, double value) {
     if (isLeaf()) {
@@ -29,6 +34,29 @@ QuadTree* QuadTree::getChildContainingCoord(PerpendicularDir side, double value)
             } else {
                 return getChildByRegion(Diag_SW);
             }
+        default:
+            throw Unexpected_enum_value_exception();
+    }
+}
+
+void QuadTree::split_until_size(double target_size) {
+    if (this->width < target_size) {
+        return;
+    }
+    subdivide();
+    chunk->node->split_until_size(target_size);
+}
+
+void QuadTree::split_to_maximize_distance() {
+    if (chunk == NULL) {
+        throw EmptyNodeException("Trying to split empty node while spliting by point distance.");
+    }
+    split_until_size(polygon->get_nearest_vertex_distance(chunk) / (2 * M_SQRT2));
+}
+
+void QuadTree::split_too_close_boxes() {
+    for (int i = 0; i < polygon->length() - 1; ++i) {
+        (*polygon)[i]->node->split_to_maximize_distance();
     }
 }
 
@@ -73,30 +101,29 @@ void QuadTree::create_extended_neighbour(Direction direction) {
     QuadTree* node = getNeighbour(direction);
     switch (direction) {
         case Dir_N:
-            subdivide(Per_S, depth, center->x);
+            node->subdivide(Per_S, depth, center->x);
             break;
         case Dir_S:
-            subdivide(Per_N, depth, center->x);
+            node->subdivide(Per_N, depth, center->x);
             break;
         case Dir_E:
-            subdivide(Per_W, depth, center->y);
+            node->subdivide(Per_W, depth, center->y);
             break;
         case Dir_W:
-            subdivide(Per_E, depth, center->y);
+            node->subdivide(Per_E, depth, center->y);
             break;
         case Dir_NE:
-            subdivide(Diag_SW, depth);
+            node->subdivide(Diag_SW, depth);
             break;
         case Dir_NW:
-            subdivide(Diag_SE, depth);
+            node->subdivide(Diag_SE, depth);
             break;
         case Dir_SE:
-            subdivide(Diag_NW, depth);
+            node->subdivide(Diag_NW, depth);
             break;
         case Dir_SW:
-            subdivide(Diag_NE, depth);
+            node->subdivide(Diag_NE, depth);
             break;
-
     }
 }
 
@@ -115,4 +142,55 @@ QuadTree* QuadTree::getChildByRegion(DiagonalDir region) {
             return SWChild;
     }
     return NULL;
+}
+
+bool QuadTree::is_unbalanced() {
+    QuadTree* neighbour;
+
+    neighbour = getNeighbour(Dir_N);
+    if (neighbour->depth > depth && !neighbour->isLeaf()) {
+        if (!neighbour->getChildByRegion(Diag_SE)->isLeaf() || !neighbour->getChildByRegion(Diag_SW)) {
+            return true;
+        }
+    }
+
+    neighbour = getNeighbour(Dir_S);
+    if (neighbour->depth > depth && !neighbour->isLeaf()) {
+        if (!neighbour->getChildByRegion(Diag_NE)->isLeaf() || !neighbour->getChildByRegion(Diag_NW)) {
+            return true;
+        }
+    }
+
+    neighbour = getNeighbour(Dir_E);
+    if (neighbour->depth > depth && !neighbour->isLeaf()) {
+        if (!neighbour->getChildByRegion(Diag_SW)->isLeaf() || !neighbour->getChildByRegion(Diag_NW)) {
+            return true;
+        }
+    }
+
+    neighbour = getNeighbour(Dir_W);
+    if (neighbour->depth > depth && !neighbour->isLeaf()) {
+        if (!neighbour->getChildByRegion(Diag_SE)->isLeaf() || !neighbour->getChildByRegion(Diag_NE)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+void QuadTree::balance_children() {
+    NWChild->balance_tree();
+    NEChild->balance_tree();
+    SEChild->balance_tree();
+    SWChild->balance_tree();
+}
+
+void QuadTree::balance_tree() {
+    if (isLeaf()) {
+        if (is_unbalanced()) {
+            subdivide();
+            balance_children();
+        }
+        balance_children();
+    }
 }

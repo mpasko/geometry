@@ -11,6 +11,7 @@
 #include <iostream>
 #include "Point.h"
 #include "FlushTable.h"
+#include "Polygon.h"
 
 using namespace std;
 
@@ -27,7 +28,6 @@ enum PerpendicularDir {
 };
 
 class QuadTree {
-    void match(Point* p);
     FlushTable<Point> * flush;
     
     Polygon* polygon;
@@ -38,6 +38,8 @@ class QuadTree {
 
     QuadTree* getNeighbour(Direction direction, QuadTree* source);
     QuadTree* slideDown(Direction direction, QuadTree* source);
+    bool is_unbalanced();
+    void balance_children();
     
 public:
 
@@ -59,16 +61,22 @@ public:
 
     QuadTree(double cx, double cy, double w, QuadTree* parent);
     bool isLeaf() const;
+    
+    QuadTree* match(Point* p);
 
     QuadTree* getChildByRegion(DiagonalDir region);
     QuadTree* getChildContainingCoord(PerpendicularDir side, double value);
-    
+    void split_too_close_boxes();
+    void split_to_maximize_distance();
+    void split_until_size(double target_size);
     void create_extended_neighbour(Direction direction);
     
     void subdivide();
     void subdivide(PerpendicularDir side, int target_depth, double side_middle);
     void subdivide(DiagonalDir region, int target_depth);
     void create_extended_neighbours();
+    
+    void balance_tree();
 
     void putNextPoint(Point * p);
 

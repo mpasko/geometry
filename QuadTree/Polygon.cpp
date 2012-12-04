@@ -5,10 +5,13 @@
  * Created on November 29, 2012, 1:25 PM
  */
 
-#include <math.h>
+#include <cmath>
+#include <climits>
+#include <limits>
 
 #include "Polygon.h"
 #include "Visualization.h"
+#include "geometry.h"
 
 Polygon::Polygon(int size) : index(0), len(size) {
     coord_x = new double[size];
@@ -45,6 +48,22 @@ std::ostream& operator<<(std::ostream& out, const Polygon& polygon) {
 
 int Polygon::length() const {
     return len;
+}
+
+double Polygon::get_nearest_vertex_distance(Point* vertex){
+    double min_distance = std::numeric_limits<double>::max();
+    double distance;
+    Point* plot_vertex;
+    for (int i = 0; i < length(); ++i) {
+        plot_vertex = (*this)[i];
+        if (plot_vertex != vertex){
+            distance = pitagoras(*plot_vertex, *vertex);
+            if (distance < min_distance){
+                min_distance = distance;
+            }
+        }
+    }
+    return min_distance;
 }
 
 Polygon::~Polygon() {

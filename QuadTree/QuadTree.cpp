@@ -13,7 +13,7 @@
 
 using namespace std;
 
-void QuadTree::match(Point* p){
+QuadTree* QuadTree::match(Point* p){
         class QuadTree*dest = NULL;
         if(p->x <= center->x){
             if(p->y <= center->y){
@@ -28,7 +28,7 @@ void QuadTree::match(Point* p){
                 dest = NEChild;
             }
         }
-        dest->putNextPoint(p);
+        return dest;
     }
     
     QuadTree::QuadTree(double cx, double cy, double w, QuadTree * par): 
@@ -69,6 +69,10 @@ void QuadTree::match(Point* p){
             SWChild = new QuadTree(center->x-cntr,center->y-cntr,half,this);
             SWChild->parent_region = Diag_SW;
             SWChild->depth = depth + 1;
+            if (chunk != NULL){
+                match(chunk);
+                chunk = NULL;
+            }
         }else{
             throw Unexpected_subdivision("You cannot split leaf");
        
@@ -81,20 +85,20 @@ void QuadTree::match(Point* p){
     }
     
     void QuadTree::putNextPoint(Point * p){
+        QuadTree* dest;
         if(isLeaf()){
             if(chunk == NULL){
                 chunk = p;
+                p->node = this;
                 return;
             }else{
                 subdivide();
-                match(chunk);
-                match(p);
-                chunk = NULL;
+                dest = match(p);             
             }
-            return;
         }else{
-            match(p);
+            dest = match(p);
         }
+        dest->putNextPoint(p);
     }
     
     ostream& operator<<(ostream& out, const QuadTree& tree){
