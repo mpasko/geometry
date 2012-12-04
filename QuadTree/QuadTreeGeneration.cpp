@@ -100,11 +100,6 @@ void QuadTree::create_extended_neighbour(Direction direction) {
     }
 }
 
-void QuadTree::create_extended_neighbour(Direction direction){
-    QuadTree* node = getNeighbour(direction);
-    (void)(node);
-}
-
 QuadTree* QuadTree::getChildByRegion(DiagonalDir region) {
     if (isLeaf()) {
         return NULL;

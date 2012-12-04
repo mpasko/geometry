@@ -29,7 +29,11 @@ enum PerpendicularDir {
 class QuadTree {
     void match(Point* p);
     FlushTable<Point> * flush;
-
+    
+    QuadTree* getChildByRegion(DiagonalDir region);
+    QuadTree* QuadTree::getChildContainingCoord(PerpendicularDir side, double value);
+    
+    void create_extended_neighbour(Direction direction);
     Point * NECorner;
     Point * NWCorner;
     Point * SECorner;

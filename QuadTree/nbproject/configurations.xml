@@ -62,14 +62,6 @@
       </toolsSet>
       <compileType>
         <ccTool>
-          <warningLevel>2</warningLevel>
-        </ccTool>
-      </compileType>
-      <folder path="TestFiles/f1">
-        <cTool>
-          <incDir>
-            <pElem>.</pElem>
-          </incDir>
         </cTool>
         <ccTool>
           <incDir>
