@@ -61,10 +61,10 @@ QuadTree* init_mesh(ostream&out_stream, Polygon* p){
     for(int j=0; j<p->length(); ++j){
         qt->putNextPoint((*p)[j]); 
     }
-    out_stream << *p;
-    out_stream << *qt;
     return qt;
 }
+
+//void triangulate(std::ostream&out, Polygon* p, QuadTree*qt);
 
 /*
  * 
@@ -85,9 +85,14 @@ int main(int argc, char** argv) {
     ofstream out_stream("sim_output.txt");
     Polygon* p = load_data(size,filen);
     QuadTree* qt = init_mesh(out_stream,p);
+    MergeTable merge(size*size*100);
+    qt->mergeCorners(&merge);
+    qt->transform();
+    out_stream << *p;
+    out_stream << *qt;
     triangulate(out_stream,p,qt);
     delete p;
-    delete qt;
+    //delete qt;
     return 0;
 }
 

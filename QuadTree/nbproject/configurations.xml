@@ -7,6 +7,7 @@
       <itemPath>EmptyNodeException.h</itemPath>
       <itemPath>FlushTable.h</itemPath>
       <itemPath>General_exception.h</itemPath>
+      <itemPath>MergeTable.h</itemPath>
       <itemPath>Point.h</itemPath>
       <itemPath>Polygon.h</itemPath>
       <itemPath>QuadTree.h</itemPath>
@@ -27,6 +28,7 @@
                    projectFiles="true">
       <itemPath>FlushTable.cpp</itemPath>
       <itemPath>General_exception.cpp</itemPath>
+      <itemPath>MergeTable.cpp</itemPath>
       <itemPath>Point.cpp</itemPath>
       <itemPath>Polygon.cpp</itemPath>
       <itemPath>QuadTree.cpp</itemPath>
@@ -35,6 +37,7 @@
       <itemPath>Visualization.cpp</itemPath>
       <itemPath>geometry.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
+      <itemPath>transformation.cpp</itemPath>
       <itemPath>triangulation.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -60,7 +63,7 @@
     <conf name="Debug" type="1">
       <toolsSet>
         <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
-        <compilerSet>MinGW|MinGW</compilerSet>
+        <compilerSet>Cygwin|Cygwin</compilerSet>
       </toolsSet>
       <compileType>
         <ccTool>

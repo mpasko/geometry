@@ -13,6 +13,10 @@
 
 using namespace std;
 
+Point* getcenter(Point* a, Point* b) {
+    return new Point((a->x + b->x)/2.0, (a->y + b->y)/2.0);
+}
+
 QuadTree* QuadTree::match(Point* p){
         class QuadTree*dest = NULL;
         if(p->x <= center->x){
@@ -40,14 +44,22 @@ QuadTree* QuadTree::match(Point* p){
         chunk = NULL;
         depth = 0;
         flush = new FlushTable<Point>(20);
-        NECorner = new Point(cx-half,cy+half);
+        NECorner = new Point(cx+half,cy+half);
         *flush += NECorner;
-        SECorner = new Point(cx-half,cy-half);
+        SECorner = new Point(cx+half,cy-half);
         *flush += SECorner;
-        NWCorner = new Point(cx+half,cy+half);
+        NWCorner = new Point(cx-half,cy+half);
         *flush += NWCorner;
-        SWCorner = new Point(cx+half,cy-half);
+        SWCorner = new Point(cx-half,cy-half);
         *flush += SWCorner;
+        ECorner = getcenter(NECorner,SECorner);
+        WCorner = getcenter(NWCorner,SWCorner);
+        SCorner = getcenter(SWCorner,SECorner);
+        NCorner = getcenter(NECorner,NWCorner);
+        *flush += ECorner;
+        *flush += WCorner;
+        *flush += SCorner;
+        *flush += NCorner;
     }
     
     bool QuadTree::isLeaf() const {
@@ -103,13 +115,13 @@ QuadTree* QuadTree::match(Point* p){
     
     ostream& operator<<(ostream& out, const QuadTree& tree){
         if(tree.isLeaf()){
-            double x = tree.center->x;
-            double y = tree.center->y;
-            double half = tree.half;
-            drawline(out,x-half,y-half,x-half,y+half,red);
-            drawline(out,x+half,y+half,x-half,y+half,red);
-            drawline(out,x+half,y-half,x-half,y-half,red);
-            drawline(out,x+half,y-half,x+half,y+half,red);
+//            double x = tree.center->x;
+//            double y = tree.center->y;
+//            double half = tree.half;
+            drawline(out,tree.getNECorner(),tree.getNWCorner(),red);
+            drawline(out,tree.getNECorner(),tree.getSECorner(),red);
+            drawline(out,tree.getSWCorner(),tree.getSECorner(),red);
+            drawline(out,tree.getSWCorner(),tree.getNWCorner(),red);
         }else{
             out<<*(tree.NEChild);
             out<<*(tree.NWChild);
@@ -119,19 +131,19 @@ QuadTree* QuadTree::match(Point* p){
         return out;
     }
     
-    Point* QuadTree::getNECorner(){
+    Point* QuadTree::getNECorner() const{
         return NECorner;
     }
     
-    Point* QuadTree::getSECorner(){
+    Point* QuadTree::getSECorner() const{
         return SECorner;
     }
     
-    Point* QuadTree::getNWCorner(){
+    Point* QuadTree::getNWCorner() const{
         return NWCorner;
     }
     
-    Point* QuadTree::getSWCorner(){
+    Point* QuadTree::getSWCorner() const{
         return SWCorner;
     }
     

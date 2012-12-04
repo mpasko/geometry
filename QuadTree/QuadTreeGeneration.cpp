@@ -58,6 +58,7 @@ void QuadTree::split_too_close_boxes() {
     for (int i = 0; i < polygon->length() - 1; ++i) {
         (*polygon)[i]->node->split_to_maximize_distance();
     }
+    return;
 }
 
 void QuadTree::subdivide(PerpendicularDir side, int target_depth, double side_middle) {
@@ -125,6 +126,7 @@ void QuadTree::create_extended_neighbour(Direction direction) {
             node->subdivide(Diag_NE, depth);
             break;
     }
+    (void)(node);
 }
 
 QuadTree* QuadTree::getChildByRegion(DiagonalDir region) {

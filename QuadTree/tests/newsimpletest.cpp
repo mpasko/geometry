@@ -9,6 +9,8 @@
 #include <iostream>
 #include "QuadTree.h"
 #include "unexpected_subdivision.h"
+#include "MergeTable.h"
+#include "Point.h"
 
 /*
  * Simple C++ Test Suite
@@ -122,6 +124,26 @@ void div_fail(){
     }
 }
 
+void mergetest(){
+    MergeTable merge(10);
+    Point x(10.0,10.0);
+    Point y(10.0,10.0);
+    Point z(10.0,10.0);
+    Point w(10.0,10.0);
+    Point * a = &x;
+    Point * b = &y;
+    Point * c = &z;
+    Point * d = &w;
+    merge.merge(&a,&b);
+    merge.merge(&c,&d);
+    merge.merge(&a,&c);
+    if(a==b && a==d && b==d){
+        std::cout << "merge success!\n";
+    }else{
+        std::cout << "%TEST_FAILED% time=0 testname=mergetest (newsimpletest) message=merge failed!" << std::endl;
+    }
+}
+
 int main(int argc, char** argv) {
     std::cout << "%SUITE_STARTING% newsimpletest" << std::endl;
     std::cout << "%SUITE_STARTED%" << std::endl;
@@ -137,10 +159,12 @@ int main(int argc, char** argv) {
     testGetNeighbourCornerSplit();
     cout<< "corner_big\n";
     testGetNeighbourCornerBig();
-    cout << "div_fail\n";
-    div_fail();
     cout << "side_no_split\n";
     testGetNeighbourSideNoSplit();
+    cout << "div_fail\n";
+    div_fail();
+    cout << "merge\n";
+    mergetest();
     std::cout << "%TEST_FINISHED% time=0 testGetNeighbour (newsimpletest)" << std::endl;
 
     std::cout << "%SUITE_FINISHED% time=0" << std::endl;

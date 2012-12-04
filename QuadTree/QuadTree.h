@@ -12,6 +12,7 @@
 #include "Point.h"
 #include "FlushTable.h"
 #include "Polygon.h"
+#include "MergeTable.h"
 
 using namespace std;
 
@@ -48,6 +49,12 @@ public:
     class QuadTree* NWChild;
     class QuadTree* SEChild;
     class QuadTree* SWChild;
+    
+    Point * ECorner;
+    Point * WCorner;
+    Point * SCorner;
+    Point * NCorner;
+    
     class QuadTree* parent;
 
     /**w ktorej czesci rodzica znajduje sie dany node.*/
@@ -87,16 +94,18 @@ public:
     
     QuadTree* getNeighbour(Direction direction);
 
-    Point* getNECorner();
-    Point* getSECorner();
-    Point* getNWCorner();
-    Point* getSWCorner();
+    Point* getNECorner() const;
+    Point* getSECorner() const;
+    Point* getNWCorner() const;
+    Point* getSWCorner() const;
+    
     Point* getSteiner();
 
+    void transform();
+    void mergeCorners(MergeTable* m);
 
     virtual ~QuadTree();
 };
-
 
 
 #endif	/* QUADTREE_H */

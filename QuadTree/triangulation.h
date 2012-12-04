@@ -10,6 +10,8 @@
 
 #include "QuadTree.h"
 #include "Polygon.h"
+#include <iostream>
+#include <fstream>
 
 #define METHOD_1
 
