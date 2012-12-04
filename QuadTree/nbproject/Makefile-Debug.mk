@@ -52,7 +52,7 @@ TESTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tests
 
 # Test Files
 TESTFILES= \
-	${TESTDIR}/TestFiles/f1
+	${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree
 
 # C Compiler Flags
 CFLAGS=
@@ -72,81 +72,81 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${TESTDIR}/TestFiles/f1.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree.exe: ${OBJECTFILES}
-	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree ${OBJECTFILES} ${LDLIBSOPTIONS} 
+${TESTDIR}/TestFiles/f1.exe: ${OBJECTFILES}
+	${MKDIR} -p ${TESTDIR}/TestFiles
+	${LINK.cc} -o ${TESTDIR}/TestFiles/f1 ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
 ${OBJECTDIR}/General_exception.o: General_exception.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/General_exception.o General_exception.cpp
+	$(COMPILE.cc) -g -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/General_exception.o General_exception.cpp
 
 ${OBJECTDIR}/Point.o: Point.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/Point.o Point.cpp
+	$(COMPILE.cc) -g -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/Point.o Point.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
 
 ${OBJECTDIR}/triangulation.o: triangulation.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/triangulation.o triangulation.cpp
+	$(COMPILE.cc) -g -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/triangulation.o triangulation.cpp
 
 ${OBJECTDIR}/FlushTable.o: FlushTable.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/FlushTable.o FlushTable.cpp
+	$(COMPILE.cc) -g -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/FlushTable.o FlushTable.cpp
 
 ${OBJECTDIR}/QuadTree.o: QuadTree.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/QuadTree.o QuadTree.cpp
+	$(COMPILE.cc) -g -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/QuadTree.o QuadTree.cpp
 
 ${OBJECTDIR}/geometry.o: geometry.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/geometry.o geometry.cpp
+	$(COMPILE.cc) -g -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/geometry.o geometry.cpp
 
 ${OBJECTDIR}/Polygon.o: Polygon.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/Polygon.o Polygon.cpp
+	$(COMPILE.cc) -g -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/Polygon.o Polygon.cpp
 
 ${OBJECTDIR}/Visualization.o: Visualization.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/Visualization.o Visualization.cpp
+	$(COMPILE.cc) -g -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/Visualization.o Visualization.cpp
 
 ${OBJECTDIR}/Segment.o: Segment.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/Segment.o Segment.cpp
+	$(COMPILE.cc) -g -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/Segment.o Segment.cpp
 
 ${OBJECTDIR}/QuadTreeGeneration.o: QuadTreeGeneration.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/QuadTreeGeneration.o QuadTreeGeneration.cpp
+	$(COMPILE.cc) -g -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/QuadTreeGeneration.o QuadTreeGeneration.cpp
 
 # Subprojects
 .build-subprojects:
 
 # Build Test Targets
 .build-tests-conf: .build-conf ${TESTFILES}
-${TESTDIR}/TestFiles/f1: ${TESTDIR}/tests/newsimpletest.o ${OBJECTFILES:%.o=%_nomain.o}
-	${MKDIR} -p ${TESTDIR}/TestFiles
-	${LINK.cc}   -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS} 
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree: ${TESTDIR}/tests/newsimpletest.o ${OBJECTFILES:%.o=%_nomain.o}
+	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
+	${LINK.cc}   -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree $^ ${LDLIBSOPTIONS} 
 
 
 ${TESTDIR}/tests/newsimpletest.o: tests/newsimpletest.cpp 
 	${MKDIR} -p ${TESTDIR}/tests
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -I. -MMD -MP -MF $@.d -o ${TESTDIR}/tests/newsimpletest.o tests/newsimpletest.cpp
+	$(COMPILE.cc) -g -I. -MMD -MP -MF $@.d -o ${TESTDIR}/tests/newsimpletest.o tests/newsimpletest.cpp
 
 
 ${OBJECTDIR}/General_exception_nomain.o: ${OBJECTDIR}/General_exception.o General_exception.cpp 
@@ -157,7 +157,7 @@ ${OBJECTDIR}/General_exception_nomain.o: ${OBJECTDIR}/General_exception.o Genera
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} $@.d;\
-	    $(COMPILE.cc) -g -Wall -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/General_exception_nomain.o General_exception.cpp;\
+	    $(COMPILE.cc) -g -I. -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/General_exception_nomain.o General_exception.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/General_exception.o ${OBJECTDIR}/General_exception_nomain.o;\
 	fi
@@ -170,7 +170,7 @@ ${OBJECTDIR}/Point_nomain.o: ${OBJECTDIR}/Point.o Point.cpp
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} $@.d;\
-	    $(COMPILE.cc) -g -Wall -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/Point_nomain.o Point.cpp;\
+	    $(COMPILE.cc) -g -I. -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/Point_nomain.o Point.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/Point.o ${OBJECTDIR}/Point_nomain.o;\
 	fi
@@ -183,7 +183,7 @@ ${OBJECTDIR}/main_nomain.o: ${OBJECTDIR}/main.o main.cpp
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} $@.d;\
-	    $(COMPILE.cc) -g -Wall -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/main_nomain.o main.cpp;\
+	    $(COMPILE.cc) -g -I. -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/main_nomain.o main.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/main.o ${OBJECTDIR}/main_nomain.o;\
 	fi
@@ -196,7 +196,7 @@ ${OBJECTDIR}/triangulation_nomain.o: ${OBJECTDIR}/triangulation.o triangulation.
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} $@.d;\
-	    $(COMPILE.cc) -g -Wall -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/triangulation_nomain.o triangulation.cpp;\
+	    $(COMPILE.cc) -g -I. -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/triangulation_nomain.o triangulation.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/triangulation.o ${OBJECTDIR}/triangulation_nomain.o;\
 	fi
@@ -209,7 +209,7 @@ ${OBJECTDIR}/FlushTable_nomain.o: ${OBJECTDIR}/FlushTable.o FlushTable.cpp
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} $@.d;\
-	    $(COMPILE.cc) -g -Wall -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/FlushTable_nomain.o FlushTable.cpp;\
+	    $(COMPILE.cc) -g -I. -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/FlushTable_nomain.o FlushTable.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/FlushTable.o ${OBJECTDIR}/FlushTable_nomain.o;\
 	fi
@@ -222,7 +222,7 @@ ${OBJECTDIR}/QuadTree_nomain.o: ${OBJECTDIR}/QuadTree.o QuadTree.cpp
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} $@.d;\
-	    $(COMPILE.cc) -g -Wall -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/QuadTree_nomain.o QuadTree.cpp;\
+	    $(COMPILE.cc) -g -I. -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/QuadTree_nomain.o QuadTree.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/QuadTree.o ${OBJECTDIR}/QuadTree_nomain.o;\
 	fi
@@ -235,7 +235,7 @@ ${OBJECTDIR}/geometry_nomain.o: ${OBJECTDIR}/geometry.o geometry.cpp
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} $@.d;\
-	    $(COMPILE.cc) -g -Wall -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/geometry_nomain.o geometry.cpp;\
+	    $(COMPILE.cc) -g -I. -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/geometry_nomain.o geometry.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/geometry.o ${OBJECTDIR}/geometry_nomain.o;\
 	fi
@@ -248,7 +248,7 @@ ${OBJECTDIR}/Polygon_nomain.o: ${OBJECTDIR}/Polygon.o Polygon.cpp
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} $@.d;\
-	    $(COMPILE.cc) -g -Wall -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/Polygon_nomain.o Polygon.cpp;\
+	    $(COMPILE.cc) -g -I. -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/Polygon_nomain.o Polygon.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/Polygon.o ${OBJECTDIR}/Polygon_nomain.o;\
 	fi
@@ -261,7 +261,7 @@ ${OBJECTDIR}/Visualization_nomain.o: ${OBJECTDIR}/Visualization.o Visualization.
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} $@.d;\
-	    $(COMPILE.cc) -g -Wall -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/Visualization_nomain.o Visualization.cpp;\
+	    $(COMPILE.cc) -g -I. -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/Visualization_nomain.o Visualization.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/Visualization.o ${OBJECTDIR}/Visualization_nomain.o;\
 	fi
@@ -274,7 +274,7 @@ ${OBJECTDIR}/Segment_nomain.o: ${OBJECTDIR}/Segment.o Segment.cpp
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} $@.d;\
-	    $(COMPILE.cc) -g -Wall -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/Segment_nomain.o Segment.cpp;\
+	    $(COMPILE.cc) -g -I. -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/Segment_nomain.o Segment.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/Segment.o ${OBJECTDIR}/Segment_nomain.o;\
 	fi
@@ -287,7 +287,7 @@ ${OBJECTDIR}/QuadTreeGeneration_nomain.o: ${OBJECTDIR}/QuadTreeGeneration.o Quad
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} $@.d;\
-	    $(COMPILE.cc) -g -Wall -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/QuadTreeGeneration_nomain.o QuadTreeGeneration.cpp;\
+	    $(COMPILE.cc) -g -I. -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/QuadTreeGeneration_nomain.o QuadTreeGeneration.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/QuadTreeGeneration.o ${OBJECTDIR}/QuadTreeGeneration_nomain.o;\
 	fi
@@ -296,7 +296,7 @@ ${OBJECTDIR}/QuadTreeGeneration_nomain.o: ${OBJECTDIR}/QuadTreeGeneration.o Quad
 .test-conf:
 	@if [ "${TEST}" = "" ]; \
 	then  \
-	    ${TESTDIR}/TestFiles/f1 || true; \
+	    ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree || true; \
 	else  \
 	    ./${TEST} || true; \
 	fi
@@ -304,7 +304,7 @@ ${OBJECTDIR}/QuadTreeGeneration_nomain.o: ${OBJECTDIR}/QuadTreeGeneration.o Quad
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree.exe
+	${RM} ${TESTDIR}/TestFiles/f1.exe
 
 # Subprojects
 .clean-subprojects:

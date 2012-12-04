@@ -30,10 +30,6 @@ class QuadTree {
     void match(Point* p);
     FlushTable<Point> * flush;
     
-    QuadTree* getChildByRegion(DiagonalDir region);
-    QuadTree* QuadTree::getChildContainingCoord(PerpendicularDir side, double value);
-    
-    void create_extended_neighbour(Direction direction);
     Point * NECorner;
     Point * NWCorner;
     Point * SECorner;
@@ -61,13 +57,15 @@ public:
     int depth;
 
     QuadTree(double cx, double cy, double w, QuadTree* parent);
-    QuadTree* getChildByRegion(DiagonalDir region);
-    void create_extended_neighbour(Direction direction);
-
     bool isLeaf() const;
 
+    QuadTree* getChildByRegion(DiagonalDir region);
+    QuadTree* getChildContainingCoord(PerpendicularDir side, double value);
+    
+    void create_extended_neighbour(Direction direction);
+    
     void subdivide();
-    void subdevide(PerpendicularDir side, int target_depth, double side_middle);
+    void subdivide(PerpendicularDir side, int target_depth, double side_middle);
     void subdivide(DiagonalDir region, int target_depth);
     void create_extended_neighbours();
 

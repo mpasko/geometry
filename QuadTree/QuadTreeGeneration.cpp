@@ -32,26 +32,26 @@ QuadTree* QuadTree::getChildContainingCoord(PerpendicularDir side, double value)
     }
 }
 
-void QuadTree::subdevide(PerpendicularDir side, int target_depth, double side_middle) {
+void QuadTree::subdivide(PerpendicularDir side, int target_depth, double side_middle) {
     if (depth >= target_depth) {
         return;
     }
     QuadTree* child = getChildContainingCoord(side, side_middle);
     if (child != NULL) {
-        child->subdevide(side, target_depth, side_middle);
+        child->subdivide(side, target_depth, side_middle);
     } else {
         subdivide();
-        getChildContainingCoord(side, side_middle)->subdivide(side, target_depth, side_middle);
+        (getChildContainingCoord(side, side_middle))->subdivide(side, target_depth, side_middle);
     }
 }
 
-void QuadTree::subdivide(QuadTree::DiagonalDir region, int target_depth) {
+void QuadTree::subdivide(DiagonalDir region, int target_depth) {
     if (depth >= target_depth) {
         return;
     }
     QuadTree* child = getChildByRegion(region);
     if (child != NULL) {
-        child->subdevide(region, target_depth);
+        child->subdivide(region, target_depth);
     } else {
         subdivide();
         getChildByRegion(region)->subdivide(region, target_depth);
@@ -73,16 +73,16 @@ void QuadTree::create_extended_neighbour(Direction direction) {
     QuadTree* node = getNeighbour(direction);
     switch (direction) {
         case Dir_N:
-            subdevide(Per_S, depth, center);
+            subdivide(Per_S, depth, center->x);
             break;
         case Dir_S:
-            subdevide(Per_N, depth, center);
+            subdivide(Per_N, depth, center->x);
             break;
         case Dir_E:
-            subdevide(Per_W, depth, center);
+            subdivide(Per_W, depth, center->y);
             break;
         case Dir_W:
-            subdevide(Per_E, depth, center);
+            subdivide(Per_E, depth, center->y);
             break;
         case Dir_NE:
             subdivide(Diag_SW, depth);

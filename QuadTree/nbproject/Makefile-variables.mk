@@ -8,9 +8,9 @@ CND_BUILDDIR=build
 CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=MinGW-Windows
-CND_ARTIFACT_DIR_Debug=dist/Debug/MinGW-Windows
-CND_ARTIFACT_NAME_Debug=quadtree
-CND_ARTIFACT_PATH_Debug=dist/Debug/MinGW-Windows/quadtree
+CND_ARTIFACT_DIR_Debug=build/Debug/MinGW-Windows/tests/TestFiles
+CND_ARTIFACT_NAME_Debug=f1
+CND_ARTIFACT_PATH_Debug=build/Debug/MinGW-Windows/tests/TestFiles/f1
 CND_PACKAGE_DIR_Debug=dist/Debug/MinGW-Windows/package
 CND_PACKAGE_NAME_Debug=quadtree.tar
 CND_PACKAGE_PATH_Debug=dist/Debug/MinGW-Windows/package/quadtree.tar
