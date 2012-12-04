@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include "QuadTree.h"
+#include "unexpected_subdivision.h"
 
 /*
  * Simple C++ Test Suite
@@ -95,6 +96,32 @@ void testGetNeighbourCornerBig() {
     }
 }
 
+void testGetNeighbourSideNoSplit(){
+    Direction direction = Dir_NW;
+    QuadTree tree(0.0, 0.0, 100, NULL);
+    tree.subdivide();
+    tree.SEChild->subdivide();
+    tree.NWChild->subdivide();
+    QuadTree* child = tree.SEChild;
+    QuadTree* result = child->getNeighbour(direction);
+    if (result != tree.NWChild) {
+        printQT(result, "result");
+        printQT(tree.NWChild->SEChild, "child");
+        std::cout << "%TEST_FAILED% time=0 testname=testGetNeighbour (newsimpletest) message=error message sample" << std::endl;
+    }
+}
+
+void div_fail(){
+    QuadTree tree(0.0, 0.0, 100, NULL);
+    try{
+        tree.subdivide();
+        tree.subdivide();
+        std::cout << "%TEST_FAILED% time=0 testname=div_fail (newsimpletest) message=uncaugh" << std::endl;
+    }catch(Unexpected_subdivision e){
+        std::cout << "testname=div_fail (newsimpletest) message=caugh" << std::endl;
+    }
+}
+
 int main(int argc, char** argv) {
     std::cout << "%SUITE_STARTING% newsimpletest" << std::endl;
     std::cout << "%SUITE_STARTED%" << std::endl;
@@ -110,6 +137,10 @@ int main(int argc, char** argv) {
     testGetNeighbourCornerSplit();
     cout<< "corner_big\n";
     testGetNeighbourCornerBig();
+    cout << "div_fail\n";
+    div_fail();
+    cout << "side_no_split\n";
+    testGetNeighbourSideNoSplit();
     std::cout << "%TEST_FINISHED% time=0 testGetNeighbour (newsimpletest)" << std::endl;
 
     std::cout << "%SUITE_FINISHED% time=0" << std::endl;

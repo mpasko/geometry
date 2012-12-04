@@ -2,6 +2,7 @@
 #include "triangulation.h"
 #include "QuadTree.h"
 #include "Visualization.h"
+#include "Point.h"
 
 Point* QuadTree::getCrossing(Point*a, Point* b){
     //TODO
@@ -117,9 +118,9 @@ QuadTree* QuadTree::getNeighbour(Direction direction, QuadTree* source){
             }
             break;
         case Dir_E:
-            if(parent_region==Diag_SE){
+            if(parent_region==Diag_SW){
                 parent_neigh = parent->SEChild;
-            }else if(parent_region==Diag_NE){
+            }else if(parent_region==Diag_NW){
                 parent_neigh = parent->NEChild;
             }else{
                 parent_neigh = parent->getNeighbour(direction,source);
@@ -170,7 +171,11 @@ QuadTree* QuadTree::getNeighbour(Direction direction, QuadTree* source){
             }
             break;
     }
-    return parent_neigh->slideDown(direction,source);
+    if(parent_neigh==NULL){
+        return NULL;
+    }else{
+        return parent_neigh->slideDown(direction,source);
+    }
 }
 
 QuadTree* QuadTree::getNeighbour(Direction direction){
@@ -189,14 +194,73 @@ Polygon* filter(Polygon* p, QuadTree *qt){
     return p;
 }
 
+Point* center(Point* a, Point* b){
+    return new Point(a->x+b->x, a->y + b->y);
+}
+
 void triangulate(std::ostream&out, Polygon* p, QuadTree*qt){
     if(qt->isLeaf()){
  //       float hw = qt->half;
  //       if(qt->chunk == NULL){
-            drawline(out, qt->getSteiner(), qt->getNECorner(), red);
-            drawline(out, qt->getSteiner(), qt->getNWCorner(), red);
-            drawline(out, qt->getSteiner(), qt->getSECorner(), red);
-            drawline(out, qt->getSteiner(), qt->getSWCorner(), red);
+            
+            Point * c;
+            QuadTree* ENeigh = qt->getNeighbour(Dir_E);
+            QuadTree* WNeigh = qt->getNeighbour(Dir_W);
+            QuadTree* SNeigh = qt->getNeighbour(Dir_S);
+            QuadTree* NNeigh = qt->getNeighbour(Dir_N);
+            
+            int count = 0;
+            
+            bool is_e = (ENeigh!=NULL) && (ENeigh->isLeaf());
+            bool is_w = (WNeigh!=NULL) && (WNeigh->isLeaf());
+            bool is_s = (SNeigh!=NULL) && (SNeigh->isLeaf());
+            bool is_n = (NNeigh!=NULL) && (NNeigh->isLeaf());
+            
+            if(is_e){
+                ++count;
+            }
+            if(is_w){
+                ++count;
+            }
+            if(is_s){
+                ++count;
+            }
+            if(is_n){
+                ++count;
+            }
+            
+            if(count == 1){
+                
+            }
+            
+            if(is_e){
+                cout<<"inner\n";
+                c=center(qt->getNECorner(), qt->getSECorner());
+                cout<<"center\n";
+                drawline(out, qt->getSteiner(), c, green);
+                cout<<"drawline\n";
+                delete c;
+            }
+            if(is_w){
+                c=center(qt->getNWCorner(), qt->getSWCorner());
+                drawline(out, qt->getSteiner(), c, green);
+                delete c;
+            }
+            if(is_s){
+                c=center(qt->getSWCorner(), qt->getSECorner());
+                drawline(out, qt->getSteiner(), c, green);
+                delete c;
+            }
+            if(is_n){
+                c=center(qt->getNWCorner(), qt->getNECorner());
+                drawline(out, qt->getSteiner(), c, green);
+                delete c;
+            }
+            
+            drawline(out, qt->getSteiner(), qt->getNECorner(), green);
+            drawline(out, qt->getSteiner(), qt->getNWCorner(), green);
+            drawline(out, qt->getSteiner(), qt->getSECorner(), green);
+            drawline(out, qt->getSteiner(), qt->getSWCorner(), green);
  //       }else{
  //           //TODO
  //       }

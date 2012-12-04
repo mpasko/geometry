@@ -9,6 +9,7 @@
 #include <cstdlib>
 #include "Visualization.h"
 #include "FlushTable.h"
+#include "unexpected_subdivision.h"
 
 using namespace std;
 
@@ -54,22 +55,28 @@ void QuadTree::match(Point* p){
     }
     
     void QuadTree::subdivide(){
-        ++depth;
         if(isLeaf()){
             double cntr = width/4;
             NEChild = new QuadTree(center->x+cntr,center->y+cntr,half,this);
             NEChild->parent_region = Diag_NE;
+            NEChild->depth = depth + 1;
             NWChild = new QuadTree(center->x-cntr,center->y+cntr,half,this);
             NWChild->parent_region = Diag_NW;
+            NWChild->depth = depth + 1;
             SEChild = new QuadTree(center->x+cntr,center->y-cntr,half,this);
             SEChild->parent_region = Diag_SE;
+            SEChild->depth = depth + 1;
             SWChild = new QuadTree(center->x-cntr,center->y-cntr,half,this);
             SWChild->parent_region = Diag_SW;
+            SWChild->depth = depth + 1;
         }else{
-            NEChild->subdivide();
-            NWChild->subdivide();
-            SEChild->subdivide();
-            SWChild->subdivide();
+            throw Unexpected_subdivision("You cannot split leaf");
+       
+//            NEChild->subdivide();
+//            NWChild->subdivide();
+//            SEChild->subdivide();
+//            SWChild->subdivide();
+            
         }
     }
     
@@ -95,10 +102,10 @@ void QuadTree::match(Point* p){
             double x = tree.center->x;
             double y = tree.center->y;
             double half = tree.half;
-            drawline(out,x-half,y-half,x-half,y+half,green);
-            drawline(out,x+half,y+half,x-half,y+half,green);
-            drawline(out,x+half,y-half,x-half,y-half,green);
-            drawline(out,x+half,y-half,x+half,y+half,green);
+            drawline(out,x-half,y-half,x-half,y+half,red);
+            drawline(out,x+half,y+half,x-half,y+half,red);
+            drawline(out,x+half,y-half,x-half,y-half,red);
+            drawline(out,x+half,y-half,x+half,y+half,red);
         }else{
             out<<*(tree.NEChild);
             out<<*(tree.NWChild);
