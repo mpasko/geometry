@@ -13,6 +13,7 @@
 #include "FlushTable.h"
 #include "Polygon.h"
 #include "MergeTable.h"
+#include <list>
 
 using namespace std;
 
@@ -29,9 +30,8 @@ enum PerpendicularDir {
 };
 
 class QuadTree {
-    FlushTable<Point> * flush;
+    FlushTable<Point> * flush;  
     
-    Polygon* polygon;
     Point * NECorner;
     Point * NWCorner;
     Point * SECorner;
@@ -44,6 +44,8 @@ class QuadTree {
     void print_as_text(int spaces);
     
 public:
+    Polygon* polygon;
+    std::list<Point*> points;
 
 
     class QuadTree* NEChild;
@@ -82,6 +84,7 @@ public:
     void subdivide();
     void subdivide(PerpendicularDir side, int target_depth, double side_middle);
     void subdivide(DiagonalDir region, int target_depth);
+    void preproccess();
     void create_extended_neighbours();
     
     void balance_tree();

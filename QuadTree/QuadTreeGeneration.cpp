@@ -55,8 +55,8 @@ void QuadTree::split_to_maximize_distance() {
 }
 
 void QuadTree::split_too_close_boxes() {
-    for (int i = 0; i < polygon->length() - 1; ++i) {
-        (*polygon)[i]->node->split_to_maximize_distance();
+    for (list<Point*>::iterator it = points.begin(); it != points.end(); ++it){
+        (*it)->node->split_to_maximize_distance();
     }
     return;
 }
@@ -87,6 +87,12 @@ void QuadTree::subdivide(DiagonalDir region, int target_depth) {
     }
 }
 
+void QuadTree::preproccess(){
+    for (list<Point*>::iterator it = points.begin(); it != points.end(); ++it){
+        (*it)->node->create_extended_neighbours();
+    }
+}
+
 void QuadTree::create_extended_neighbours() {
     create_extended_neighbour(Dir_N);
     create_extended_neighbour(Dir_NE);
@@ -100,6 +106,9 @@ void QuadTree::create_extended_neighbours() {
 
 void QuadTree::create_extended_neighbour(Direction direction) {
     QuadTree* node = getNeighbour(direction);
+    if (node == NULL){
+        return;
+    }
     switch (direction) {
         case Dir_N:
             node->subdivide(Per_S, depth, center->x);

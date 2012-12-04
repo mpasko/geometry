@@ -58,9 +58,17 @@ Polygon* load_data(int size, char* filename){
 QuadTree* init_mesh(ostream&out_stream, Polygon* p){
     QuadTree* qt = new QuadTree(0.0,0.0,3000.0,NULL);
     
+//    for(int j=0; j<p->length(); ++j){
+//        qt->putNextPoint((*p)[j]); 
+//    } 
     for(int j=0; j<p->length(); ++j){
-        qt->putNextPoint((*p)[j]); 
+        qt->points.push_back((*p)[j]); 
+    } 
+    
+    for (list<Point*>::iterator it = qt->points.begin(); it != qt->points.end(); ++it){
+        qt->putNextPoint(*it);
     }
+    
     return qt;
 }
 
@@ -82,12 +90,15 @@ int main(int argc, char** argv) {
         size = 23;
         filen = (char*)"input.in";
     }
-    ofstream out_stream("sim_output.txt");
+    ofstream out_stream("C:\\Users\\Admin\\Documents\\sim_out.txt");
     Polygon* p = load_data(size,filen);
     QuadTree* qt = init_mesh(out_stream,p);
+    qt->polygon = p;
     MergeTable merge(size*size*100);
-    qt->mergeCorners(&merge);
-    qt->transform();
+    qt->preproccess();
+//    qt->split_to_maximize_distance();
+//    qt->mergeCorners(&merge);
+//    qt->transform();
     out_stream << *p;
     out_stream << *qt;
     triangulate(out_stream,p,qt);
