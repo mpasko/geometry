@@ -11,8 +11,8 @@
 #include "Visualization.h"
 
 Polygon::Polygon(int size) : index(0), len(size) {
-    coord_x = new float[size];
-    coord_y = new float[size];
+    coord_x = new double[size];
+    coord_y = new double[size];
     flushtable = new FlushTable<Point > ((size+1) * 10);
 }
 

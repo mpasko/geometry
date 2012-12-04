@@ -2,7 +2,7 @@
 
  
 
-void QuadTree::subdivide(QuadTree::DiagonalDir region, int target_depth) {
+void QuadTree::subdivide(DiagonalDir region, int target_depth) {
     if (depth >= target_depth) {
         return;
     }
@@ -43,6 +43,7 @@ void QuadTree::create_extended_neighbours(){
 
 void QuadTree::create_extended_neighbour(Direction direction){
     QuadTree* node = getNeighbour(direction);
+    (void)(node);
 }
 
 QuadTree* QuadTree::getChildByRegion(DiagonalDir region) {
@@ -56,4 +57,5 @@ QuadTree* QuadTree::getChildByRegion(DiagonalDir region) {
         case Diag_SW:
             return SWChild;
     }
+    return NULL;
 }

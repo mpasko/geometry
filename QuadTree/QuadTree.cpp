@@ -30,7 +30,7 @@ void QuadTree::match(Point* p){
         dest->putNextPoint(p);
     }
     
-    QuadTree::QuadTree(float cx, float cy, float w, QuadTree * par): 
+    QuadTree::QuadTree(double cx, double cy, double w, QuadTree * par): 
     NEChild(NULL),NWChild(NULL),SEChild(NULL),SWChild(NULL),parent(par)
     {   
         center = new Point(cx,cy);
@@ -56,11 +56,15 @@ void QuadTree::match(Point* p){
     void QuadTree::subdivide(){
         ++depth;
         if(isLeaf()){
-            float cntr = width/4;
+            double cntr = width/4;
             NEChild = new QuadTree(center->x+cntr,center->y+cntr,half,this);
+            NEChild->parent_region = Diag_NE;
             NWChild = new QuadTree(center->x-cntr,center->y+cntr,half,this);
+            NWChild->parent_region = Diag_NW;
             SEChild = new QuadTree(center->x+cntr,center->y-cntr,half,this);
+            SEChild->parent_region = Diag_SE;
             SWChild = new QuadTree(center->x-cntr,center->y-cntr,half,this);
+            SWChild->parent_region = Diag_SW;
         }else{
             NEChild->subdivide();
             NWChild->subdivide();
@@ -88,9 +92,9 @@ void QuadTree::match(Point* p){
     
     ostream& operator<<(ostream& out, const QuadTree& tree){
         if(tree.isLeaf()){
-            float x = tree.center->x;
-            float y = tree.center->y;
-            float half = tree.half;
+            double x = tree.center->x;
+            double y = tree.center->y;
+            double half = tree.half;
             drawline(out,x-half,y-half,x-half,y+half,green);
             drawline(out,x+half,y+half,x-half,y+half,green);
             drawline(out,x+half,y-half,x-half,y-half,green);

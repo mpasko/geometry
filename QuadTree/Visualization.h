@@ -19,10 +19,10 @@
 
 #ifdef PASKO
 
-static const char* red = "ff0000";
-static const char* green = "00ff00";
-static const char* blue = "0000ff";
-static const char* black = "000000";
+#define red "ff0000"
+#define green "00ff00"
+#define blue "0000ff"
+#define black "000000"
 
 #else
 

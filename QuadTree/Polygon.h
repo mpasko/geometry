@@ -12,8 +12,8 @@
 #include "FlushTable.h"
 
 class Polygon{
-    float*coord_x;
-    float*coord_y;
+    double*coord_x;
+    double*coord_y;
     
     FlushTable<Point> * flushtable;
     
