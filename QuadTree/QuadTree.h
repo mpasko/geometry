@@ -41,6 +41,7 @@ class QuadTree {
     QuadTree* slideDown(Direction direction, QuadTree* source);
     bool is_unbalanced();
     void balance_children();
+    void print_as_text(int spaces);
     
 public:
 
@@ -86,6 +87,7 @@ public:
     void balance_tree();
 
     void putNextPoint(Point * p);
+    void print_as_text();
 
     friend ostream& operator<<(ostream& out, const QuadTree& tree);
 

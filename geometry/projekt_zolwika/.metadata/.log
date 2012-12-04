@@ -9601,3 +9601,29 @@ Caused by: java.lang.ArrayIndexOutOfBoundsException: 1
 	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
 	at org.eclipse.jface.commands.ActionHandler.execute(ActionHandler.java:119)
 	... 54 more
+!SESSION 2012-12-04 10:47:38.490 -----------------------------------------------
+eclipse.buildId=M20120914-1800
+java.version=1.7.0_09
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=pl_PL
+Framework arguments:  -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product -product org.eclipse.epp.package.jee.product -data C:\GeometryProject\geometry\geometry\projekt_zolwika\ -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.team.core 4 0 2012-12-04 10:47:47.386
+!MESSAGE Could not instantiate provider org.tigris.subversion.subclipse.core.svnnature for project geometria_aplikacja.
+!STACK 1
+org.eclipse.team.core.TeamException: Could not instantiate provider org.tigris.subversion.subclipse.core.svnnature for project geometria_aplikacja.
+	at org.eclipse.team.core.RepositoryProvider.mapNewProvider(RepositoryProvider.java:165)
+	at org.eclipse.team.core.RepositoryProvider.mapExistingProvider(RepositoryProvider.java:235)
+	at org.eclipse.team.core.RepositoryProvider.getProvider(RepositoryProvider.java:507)
+	at org.eclipse.team.internal.core.TeamHookDispatcher.getProvider(TeamHookDispatcher.java:97)
+	at org.eclipse.team.internal.core.TeamHookDispatcher.getRuleFactory(TeamHookDispatcher.java:105)
+	at org.eclipse.core.internal.resources.Rules.factoryFor(Rules.java:93)
+	at org.eclipse.core.internal.resources.Rules.refreshRule(Rules.java:166)
+	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1689)
+	at org.eclipse.core.internal.resources.File.refreshLocal(File.java:333)
+	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:167)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.team.core 4 0 2012-12-04 10:47:47.388
+!MESSAGE Could not instantiate provider org.tigris.subversion.subclipse.core.svnnature for project geometria_aplikacja.

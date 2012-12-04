@@ -150,29 +150,29 @@ bool QuadTree::is_unbalanced() {
     QuadTree* neighbour;
 
     neighbour = getNeighbour(Dir_N);
-    if (neighbour->depth > depth && !neighbour->isLeaf()) {
-        if (!neighbour->getChildByRegion(Diag_SE)->isLeaf() || !neighbour->getChildByRegion(Diag_SW)) {
+    if (neighbour != NULL && neighbour->depth == depth && !neighbour->isLeaf()) {
+        if (!neighbour->getChildByRegion(Diag_SE)->isLeaf() || !neighbour->getChildByRegion(Diag_SW)->isLeaf()) {
             return true;
         }
     }
 
     neighbour = getNeighbour(Dir_S);
-    if (neighbour->depth > depth && !neighbour->isLeaf()) {
-        if (!neighbour->getChildByRegion(Diag_NE)->isLeaf() || !neighbour->getChildByRegion(Diag_NW)) {
+    if (neighbour != NULL && neighbour->depth == depth && !neighbour->isLeaf()) {
+        if (!neighbour->getChildByRegion(Diag_NE)->isLeaf() || !neighbour->getChildByRegion(Diag_NW)->isLeaf()) {
             return true;
         }
     }
 
     neighbour = getNeighbour(Dir_E);
-    if (neighbour->depth > depth && !neighbour->isLeaf()) {
-        if (!neighbour->getChildByRegion(Diag_SW)->isLeaf() || !neighbour->getChildByRegion(Diag_NW)) {
+    if (neighbour != NULL && neighbour->depth == depth && !neighbour->isLeaf()) {
+        if (!neighbour->getChildByRegion(Diag_SW)->isLeaf() || !neighbour->getChildByRegion(Diag_NW)->isLeaf()) {
             return true;
         }
     }
 
     neighbour = getNeighbour(Dir_W);
-    if (neighbour->depth > depth && !neighbour->isLeaf()) {
-        if (!neighbour->getChildByRegion(Diag_SE)->isLeaf() || !neighbour->getChildByRegion(Diag_NE)) {
+    if (neighbour != NULL && neighbour->depth == depth && !neighbour->isLeaf()) {
+        if (!neighbour->getChildByRegion(Diag_SE)->isLeaf() || !neighbour->getChildByRegion(Diag_NE)->isLeaf()) {
             return true;
         }
     }
@@ -191,8 +191,45 @@ void QuadTree::balance_tree() {
     if (isLeaf()) {
         if (is_unbalanced()) {
             subdivide();
-            balance_children();
+        } else {
+            return;
         }
-        balance_children();
+    }
+    balance_children();
+}
+
+void QuadTree::print_as_text(int spaces) {
+    for (int i = 0; i < spaces; ++i) {
+        std::cout << " ";
+    }
+    switch (parent_region) {
+        case Diag_NE:
+            std::cout << "NE";
+            break;
+        case Diag_NW:
+            std::cout << "NW";
+            break;
+        case Diag_SE:
+            std::cout << "SE";
+            break;
+        case Diag_SW:
+            std::cout << "SW";
+            break;
+    }
+    std::cout << std::endl;
+    if (!isLeaf()){
+        getChildByRegion(Diag_NW)->print_as_text(spaces + 1);
+        getChildByRegion(Diag_NE)->print_as_text(spaces + 1);
+        getChildByRegion(Diag_SE)->print_as_text(spaces + 1);
+        getChildByRegion(Diag_SW)->print_as_text(spaces + 1);
+    }
+}
+
+void QuadTree::print_as_text() {
+    if (!isLeaf()){
+        getChildByRegion(Diag_NW)->print_as_text(0);
+        getChildByRegion(Diag_NE)->print_as_text(0);
+        getChildByRegion(Diag_SE)->print_as_text(0);
+        getChildByRegion(Diag_SW)->print_as_text(0);
     }
 }

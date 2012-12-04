@@ -52,6 +52,8 @@ TESTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tests
 
 # Test Files
 TESTFILES= \
+	${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree \
+	${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree \
 	${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree
 
 # C Compiler Flags
@@ -142,11 +144,31 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree: ${TESTDIR}/tests/newsimplet
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc}   -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree $^ ${LDLIBSOPTIONS} 
 
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree: ${TESTDIR}/tests/newsimpletest1.o ${OBJECTFILES:%.o=%_nomain.o}
+	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
+	${LINK.cc}   -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree $^ ${LDLIBSOPTIONS} 
+
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree: ${TESTDIR}/tests/newsimpletest2.o ${OBJECTFILES:%.o=%_nomain.o}
+	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
+	${LINK.cc}   -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree $^ ${LDLIBSOPTIONS} 
+
 
 ${TESTDIR}/tests/newsimpletest.o: tests/newsimpletest.cpp 
 	${MKDIR} -p ${TESTDIR}/tests
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${TESTDIR}/tests/newsimpletest.o tests/newsimpletest.cpp
+
+
+${TESTDIR}/tests/newsimpletest1.o: tests/newsimpletest1.cpp 
+	${MKDIR} -p ${TESTDIR}/tests
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${TESTDIR}/tests/newsimpletest1.o tests/newsimpletest1.cpp
+
+
+${TESTDIR}/tests/newsimpletest2.o: tests/newsimpletest2.cpp 
+	${MKDIR} -p ${TESTDIR}/tests
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${TESTDIR}/tests/newsimpletest2.o tests/newsimpletest2.cpp
 
 
 ${OBJECTDIR}/General_exception_nomain.o: ${OBJECTDIR}/General_exception.o General_exception.cpp 
@@ -296,6 +318,8 @@ ${OBJECTDIR}/QuadTreeGeneration_nomain.o: ${OBJECTDIR}/QuadTreeGeneration.o Quad
 .test-conf:
 	@if [ "${TEST}" = "" ]; \
 	then  \
+	    ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree || true; \
+	    ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree || true; \
 	    ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/quadtree || true; \
 	else  \
 	    ./${TEST} || true; \

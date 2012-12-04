@@ -92,7 +92,25 @@ int main(int argc, char** argv) {
     out_stream << *qt;
     triangulate(out_stream,p,qt);
     delete p;
+<<<<<<< Updated upstream
     //delete qt;
+=======
+    delete qt;
+//    QuadTree quadTree(0.0, 0.0, 100, NULL);
+//    quadTree.subdivide();
+//    quadTree.NWChild->subdivide();
+//    quadTree.SWChild->subdivide();
+//    quadTree.SEChild->subdivide();
+//    quadTree.NEChild->subdivide();
+//    quadTree.NEChild->NWChild->subdivide();
+//    quadTree.NEChild->SWChild->subdivide();
+//    quadTree.NEChild->SWChild->NWChild->subdivide();
+//    quadTree.NEChild->SWChild->NEChild->subdivide();
+//    quadTree.balance_tree();
+//    quadTree.print_as_text();
+//    ofstream out_stream("C:\\Users\\Admin\\Documents\\test_input.txt");
+//    out_stream << quadTree;
+>>>>>>> Stashed changes
     return 0;
 }
 

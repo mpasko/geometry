@@ -1,15 +1,16 @@
-INDEX VERSION 1.126+/run/media/nr/Storage/Repo/Studia/SEM7/geo_obl/projekt_zolwika/.metadata/.plugins/org.eclipse.jdt.core
-4251720398.index
-66320351.index
-3785549106.index
-405963332.index
-3531158634.index
-1008526176.index
-737544839.index
-1363979024.index
-1433764416.index
-4242434539.index
-1030048865.index
-1111480947.index
-2874051150.index
-2665002534.index
+INDEX VERSION 1.126+C:\GeometryProject\geometry\geometry\projekt_zolwika\.metadata\.plugins\org.eclipse.jdt.core
+1995173708.index
+4155206848.index
+3974580528.index
+163172794.index
+30765161.index
+4108727661.index
+2629140249.index
+1115467115.index
+3065916431.index
+3133528496.index
+1818563445.index
+4041092966.index
+1498219845.index
+305854171.index
+4173023868.index
