@@ -114,15 +114,15 @@ QuadTree* init_mesh(ostream&out_stream, Polygon* p) {
 int main(int argc, char** argv) {
     int size;
     char* filen;
-    //    ofstream fl("input.in");
-    //    fl << "no-hello!";
-    //    fl.close();
-    if (argc >= 3) {
-        size = atoi(argv[1]);
-        filen = argv[2];
-    } else {
+//    ofstream fl("input.in");
+//    fl << "no-hello!";
+//    fl.close();
+    if(argc >= 3){
+            size = atoi(argv[1]);
+            filen = argv[2];
+    }else{
         size = 4;
-        filen = (char*) "input.in";
+        filen = (char*)"input.in";
     }
     ofstream out_stream("C:\\Users\\Admin\\Documents\\SIM.txt");
     Polygon* p = load_data(size,filen);
