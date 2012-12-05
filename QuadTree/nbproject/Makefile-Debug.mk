@@ -44,7 +44,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/geometry.o \
 	${OBJECTDIR}/Polygon.o \
 	${OBJECTDIR}/Visualization.o \
+	${OBJECTDIR}/MergeTable.o \
 	${OBJECTDIR}/Segment.o \
+	${OBJECTDIR}/transformation.o \
 	${OBJECTDIR}/QuadTreeGeneration.o
 
 # Test Directory
@@ -74,66 +76,76 @@ LDLIBSOPTIONS=-L../../../MinGW/bin
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${TESTDIR}/TestFiles/f1.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${TESTDIR}/TestFiles/f2.exe
 
-${TESTDIR}/TestFiles/f1.exe: ${OBJECTFILES}
+${TESTDIR}/TestFiles/f2.exe: ${OBJECTFILES}
 	${MKDIR} -p ${TESTDIR}/TestFiles
-	${LINK.cc} -o ${TESTDIR}/TestFiles/f1 ${OBJECTFILES} ${LDLIBSOPTIONS} 
+	${LINK.cc} -o ${TESTDIR}/TestFiles/f2 ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
 ${OBJECTDIR}/General_exception.o: General_exception.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/General_exception.o General_exception.cpp
+	$(COMPILE.cc) -g -Wall -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/General_exception.o General_exception.cpp
 
 ${OBJECTDIR}/Point.o: Point.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/Point.o Point.cpp
+	$(COMPILE.cc) -g -Wall -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/Point.o Point.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -Wall -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
 
 ${OBJECTDIR}/triangulation.o: triangulation.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/triangulation.o triangulation.cpp
+	$(COMPILE.cc) -g -Wall -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/triangulation.o triangulation.cpp
 
 ${OBJECTDIR}/FlushTable.o: FlushTable.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/FlushTable.o FlushTable.cpp
+	$(COMPILE.cc) -g -Wall -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/FlushTable.o FlushTable.cpp
 
 ${OBJECTDIR}/QuadTree.o: QuadTree.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/QuadTree.o QuadTree.cpp
+	$(COMPILE.cc) -g -Wall -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/QuadTree.o QuadTree.cpp
 
 ${OBJECTDIR}/geometry.o: geometry.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/geometry.o geometry.cpp
+	$(COMPILE.cc) -g -Wall -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/geometry.o geometry.cpp
 
 ${OBJECTDIR}/Polygon.o: Polygon.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/Polygon.o Polygon.cpp
+	$(COMPILE.cc) -g -Wall -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/Polygon.o Polygon.cpp
 
 ${OBJECTDIR}/Visualization.o: Visualization.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/Visualization.o Visualization.cpp
+	$(COMPILE.cc) -g -Wall -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/Visualization.o Visualization.cpp
+
+${OBJECTDIR}/MergeTable.o: MergeTable.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -g -Wall -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/MergeTable.o MergeTable.cpp
 
 ${OBJECTDIR}/Segment.o: Segment.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/Segment.o Segment.cpp
+	$(COMPILE.cc) -g -Wall -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/Segment.o Segment.cpp
+
+${OBJECTDIR}/transformation.o: transformation.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -g -Wall -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/transformation.o transformation.cpp
 
 ${OBJECTDIR}/QuadTreeGeneration.o: QuadTreeGeneration.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/QuadTreeGeneration.o QuadTreeGeneration.cpp
+	$(COMPILE.cc) -g -Wall -I. -MMD -MP -MF $@.d -o ${OBJECTDIR}/QuadTreeGeneration.o QuadTreeGeneration.cpp
 
 # Subprojects
 .build-subprojects:
@@ -156,19 +168,19 @@ ${TESTDIR}/TestFiles/f4: ${TESTDIR}/tests/newsimpletest2.o ${OBJECTFILES:%.o=%_n
 ${TESTDIR}/tests/newsimpletest.o: tests/newsimpletest.cpp 
 	${MKDIR} -p ${TESTDIR}/tests
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -I. -MMD -MP -MF $@.d -o ${TESTDIR}/tests/newsimpletest.o tests/newsimpletest.cpp
+	$(COMPILE.cc) -g -Wall -I. -I. -MMD -MP -MF $@.d -o ${TESTDIR}/tests/newsimpletest.o tests/newsimpletest.cpp
 
 
 ${TESTDIR}/tests/newsimpletest1.o: tests/newsimpletest1.cpp 
 	${MKDIR} -p ${TESTDIR}/tests
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -I. -I. -MMD -MP -MF $@.d -o ${TESTDIR}/tests/newsimpletest1.o tests/newsimpletest1.cpp
+	$(COMPILE.cc) -g -Wall -I. -I. -I. -MMD -MP -MF $@.d -o ${TESTDIR}/tests/newsimpletest1.o tests/newsimpletest1.cpp
 
 
 ${TESTDIR}/tests/newsimpletest2.o: tests/newsimpletest2.cpp 
 	${MKDIR} -p ${TESTDIR}/tests
 	${RM} $@.d
-	$(COMPILE.cc) -g -Wall -I. -I. -MMD -MP -MF $@.d -o ${TESTDIR}/tests/newsimpletest2.o tests/newsimpletest2.cpp
+	$(COMPILE.cc) -g -Wall -I. -I. -I. -MMD -MP -MF $@.d -o ${TESTDIR}/tests/newsimpletest2.o tests/newsimpletest2.cpp
 
 
 ${OBJECTDIR}/General_exception_nomain.o: ${OBJECTDIR}/General_exception.o General_exception.cpp 
@@ -179,7 +191,7 @@ ${OBJECTDIR}/General_exception_nomain.o: ${OBJECTDIR}/General_exception.o Genera
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} $@.d;\
-	    $(COMPILE.cc) -g -Wall -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/General_exception_nomain.o General_exception.cpp;\
+	    $(COMPILE.cc) -g -Wall -I. -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/General_exception_nomain.o General_exception.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/General_exception.o ${OBJECTDIR}/General_exception_nomain.o;\
 	fi
@@ -192,7 +204,7 @@ ${OBJECTDIR}/Point_nomain.o: ${OBJECTDIR}/Point.o Point.cpp
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} $@.d;\
-	    $(COMPILE.cc) -g -Wall -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/Point_nomain.o Point.cpp;\
+	    $(COMPILE.cc) -g -Wall -I. -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/Point_nomain.o Point.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/Point.o ${OBJECTDIR}/Point_nomain.o;\
 	fi
@@ -205,7 +217,7 @@ ${OBJECTDIR}/main_nomain.o: ${OBJECTDIR}/main.o main.cpp
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} $@.d;\
-	    $(COMPILE.cc) -g -Wall -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/main_nomain.o main.cpp;\
+	    $(COMPILE.cc) -g -Wall -I. -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/main_nomain.o main.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/main.o ${OBJECTDIR}/main_nomain.o;\
 	fi
@@ -218,7 +230,7 @@ ${OBJECTDIR}/triangulation_nomain.o: ${OBJECTDIR}/triangulation.o triangulation.
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} $@.d;\
-	    $(COMPILE.cc) -g -Wall -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/triangulation_nomain.o triangulation.cpp;\
+	    $(COMPILE.cc) -g -Wall -I. -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/triangulation_nomain.o triangulation.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/triangulation.o ${OBJECTDIR}/triangulation_nomain.o;\
 	fi
@@ -231,7 +243,7 @@ ${OBJECTDIR}/FlushTable_nomain.o: ${OBJECTDIR}/FlushTable.o FlushTable.cpp
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} $@.d;\
-	    $(COMPILE.cc) -g -Wall -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/FlushTable_nomain.o FlushTable.cpp;\
+	    $(COMPILE.cc) -g -Wall -I. -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/FlushTable_nomain.o FlushTable.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/FlushTable.o ${OBJECTDIR}/FlushTable_nomain.o;\
 	fi
@@ -244,7 +256,7 @@ ${OBJECTDIR}/QuadTree_nomain.o: ${OBJECTDIR}/QuadTree.o QuadTree.cpp
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} $@.d;\
-	    $(COMPILE.cc) -g -Wall -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/QuadTree_nomain.o QuadTree.cpp;\
+	    $(COMPILE.cc) -g -Wall -I. -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/QuadTree_nomain.o QuadTree.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/QuadTree.o ${OBJECTDIR}/QuadTree_nomain.o;\
 	fi
@@ -257,7 +269,7 @@ ${OBJECTDIR}/geometry_nomain.o: ${OBJECTDIR}/geometry.o geometry.cpp
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} $@.d;\
-	    $(COMPILE.cc) -g -Wall -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/geometry_nomain.o geometry.cpp;\
+	    $(COMPILE.cc) -g -Wall -I. -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/geometry_nomain.o geometry.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/geometry.o ${OBJECTDIR}/geometry_nomain.o;\
 	fi
@@ -270,7 +282,7 @@ ${OBJECTDIR}/Polygon_nomain.o: ${OBJECTDIR}/Polygon.o Polygon.cpp
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} $@.d;\
-	    $(COMPILE.cc) -g -Wall -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/Polygon_nomain.o Polygon.cpp;\
+	    $(COMPILE.cc) -g -Wall -I. -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/Polygon_nomain.o Polygon.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/Polygon.o ${OBJECTDIR}/Polygon_nomain.o;\
 	fi
@@ -283,9 +295,22 @@ ${OBJECTDIR}/Visualization_nomain.o: ${OBJECTDIR}/Visualization.o Visualization.
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} $@.d;\
-	    $(COMPILE.cc) -g -Wall -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/Visualization_nomain.o Visualization.cpp;\
+	    $(COMPILE.cc) -g -Wall -I. -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/Visualization_nomain.o Visualization.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/Visualization.o ${OBJECTDIR}/Visualization_nomain.o;\
+	fi
+
+${OBJECTDIR}/MergeTable_nomain.o: ${OBJECTDIR}/MergeTable.o MergeTable.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/MergeTable.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} $@.d;\
+	    $(COMPILE.cc) -g -Wall -I. -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/MergeTable_nomain.o MergeTable.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/MergeTable.o ${OBJECTDIR}/MergeTable_nomain.o;\
 	fi
 
 ${OBJECTDIR}/Segment_nomain.o: ${OBJECTDIR}/Segment.o Segment.cpp 
@@ -296,9 +321,22 @@ ${OBJECTDIR}/Segment_nomain.o: ${OBJECTDIR}/Segment.o Segment.cpp
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} $@.d;\
-	    $(COMPILE.cc) -g -Wall -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/Segment_nomain.o Segment.cpp;\
+	    $(COMPILE.cc) -g -Wall -I. -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/Segment_nomain.o Segment.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/Segment.o ${OBJECTDIR}/Segment_nomain.o;\
+	fi
+
+${OBJECTDIR}/transformation_nomain.o: ${OBJECTDIR}/transformation.o transformation.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/transformation.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} $@.d;\
+	    $(COMPILE.cc) -g -Wall -I. -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/transformation_nomain.o transformation.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/transformation.o ${OBJECTDIR}/transformation_nomain.o;\
 	fi
 
 ${OBJECTDIR}/QuadTreeGeneration_nomain.o: ${OBJECTDIR}/QuadTreeGeneration.o QuadTreeGeneration.cpp 
@@ -309,7 +347,7 @@ ${OBJECTDIR}/QuadTreeGeneration_nomain.o: ${OBJECTDIR}/QuadTreeGeneration.o Quad
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} $@.d;\
-	    $(COMPILE.cc) -g -Wall -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/QuadTreeGeneration_nomain.o QuadTreeGeneration.cpp;\
+	    $(COMPILE.cc) -g -Wall -I. -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/QuadTreeGeneration_nomain.o QuadTreeGeneration.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/QuadTreeGeneration.o ${OBJECTDIR}/QuadTreeGeneration_nomain.o;\
 	fi
@@ -328,7 +366,7 @@ ${OBJECTDIR}/QuadTreeGeneration_nomain.o: ${OBJECTDIR}/QuadTreeGeneration.o Quad
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${TESTDIR}/TestFiles/f1.exe
+	${RM} ${TESTDIR}/TestFiles/f2.exe
 
 # Subprojects
 .clean-subprojects:

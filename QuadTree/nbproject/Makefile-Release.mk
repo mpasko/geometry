@@ -44,7 +44,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/geometry.o \
 	${OBJECTDIR}/Polygon.o \
 	${OBJECTDIR}/Visualization.o \
+	${OBJECTDIR}/MergeTable.o \
 	${OBJECTDIR}/Segment.o \
+	${OBJECTDIR}/transformation.o \
 	${OBJECTDIR}/QuadTreeGeneration.o
 
 # Test Directory
@@ -125,10 +127,20 @@ ${OBJECTDIR}/Visualization.o: Visualization.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/Visualization.o Visualization.cpp
 
+${OBJECTDIR}/MergeTable.o: MergeTable.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/MergeTable.o MergeTable.cpp
+
 ${OBJECTDIR}/Segment.o: Segment.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/Segment.o Segment.cpp
+
+${OBJECTDIR}/transformation.o: transformation.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/transformation.o transformation.cpp
 
 ${OBJECTDIR}/QuadTreeGeneration.o: QuadTreeGeneration.cpp 
 	${MKDIR} -p ${OBJECTDIR}
@@ -288,6 +300,19 @@ ${OBJECTDIR}/Visualization_nomain.o: ${OBJECTDIR}/Visualization.o Visualization.
 	    ${CP} ${OBJECTDIR}/Visualization.o ${OBJECTDIR}/Visualization_nomain.o;\
 	fi
 
+${OBJECTDIR}/MergeTable_nomain.o: ${OBJECTDIR}/MergeTable.o MergeTable.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/MergeTable.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} $@.d;\
+	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/MergeTable_nomain.o MergeTable.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/MergeTable.o ${OBJECTDIR}/MergeTable_nomain.o;\
+	fi
+
 ${OBJECTDIR}/Segment_nomain.o: ${OBJECTDIR}/Segment.o Segment.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	@NMOUTPUT=`${NM} ${OBJECTDIR}/Segment.o`; \
@@ -299,6 +324,19 @@ ${OBJECTDIR}/Segment_nomain.o: ${OBJECTDIR}/Segment.o Segment.cpp
 	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/Segment_nomain.o Segment.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/Segment.o ${OBJECTDIR}/Segment_nomain.o;\
+	fi
+
+${OBJECTDIR}/transformation_nomain.o: ${OBJECTDIR}/transformation.o transformation.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/transformation.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} $@.d;\
+	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF $@.d -o ${OBJECTDIR}/transformation_nomain.o transformation.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/transformation.o ${OBJECTDIR}/transformation_nomain.o;\
 	fi
 
 ${OBJECTDIR}/QuadTreeGeneration_nomain.o: ${OBJECTDIR}/QuadTreeGeneration.o QuadTreeGeneration.cpp 

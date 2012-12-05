@@ -6,6 +6,8 @@
 void QuadTree::mergeCorners(MergeTable* m) {
     //QuadTree* neighbour
 
+
+/*
     
     /*
     QuadTree * NNeigh = getNeighbour(Dir_N);
@@ -36,8 +38,6 @@ void QuadTree::mergeCorners(MergeTable* m) {
         m->merge(&NWCorner,&(WNeigh->NECorner));
         m->merge(&SWCorner,&(WNeigh->SECorner));
     }
-    
-    
 
     if (isLeaf()) {
 
