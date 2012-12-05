@@ -87,7 +87,7 @@ int main(int argc, char** argv) {
             size = atoi(argv[1]);
             filen = argv[2];
     }else{
-        size = 23;
+        size = 4;
         filen = (char*)"input.in";
     }
     ofstream out_stream("sim_out.txt");

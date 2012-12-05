@@ -41,7 +41,7 @@ QuadTree* QuadTree::match(Point* p) {
 QuadTree::QuadTree(double cx, double cy, double w, QuadTree * par) :
 NEChild(NULL), NWChild(NULL), SEChild(NULL), SWChild(NULL), parent(par) {
     center = new Point(cx, cy);
-    half = w / 2;
+    half = w / 2.03;
     width = w;
     chunk = NULL;
     depth = 0;
@@ -160,16 +160,19 @@ ostream& operator<<(ostream& out, const QuadTree& tree) {
         Point * b = tree.getNWCorner();
         Point * c = tree.getSECorner();
         Point * d = tree.getSWCorner();
-        double bor = 0.02*tree.half;
+        double bor = 0.0;
         drawline(out, a->x + bor, a->y + bor, b->x - bor, b->y + bor,red);
         drawline(out, c->x + bor, c->y - bor, d->x - bor, d->y - bor,red);
         drawline(out, a->x + bor, a->y + bor, c->x + bor, c->y - bor,red);
         drawline(out, b->x - bor, b->y + bor, d->x - bor, d->y - bor,red);
+
     } else {
+        
         out << *(tree.NEChild);
         out << *(tree.NWChild);
         out << *(tree.SEChild);
         out << *(tree.SWChild);
+        
     }
     return out;
 }

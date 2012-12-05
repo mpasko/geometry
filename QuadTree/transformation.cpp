@@ -6,39 +6,6 @@
 void QuadTree::mergeCorners(MergeTable* m) {
     //QuadTree* neighbour
 
-    
-    /*
-    QuadTree * NNeigh = getNeighbour(Dir_N);
-    if ((NNeigh!=NULL)&&(NNeigh->depth == depth)) {
-        m->merge(&NCorner,&(NNeigh->SCorner));
-        m->merge(&NECorner,&(NNeigh->SECorner));
-        m->merge(&NWCorner,&(NNeigh->SWCorner));
-    }
-     * x / 
-    QuadTree * SNeigh = getNeighbour(Dir_S);
-    if ((SNeigh!=NULL)&&(SNeigh->depth == depth)) {
-        m->merge(&SCorner,&(SNeigh->SCorner));
-        m->merge(&SECorner,&(SNeigh->SECorner));
-        m->merge(&SWCorner,&(SNeigh->SWCorner));
-    }
-     */
-    
-    QuadTree * ENeigh = getNeighbour(Dir_E);
-    if ((ENeigh!=NULL)&&(ENeigh->depth == depth)) {
-        m->merge(&ECorner,&(ENeigh->WCorner));
-        m->merge(&NECorner,&(ENeigh->NWCorner));
-        m->merge(&SECorner,&(ENeigh->SWCorner));
-    }
-    
-    QuadTree * WNeigh = getNeighbour(Dir_W);
-    if ((WNeigh!=NULL)&&(WNeigh->depth == depth)) {
-        m->merge(&WCorner,&(WNeigh->ECorner));
-        m->merge(&NWCorner,&(WNeigh->NECorner));
-        m->merge(&SWCorner,&(WNeigh->SECorner));
-    }
-    
-    
-
     if (isLeaf()) {
 
     } else {
@@ -62,6 +29,37 @@ void QuadTree::mergeCorners(MergeTable* m) {
         NWChild->mergeCorners(m);
         SEChild->mergeCorners(m);
         SWChild->mergeCorners(m);
+    }
+
+    
+    /* x */
+    QuadTree * NNeigh = getNeighbour(Dir_N);
+    if ((NNeigh!=NULL)&&(NNeigh->depth == depth)) {
+        m->merge(&NCorner,&(NNeigh->SCorner));
+        m->merge(&NECorner,&(NNeigh->SECorner));
+        m->merge(&NWCorner,&(NNeigh->SWCorner));
+    }
+    /* x */ 
+    QuadTree * SNeigh = getNeighbour(Dir_S);
+    if ((SNeigh!=NULL)&&(SNeigh->depth == depth)) {
+        m->merge(&SCorner,&(SNeigh->NCorner));
+        m->merge(&SECorner,&(SNeigh->NECorner));
+        m->merge(&SWCorner,&(SNeigh->NWCorner));
+    }
+    /* x */
+    
+    QuadTree * ENeigh = getNeighbour(Dir_E);
+    if ((ENeigh!=NULL)&&(ENeigh->depth == depth)) {
+        m->merge(&ECorner,&(ENeigh->WCorner));
+        m->merge(&NECorner,&(ENeigh->NWCorner));
+        m->merge(&SECorner,&(ENeigh->SWCorner));
+    }
+    
+    QuadTree * WNeigh = getNeighbour(Dir_W);
+    if ((WNeigh!=NULL)&&(WNeigh->depth == depth)) {
+        m->merge(&WCorner,&(WNeigh->ECorner));
+        m->merge(&NWCorner,&(WNeigh->NECorner));
+        m->merge(&SWCorner,&(WNeigh->SECorner));
     }
 }
 
