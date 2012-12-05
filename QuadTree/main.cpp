@@ -90,15 +90,18 @@ int main(int argc, char** argv) {
         size = 23;
         filen = (char*)"input.in";
     }
-    ofstream out_stream("C:\\Users\\Admin\\Documents\\sim_out.txt");
+    ofstream out_stream("sim_out.txt");
     Polygon* p = load_data(size,filen);
+    for (int i = 0; i < p->length(); ++i){
+        cout << (*p)[i]->x << " " << (*p)[i]->y << endl;
+    }
     QuadTree* qt = init_mesh(out_stream,p);
     qt->polygon = p;
     MergeTable merge(size*size*100);
-    qt->preproccess();
+//    qt->preproccess();
 //    qt->split_to_maximize_distance();
-//    qt->mergeCorners(&merge);
-//    qt->transform();
+    qt->mergeCorners(&merge);
+    qt->transform();
     out_stream << *p;
     out_stream << *qt;
     triangulate(out_stream,p,qt);

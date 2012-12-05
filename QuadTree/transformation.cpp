@@ -7,19 +7,21 @@ void QuadTree::mergeCorners(MergeTable* m) {
     //QuadTree* neighbour
 
     
+    /*
     QuadTree * NNeigh = getNeighbour(Dir_N);
     if ((NNeigh!=NULL)&&(NNeigh->depth == depth)) {
         m->merge(&NCorner,&(NNeigh->SCorner));
         m->merge(&NECorner,&(NNeigh->SECorner));
         m->merge(&NWCorner,&(NNeigh->SWCorner));
     }
-    
+     * x / 
     QuadTree * SNeigh = getNeighbour(Dir_S);
     if ((SNeigh!=NULL)&&(SNeigh->depth == depth)) {
         m->merge(&SCorner,&(SNeigh->SCorner));
         m->merge(&SECorner,&(SNeigh->SECorner));
         m->merge(&SWCorner,&(SNeigh->SWCorner));
     }
+     */
     
     QuadTree * ENeigh = getNeighbour(Dir_E);
     if ((ENeigh!=NULL)&&(ENeigh->depth == depth)) {

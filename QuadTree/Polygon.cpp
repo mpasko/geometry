@@ -12,37 +12,47 @@
 #include "Polygon.h"
 #include "Visualization.h"
 #include "geometry.h"
+#include <vector>
 
 Polygon::Polygon(int size) : index(0), len(size) {
-    coord_x = new double[size];
-    coord_y = new double[size];
-    flushtable = new FlushTable<Point > ((size+1) * 10);
+//    coord_x = new double[size];
+//    coord_y = new double[size];
+//    flushtable = new FlushTable<Point > ((size+1) * 10);
+    points = new Point*[size];
 }
 
 Point* Polygon::operator[](int index) const {
-    Point* p = new Point(coord_x[index], coord_y[index]);
-    (*flushtable) += p;
-    return p;
+    if (index > len) {
+        std::cout << "Error! Polygon index out of range!\n";
+        throw len;
+    }
+    return points[index];
+//    Point* p = new Point(coord_x[index], coord_y[index]);
+//    (*flushtable) += p;
+//    return p;
 }
 
 void Polygon::operator+=(Point* p) {
-    coord_x[index] = p->x;
-    coord_y[index] = p->y;
+    points[index] = p;
     ++index;
     if (index > len) {
         std::cout << "Error! Polygon overflow!\n";
         throw len;
     }
+//    std::vector<Point*>::iterator it = points->end();
+//    coord_x[index] = p->x;
+//    coord_y[index] = p->y;
+//    ++index;
+    
 }
 
 std::ostream& operator<<(std::ostream& out, const Polygon& polygon) {
     if (polygon.length() < 3) {
         return out;
     }
-    for (int i = 0; i < polygon.length() - 1; ++i) {
-        drawline(out, polygon[i]->x, polygon[i]->y, polygon[i + 1]->x, polygon[i + 1]->y, black);
+    for (int it = 0; it < polygon.len; ++it){
+        drawline(out, polygon[it], polygon[it%polygon.len], black);
     }
-    drawline(out, polygon[polygon.length() - 1]->x, polygon[polygon.length() - 1]->y, polygon[0]->x, polygon[0]->y, black);
     return out;
 }
 
@@ -67,7 +77,5 @@ double Polygon::get_nearest_vertex_distance(Point* vertex){
 }
 
 Polygon::~Polygon() {
-    delete coord_x;
-    delete coord_y;
-    delete flushtable;
+    delete points;
 }

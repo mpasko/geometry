@@ -10,13 +10,15 @@
 
 #include "Point.h"
 #include "FlushTable.h"
+#include <vector>
 
 class Polygon{
-    double*coord_x;
-    double*coord_y;
+ //   double*coord_x;
+ //   double*coord_y;
     
-    FlushTable<Point> * flushtable;
+//    FlushTable<Point> * flushtable;
     
+    Point** points;
     int index;
     int len;
 public:
