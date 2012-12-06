@@ -37,8 +37,11 @@ class QuadTree {
     Point * SECorner;
     Point * SWCorner;
 
+//    QuadTree* getNeighbourTopDown(Direction direction, QuadTree* parent_neigh, QuadTree* source);
     QuadTree* getNeighbour(Direction direction, QuadTree* source);
     QuadTree* slideDown(Direction direction, QuadTree* source);
+//    QuadTree* getSamllestCornerBox(DiagonalDir dir, QuadTree* parent);
+    
     bool is_unbalanced();
     void balance_children();
     void print_as_text(int spaces);

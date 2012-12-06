@@ -3,6 +3,7 @@
 #include "Visualization.h"
 #include "Point.h"
 #include "triangulation.h"
+#include "General_exception.h"
 
 Point* QuadTree::getCrossing(Point*a, Point* b) {
     //TODO
@@ -84,8 +85,8 @@ QuadTree* QuadTree::slideDown(Direction direction, QuadTree* source) {
         return new_res->slideDown(direction, source);
     }
 }
-/x* x */ 
- 
+/x* x */
+
 /* header *x/
 QuadTree* QuadTree::getChildContainingCoord(PerpendicularDir side, double value) {
 /x* header */
@@ -97,61 +98,97 @@ QuadTree* QuadTree::slideDown(Direction direction, QuadTree* source) {
         QuadTree * new_res = NULL;
         //double minx = center->x-half;
         //double maxx = center->x+half;
-        double miny = center->y-half;
-        double maxy = center->y+half;
+        double miny = center->y - half;
+        double maxy = center->y + half;
         double src_h = source->half;
         double src_y = source->center->y;
         double src_x = source->center->x;
         switch (direction) {
             case Dir_NW:
-                if(src_y > miny){
-                    new_res = getChildContainingCoord(Per_E,src_y+src_h);
-                }else{
-                    new_res = getChildContainingCoord(Per_S,src_x-src_h);
+                if (src_y > miny) {
+                    new_res = getChildContainingCoord(Per_E, src_y + src_h);
+                } else {
+                    new_res = getChildContainingCoord(Per_S, src_x - src_h);
                 }
                 break;
             case Dir_NE:
-                if(src_y > miny){
-                    new_res = getChildContainingCoord(Per_W,src_y+src_h);
-                }else{
-                    new_res = getChildContainingCoord(Per_S,src_x+src_h);
+                if (src_y > miny) {
+                    new_res = getChildContainingCoord(Per_W, src_y + src_h);
+                } else {
+                    new_res = getChildContainingCoord(Per_S, src_x + src_h);
                 }
                 break;
             case Dir_SW:
-                if(src_y < maxy){
-                    new_res = getChildContainingCoord(Per_E,src_y-src_h);
-                }else{
-                    new_res = getChildContainingCoord(Per_N,src_x-src_h);
+                if (src_y < maxy) {
+                    new_res = getChildContainingCoord(Per_E, src_y - src_h);
+                } else {
+                    new_res = getChildContainingCoord(Per_N, src_x - src_h);
                 }
                 break;
             case Dir_SE:
-                if(src_y < maxy){
-                    new_res = getChildContainingCoord(Per_W,src_y-src_h);
-                }else{
-                    new_res = getChildContainingCoord(Per_N,src_x+src_h);
+                if (src_y < maxy) {
+                    new_res = getChildContainingCoord(Per_W, src_y - src_h);
+                } else {
+                    new_res = getChildContainingCoord(Per_N, src_x + src_h);
                 }
                 break;
             case Dir_N:
-                new_res = getChildContainingCoord(Per_S,src_x);
+                new_res = getChildContainingCoord(Per_S, src_x);
                 break;
             case Dir_S:
-                new_res = getChildContainingCoord(Per_N,src_x);
+                new_res = getChildContainingCoord(Per_N, src_x);
                 break;
             case Dir_E:
-                new_res = getChildContainingCoord(Per_W,src_y);
+                new_res = getChildContainingCoord(Per_W, src_y);
                 break;
             case Dir_W:
-                new_res = getChildContainingCoord(Per_E,src_y);
+                new_res = getChildContainingCoord(Per_E, src_y);
                 break;
         }
-        if(new_res == NULL){
+        if (new_res == NULL) {
             return this;
-        }else{
+        } else {
             return new_res->slideDown(direction, source);
         }
     }
 }
-  
+
+//QuadTree* QuadTree::getSamllestCornerBox(DiagonalDir dir, QuadTree* parent){
+//    if (parent == NULL){
+//        throw General_exception("Null");
+//    }
+//    if (parent.isLeaf()){
+//
+//    }
+//}
+
+//QuadTree* QuadTree::getNeighbourTopDown(Direction direction, QuadTree* parent_neigh, QuadTree* source) {
+//    if (parent_neigh == NULL) {
+//        return NULL;
+//    } else {
+//        switch (direction) {
+//            case Dir_N:
+//            case Dir_E:
+//            case Dir_S:
+//            case Dir_W:
+//                return parent_neigh->slideDown(direction, source);
+//                break;
+//            case Dir_NE:
+//
+//                break;
+//            case Dir_NW:
+//
+//                break;
+//            case Dir_SE:
+//
+//                break;
+//            case Dir_SW:
+//
+//                break;
+//        }
+//    }
+//}
+
 QuadTree* QuadTree::getNeighbour(Direction direction, QuadTree* source) {
     if (parent == NULL) {
         return NULL;
@@ -159,83 +196,119 @@ QuadTree* QuadTree::getNeighbour(Direction direction, QuadTree* source) {
     QuadTree* parent_neigh;
     switch (direction) {
         case Dir_N:
-            if (parent_region == Diag_SE) {
-                parent_neigh = parent->NEChild;
-            } else if (parent_region == Diag_SW) {
-                parent_neigh = parent->NWChild;
-            } else {
-                parent_neigh = parent->getNeighbour(direction, source);
+            switch (parent_region) {
+                case Diag_SE:
+                    parent_neigh = parent->NEChild;
+                    break;
+                case Diag_SW:
+                    parent_neigh = parent->NWChild;
+                    break;
+                default:
+                    parent_neigh = parent->getNeighbour(direction, source);
+                    break;
             }
             break;
         case Dir_W:
-            if (parent_region == Diag_SE) {
-                parent_neigh = parent->SWChild;
-            } else if (parent_region == Diag_NE) {
-                parent_neigh = parent->NWChild;
-            } else {
-                parent_neigh = parent->getNeighbour(direction, source);
+            switch (parent_region) {
+                case Diag_SE:
+                    parent_neigh = parent->SWChild;
+                    break;
+                case Diag_NE:
+                    parent_neigh = parent->NWChild;
+                    break;
+                default:
+                    parent_neigh = parent->getNeighbour(direction, source);
+                    break;
             }
             break;
         case Dir_S:
-            if (parent_region == Diag_NE) {
-                parent_neigh = parent->SEChild;
-            } else if (parent_region == Diag_NW) {
-                parent_neigh = parent->SWChild;
-            } else {
-                parent_neigh = parent->getNeighbour(direction, source);
+            switch (parent_region) {
+                case Diag_NE:
+                    parent_neigh = parent->SEChild;
+                    break;
+                case Diag_NW:
+                    parent_neigh = parent->SWChild;
+                    break;
+                default:
+                    parent_neigh = parent->getNeighbour(direction, source);
+                    break;
             }
             break;
         case Dir_E:
-            if (parent_region == Diag_SW) {
-                parent_neigh = parent->SEChild;
-            } else if (parent_region == Diag_NW) {
-                parent_neigh = parent->NEChild;
-            } else {
-                parent_neigh = parent->getNeighbour(direction, source);
+            switch (parent_region) {
+                case Diag_SW:
+                    parent_neigh = parent->SEChild;
+                    break;
+                case Diag_NW:
+                    parent_neigh = parent->NEChild;
+                    break;
+                default:
+                    parent_neigh = parent->getNeighbour(direction, source);
+                    break;
             }
             break;
         case Dir_NW:
-            if (parent_region == Diag_SE) {
-                parent_neigh = parent->NWChild;
-            } else if (parent_region == Diag_SW) {
-                parent_neigh = parent->getNeighbour(Dir_W, source);
-            } else if (parent_region == Diag_NE) {
-                parent_neigh = parent->getNeighbour(Dir_N, source);
-            } else {
-                parent_neigh = parent->getNeighbour(direction, source);
+            switch (parent_region) {
+                case Diag_SE:
+                    parent_neigh = parent->NWChild;
+                    break;
+                case Diag_SW:
+                    parent_neigh = parent->getNeighbour(Dir_W, source);
+                    break;
+                case Diag_NE:
+                    parent_neigh = parent->getNeighbour(Dir_N, source);
+                    break;
+                case Diag_NW:
+                    parent_neigh = parent->getNeighbour(direction, source);
+                    break;
             }
             break;
         case Dir_NE:
-            if (parent_region == Diag_SW) {
-                parent_neigh = parent->NEChild;
-            } else if (parent_region == Diag_NW) {
-                parent_neigh = parent->getNeighbour(Dir_N, source);
-            } else if (parent_region == Diag_SE) {
-                parent_neigh = parent->getNeighbour(Dir_E, source);
-            } else {
-                parent_neigh = parent->getNeighbour(direction, source);
+            switch (parent_region) {
+                case Diag_SW:
+                    parent_neigh = parent->NEChild;
+                    break;
+                case Diag_NW:
+                    parent_neigh = parent->getNeighbour(Dir_N, source);
+                    break;
+                case Diag_SE:
+                    parent_neigh = parent->getNeighbour(Dir_E, source);
+                    break;
+                case Diag_NE:
+                    parent_neigh = parent->getNeighbour(direction, source);
+                    break;
             }
             break;
         case Dir_SW:
-            if (parent_region == Diag_NE) {
-                parent_neigh = parent->SWChild;
-            } else if (parent_region == Diag_NW) {
-                parent_neigh = parent->getNeighbour(Dir_W, source);
-            } else if (parent_region == Diag_SE) {
-                parent_neigh = parent->getNeighbour(Dir_S, source);
-            } else {
-                parent_neigh = parent->getNeighbour(direction, source);
+            switch (parent_region) {
+                case Diag_NE:
+                    parent_neigh = parent->SWChild;
+                    break;
+                case Diag_NW:
+                    parent_neigh = parent->getNeighbour(Dir_W, source);
+                    break;
+                case Diag_SE:
+                    parent_neigh = parent->getNeighbour(Dir_S, source);
+                    break;
+                case Diag_SW:
+                    parent_neigh = parent->getNeighbour(direction, source);
+                    break;
             }
             break;
         case Dir_SE:
-            if (parent_region == Diag_NW) {
-                parent_neigh = parent->SEChild;
-            } else if (parent_region == Diag_SW) {
-                parent_neigh = parent->getNeighbour(Dir_S, source);
-            } else if (parent_region == Diag_NE) {
-                parent_neigh = parent->getNeighbour(Dir_E, source);
-            } else {
-                parent_neigh = parent->getNeighbour(direction, source);
+            switch (parent_region) {
+                case Diag_NW:
+                    parent_neigh = parent->SEChild;
+                    break;
+                case Diag_SW:
+                    parent_neigh = parent->getNeighbour(Dir_S, source);
+                    break;
+                case Diag_NE:
+                    parent_neigh = parent->getNeighbour(Dir_E, source);
+                    break;
+                case Diag_SE:
+                    parent_neigh = parent->getNeighbour(direction, source);
+                    break;
             }
             break;
     }
@@ -312,9 +385,9 @@ void triangulate(std::ostream&out, Polygon* p, QuadTree*qt) {
                 drawline(out, qt->getSECorner(), c, green);
             }
         } else if (count == 0) {
-            
+
             drawline(out, qt->getNWCorner(), qt->getSECorner(), green);
-            
+
         } else {
 
             if (is_e) {

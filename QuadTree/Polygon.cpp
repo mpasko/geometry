@@ -32,7 +32,7 @@ Point* Polygon::operator[](int index) const {
 //    return p;
 }
 
-void Polygon::operator+=(Point* p) {
+void Polygon::operator+=(Point*& p) {
     points[index] = p;
     ++index;
     if (index > len) {
@@ -51,7 +51,7 @@ std::ostream& operator<<(std::ostream& out, const Polygon& polygon) {
         return out;
     }
     for (int it = 0; it < polygon.len; ++it){
-        drawline(out, polygon[it], polygon[it%polygon.len], black);
+        drawline(out, polygon[it], polygon[(it+1)%polygon.len], black);
     }
     return out;
 }

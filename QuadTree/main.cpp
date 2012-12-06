@@ -25,6 +25,10 @@ using namespace std;
 Polygon* load_data(int size, char* filename) {
     Polygon * p = new Polygon(size);
     ifstream file(filename);
+    if (!file.is_open()){
+        cout << "input stream is not opened." << endl;
+        exit(EXIT_FAILURE);
+    }
     Point * prev = NULL;
     Point * first = NULL;
     FlushTable<Point> flush(size + 1);
@@ -42,16 +46,16 @@ Polygon* load_data(int size, char* filename) {
         getline(file, empty, '\n');
 
         Point * current = new Point(x, y);
-        flush += current;
+        //flush += current;
         *p += current;
         if (prev != NULL) {
-            // drawline(cout,prev,current,blue);
+            //drawline(cout,prev,current,blue);
         } else {
             first = current;
         }
         prev = current;
     }
-    // drawline(cout,prev,first,blue);
+    //drawline(cout,prev,first,blue);
     file.close();
     return p;
 }
@@ -64,7 +68,7 @@ QuadTree* create_initial_box(Polygon* polygon) {
     double x, y;
     for (int j = 0; j < polygon->length(); ++j) {
         x = (*polygon)[j]->x;
-        y = (*polygon)[j]->y;       
+        y = (*polygon)[j]->y;
         if (x > max_x) {
             max_x = x;
         }
@@ -93,8 +97,8 @@ QuadTree* init_mesh(ostream&out_stream, Polygon* p) {
     QuadTree* qt = create_initial_box(p);
 
     //    for(int j=0; j<p->length(); ++j){
-    //        qt->putNextPoint((*p)[j]); 
-    //    } 
+    //        qt->putNextPoint((*p)[j]);
+    //    }
     for (int j = 0; j < p->length(); ++j) {
         qt->points.push_back((*p)[j]);
     }
@@ -114,9 +118,6 @@ QuadTree* init_mesh(ostream&out_stream, Polygon* p) {
 int main(int argc, char** argv) {
     int size;
     char* filen;
-//    ofstream fl("input.in");
-//    fl << "no-hello!";
-//    fl.close();
     if(argc >= 3){
             size = atoi(argv[1]);
             filen = argv[2];
@@ -126,20 +127,20 @@ int main(int argc, char** argv) {
     }
     ofstream out_stream("C:\\Users\\Admin\\Documents\\SIM.txt");
     Polygon* p = load_data(size,filen);
-//    for (int i = 0; i < p->length(); ++i){
-//        cout << (*p)[i]->x << " " << (*p)[i]->y << endl;
-//    }
+    for (int i = 0; i < p->length(); ++i){
+        cout << (*p)[i]->x << " " << (*p)[i]->y << endl;
+    }
     QuadTree* qt = init_mesh(out_stream,p);
     qt->polygon = p;
     MergeTable merge(size * size * 100);
-//    qt->preproccess();
+    qt->preproccess();
     //    qt->split_to_maximize_distance();
     qt->mergeCorners(&merge);
     qt->transform();
     out_stream << *p;
     out_stream << *qt;
     triangulate(out_stream, p, qt);
-    delete p;
+//    delete p;
     //delete qt;
     //    QuadTree quadTree(0.0, 0.0, 100, NULL);
     //    quadTree.subdivide();

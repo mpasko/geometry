@@ -41,7 +41,8 @@ QuadTree* QuadTree::match(Point* p) {
 QuadTree::QuadTree(double cx, double cy, double w, QuadTree * par) :
 NEChild(NULL), NWChild(NULL), SEChild(NULL), SWChild(NULL), parent(par) {
     center = new Point(cx, cy);
-    half = w / 2.03;
+//    half = w / 2.03;
+    half = w / 2.0;
     width = w;
     chunk = NULL;
     depth = 0;
@@ -84,23 +85,25 @@ void QuadTree::subdivide() {
         SWChild->parent_region = Diag_SW;
         SWChild->depth = depth + 1;
         if (chunk != NULL) {
-            match(chunk)->chunk = chunk;
+            QuadTree* child =  match(chunk);
+            child->chunk = chunk;
+            chunk->node = child;
             chunk = NULL;
         }
 
 
-        if (SEChild == NULL) {
-            cout << "se\n";
-        }
-        if (NEChild == NULL) {
-            cout << "ne\n";
-        }
-        if (NWChild == NULL) {
-            cout << "nw\n";
-        }
-        if (SWChild == NULL) {
-            cout << "sw\n";
-        }
+//        if (SEChild == NULL) {
+//            cout << "se\n";
+//        }
+//        if (NEChild == NULL) {
+//            cout << "ne\n";
+//        }
+//        if (NWChild == NULL) {
+//            cout << "nw\n";
+//        }
+//        if (SWChild == NULL) {
+//            cout << "sw\n";
+//        }
     } else {
         throw Unexpected_subdivision("You cannot split leaf");
 

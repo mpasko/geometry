@@ -28,7 +28,7 @@ public:
     
     double get_nearest_vertex_distance(Point* vertex);
     
-    void operator+=(Point* p);
+    void operator+=(Point*& p);
     
     friend std::ostream& operator<<(std::ostream& out, const Polygon& tree);
     
