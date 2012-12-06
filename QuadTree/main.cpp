@@ -122,7 +122,7 @@ int main(int argc, char** argv) {
             size = atoi(argv[1]);
             filen = argv[2];
     }else{
-        size = 23;
+        size = 5;
         filen = (char*)"input.in";
     }
     ofstream out_stream("C:\\Users\\Admin\\Documents\\SIM.txt");
@@ -139,12 +139,12 @@ int main(int argc, char** argv) {
 //    out_stream << *qt;
     
     qt->polygon = p;
-//    qt->preproccess();
+    qt->preproccess();
     
 //    step(out_stream);
 //    out_stream << *qt;
 
-      qt->split_too_close_boxes();
+//      qt->split_too_close_boxes();
 //    qt->mergeCorners(&merge);
 //    qt->transform();
     
@@ -153,7 +153,7 @@ int main(int argc, char** argv) {
     out_stream << *p;
 
 //    step(out_stream);
-    triangulate(out_stream, p, qt);
+//    triangulate(out_stream, p, qt);
 //    delete p;
     //delete qt;
     //    QuadTree quadTree(0.0, 0.0, 100, NULL);

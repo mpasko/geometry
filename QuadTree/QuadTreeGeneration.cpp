@@ -93,9 +93,20 @@ void QuadTree::subdivide(DiagonalDir region, int target_depth) {
 }
 
 void QuadTree::preproccess() {
-    for (list<Point*>::iterator it = points.begin(); it != points.end(); ++it) {
+    list<QuadTree*> pointed_nodes(points.size());
+   // for (int i = 0; i < 5; ++i){
+    for (list<Point*>::iterator it = points.begin(); it != points.end(); ++it) {   
+//        for (list<Point*>::iterator tmp_it = pointed_nodes.begin(), copy_it = points.begin(); tmp_it != pointed_nodes.end(); ++tmp_it, ++copy_it) {
+//            *tmp_it = copy_it->node;
+//        }
+
         (*it)->node->create_extended_neighbours();
+
+//        for (list<Point*>::iterator tmp_it = pointed_nodes.begin(), copy_it = points.begin(); tmp_it != pointed_nodes.end(); ++tmp_it, ++copy_it) {
+//            *tmp_it = copy_it->node;
+//        }
     }
+    //}
 }
 
 void QuadTree::create_extended_neighbours() {
