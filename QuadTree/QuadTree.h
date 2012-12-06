@@ -76,11 +76,10 @@ public:
     bool isLeaf() const;
     
     QuadTree* match(Point* p);
-
     QuadTree* getChildByRegion(DiagonalDir region);
     QuadTree* getChildContainingCoord(PerpendicularDir side, double value);
     void split_too_close_boxes();
-    void split_to_maximize_distance();
+    void split_to_maximize_distance(double accepted_distance);
     void split_until_size(double target_size);
     void create_extended_neighbour(Direction direction);
     

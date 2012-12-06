@@ -133,13 +133,13 @@ int main(int argc, char** argv) {
     QuadTree* qt = init_mesh(out_stream,p);
     qt->polygon = p;
     MergeTable merge(size * size * 100);
-    qt->preproccess();
-    //    qt->split_to_maximize_distance();
-    qt->mergeCorners(&merge);
-    qt->transform();
+    //qt->preproccess();
+    qt->split_too_close_boxes();
+//    qt->mergeCorners(&merge);
+//    qt->transform();
     out_stream << *p;
     out_stream << *qt;
-    triangulate(out_stream, p, qt);
+//    triangulate(out_stream, p, qt);
 //    delete p;
     //delete qt;
     //    QuadTree quadTree(0.0, 0.0, 100, NULL);

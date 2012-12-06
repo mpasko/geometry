@@ -43,20 +43,25 @@ void QuadTree::split_until_size(double target_size) {
     if (this->width < target_size) {
         return;
     }
+    Point* p = new Point;
+    *p = *chunk;
     subdivide();
-    chunk->node->split_until_size(target_size);
+    match(p)->split_until_size(target_size);
 }
 
-void QuadTree::split_to_maximize_distance() {
+void QuadTree::split_to_maximize_distance(double accepted_distance) {
     if (chunk == NULL) {
-        throw EmptyNodeException("Trying to split empty node while spliting by point distance.");
-    }
-    split_until_size(polygon->get_nearest_vertex_distance(chunk) / (2 * M_SQRT2));
+            throw EmptyNodeException("Trying to split empty node while spliting by point distance.");
+        }
+    split_until_size(accepted_distance);
 }
 
 void QuadTree::split_too_close_boxes() {
-    for (list<Point*>::iterator it = points.begin(); it != points.end(); ++it){
-        (*it)->node->split_to_maximize_distance();
+    for (list<Point*>::iterator it = points.begin(); it != points.end(); ++it) {
+        if ((*it)->node->chunk == NULL) {
+            throw EmptyNodeException("Trying to split empty node while spliting by point distance.");
+        }
+        (*it)->node->split_to_maximize_distance(polygon->get_nearest_vertex_distance((*it)->node->chunk) / (2 * M_SQRT2));
     }
     return;
 }
@@ -87,8 +92,8 @@ void QuadTree::subdivide(DiagonalDir region, int target_depth) {
     }
 }
 
-void QuadTree::preproccess(){
-    for (list<Point*>::iterator it = points.begin(); it != points.end(); ++it){
+void QuadTree::preproccess() {
+    for (list<Point*>::iterator it = points.begin(); it != points.end(); ++it) {
         (*it)->node->create_extended_neighbours();
     }
 }
@@ -106,7 +111,7 @@ void QuadTree::create_extended_neighbours() {
 
 void QuadTree::create_extended_neighbour(Direction direction) {
     QuadTree* node = getNeighbour(direction);
-    if (node == NULL){
+    if (node == NULL) {
         return;
     }
     switch (direction) {
@@ -135,7 +140,7 @@ void QuadTree::create_extended_neighbour(Direction direction) {
             node->subdivide(Diag_NE, depth);
             break;
     }
-    (void)(node);
+    (void) (node);
 }
 
 QuadTree* QuadTree::getChildByRegion(DiagonalDir region) {
@@ -226,7 +231,7 @@ void QuadTree::print_as_text(int spaces) {
             break;
     }
     std::cout << std::endl;
-    if (!isLeaf()){
+    if (!isLeaf()) {
         getChildByRegion(Diag_NW)->print_as_text(spaces + 1);
         getChildByRegion(Diag_NE)->print_as_text(spaces + 1);
         getChildByRegion(Diag_SE)->print_as_text(spaces + 1);
@@ -235,7 +240,7 @@ void QuadTree::print_as_text(int spaces) {
 }
 
 void QuadTree::print_as_text() {
-    if (!isLeaf()){
+    if (!isLeaf()) {
         getChildByRegion(Diag_NW)->print_as_text(0);
         getChildByRegion(Diag_NE)->print_as_text(0);
         getChildByRegion(Diag_SE)->print_as_text(0);
