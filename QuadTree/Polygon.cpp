@@ -68,7 +68,7 @@ double Polygon::get_nearest_vertex_distance(Point* vertex){
         plot_vertex = (*this)[i];
         if (fabs(plot_vertex->x - vertex->x) > EPSILON || fabs(plot_vertex->y - vertex->y) > EPSILON) {
             distance = pitagoras(*plot_vertex, *vertex);
-            if (distance < min_distance || distance!=0){
+            if (distance < min_distance){
                 min_distance = distance;
             }
         }
