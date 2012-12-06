@@ -38,7 +38,7 @@ class QuadTree {
     Point * SWCorner;
 
 //    QuadTree* getNeighbourTopDown(Direction direction, QuadTree* parent_neigh, QuadTree* source);
-    QuadTree* getNeighbour(Direction direction, QuadTree* source);
+    QuadTree* getNeighbour(Direction direction, Direction source_dir, QuadTree* source);
     QuadTree* slideDown(Direction direction, QuadTree* source);
 //    QuadTree* getSamllestCornerBox(DiagonalDir dir, QuadTree* parent);
     

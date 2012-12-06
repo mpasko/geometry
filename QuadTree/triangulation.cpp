@@ -189,7 +189,7 @@ QuadTree* QuadTree::slideDown(Direction direction, QuadTree* source) {
 //    }
 //}
 
-QuadTree* QuadTree::getNeighbour(Direction direction, QuadTree* source) {
+QuadTree* QuadTree::getNeighbour(Direction direction, Direction source_dir, QuadTree* source) {
     if (parent == NULL) {
         return NULL;
     }
@@ -204,7 +204,7 @@ QuadTree* QuadTree::getNeighbour(Direction direction, QuadTree* source) {
                     parent_neigh = parent->NWChild;
                     break;
                 default:
-                    parent_neigh = parent->getNeighbour(direction, source);
+                    parent_neigh = parent->getNeighbour(direction, source_dir, source);
                     break;
             }
             break;
@@ -217,7 +217,7 @@ QuadTree* QuadTree::getNeighbour(Direction direction, QuadTree* source) {
                     parent_neigh = parent->NWChild;
                     break;
                 default:
-                    parent_neigh = parent->getNeighbour(direction, source);
+                    parent_neigh = parent->getNeighbour(direction, source_dir, source);
                     break;
             }
             break;
@@ -230,7 +230,7 @@ QuadTree* QuadTree::getNeighbour(Direction direction, QuadTree* source) {
                     parent_neigh = parent->SWChild;
                     break;
                 default:
-                    parent_neigh = parent->getNeighbour(direction, source);
+                    parent_neigh = parent->getNeighbour(direction, source_dir, source);
                     break;
             }
             break;
@@ -243,7 +243,7 @@ QuadTree* QuadTree::getNeighbour(Direction direction, QuadTree* source) {
                     parent_neigh = parent->NEChild;
                     break;
                 default:
-                    parent_neigh = parent->getNeighbour(direction, source);
+                    parent_neigh = parent->getNeighbour(direction, source_dir, source);
                     break;
             }
             break;
@@ -253,13 +253,13 @@ QuadTree* QuadTree::getNeighbour(Direction direction, QuadTree* source) {
                     parent_neigh = parent->NWChild;
                     break;
                 case Diag_SW:
-                    parent_neigh = parent->getNeighbour(Dir_W, source);
+                    parent_neigh = parent->getNeighbour(Dir_W, source_dir, source);
                     break;
                 case Diag_NE:
-                    parent_neigh = parent->getNeighbour(Dir_N, source);
+                    parent_neigh = parent->getNeighbour(Dir_N, source_dir, source);
                     break;
                 case Diag_NW:
-                    parent_neigh = parent->getNeighbour(direction, source);
+                    parent_neigh = parent->getNeighbour(direction, source_dir, source);
                     break;
             }
             break;
@@ -269,13 +269,13 @@ QuadTree* QuadTree::getNeighbour(Direction direction, QuadTree* source) {
                     parent_neigh = parent->NEChild;
                     break;
                 case Diag_NW:
-                    parent_neigh = parent->getNeighbour(Dir_N, source);
+                    parent_neigh = parent->getNeighbour(Dir_N, source_dir, source);
                     break;
                 case Diag_SE:
-                    parent_neigh = parent->getNeighbour(Dir_E, source);
+                    parent_neigh = parent->getNeighbour(Dir_E, source_dir, source);
                     break;
                 case Diag_NE:
-                    parent_neigh = parent->getNeighbour(direction, source);
+                    parent_neigh = parent->getNeighbour(direction, source_dir, source);
                     break;
             }
             break;
@@ -285,13 +285,13 @@ QuadTree* QuadTree::getNeighbour(Direction direction, QuadTree* source) {
                     parent_neigh = parent->SWChild;
                     break;
                 case Diag_NW:
-                    parent_neigh = parent->getNeighbour(Dir_W, source);
+                    parent_neigh = parent->getNeighbour(Dir_W, source_dir, source);
                     break;
                 case Diag_SE:
-                    parent_neigh = parent->getNeighbour(Dir_S, source);
+                    parent_neigh = parent->getNeighbour(Dir_S, source_dir, source);
                     break;
                 case Diag_SW:
-                    parent_neigh = parent->getNeighbour(direction, source);
+                    parent_neigh = parent->getNeighbour(direction, source_dir, source);
                     break;
             }
             break;
@@ -301,13 +301,13 @@ QuadTree* QuadTree::getNeighbour(Direction direction, QuadTree* source) {
                     parent_neigh = parent->SEChild;
                     break;
                 case Diag_SW:
-                    parent_neigh = parent->getNeighbour(Dir_S, source);
+                    parent_neigh = parent->getNeighbour(Dir_S, source_dir, source);
                     break;
                 case Diag_NE:
-                    parent_neigh = parent->getNeighbour(Dir_E, source);
+                    parent_neigh = parent->getNeighbour(Dir_E, source_dir, source);
                     break;
                 case Diag_SE:
-                    parent_neigh = parent->getNeighbour(direction, source);
+                    parent_neigh = parent->getNeighbour(direction, source_dir, source);
                     break;
             }
             break;
@@ -315,12 +315,12 @@ QuadTree* QuadTree::getNeighbour(Direction direction, QuadTree* source) {
     if (parent_neigh == NULL) {
         return NULL;
     } else {
-        return parent_neigh->slideDown(direction, source);
+        return parent_neigh->slideDown(source_dir, source);
     }
 }
 
 QuadTree* QuadTree::getNeighbour(Direction direction) {
-    return getNeighbour(direction, this);
+    return getNeighbour(direction, direction, this);
 }
 
 
