@@ -126,19 +126,32 @@ int main(int argc, char** argv) {
         filen = (char*)"input.in";
     }
     ofstream out_stream("C:\\Users\\Admin\\Documents\\SIM.txt");
+
     Polygon* p = load_data(size,filen);
     for (int i = 0; i < p->length(); ++i){
         cout << (*p)[i]->x << " " << (*p)[i]->y << endl;
     }
-    QuadTree* qt = init_mesh(out_stream,p);
-    qt->polygon = p;
-    MergeTable merge(size * size * 100);
-    //qt->preproccess();
-    qt->split_too_close_boxes();
-//    qt->mergeCorners(&merge);
-//    qt->transform();
     out_stream << *p;
+    MergeTable merge(size * size * 100);
+    QuadTree* qt = init_mesh(out_stream,p);
+    
+    step(out_stream);
     out_stream << *qt;
+    
+    qt->polygon = p;
+    qt->preproccess();
+    
+    step(out_stream);
+    out_stream << *qt;
+    
+    //    qt->split_to_maximize_distance();
+    qt->mergeCorners(&merge);
+    qt->transform();
+    
+    step(out_stream);
+    out_stream << *qt;
+    out_stream << *p;
+    
 //    triangulate(out_stream, p, qt);
 //    delete p;
     //delete qt;

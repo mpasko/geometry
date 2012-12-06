@@ -16,6 +16,10 @@ public class Model {
 	{
 		points.remove(e);
 	}
+        
+        synchronized public void clean(){
+                points.clear();
+        }
 	
 	synchronized public PointModel FindPointByCoords(double x, double y)
 	{

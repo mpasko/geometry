@@ -17,6 +17,10 @@ void drawline(std::ostream& out, const float x1, const float y1, const float x2,
     ++seq;
 }
 
+void step(std::ostream& out){
+    out << "step" << std::endl;
+}
+
 #else
 
 void drawline(std::ostream& out, const float x1, const float y1, const float x2, float y2, const char*color){

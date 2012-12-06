@@ -14,12 +14,18 @@ import formatter.IFormatter;
 public class CSVFormatter implements IFormatter {
 	
 	Scanner scan = null;
+        boolean step = true;
 
 	PointModel readPoint(){
 		String[] items = scan.nextLine().split(",");
 		double x,y;
 		if (items.length<5){
+                    if((items.length == 1) && (items[0].compareTo("step")==0)){
+                        step = false;
+                        return null;
+                    }else{
 			return null;
+                    }
 		}
 		x = Double.parseDouble(items[0].trim());
 		y = Double.parseDouble(items[1].trim());
@@ -49,9 +55,13 @@ public class CSVFormatter implements IFormatter {
 		scan = new Scanner(in);
 		Model m = new Model();
 		while(scan.hasNext()){
+                        step = true;
 			PointModel p = readPoint();
-			if(p != null)
+			if(p != null){
 				m.points.add(p);
+                        }else if(step == false){
+                                m.clean();
+                        }
 		}
 		try {
 			in.close();
@@ -68,14 +78,25 @@ public class CSVFormatter implements IFormatter {
 			out.println(savePoint(point));
 		}
 	}
-
-	@Override
-	public Model getNextStep(InputStream in, Model current) {
+        
+        @Override
+        public Model getNextStep(InputStream in, Model current) {
+            step = true;
+            current.clean();
+            while(step){
+                current = doStep(in,current);
+            }
+            return current;
+        }
+        
+	
+	public Model doStep(InputStream in, Model current) {
 		if(scan == null)
 			scan = new Scanner(in);
 		if(!scan.hasNext()){
 			scan.close();
 			scan = null;
+                        step = false;
 			return current;
 		}
 		PointModel newPoint = null;

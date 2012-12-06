@@ -40,5 +40,7 @@ void drawline(std::ostream& out, const Point*p1, const char*color);
 
 void drawline(std::ostream& out, const Point*p1, const Point*p2, const char*color);
 
+void step(std::ostream& out);
+
 #endif	/* VISUALIZATION_H */
 
