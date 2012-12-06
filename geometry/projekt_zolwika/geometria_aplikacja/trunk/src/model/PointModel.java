@@ -67,6 +67,9 @@ public class PointModel{
 	}
 	
 	public void Draw(Graphics2D g2d, AffineTransform t){
+                if(color.equals(Color.red)||color.equals(Color.green)){
+                    return;
+                }
 		g2d.setColor(color);
 		Point2D.Double tp = (Double) t.transform(point, null);
 		double x = tp.x;

@@ -15,9 +15,9 @@ void QuadTree::mergeCorners(MergeTable* m) {
         m->merge(&SWCorner, &(SWChild->SWCorner));
 
         m->merge(&ECorner, &(NEChild->SECorner));
-        m->merge(&ECorner, &(NEChild->SECorner));
+        m->merge(&ECorner, &(SEChild->NECorner));
         m->merge(&WCorner, &(NWChild->SWCorner));
-        m->merge(&WCorner, &(NWChild->SWCorner));
+        m->merge(&WCorner, &(SWChild->NWCorner));
         m->merge(&NCorner, &(NEChild->NWCorner));
         m->merge(&NCorner, &(NWChild->NECorner));
         m->merge(&SCorner, &(SEChild->SWCorner));

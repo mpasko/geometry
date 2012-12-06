@@ -122,11 +122,10 @@ int main(int argc, char** argv) {
             size = atoi(argv[1]);
             filen = argv[2];
     }else{
-        size = 23;
+        size = 19;
         filen = (char*)"input.in";
     }
-    ofstream out_stream("C:\\Users\\Admin\\Documents\\SIM.txt");
-
+    ofstream out_stream("sim_out.txt");
     Polygon* p = load_data(size,filen);
     for (int i = 0; i < p->length(); ++i){
         cout << (*p)[i]->x << " " << (*p)[i]->y << endl;
@@ -135,27 +134,27 @@ int main(int argc, char** argv) {
     MergeTable merge(size * size * 100);
     QuadTree* qt = init_mesh(out_stream,p);
     
-    step(out_stream);
+//    step(out_stream);
 //    out_stream << *qt;
     
-    qt->polygon = p;
+//    qt->polygon = p;
 //    qt->preproccess();
     
 //    step(out_stream);
 //    out_stream << *qt;
 
-      qt->split_too_close_boxes();
-//    qt->mergeCorners(&merge);
-//    qt->transform();
+ //   qt->split_too_close_boxes();
+ //  qt->mergeCorners(&merge);
+ //   qt->transform();
     
 //    step(out_stream);
     out_stream << *qt;
-    out_stream << *p;
+//    out_stream << *p;
 
 //    step(out_stream);
     triangulate(out_stream, p, qt);
 //    delete p;
-    //delete qt;
+    delete qt;
     //    QuadTree quadTree(0.0, 0.0, 100, NULL);
     //    quadTree.subdivide();
     //    quadTree.NWChild->subdivide();

@@ -210,5 +210,5 @@ QuadTree::~QuadTree() {
     DEL(SWChild)
     NEChild = NWChild = SEChild = SWChild = NULL;
     delete center;
-    delete flush;
+//    delete flush;
 }
