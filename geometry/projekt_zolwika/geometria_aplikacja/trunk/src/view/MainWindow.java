@@ -58,6 +58,7 @@ public class MainWindow extends JFrame {
 				
 		add(algpanel, BorderLayout.WEST);
 		t.start();
+                plane.Load("D:\\Repo\\Studia\\SEM7\\geo_obl\\project\\QuadTree\\sim_out.txt");
 	}
 
 	public static void main(final String[] args)
