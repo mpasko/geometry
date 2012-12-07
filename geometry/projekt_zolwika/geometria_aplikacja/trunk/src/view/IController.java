@@ -11,6 +11,7 @@ public interface IController {
 	void SetColor(Color c);
 	void Save(String filename);
 	void Load(String filename);
+        void Reload();
 	void SetFormatter(IFormatter formatter);
 	void ResetView();
 	void AddPoint();

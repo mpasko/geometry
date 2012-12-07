@@ -26,6 +26,7 @@ public class MainWindow extends JFrame {
 	private ToolBoxPanel toolbox;
 
 	private AlgControlPanel algpanel;
+	private static final String path = "D:\\Repo\\Studia\\SEM7\\geo_obl\\project\\QuadTree\\sim_out.txt";
 	
 	public MainWindow(String[] args)
 	{
@@ -52,12 +53,14 @@ public class MainWindow extends JFrame {
 			}
 		}
 		Watcher w = new Watcher(plane, new CSVFormatter(), input);
+		w.setFilename(path);
 		Thread t = new Thread(w);
 		
 		algpanel = new AlgControlPanel(w); 
 				
 		add(algpanel, BorderLayout.WEST);
 		t.start();
+        plane.Load(path);
 	}
 
 	public static void main(final String[] args)

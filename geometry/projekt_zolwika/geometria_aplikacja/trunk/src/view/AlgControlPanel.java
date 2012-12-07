@@ -24,20 +24,29 @@ public class AlgControlPanel extends JPanel {
 	private JButton read;
 	private JSpinner time;
 	private IAlgorithmController control;
+	private final JButton next;
+	private final JButton reload;
+	private final JButton prev;
 
 	public AlgControlPanel(IAlgorithmController controller) {
 		this.control = controller;
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		JPanel action = new JPanel();
-		action.setLayout(new GridLayout(10,1));
+		action.setLayout(new GridLayout(13,1));
 		start = new JButton("Start");
 		stop = new JButton("Stop");
+		next = new JButton("Nastepny");
+		prev = new JButton("Poprzedni");
+		reload = new JButton("Przeladuj");
 		read = new JButton("Wczytaj");
 		time = new JSpinner();
 		time.setValue(new Integer(1000));
 		action.add(new JLabel("Akcja"));
 		action.add(stop);
 		action.add(start);
+		action.add(next);
+		action.add(prev);
+		action.add(reload);
 		action.add(read);
 		action.add(time);
 		
@@ -73,6 +82,24 @@ public class AlgControlPanel extends JPanel {
 			@Override
 			public void stateChanged(ChangeEvent arg0) {
 				control.setTimeInterval((Integer) time.getValue());
+			}
+		});
+		reload.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ce) {
+				control.reload();
+			}
+		});
+		next.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ce) {
+				control.next();
+			}
+		});
+		prev.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ce) {
+				control.prev();
 			}
 		});
 	}
