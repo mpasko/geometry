@@ -123,9 +123,9 @@ public class ToolBoxPanel extends JPanel {
                 controller.SetZoom((Integer) zoom.getValue());
             }
         });
-        this.generate.addChangeListener(new ChangeListener() {
+        this.generate.addActionListener(new ActionListener() {
             @Override
-            public void stateChanged(ChangeEvent ce) {
+            public void actionPerformed(ActionEvent ce) {
                 controller.Reload();
             }
         });
