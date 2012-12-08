@@ -17,6 +17,7 @@
 #include "QuadTree.h"
 #include "Visualization.h"
 #include "triangulation.h"
+#include "General_exception.h"
 
 using namespace std;
 
@@ -25,7 +26,7 @@ using namespace std;
 Polygon* load_data(int size, char* filename) {
     Polygon * p = new Polygon(size);
     ifstream file(filename);
-    if (!file.is_open()){
+    if (!file.is_open()) {
         cout << "input stream is not opened." << endl;
         exit(EXIT_FAILURE);
     }
@@ -75,10 +76,10 @@ QuadTree* create_initial_box(Polygon* polygon) {
         if (y > max_y) {
             max_y = y;
         }
-        if (x< min_x) {
+        if (x < min_x) {
             min_x = x;
         }
-        if (y< min_y) {
+        if (y < min_y) {
             min_y = y;
         }
     }
@@ -116,62 +117,51 @@ QuadTree* init_mesh(ostream&out_stream, Polygon* p) {
  * 
  */
 int main(int argc, char** argv) {
-    int size;
-    char* filen;
-    if(argc >= 3){
+
+    try {
+        int size;
+        char* filen;
+        if (argc >= 3) {
             size = atoi(argv[1]);
             filen = argv[2];
-    }else{
-        size = 23;
-        filen = (char*)"input.in";
+        } else {
+            size = 23;
+            filen = (char*) "input.in";
+        }
+        ofstream out_stream("C:\\Users\\Admin\\Documents\\SIM8.txt");
+
+        Polygon* p = load_data(size, filen);
+        for (int i = 0; i < p->length(); ++i) {
+            cout << (*p)[i]->x << " " << (*p)[i]->y << endl;
+        }
+        out_stream << *p;
+        MergeTable merge(size * size * 100);
+        QuadTree* qt = init_mesh(out_stream, p);
+
+        //  step(out_stream);
+        out_stream << *qt;
+        out_stream << *p;
+
+
+        qt->polygon = p;
+
+        qt->split_too_close_boxes();
+
+        // step(out_stream);
+        qt->preproccess();
+        qt->balance_tree();
+        qt->mergeCorners(&merge);
+        qt->transform();
+
+        triangulate(out_stream, p, qt);
+
+        //step(out_stream);
+        out_stream << *qt;
+        out_stream << *p;
+
+    } catch (General_exception e) {
+        cout << e.what() << endl;
     }
-    ofstream out_stream("C:\\Users\\Admin\\Documents\\SIM.txt");
-
-    Polygon* p = load_data(size,filen);
-    for (int i = 0; i < p->length(); ++i){
-        cout << (*p)[i]->x << " " << (*p)[i]->y << endl;
-    }
-    out_stream << *p;
-    MergeTable merge(size * size * 100);
-    QuadTree* qt = init_mesh(out_stream,p);
-    
-    step(out_stream);
-    out_stream << *qt;
-    out_stream << *p;
-    
-//    qt->polygon = p;
-    qt->preproccess();
-    
-    step(out_stream);
-    out_stream << *qt;
-    out_stream << *p;
-
- //   qt->split_too_close_boxes();
-    qt->mergeCorners(&merge);
-    qt->transform();
-    
-    step(out_stream);
-    out_stream << *qt;
-    out_stream << *p;
-
-//    step(out_stream);
-//    triangulate(out_stream, p, qt);
-//    delete p;
-    //delete qt;
-    //    QuadTree quadTree(0.0, 0.0, 100, NULL);
-    //    quadTree.subdivide();
-    //    quadTree.NWChild->subdivide();
-    //    quadTree.SWChild->subdivide();
-    //    quadTree.SEChild->subdivide();
-    //    quadTree.NEChild->subdivide();
-    //    quadTree.NEChild->NWChild->subdivide();
-    //    quadTree.NEChild->SWChild->subdivide();
-    //    quadTree.NEChild->SWChild->NWChild->subdivide();
-    //    quadTree.NEChild->SWChild->NEChild->subdivide();
-    //    quadTree.balance_tree();
-    //    quadTree.print_as_text();
-    //    ofstream out_stream("C:\\Users\\Admin\\Documents\\test_input.txt");
-    //    out_stream << quadTree;
     return 0;
 }
 
