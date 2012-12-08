@@ -100,7 +100,7 @@ QuadTree* QuadTree::slideDown(Direction direction, QuadTree* source) {
         //double maxx = center->x+half;
         double miny = center->y - half;
         double maxy = center->y + half;
-        double src_h = source->half;
+        double src_h = source->width;
         double src_y = source->center->y;
         double src_x = source->center->x;
         switch (direction) {
