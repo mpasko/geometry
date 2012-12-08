@@ -4,6 +4,7 @@
 #include "Unexpected_enum_value_exception.h"
 #include "EmptyNodeException.h"
 #include "Polygon.h"
+#include "geometry.h"
 
 QuadTree* QuadTree::getChildContainingCoord(PerpendicularDir side, double value) {
     if (isLeaf()) {
@@ -61,7 +62,7 @@ void QuadTree::split_too_close_boxes() {
         if ((*it)->node->chunk == NULL) {
             throw EmptyNodeException("Trying to split empty node while spliting by point distance.");
         }
-        (*it)->node->split_to_maximize_distance(polygon->get_nearest_vertex_distance((*it)->node->chunk) / (2 * M_SQRT2));
+        (*it)->node->split_to_maximize_distance(get_nearest_point_distance((*it)->node->chunk, points) / (2 * M_SQRT2));
     }
     return;
 }
@@ -78,109 +79,6 @@ void QuadTree::subdivideOrthogonal(PerpendicularDir side, int target_depth, doub
         (getChildContainingCoord(side, side_middle))->subdivideOrthogonal(side, target_depth, side_middle);
     }
 }
-
-/*
-QuadTree* QuadTree::getDiagonalNode(DiagonalDir region, QuadTree* source) {
-    Point this_corner;
-    Point source_corner;
-    QuadTree* child;
-    switch (region) {
-        case Diag_NE:
-
-            this_corner = *getNECorner();
-            source_corner = *(source->getSWCorner());
-
-            if (this_corner.y == source_corner.y && this_corner.x == source_corner.x) {
-                child = getChildByRegion(Diag_NE);
-            } else if (this_corner.y == source_corner.y) {
-                if (center->x > source_corner.x) {
-                    child = getChildByRegion(Diag_SE);
-                } else {
-                    child = getChildByRegion(Diag_NW);
-                }
-            } else if (this_corner.x == source_corner.x) {
-                if (center->y > source_corner.y) {
-                    child = getChildByRegion(Diag_NW);
-                } else {
-                    child = getChildByRegion(Diag_NE);
-                }
-            } else {
-                throw new General_exception("Forbidden alternative.");
-            }
-            break;
-        case Diag_NW:
-
-            this_corner = *getNWCorner();
-            source_corner = *(source->getSECorner());
-
-            if (this_corner.y == source_corner.y && this_corner.x == source_corner.x) {
-                child = getChildByRegion(Diag_NE);
-            } else if (this_corner.y == source_corner.y) {
-                if (center->x > source_corner.x) {
-                    child = getChildByRegion(Diag_SE);
-                } else {
-                    child = getChildByRegion(Diag_NW);
-                }
-            } else if (this_corner.x == source_corner.x) {
-                if (center->y > source_corner.y) {
-                    child = getChildByRegion(Diag_NW);
-                } else {
-                    child = getChildByRegion(Diag_NE);
-                }
-            } else {
-                throw new General_exception("Forbidden alternative.");
-            }
-            break;
-        case Diag_SE:
-
-            this_corner = *getSECorner();
-            source_corner = *(source->getNWCorner());
-
-            if (this_corner.y == source_corner.y && this_corner.x == source_corner.x) {
-                child = getChildByRegion(Diag_NE);
-            } else if (this_corner.y == source_corner.y) {
-                if (center->x > source_corner.x) {
-                    child = getChildByRegion(Diag_SE);
-                } else {
-                    child = getChildByRegion(Diag_NW);
-                }
-            } else if (this_corner.x == source_corner.x) {
-                if (center->y > source_corner.y) {
-                    child = getChildByRegion(Diag_NW);
-                } else {
-                    child = getChildByRegion(Diag_NE);
-                }
-            } else {
-                throw new General_exception("Forbidden alternative.");
-            }
-            break;
-        case Diag_SW:
-
-            this_corner = *getSWCorner();
-            source_corner = *(source->getNECorner());
-
-            if (this_corner.y == source_corner.y && this_corner.x == source_corner.x) {
-                child = getChildByRegion(Diag_NE);
-            } else if (this_corner.y == source_corner.y) {
-                if (center->x > source_corner.x) {
-                    child = getChildByRegion(Diag_SE);
-                } else {
-                    child = getChildByRegion(Diag_NW);
-                }
-            } else if (this_corner.x == source_corner.x) {
-                if (center->y > source_corner.y) {
-                    child = getChildByRegion(Diag_NW);
-                } else {
-                    child = getChildByRegion(Diag_NE);
-                }
-            } else {
-                throw new General_exception("Forbidden alternative.");
-            }
-            break;
-
-    }
-}
- */
 
 void QuadTree::subdivideDiagonal(DiagonalDir region, QuadTree* source, int target_depth) {
     if (depth >= target_depth) {
@@ -206,28 +104,19 @@ void QuadTree::subdivideDiagonal(DiagonalDir region, QuadTree* source, int targe
         slideDown(slide_direction, source)->subdivideDiagonal(region, source, target_depth);
     } else {
         subdivide();
-        //        getDiagonalNode(region, source)->subdivideDiagonal(region, source, target_depth);
         slideDown(slide_direction, source)->subdivideDiagonal(region, source, target_depth);
     }
 }
 
 void QuadTree::preproccess() {
     list<QuadTree*> pointed_nodes(points.size());
-    // for (int i = 0; i < 5; ++i){
     for (list<Point*>::iterator it = points.begin(); it != points.end(); ++it) {
-        //        for (list<Point*>::iterator tmp_it = pointed_nodes.begin(), copy_it = points.begin(); tmp_it != pointed_nodes.end(); ++tmp_it, ++copy_it) {
-        //            *tmp_it = copy_it->node;
-        //        }
         QuadTree* node = (*it)->node;
         while (node->parent != NULL) {
             node->create_extended_neighbours();
             node = node->parent;
         }
-        //        for (list<Point*>::iterator tmp_it = pointed_nodes.begin(), copy_it = points.begin(); tmp_it != pointed_nodes.end(); ++tmp_it, ++copy_it) {
-        //            *tmp_it = copy_it->node;
-        //        }
     }
-    //}
 }
 
 void QuadTree::create_extended_neighbours() {

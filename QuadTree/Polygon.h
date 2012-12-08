@@ -11,13 +11,10 @@
 #include "Point.h"
 #include "FlushTable.h"
 #include <vector>
+#include <iostream>
+#include <fstream>
 
-class Polygon{
- //   double*coord_x;
- //   double*coord_y;
-    
-//    FlushTable<Point> * flushtable;
-    
+class Polygon{   
     Point** points;
     int index;
     int len;
@@ -25,8 +22,6 @@ public:
     Polygon(int size);
     
     Point* operator[](int index) const;
-    
-    double get_nearest_vertex_distance(Point* vertex);
     
     void operator+=(Point*& p);
     

@@ -17,14 +17,17 @@
 
 using namespace std;
 
+/** 8 glownych kierunkow swiata*/
 enum Direction {
     Dir_N, Dir_NE, Dir_E, Dir_SE, Dir_S, Dir_SW, Dir_W, Dir_NW
 };
 
+/** Podzbior typu Direction - kierunki ukosne */
 enum DiagonalDir {
     Diag_NE, Diag_NW, Diag_SE, Diag_SW
 };
 
+/** Podzbior typu */
 enum PerpendicularDir {
     Per_N, Per_E, Per_S, Per_W
 };
@@ -37,17 +40,14 @@ class QuadTree {
     Point * SECorner;
     Point * SWCorner;
 
-    //    QuadTree* getNeighbourTopDown(Direction direction, QuadTree* parent_neigh, QuadTree* source);
     QuadTree* getNeighbour(Direction direction, Direction source_dir, QuadTree* source);
     QuadTree* slideDown(Direction direction, QuadTree* source);
-    //    QuadTree* getSamllestCornerBox(DiagonalDir dir, QuadTree* parent);
 
     bool is_unbalanced();
     void balance_children();
     void print_as_text(int spaces);
 
 public:
-    Polygon* polygon;
     std::list<Point*> points;
 
 

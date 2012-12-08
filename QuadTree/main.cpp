@@ -47,16 +47,13 @@ Polygon* load_data(int size, char* filename) {
         getline(file, empty, '\n');
 
         Point * current = new Point(x, y);
-        //flush += current;
         *p += current;
         if (prev != NULL) {
-            //drawline(cout,prev,current,blue);
         } else {
             first = current;
         }
         prev = current;
     }
-    //drawline(cout,prev,first,blue);
     file.close();
     return p;
 }
@@ -97,9 +94,6 @@ QuadTree* create_initial_box(Polygon* polygon) {
 QuadTree* init_mesh(ostream&out_stream, Polygon* p) {
     QuadTree* qt = create_initial_box(p);
 
-    //    for(int j=0; j<p->length(); ++j){
-    //        qt->putNextPoint((*p)[j]);
-    //    }
     for (int j = 0; j < p->length(); ++j) {
         qt->points.push_back((*p)[j]);
     }
@@ -110,8 +104,6 @@ QuadTree* init_mesh(ostream&out_stream, Polygon* p) {
 
     return qt;
 }
-
-//void triangulate(std::ostream&out, Polygon* p, QuadTree*qt);
 
 /*
  * 
@@ -141,9 +133,6 @@ int main(int argc, char** argv) {
         //  step(out_stream);
         out_stream << *qt;
         out_stream << *p;
-
-
-        qt->polygon = p;
 
         qt->split_too_close_boxes();
 

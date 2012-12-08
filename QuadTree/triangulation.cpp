@@ -153,42 +153,6 @@ QuadTree* QuadTree::slideDown(Direction direction, QuadTree* source) {
     }
 }
 
-//QuadTree* QuadTree::getSamllestCornerBox(DiagonalDir dir, QuadTree* parent){
-//    if (parent == NULL){
-//        throw General_exception("Null");
-//    }
-//    if (parent.isLeaf()){
-//
-//    }
-//}
-
-//QuadTree* QuadTree::getNeighbourTopDown(Direction direction, QuadTree* parent_neigh, QuadTree* source) {
-//    if (parent_neigh == NULL) {
-//        return NULL;
-//    } else {
-//        switch (direction) {
-//            case Dir_N:
-//            case Dir_E:
-//            case Dir_S:
-//            case Dir_W:
-//                return parent_neigh->slideDown(direction, source);
-//                break;
-//            case Dir_NE:
-//
-//                break;
-//            case Dir_NW:
-//
-//                break;
-//            case Dir_SE:
-//
-//                break;
-//            case Dir_SW:
-//
-//                break;
-//        }
-//    }
-//}
-
 QuadTree* QuadTree::getNeighbour(Direction direction, Direction source_dir, QuadTree* source) {
     if (parent == NULL) {
         return NULL;
@@ -337,9 +301,6 @@ Polygon* filter(Polygon* p, QuadTree *qt) {
 
 void triangulate(std::ostream&out, Polygon* p, QuadTree*qt) {
     if (qt->isLeaf()) {
-        //       float hw = qt->half;
-        //       if(qt->chunk == NULL){
-
         Point * c;
         QuadTree* ENeigh = qt->getNeighbour(Dir_E);
         QuadTree* WNeigh = qt->getNeighbour(Dir_W);

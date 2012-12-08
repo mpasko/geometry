@@ -14,23 +14,10 @@
 #include <iostream>
 #include <fstream>
 
-//FIXME co to jest? :) -> tego tu byc nie powinno...
-//static int seq = 0;
-
-#ifdef PASKO
-
 #define red "ff0000"
 #define green "00ff00"
 #define blue "0000ff"
 #define black "000000"
-
-#else
-
-static const char* red = "RED";
-static const char* green = "GREEN";
-static const char* blue = "BLUE";
-
-#endif
 
 void drawpoint(std::ostream& out, const float x1, const float y1, const char*color);
 

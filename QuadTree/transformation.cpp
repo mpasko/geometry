@@ -4,7 +4,6 @@
 #include "QuadTree.h"
 
 void QuadTree::mergeCorners(MergeTable* m) {
-    //QuadTree* neighbour
 
     if (isLeaf()) {
 
