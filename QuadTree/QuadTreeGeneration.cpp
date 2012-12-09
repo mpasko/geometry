@@ -4,6 +4,7 @@
 #include "Unexpected_enum_value_exception.h"
 #include "EmptyNodeException.h"
 #include "Polygon.h"
+#include "geometry.h"
 
 QuadTree* QuadTree::getChildContainingCoord(PerpendicularDir side, double value) {
     if (isLeaf()) {
@@ -51,8 +52,8 @@ void QuadTree::split_until_size(double target_size) {
 
 void QuadTree::split_to_maximize_distance(double accepted_distance) {
     if (chunk == NULL) {
-            throw EmptyNodeException("Trying to split empty node while spliting by point distance.");
-        }
+        throw EmptyNodeException("Trying to split empty node while spliting by point distance.");
+    }
     split_until_size(accepted_distance);
 }
 
@@ -61,40 +62,60 @@ void QuadTree::split_too_close_boxes() {
         if ((*it)->node->chunk == NULL) {
             throw EmptyNodeException("Trying to split empty node while spliting by point distance.");
         }
-        (*it)->node->split_to_maximize_distance(polygon->get_nearest_vertex_distance((*it)->node->chunk) / (2 * M_SQRT2));
+        (*it)->node->split_to_maximize_distance(get_nearest_point_distance((*it)->node->chunk, points) / (2 * M_SQRT2));
     }
     return;
 }
 
-void QuadTree::subdivide(PerpendicularDir side, int target_depth, double side_middle) {
+void QuadTree::subdivideOrthogonal(PerpendicularDir side, int target_depth, double side_middle) {
     if (depth >= target_depth) {
         return;
     }
     QuadTree* child = getChildContainingCoord(side, side_middle);
     if (child != NULL) {
-        child->subdivide(side, target_depth, side_middle);
+        child->subdivideOrthogonal(side, target_depth, side_middle);
     } else {
         subdivide();
-        (getChildContainingCoord(side, side_middle))->subdivide(side, target_depth, side_middle);
+        (getChildContainingCoord(side, side_middle))->subdivideOrthogonal(side, target_depth, side_middle);
     }
 }
 
-void QuadTree::subdivide(DiagonalDir region, int target_depth) {
+void QuadTree::subdivideDiagonal(DiagonalDir region, QuadTree* source, int target_depth) {
     if (depth >= target_depth) {
         return;
     }
-    QuadTree* child = getChildByRegion(region);
-    if (child != NULL) {
-        child->subdivide(region, target_depth);
+    Direction slide_direction;
+    switch (region) {
+        case Diag_NE:
+            slide_direction = Dir_SW;
+            break;
+        case Diag_NW:
+            slide_direction = Dir_SE;
+            break;
+        case Diag_SE:
+            slide_direction = Dir_NW;
+            break;
+        case Diag_SW:
+            slide_direction = Dir_NE;
+            break;
+    }
+    
+    if (!isLeaf()) {
+        slideDown(slide_direction, source)->subdivideDiagonal(region, source, target_depth);
     } else {
         subdivide();
-        getChildByRegion(region)->subdivide(region, target_depth);
+        slideDown(slide_direction, source)->subdivideDiagonal(region, source, target_depth);
     }
 }
 
 void QuadTree::preproccess() {
+    list<QuadTree*> pointed_nodes(points.size());
     for (list<Point*>::iterator it = points.begin(); it != points.end(); ++it) {
-        (*it)->node->create_extended_neighbours();
+        QuadTree* node = (*it)->node;
+        while (node->parent != NULL) {
+            node->create_extended_neighbours();
+            node = node->parent;
+        }
     }
 }
 
@@ -116,28 +137,28 @@ void QuadTree::create_extended_neighbour(Direction direction) {
     }
     switch (direction) {
         case Dir_N:
-            node->subdivide(Per_S, depth, center->x);
+            node->subdivideOrthogonal(Per_S, depth, center->x);
             break;
         case Dir_S:
-            node->subdivide(Per_N, depth, center->x);
+            node->subdivideOrthogonal(Per_N, depth, center->x);
             break;
         case Dir_E:
-            node->subdivide(Per_W, depth, center->y);
+            node->subdivideOrthogonal(Per_W, depth, center->y);
             break;
         case Dir_W:
-            node->subdivide(Per_E, depth, center->y);
+            node->subdivideOrthogonal(Per_E, depth, center->y);
             break;
         case Dir_NE:
-            node->subdivide(Diag_SW, depth);
+            node->subdivideDiagonal(Diag_SW, this, depth);
             break;
         case Dir_NW:
-            node->subdivide(Diag_SE, depth);
+            node->subdivideDiagonal(Diag_SE, this, depth);
             break;
         case Dir_SE:
-            node->subdivide(Diag_NW, depth);
+            node->subdivideDiagonal(Diag_NW, this, depth);
             break;
         case Dir_SW:
-            node->subdivide(Diag_NE, depth);
+            node->subdivideDiagonal(Diag_NE, this, depth);
             break;
     }
     (void) (node);

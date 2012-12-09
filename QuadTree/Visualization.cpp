@@ -2,8 +2,6 @@
 
 #ifdef PASKO
 
-//FIXME co to jest? :) -> tego tu byc nie powinno...
-//tylko powinno byc tutaj: :)
 static int seq = 0;
 
 void drawpoint(std::ostream& out, const float x1, const float y1, const char*color){

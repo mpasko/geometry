@@ -46,3 +46,19 @@ double get_aspect_ratio(const Point& a, const Point& b, const Point& c){
 bool are_points_equal(const Point& a, const Point& b){
     return fabs(a.x - b.x) < EPSILON && fabs(a.y - b.y) < EPSILON;
 }
+
+double get_nearest_point_distance(Point* vertex, std::list<Point*> points){
+    double min_distance = std::numeric_limits<double>::max();
+    double distance;
+    Point* some_point;
+    for (std::list<Point*>::iterator it = points.begin(); it != points.end(); ++it){
+        some_point = *it;
+        if (fabs(some_point->x - vertex->x) > EPSILON || fabs(some_point->y - vertex->y) > EPSILON) {
+            distance = pitagoras(*some_point, *vertex);
+            if (distance < min_distance){
+                min_distance = distance;
+            }
+        }
+    }
+    return min_distance;
+}

@@ -11,6 +11,8 @@
 #include "FlushTable.h"
 #include "unexpected_subdivision.h"
 
+#include "FlushTable.cpp" // do konkretyzacji wzorca
+
 using namespace std;
 
 Point* getcenter(Point* a, Point* b) {
@@ -32,16 +34,12 @@ QuadTree* QuadTree::match(Point* p) {
             dest = NEChild;
         }
     }
-//    if (dest == NULL) {
-//        cout << "dest NULL" << endl;
-//    }
     return dest;
 }
 
 QuadTree::QuadTree(double cx, double cy, double w, QuadTree * par) :
 NEChild(NULL), NWChild(NULL), SEChild(NULL), SWChild(NULL), parent(par) {
     center = new Point(cx, cy);
-//    half = w / 2.03;
     half = w / 2.0;
     width = w;
     chunk = NULL;
@@ -90,28 +88,8 @@ void QuadTree::subdivide() {
             chunk->node = child;
             chunk = NULL;
         }
-
-
-//        if (SEChild == NULL) {
-//            cout << "se\n";
-//        }
-//        if (NEChild == NULL) {
-//            cout << "ne\n";
-//        }
-//        if (NWChild == NULL) {
-//            cout << "nw\n";
-//        }
-//        if (SWChild == NULL) {
-//            cout << "sw\n";
-//        }
     } else {
         throw Unexpected_subdivision("You cannot split leaf");
-
-        //            NEChild->subdivide();
-        //            NWChild->subdivide();
-        //            SEChild->subdivide();
-        //            SWChild->subdivide();
-
     }
 }
 
@@ -134,31 +112,11 @@ void QuadTree::putNextPoint(Point * p) {
     } else {
         dest = match(p);
     }
-//    if (SEChild == this) {
-//        cout << "se\n";
-//    }
-//    if (NEChild == this) {
-//        cout << "ne\n";
-//    }
-//    if (NWChild == this) {
-//        cout << "nw\n";
-//    }
-//    if (SWChild == this) {
-//        cout << "sw\n";
-//    }
-//    if (dest == this) {
-//        cout << "dest\n";
-//    }
-//    cout << "depth: " << depth << endl;
-//    cout << "children: " << child_to_str(NWChild) << " " << child_to_str(NEChild) << " " << child_to_str(SEChild) << " " << child_to_str(SWChild) << endl;
     dest->putNextPoint(p);
 }
 
 ostream& operator<<(ostream& out, const QuadTree& tree) {
     if (tree.isLeaf()) {
-        //            double x = tree.center->x;
-        //            double y = tree.center->y;
-        //            double half = tree.half;
         Point * a = tree.getNECorner();
         Point * b = tree.getNWCorner();
         Point * c = tree.getSECorner();
@@ -210,5 +168,4 @@ QuadTree::~QuadTree() {
     DEL(SWChild)
     NEChild = NWChild = SEChild = SWChild = NULL;
     delete center;
-//    delete flush;
 }
