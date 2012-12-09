@@ -17,5 +17,7 @@ public interface IController {
 	void AddPoint();
 	void SetZoom(int value);
 	void Refresh(Model m);
+	void cleanup();
+	void setAutoClosure(boolean a);
 	Model GetModel();
 }

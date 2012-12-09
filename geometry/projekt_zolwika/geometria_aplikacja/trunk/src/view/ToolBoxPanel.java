@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JColorChooser;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
@@ -31,30 +32,36 @@ public class ToolBoxPanel extends JPanel {
     private JButton resetPosition;
     private IController controller;
     private JSpinner zoom;
+	private JButton clean;
+	private JCheckBox autoclos;
 
     public ToolBoxPanel() {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         JPanel file = new JPanel();
-        file.setLayout(new GridLayout(5, 1));
+        file.setLayout(new GridLayout(6, 1));
         save = new JButton("Zapisz");
         open = new JButton("Otworz");
         generate = new JButton("Przeladuj");
+        clean = new JButton("Czysc");
         file.add(new JLabel("Plik"));
         file.add(open);
         file.add(save);
         file.add(generate);
+        file.add(clean);
 
         JPanel edit = new JPanel();
-        edit.setLayout(new GridLayout(6, 1));
+        edit.setLayout(new GridLayout(7, 1));
         addPoint = new JButton("Dodaj punkt");
         movePoint = new JButton("Przesun punkt");
         closeShape = new JButton("Zamknij wielokat");
+        autoclos = new JCheckBox("Autodomykanie");
         setColour = new JButton("Ustaw kolor");
-        resetPosition = new JButton("Zresetuj pozycj�");
+        resetPosition = new JButton("Zresetuj pozycje");
         edit.add(new JLabel("Edycja"));
         edit.add(addPoint);
         edit.add(movePoint);
         edit.add(closeShape);
+        edit.add(autoclos);
         edit.add(setColour);
 
         JPanel view = new JPanel();
@@ -129,6 +136,21 @@ public class ToolBoxPanel extends JPanel {
                 controller.Reload();
             }
         });
+        this.clean.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				controller.cleanup();
+			}
+		});
+        this.autoclos.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				controller.setAutoClosure(autoclos.isSelected());
+			}
+		});
     }
 
     public void setController(IController controller) {

@@ -59,6 +59,7 @@ public class PlanePanel extends JComponent implements MouseMotionListener, Mouse
     private Color currentColor = Color.BLACK;
     private IFormatter formatter;
     private String filename;
+	private boolean autoclosure = false;
 
     @Override
     public void Reload() {
@@ -266,6 +267,9 @@ public class PlanePanel extends JComponent implements MouseMotionListener, Mouse
         if (workingMode == Mode.CREATE) {
             if (SwingUtilities.isLeftMouseButton(e)) {
                 AddPointToEditedList(GetTransformed(e.getPoint()));
+                if(autoclosure){
+                	CloseEditedShape();
+                }
             } else if (SwingUtilities.isRightMouseButton(e) && e.isAltDown()) {
                 RemoveLastPointFromList();
             } else if (SwingUtilities.isRightMouseButton(e)) {
@@ -475,4 +479,14 @@ public class PlanePanel extends JComponent implements MouseMotionListener, Mouse
     synchronized public void RemoveShapeWrap(ShapeWrap e) {
         shapes.remove(e);
     }
+
+	@Override
+	public void cleanup() {
+		this.Refresh(new Model());
+	}
+
+	@Override
+	public void setAutoClosure(boolean a) {
+		this.autoclosure = a;
+	}
 }

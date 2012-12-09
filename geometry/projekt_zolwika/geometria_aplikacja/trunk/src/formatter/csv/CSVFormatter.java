@@ -19,6 +19,7 @@ public class CSVFormatter implements IFormatter {
 	PointModel readPoint() {
 		String[] items = scan.nextLine().split(",");
 		double x, y;
+		boolean messy = false;
 		if (items.length < 5) {
 			if ((items.length == 1) && (items[0].compareTo("step") == 0)) {
 				step = false;
@@ -27,12 +28,18 @@ public class CSVFormatter implements IFormatter {
 				return null;
 			}
 		}
-		x = Double.parseDouble(items[0].trim());
+		if (items[0].compareTo("inf")==0){
+			x = 1000.0;
+			messy = true;
+		}else{
+			x = Double.parseDouble(items[0].trim());
+		}
 		y = Double.parseDouble(items[1].trim());
 		Color color = Color.decode("0x" + items[2].trim());
 		String label = items[3].trim();
 		int shape = Integer.parseInt(items[4].trim());
 		PointModel m = new PointModel(new Point2D.Double(x, y), color, label, shape);
+		m.messy = messy;
 		return m;
 	}
 
