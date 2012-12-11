@@ -61,7 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Lista&#160;klas</span></a></li>
       <li><a href="classes.html"><span>Indeks&#160;klas</span></a></li>
-      <li><a href="hierarchy.html"><span>Hierarchia&#160;klas</span></a></li>
+      <li><a href="inherits.html"><span>Hierarchia&#160;klas</span></a></li>
       <li><a href="functions.html"><span>Składowe&#160;klas</span></a></li>
     </ul>
   </div>
@@ -89,19 +89,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
 </div><!--header-->
 <div class="contents">
 
+<p>Klasa opisująca dowolny wyjątek, pozwala na podanie opisu przyczyny rzucenia wyjaku w kostruktorze.  
+ <a href="class_general__exception.html#details">Więcej...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_general__exception_8h_source.html">General_exception.h</a>&gt;</code></p>
 <div class="dynheader">
 Diagram dziedziczenia dla General_exception</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="class_general__exception.png" usemap="#General_exception_map" alt=""/>
-  <map id="General_exception_map" name="General_exception_map">
-<area href="class_bad___conversion.html" title="Wyjątek rzucany przy niepoprawnej konwersji stringa na wartość określonego typu." alt="Bad_Conversion" shape="rect" coords="0,112,214,136"/>
-<area href="class_empty_node_exception.html" title="Wyjąek rzucany gdy węzeł nie zawiera w środku punktu, mimo, że zakładaliśmy coś przciwnego." alt="EmptyNodeException" shape="rect" coords="224,112,438,136"/>
-<area href="class_unexpected__enum__value__exception.html" title="Wyjątek rzucany, gdy w insrukcji switch wybrany zostanie inny enum niż te z przewidywnej puli..." alt="Unexpected_enum_value_exception" shape="rect" coords="448,112,662,136"/>
-<area href="class_unexpected__subdivision.html" alt="Unexpected_subdivision" shape="rect" coords="672,112,886,136"/>
+<div class="center"><img src="class_general__exception__inherit__graph.png" border="0" usemap="#_general__exception_inherit__map" alt="Inheritance graph"/></div>
+<map name="_general__exception_inherit__map" id="_general__exception_inherit__map">
+<area shape="rect" id="node5" href="class_bad___conversion.html" title="Wyjątek rzucany przy niepoprawnej konwersji stringa na wartość określonego typu." alt="" coords="363,5,477,32"/><area shape="rect" id="node7" href="class_empty_node_exception.html" title="Wyjąek rzucany gdy węzeł nie zawiera w środku punktu, mimo, że zakładaliśmy coś przciwnego." alt="" coords="346,56,494,83"/><area shape="rect" id="node9" href="class_unexpected__enum__value__exception.html" title="Wyjątek rzucany, gdy w insrukcji switch wybrany zostanie inny enum niż te z przewidywnej puli..." alt="" coords="337,107,503,149"/><area shape="rect" id="node11" href="class_unexpected__subdivision.html" title="Unexpected_subdivision" alt="" coords="339,173,501,200"/></map>
+<center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
+<div class="dynheader">
+Diagram współpracy dla General_exception:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_general__exception__coll__graph.png" border="0" usemap="#_general__exception_coll__map" alt="Collaboration graph"/></div>
+<map name="_general__exception_coll__map" id="_general__exception_coll__map">
 </map>
- </div></div>
+<center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Metody publiczne</h2></td></tr>
@@ -121,7 +126,7 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><b>what</b> ()</
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Wygenerowano Wt, 11 gru 2012 13:30:36 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
+Wygenerowano Wt, 11 gru 2012 14:34:28 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

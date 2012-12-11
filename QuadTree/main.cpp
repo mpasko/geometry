@@ -205,7 +205,7 @@ int main(int argc, char** argv) {
                 } else {
                     error_imput_handler();
                 }
-            }        
+            }
             qt = create_initial_box(points_list);
             output_manager = new OutputManager(points_list, qt, out_stream);
         } else {
@@ -240,13 +240,9 @@ int main(int argc, char** argv) {
             }
         }
 
-        for (list<Point*>::iterator it = points_list->begin(); it != points_list->end(); ++it) {
-            cout << (*it)->x << " " << (*it)->y << endl;
-        }
-
         ofstream& output_stream = *out_stream;
 
-//        output_manager->print_simulation_step();
+        output_manager->print_simulation_step();
 
         /*stworz poczatkowa siatke poprzez dokladanie do niej kolejnych punktow
          (dzielac przy tym odpowiednio quadtree tak by dwa punkty nie lezaly
@@ -281,11 +277,6 @@ int main(int argc, char** argv) {
         /*Wypisz ostateczny wynik triangulacji*/
         output_manager->print_simulation_step();
         triangulate(output_stream, qt, red);
-
-        //step(out_stream);
-        //        out_stream << *qt;
-        //        out_stream << *p;
-
 
     } catch (General_exception e) {
         cout << e.what() << endl;
