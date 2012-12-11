@@ -8,7 +8,7 @@ import java.awt.geom.Point2D.Double;
 
 public class PointModel {
 
-	public static int pointW = 5;
+	public static int pointW = 3;
 	public Point2D.Double point;
 	public Color color;
 	public String label;

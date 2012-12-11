@@ -89,22 +89,26 @@ public class PlanePanel extends JComponent implements MouseMotionListener, Mouse
         ResetView();
     }
 
-    static Shape GenerateShapeFromPoints(List<Point2D.Double> points) {
+    private Shape GenerateShapeFromPoints(List<Point2D.Double> points) {
         if (points.size() == 0) {
             return null;
         }
         if (points.size() <= 2) {
             Line2D.Double line = new Line2D.Double();
-            line.x1 = points.get(0).x;
-            line.y1 = points.get(0).y;
+            Point2D p1 = transformation.transform(points.get(0),null);
+            Point2D p2 = transformation.transform(points.get(points.size() - 1),null);
+            
+            line.x1 = p1.getX();
+            line.y1 = p1.getY();
 
-            line.x2 = points.get(points.size() - 1).x;
-            line.y2 = points.get(points.size() - 1).y;
+            line.x2 = p2.getX();
+            line.y2 = p2.getY();
 
             return line;
         } else {
             GeneralPath path = null;
-            for (Point2D.Double p : points) {
+            for (Point2D.Double a : points) {
+            	Point2D p = transformation.transform(a,null);
                 if (path == null) {
                     path = new GeneralPath();
                     path.moveTo(p.getX(), p.getY());
@@ -116,7 +120,7 @@ public class PlanePanel extends JComponent implements MouseMotionListener, Mouse
         }
     }
 
-    static ShapeWrap GenerateWrapFromPoints(List<Point2D.Double> points) {
+    private ShapeWrap GenerateWrapFromPoints(List<Point2D.Double> points) {
         if (points.size() == 0 || points.size() == 1) {
             return null;
         } else if (points.size() == 2) {
@@ -133,6 +137,15 @@ public class PlanePanel extends JComponent implements MouseMotionListener, Mouse
         }
         return ret;
     }
+    
+    private void recalcTransform(){
+    	AffineTransform translation = new AffineTransform();
+        translation.translate(this.getWidth() / 2, this.getHeight() / 2);
+        translation.concatenate(AffineTransform.getScaleInstance(magnif, magnif));
+        translation.translate(transX, transY);
+//        translation.scale(1., -1.); //TODO Poprawic w innych miejscach
+        transformation = translation;
+    }
 
     @Override
     public void paintComponent(Graphics g) {
@@ -142,16 +155,13 @@ public class PlanePanel extends JComponent implements MouseMotionListener, Mouse
 
         AffineTransform savedTransform = g2d.getTransform();
 
-        AffineTransform translation = new AffineTransform();
-        translation.translate(this.getWidth() / 2, this.getHeight() / 2);
-        translation.concatenate(AffineTransform.getScaleInstance(magnif, magnif));
-        translation.translate(transX, transY);
-//        translation.scale(1., -1.); //TODO Poprawic w innych miejscach
-        transformation = translation;
-        g2d.transform(transformation);
+        recalcTransform();
+        g2d.transform(transformation);      
 
+        g2d.setTransform(savedTransform);
+        
         DrawShapes(g2d);
-
+        
         if (workingMode == Mode.CREATE) {
             if (changeMade) {
                 editedShape = GenerateShapeFromPoints(editedPoints);
@@ -160,8 +170,6 @@ public class PlanePanel extends JComponent implements MouseMotionListener, Mouse
                 g2d.draw(editedShape);
             }
         }
-
-        g2d.setTransform(savedTransform);
 
         DrawPoints(g2d, transformation);
     }
@@ -452,6 +460,8 @@ public class PlanePanel extends JComponent implements MouseMotionListener, Mouse
     @Override
     public void SetZoom(int value) {
         magnif = Math.exp((double) (value) / 8);
+        recalcTransform();
+        regenerateShapes();
         repaint();
     }
 

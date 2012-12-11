@@ -15,6 +15,7 @@ public class CSVFormatter implements IFormatter {
 
 	Scanner scan = null;
 	boolean step = true;
+	boolean fmode = true;
 
 	PointModel readPoint() {
 		String[] items = scan.nextLine().split(",");
@@ -23,6 +24,11 @@ public class CSVFormatter implements IFormatter {
 		if (items.length < 5) {
 			if ((items.length == 1) && (items[0].compareTo("step") == 0)) {
 				step = false;
+				fmode = true;
+				return null;
+			} else if ((items.length == 1) && (items[0].compareTo("halt") == 0)) {
+				step = false;
+				fmode = false;
 				return null;
 			} else {
 				return null;
@@ -90,7 +96,9 @@ public class CSVFormatter implements IFormatter {
 	@Override
 	public Model getNextStep(InputStream in, Model current) {
 		step = true;
-		current = new Model();
+		if(fmode){
+			current = new Model();
+		}
 		while (step) {
 			current = doStep(in, current);
 		}
