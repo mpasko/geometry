@@ -8,7 +8,7 @@
 #ifndef FLUSHTABLE_H
 #define	FLUSHTABLE_H
 
-/** \brief */
+/** \brief Szablon klasy ułatwiający panowanie nad wyciekami pamieci. Zawiera tablicę wskaźników na obszary pamieci do późniejszego zwolnienia. */
 template<class T>
 class FlushTable{
     T** flushtable;
@@ -17,6 +17,9 @@ class FlushTable{
 public:
     FlushTable(int sz);
     
+    /** \brief Dodaje wskaźnik na pilnowany obiekt do tablicy
+    * @param wskaźnik na obiekt do zwolnienia
+    */
     void operator+=(T* obj);
     
     virtual ~FlushTable();

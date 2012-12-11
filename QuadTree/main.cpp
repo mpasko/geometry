@@ -28,6 +28,9 @@ using namespace std;
 
 /*Zalozenie: os y biegnie do gory*/
 
+/** \brief Wczytuje dane wielokąta z pliku
+* @param filename -nazwa pliku
+*/
 Polygon* load_polygon_data(char* filename) {
     ifstream file(filename);
     if (!file.is_open()) {
@@ -61,6 +64,9 @@ Polygon* load_polygon_data(char* filename) {
     return p;
 }
 
+/** \brief Wczytuje zbiór punktów z pliku
+* @param filename nazwa pliku
+*/
 list<Point*>* load_points_data(char* filename) {
     list<Point*>* points = new list<Point*>();
     ifstream file(filename);
@@ -92,6 +98,9 @@ list<Point*>* load_points_data(char* filename) {
     return points;
 }
 
+/** \brief Tworzy początkowy węzeł QuadTree na podstawie listy punktów
+* @param points_list -lista punktów
+*/
 QuadTree* create_initial_box(const list<Point*>* points_list) {
     double max_x = std::numeric_limits<double>::min();
     double max_y = std::numeric_limits<double>::min();
@@ -159,6 +168,12 @@ void help() {
             "the visualizator input." << endl;
 }
 
+/** \brief Główna metoda programu argumenty:
+* polygon in_file_path [out_file_path] -triangulacja poligonu
+* points in_file_path [out_file_path] -triangulacja zbioru punktów
+* random side_length second_side_length points_number [out_file_path] -generacja losowych punktów wewnątrz prostokata
+* random radius points_number [out_file_path] -generacja losowych punktów wewnątrz koła
+*/
 int main(int argc, char** argv) {
 
     try {
