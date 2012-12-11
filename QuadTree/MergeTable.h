@@ -10,7 +10,7 @@
 
 #include "Point.h"
 
-/** \brief */
+/** \brief Klasa służąca do indeksowania wierzchołków do scalania */
 class MergeTable{
 public:
     Point ** reference;
@@ -18,12 +18,24 @@ public:
     double * y;
     int max;
     
+    /** Konstruktor
+    * @param sz rozmiar
+    */
     MergeTable(int sz);
     
+    /** Zwraca wskaźnik na punkt o podanych współrzędnych
+    * @param x odcięta
+    * @param y rzędna
+    */
     Point* get(double x, double y);
     
+    /** Scala dwa wskaźniki na punkty 
+    * @param p referencja na pierwszy wskaźnik
+    * @param q referencja na drugi wskaźnik
+    */
     void merge(Point ** p, Point ** d);
     
+    /** Wstawia punkt do indeksu */
     Point* set(Point* p);
     
     ~MergeTable();

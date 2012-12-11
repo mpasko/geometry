@@ -23,12 +23,22 @@ public:
     Polygon(int size);
     Polygon(std::list<Point*>* points_list);
     
+    /**
+    * Zwraca punkt należący do wielokąta.
+    */
     Point* operator[](int index) const;
     
+    /**
+    * Dodaje punkt do wielokąta.
+    */
     void operator+=(Point*& p);
     
+    /**
+    * Wypisuje sformatowaną reprezentację do strumienia.
+    */
     friend std::ostream& operator<<(std::ostream& out, const Polygon& tree);
     
+    /** Zwraca rozmiar wielokąta jako liczbę punktów */
     int length() const;
     
     virtual ~Polygon();

@@ -28,7 +28,7 @@ enum DiagonalDir {
     Diag_NE, Diag_NW, Diag_SE, Diag_SW
 };
 
-/** Podzbior typu */
+/** Podzbior typu Direction - kierunki prostopadłe */
 enum PerpendicularDir {
     Per_N, Per_E, Per_S, Per_W
 };
@@ -38,11 +38,20 @@ class QuadTree {
     FlushTable<Point> * flush;
     class OutputManager* output_manager;
 
+    /** Krawędź północno-wschodnia */
     Point * NECorner;
+    /** Krawędź północno-zachodnia */
     Point * NWCorner;
+    /** Krawędź południowo-wschodnia */
     Point * SECorner;
+    /** Krawędź południowo-zachodnia */
     Point * SWCorner;
 
+    /** Służy do rekurencyjnego wywołania getNeighbour
+    * @param direction aktualny kierunek (może ulegac zmianie w kolejnych wywołaniach)
+    * @param source_dir początkowy kierunek
+    * @param source wskaźnik na QuadTree z którego zaczęliśmy poszukiwania
+    */
     QuadTree* getNeighbour(Direction direction, Direction source_dir, QuadTree* source);
     QuadTree* slideDown(Direction direction, QuadTree* source);
 
@@ -125,6 +134,10 @@ class QuadTree {
      */
     void subdivideDiagonal(DiagonalDir region, QuadTree* source, int target_depth);
 
+    /** Zwraca punkt przecięcia zadanej krawędzi z elementem siatki QuadTree 
+    * @param a początek krawędzi
+    * @param b koniec krawędzi
+    */
     Point* getCrossing(Point*a, Point* b);
 public:
     /** Zbiór wszsytkich punktów zawartych w obszarze QuadTree dla których
@@ -140,20 +153,31 @@ public:
     /** Dziecko w południowo-zachodnim rogu*/
     class QuadTree* SWChild;
 
+    /** Środek wschodniej krawędzi */ 
     Point * ECorner;
+    /** Środek zachodniej krawędzi */ 
     Point * WCorner;
+    /** Środek południowej krawędzi */ 
     Point * SCorner;
+    /** Środek północnej krawędzi */ 
     Point * NCorner;
 
     class QuadTree* parent;
 
     /**w ktorej czesci rodzica znajduje sie dany node.*/
     DiagonalDir parent_region;
+    
+    /** Współrzędne środka */
     Point* center;
+    
+    /** Szerokość */
     double width;
+    /** Połowa szerokosci */
     double half;
+    /** Punkt zawarty wewnątrz liscia */
     Point* chunk;
 
+    /** Głębokość zagłebienia w strukturze QuadTree */
     int depth;
 
     QuadTree(double cx, double cy, double w, QuadTree* parent);
@@ -181,6 +205,7 @@ public:
      */
     void split_too_close_boxes();
 
+    /** Dokonuje podpodziału na mniejsze kwadraty*/
     void subdivide();
 
     /**
@@ -206,10 +231,16 @@ public:
      */
     void balance_tree();
 
+    /** Wkłada kolejny punkt do struktury dokonując podpodziałów w miarę potrzeby 
+    * @param p Wkładany punkt
+    */
     void putNextPoint(Point * p);
 
     friend ostream & operator<<(ostream& out, const QuadTree& tree);
 
+    /** Zwraca sąsiada węzła QuadTree
+    * @param direction kierunek poszukiwań
+    */
     QuadTree* getNeighbour(Direction direction);
 
     Point* getNECorner() const;
@@ -217,9 +248,14 @@ public:
     Point* getNWCorner() const;
     Point* getSWCorner() const;
 
+    /** Zwraca współrzędne punktu Steinera */
     Point* getSteiner();
 
+    /** Dokonuje transformację siatki */
     void transform();
+    /** Dokonuje scalania wierzchołków 
+    * @param m obiekt klasy MergeTable indeksujący wierzchołki do scalania
+    */
     void mergeCorners(MergeTable* m);
 
     virtual ~QuadTree();
