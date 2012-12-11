@@ -34,6 +34,7 @@ include Makefile
 OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
+<<<<<<< Updated upstream
 OBJECTFILES= \
 	${OBJECTDIR}/General_exception.o \
 	${OBJECTDIR}/Point.o \
@@ -42,6 +43,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/Polygon.o \
 	${OBJECTDIR}/Visualization.o \
 	${OBJECTDIR}/Segment.o
+=======
+OBJECTFILES=
+>>>>>>> Stashed changes
 
 
 # C Compiler Flags
@@ -70,6 +74,7 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgeometry.a: ${OBJECTFILES}
 	${AR} -rv ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgeometry.a ${OBJECTFILES} 
 	$(RANLIB) ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libgeometry.a
 
+<<<<<<< Updated upstream
 ${OBJECTDIR}/General_exception.o: General_exception.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
@@ -105,6 +110,8 @@ ${OBJECTDIR}/Segment.o: Segment.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -g -Wall -MMD -MP -MF $@.d -o ${OBJECTDIR}/Segment.o Segment.cpp
 
+=======
+>>>>>>> Stashed changes
 # Subprojects
 .build-subprojects:
 

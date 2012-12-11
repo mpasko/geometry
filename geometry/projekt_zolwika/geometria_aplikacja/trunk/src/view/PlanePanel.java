@@ -149,6 +149,9 @@ public class PlanePanel extends JComponent implements MouseMotionListener, Mouse
 
     @Override
     public void paintComponent(Graphics g) {
+
+        regenerateShapes();
+    	
         super.paintComponent(g);
 
         Graphics2D g2d = (Graphics2D) g;
@@ -411,7 +414,6 @@ public class PlanePanel extends JComponent implements MouseMotionListener, Mouse
                 return arg0.GetPoints().length - arg1.GetPoints().length;
             }
         });
-        this.repaint();
     }
 
     @Override
@@ -461,7 +463,6 @@ public class PlanePanel extends JComponent implements MouseMotionListener, Mouse
     public void SetZoom(int value) {
         magnif = Math.exp((double) (value) / 8);
         recalcTransform();
-        regenerateShapes();
         repaint();
     }
 
@@ -471,7 +472,6 @@ public class PlanePanel extends JComponent implements MouseMotionListener, Mouse
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 PlanePanel.this._all_points = mod;
-                regenerateShapes();
                 repaint();
             }
         });

@@ -1,6 +1,6 @@
 /* 
  * File:   Segment.h
- * Author: W³aciciel
+ * Author: W3a?ciciel
  *
  * Created on 21 listopad 2012, 01:37
  */

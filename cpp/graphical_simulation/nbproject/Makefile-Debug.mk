@@ -14,11 +14,19 @@ GREP=grep
 NM=nm
 CCADMIN=CCadmin
 RANLIB=ranlib
+<<<<<<< Updated upstream
 CC=gcc.exe
 CCC=g++.exe
 CXX=g++.exe
 FC=gfortran.exe
 AS=as.exe
+=======
+CC=gcc
+CCC=g++
+CXX=g++
+FC=gfortran
+AS=as
+>>>>>>> Stashed changes
 
 # Macros
 CND_PLATFORM=MinGW-Windows

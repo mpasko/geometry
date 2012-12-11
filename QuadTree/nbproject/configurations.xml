@@ -1,68 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="84">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
-    <logicalFolder name="HeaderFiles"
-                   displayName="Header Files"
-                   projectFiles="true">
-      <itemPath>EmptyNodeException.h</itemPath>
-      <itemPath>FlushTable.h</itemPath>
-      <itemPath>General_exception.h</itemPath>
-      <itemPath>MergeTable.h</itemPath>
-      <itemPath>Point.h</itemPath>
-      <itemPath>Polygon.h</itemPath>
-      <itemPath>QuadTree.h</itemPath>
-      <itemPath>Segment.h</itemPath>
-      <itemPath>Unexpected_enum_value_exception.h</itemPath>
-      <itemPath>Visualization.h</itemPath>
-      <itemPath>geometry.h</itemPath>
-      <itemPath>triangulation.h</itemPath>
-      <itemPath>trimmer.h</itemPath>
-      <itemPath>unexpected_subdivision.h</itemPath>
-    </logicalFolder>
-    <logicalFolder name="ResourceFiles"
-                   displayName="Resource Files"
-                   projectFiles="true">
-    </logicalFolder>
-    <logicalFolder name="SourceFiles"
-                   displayName="Source Files"
-                   projectFiles="true">
-      <itemPath>FlushTable.cpp</itemPath>
-      <itemPath>General_exception.cpp</itemPath>
-      <itemPath>MergeTable.cpp</itemPath>
-      <itemPath>Point.cpp</itemPath>
-      <itemPath>Polygon.cpp</itemPath>
-      <itemPath>QuadTree.cpp</itemPath>
-      <itemPath>QuadTreeGeneration.cpp</itemPath>
-      <itemPath>Segment.cpp</itemPath>
-      <itemPath>Visualization.cpp</itemPath>
-      <itemPath>geometry.cpp</itemPath>
-      <itemPath>main.cpp</itemPath>
-      <itemPath>transformation.cpp</itemPath>
-      <itemPath>triangulation.cpp</itemPath>
-    </logicalFolder>
-    <logicalFolder name="TestFiles"
-                   displayName="Test Files"
-                   projectFiles="false"
-                   kind="TEST_LOGICAL_FOLDER">
-      <logicalFolder name="f1"
-                     displayName="New C++ Simple Test"
-                     projectFiles="true"
-                     kind="TEST">
-        <itemPath>tests/newsimpletest.cpp</itemPath>
-      </logicalFolder>
-      <logicalFolder name="f3"
-                     displayName="New C++ Simple Test 1"
-                     projectFiles="true"
-                     kind="TEST">
-        <itemPath>tests/newsimpletest1.cpp</itemPath>
-      </logicalFolder>
-      <logicalFolder name="f4"
-                     displayName="New C++ Simple Test 2"
-                     projectFiles="true"
-                     kind="TEST">
-        <itemPath>tests/newsimpletest2.cpp</itemPath>
-      </logicalFolder>
-    </logicalFolder>
+    <df name="QuadTree" root=".">
+      <df name="build">
+        <df name="Debug">
+          <df name="Cygwin-Windows">
+            <df name="tests">
+              <df name="TestFiles">
+              </df>
+              <df name="tests">
+              </df>
+            </df>
+          </df>
+        </df>
+      </df>
+      <df name="dist">
+        <df name="Debug">
+          <df name="Cygwin-Windows">
+          </df>
+        </df>
+      </df>
+      <df name="tests">
+        <in>FIndNeighbourTest.cpp</in>
+        <in>newsimpletest.cpp</in>
+      </df>
+      <in>EmptyNodeException.h</in>
+      <in>FlushTable.cpp</in>
+      <in>FlushTable.h</in>
+      <in>General_exception.cpp</in>
+      <in>General_exception.h</in>
+      <in>MergeTable.cpp</in>
+      <in>MergeTable.h</in>
+      <in>Point.cpp</in>
+      <in>Point.h</in>
+      <in>Polygon.cpp</in>
+      <in>Polygon.h</in>
+      <in>QuadTree.cpp</in>
+      <in>QuadTree.h</in>
+      <in>QuadTreeGeneration.cpp</in>
+      <in>Segment.h</in>
+      <in>Unexpected_enum_value_exception.h</in>
+      <in>Visualization.cpp</in>
+      <in>Visualization.h</in>
+      <in>geometry.cpp</in>
+      <in>geometry.h</in>
+      <in>main.cpp</in>
+      <in>transformation.cpp</in>
+      <in>triangulation.cpp</in>
+      <in>triangulation.h</in>
+      <in>trimmer.h</in>
+      <in>unexpected_subdivision.h</in>
+    </df>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="false"
@@ -70,93 +58,126 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
-    <conf name="Debug" type="1">
-      <toolsSet>
-        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
-        <compilerSet>MinGW|MinGW</compilerSet>
-      </toolsSet>
-      <compileType>
-        <cTool>
-          <incDir>
-            <pElem>.</pElem>
-          </incDir>
-        </cTool>
-        <ccTool>
-          <incDir>
-            <pElem>.</pElem>
-          </incDir>
-          <commandLine>-lm</commandLine>
-          <warningLevel>2</warningLevel>
-        </ccTool>
-        <linkerTool>
-          <output>${TESTDIR}/TestFiles/f2</output>
-          <linkerAddLib>
-            <pElem>../../../MinGW/bin</pElem>
-          </linkerAddLib>
-        </linkerTool>
-      </compileType>
-      <folder path="TestFiles">
-        <ccTool>
-          <incDir>
-            <pElem>.</pElem>
-          </incDir>
-        </ccTool>
-      </folder>
-      <folder path="TestFiles/f3">
-        <cTool>
-          <incDir>
-            <pElem>.</pElem>
-          </incDir>
-        </cTool>
-        <ccTool>
-          <incDir>
-            <pElem>.</pElem>
-          </incDir>
-        </ccTool>
-        <linkerTool>
-          <output>${TESTDIR}/TestFiles/f3</output>
-          <linkerAddLib>
-            <pElem>../../../MinGW/bin</pElem>
-          </linkerAddLib>
-        </linkerTool>
-      </folder>
-      <folder path="TestFiles/f4">
-        <cTool>
-          <incDir>
-            <pElem>.</pElem>
-          </incDir>
-        </cTool>
-        <ccTool>
-          <incDir>
-            <pElem>.</pElem>
-          </incDir>
-        </ccTool>
-        <linkerTool>
-          <output>${TESTDIR}/TestFiles/f4</output>
-          <linkerAddLib>
-            <pElem>../../../MinGW/bin</pElem>
-          </linkerAddLib>
-        </linkerTool>
-      </folder>
-    </conf>
-    <conf name="Release" type="1">
+    <conf name="Default" type="0">
       <toolsSet>
         <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
         <compilerSet>default</compilerSet>
       </toolsSet>
-      <compileType>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath></executablePath>
+        </makeTool>
+      </makefileType>
+      <item path="FlushTable.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
-          <developmentMode>5</developmentMode>
+          <incDir>
+            <pElem></pElem>
+          </incDir>
         </ccTool>
-        <fortranCompilerTool>
-          <developmentMode>5</developmentMode>
-        </fortranCompilerTool>
-        <asmTool>
-          <developmentMode>5</developmentMode>
-        </asmTool>
-      </compileType>
+      </item>
+      <item path="General_exception.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+          <incDir>
+            <pElem></pElem>
+          </incDir>
+        </ccTool>
+      </item>
+      <item path="MergeTable.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+          <incDir>
+            <pElem></pElem>
+          </incDir>
+        </ccTool>
+      </item>
+      <item path="Point.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+          <incDir>
+            <pElem></pElem>
+          </incDir>
+        </ccTool>
+      </item>
+      <item path="Polygon.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+          <incDir>
+            <pElem></pElem>
+          </incDir>
+        </ccTool>
+      </item>
+      <item path="QuadTree.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+          <incDir>
+            <pElem></pElem>
+          </incDir>
+        </ccTool>
+      </item>
+      <item path="QuadTreeGeneration.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+          <incDir>
+            <pElem></pElem>
+          </incDir>
+        </ccTool>
+      </item>
+      <item path="Visualization.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+          <incDir>
+            <pElem></pElem>
+          </incDir>
+        </ccTool>
+      </item>
+      <folder path="QuadTree/tests">
+        <ccTool>
+          <incDir>
+            <pElem>tests</pElem>
+          </incDir>
+        </ccTool>
+      </folder>
+      <item path="geometry.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+          <incDir>
+            <pElem></pElem>
+          </incDir>
+        </ccTool>
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+          <incDir>
+            <pElem></pElem>
+          </incDir>
+        </ccTool>
+      </item>
+      <item path="tests/FIndNeighbourTest.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="tests/newsimpletest.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="transformation.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+          <incDir>
+            <pElem></pElem>
+          </incDir>
+        </ccTool>
+      </item>
+      <item path="triangulation.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+          <incDir>
+            <pElem></pElem>
+          </incDir>
+        </ccTool>
+      </item>
     </conf>
   </confs>
 </configurationDescriptor>
