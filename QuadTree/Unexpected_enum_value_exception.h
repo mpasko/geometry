@@ -3,6 +3,9 @@
 
 #include "General_exception.h"
 
+/**
+ * \brief Wyjątek rzucany, gdy w insrukcji switch wybrany zostanie inny enum niż te z przewidywnej puli
+ */
 class Unexpected_enum_value_exception : public General_exception {
 public:
     Unexpected_enum_value_exception() : General_exception(){

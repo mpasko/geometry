@@ -14,6 +14,7 @@
 #include <iostream>
 #include <fstream>
 
+/** \brief Klasa reprezentująca wielokąt */
 class Polygon{   
     Point** points;
     int index;

@@ -254,39 +254,3 @@ bool QuadTree::balance() {
 void QuadTree::balance_tree(){
     while (balance());
 }
-
-void QuadTree::print_as_text(int spaces) {
-    for (int i = 0; i < spaces; ++i) {
-        std::cout << " ";
-    }
-    switch (parent_region) {
-        case Diag_NE:
-            std::cout << "NE";
-            break;
-        case Diag_NW:
-            std::cout << "NW";
-            break;
-        case Diag_SE:
-            std::cout << "SE";
-            break;
-        case Diag_SW:
-            std::cout << "SW";
-            break;
-    }
-    std::cout << std::endl;
-    if (!isLeaf()) {
-        getChildByRegion(Diag_NW)->print_as_text(spaces + 1);
-        getChildByRegion(Diag_NE)->print_as_text(spaces + 1);
-        getChildByRegion(Diag_SE)->print_as_text(spaces + 1);
-        getChildByRegion(Diag_SW)->print_as_text(spaces + 1);
-    }
-}
-
-void QuadTree::print_as_text() {
-    if (!isLeaf()) {
-        getChildByRegion(Diag_NW)->print_as_text(0);
-        getChildByRegion(Diag_NE)->print_as_text(0);
-        getChildByRegion(Diag_SE)->print_as_text(0);
-        getChildByRegion(Diag_SW)->print_as_text(0);
-    }
-}

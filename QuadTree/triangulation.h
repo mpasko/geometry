@@ -1,3 +1,7 @@
+/*
+ * \brief metody do triangulacji siatki QUadTree
+ */
+
 /* 
  * File:   triangulation.h
  * Author: marcin

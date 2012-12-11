@@ -174,9 +174,3 @@ QuadTree::~QuadTree() {
 void QuadTree::set_output_manager(OutputManager*& output_manager) {
     this->output_manager = output_manager;
 }
-
-void QuadTree::fill_points_list(const list<Point*>& points_set){
-    for (list<Point*>::const_iterator it = points_set.begin(); it != points_set.end(); ++it) {
-        this->points.push_back(*it);
-    }
-}

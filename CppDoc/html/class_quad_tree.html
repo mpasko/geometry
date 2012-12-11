@@ -1,0 +1,424 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Triangulacja metodą QuadTree: Dokumentacja klasy QuadTree</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Triangulacja metodą QuadTree
+   </div>
+   <div id="projectbrief">Aplikacja do generacji siatki trójkątnej dla zbioru punktów, metodą QuadTree</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.2 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klasy</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Szukaj" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Lista&#160;klas</span></a></li>
+      <li><a href="classes.html"><span>Indeks&#160;klas</span></a></li>
+      <li><a href="hierarchy.html"><span>Hierarchia&#160;klas</span></a></li>
+      <li><a href="functions.html"><span>Składowe&#160;klas</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Zmienne</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Metody publiczne</a> &#124;
+<a href="#pub-attribs">Atrybuty publiczne</a> &#124;
+<a href="#friends">Przyjaciele</a> &#124;
+<a href="class_quad_tree-members.html">Lista wszystkich składowych</a>  </div>
+  <div class="headertitle">
+<div class="title">Dokumentacja klasy QuadTree</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Klasa reprezentująca <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca QuadTree, zawiera w sobie metody do przekształcania jego struktury.">QuadTree</a>, zawiera w sobie metody do przekształcania jego struktury.  
+ <a href="class_quad_tree.html#details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_quad_tree_8h_source.html">QuadTree.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr class="memitem:aa39a49db95f90dc271b03249ddd2f453"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa39a49db95f90dc271b03249ddd2f453"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>QuadTree</b> (double cx, double cy, double w, <a class="el" href="class_quad_tree.html">QuadTree</a> *parent)</td></tr>
+<tr class="separator:aa39a49db95f90dc271b03249ddd2f453"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2b1e4caccd64a68ef998656ac16e5a4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#af2b1e4caccd64a68ef998656ac16e5a4">isLeaf</a> () const </td></tr>
+<tr class="separator:af2b1e4caccd64a68ef998656ac16e5a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addf778d24703ba80b279d9ec9d49a2a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#addf778d24703ba80b279d9ec9d49a2a9">init_mesh</a> (const list&lt; <a class="el" href="class_point.html">Point</a> * &gt; *points_set)</td></tr>
+<tr class="separator:addf778d24703ba80b279d9ec9d49a2a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d4cfa1211cbb02591642578b4031d71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a1d4cfa1211cbb02591642578b4031d71">split_too_close_boxes</a> ()</td></tr>
+<tr class="separator:a1d4cfa1211cbb02591642578b4031d71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cfaf16e257d7836aae394384196371d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3cfaf16e257d7836aae394384196371d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>subdivide</b> ()</td></tr>
+<tr class="separator:a3cfaf16e257d7836aae394384196371d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcb01b0d78ee7de218863145bb5f59b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#abcb01b0d78ee7de218863145bb5f59b3">surround_with_neighbours_ascending</a> ()</td></tr>
+<tr class="separator:abcb01b0d78ee7de218863145bb5f59b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acca230327665bf4bfad10682aa37057b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#acca230327665bf4bfad10682aa37057b">create_extended_neighbours</a> ()</td></tr>
+<tr class="separator:acca230327665bf4bfad10682aa37057b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a8d675822468ee0feb04e48a369987f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a5a8d675822468ee0feb04e48a369987f">balance_tree</a> ()</td></tr>
+<tr class="separator:a5a8d675822468ee0feb04e48a369987f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0732f0f2a754f6325299562d1d20e001"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0732f0f2a754f6325299562d1d20e001"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>putNextPoint</b> (<a class="el" href="class_point.html">Point</a> *p)</td></tr>
+<tr class="separator:a0732f0f2a754f6325299562d1d20e001"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6aab33fba34e86ec31b7723bbc057ab5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6aab33fba34e86ec31b7723bbc057ab5"></a>
+<a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getNeighbour</b> (Direction direction)</td></tr>
+<tr class="separator:a6aab33fba34e86ec31b7723bbc057ab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c314bc8223e5d428086f51ef1132766"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c314bc8223e5d428086f51ef1132766"></a>
+<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getNECorner</b> () const </td></tr>
+<tr class="separator:a2c314bc8223e5d428086f51ef1132766"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc34ceec161cef2e0f4cfaaac5a41f37"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc34ceec161cef2e0f4cfaaac5a41f37"></a>
+<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getSECorner</b> () const </td></tr>
+<tr class="separator:acc34ceec161cef2e0f4cfaaac5a41f37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9480059ac1a73725a68c90f67964060"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae9480059ac1a73725a68c90f67964060"></a>
+<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getNWCorner</b> () const </td></tr>
+<tr class="separator:ae9480059ac1a73725a68c90f67964060"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb372620bd1fbfe6fe7a525278190ba4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb372620bd1fbfe6fe7a525278190ba4"></a>
+<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getSWCorner</b> () const </td></tr>
+<tr class="separator:aeb372620bd1fbfe6fe7a525278190ba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acec30a97954070d11657681e957e8145"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acec30a97954070d11657681e957e8145"></a>
+<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getSteiner</b> ()</td></tr>
+<tr class="separator:acec30a97954070d11657681e957e8145"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0618f3831c582f743e237e4ce5701861"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0618f3831c582f743e237e4ce5701861"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>transform</b> ()</td></tr>
+<tr class="separator:a0618f3831c582f743e237e4ce5701861"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad327e69a9b204d5224bee2eee34a5a5a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad327e69a9b204d5224bee2eee34a5a5a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>mergeCorners</b> (<a class="el" href="class_merge_table.html">MergeTable</a> *m)</td></tr>
+<tr class="separator:ad327e69a9b204d5224bee2eee34a5a5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3d5f012e6bb242c20265f64e6023eb0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#ac3d5f012e6bb242c20265f64e6023eb0">set_output_manager</a> (<a class="el" href="class_output_manager.html">OutputManager</a> *&amp;output_manager)</td></tr>
+<tr class="separator:ac3d5f012e6bb242c20265f64e6023eb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Atrybuty publiczne</h2></td></tr>
+<tr class="memitem:a8b3bc2ca222137666ea98ec2a132bcbe"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="class_point.html">Point</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a8b3bc2ca222137666ea98ec2a132bcbe">points</a></td></tr>
+<tr class="separator:a8b3bc2ca222137666ea98ec2a132bcbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30af9f715baf8b6653a357909b92ddaf"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a30af9f715baf8b6653a357909b92ddaf">NEChild</a></td></tr>
+<tr class="separator:a30af9f715baf8b6653a357909b92ddaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedbadeadb3b005d8bcf35f3d579c998e"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#aedbadeadb3b005d8bcf35f3d579c998e">NWChild</a></td></tr>
+<tr class="separator:aedbadeadb3b005d8bcf35f3d579c998e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0246282c01d482a8cb90add7ad198329"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a0246282c01d482a8cb90add7ad198329">SEChild</a></td></tr>
+<tr class="separator:a0246282c01d482a8cb90add7ad198329"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab2712afc9d2dbd87b46a56a59866630"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#aab2712afc9d2dbd87b46a56a59866630">SWChild</a></td></tr>
+<tr class="separator:aab2712afc9d2dbd87b46a56a59866630"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fa4ec892941a59163d4163b400de0ea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0fa4ec892941a59163d4163b400de0ea"></a>
+<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ECorner</b></td></tr>
+<tr class="separator:a0fa4ec892941a59163d4163b400de0ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a53032ee7b6255efb555ecf6a23d146"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4a53032ee7b6255efb555ecf6a23d146"></a>
+<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>WCorner</b></td></tr>
+<tr class="separator:a4a53032ee7b6255efb555ecf6a23d146"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9a0d54889d0afc582c78e7f78f6dbb5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad9a0d54889d0afc582c78e7f78f6dbb5"></a>
+<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>SCorner</b></td></tr>
+<tr class="separator:ad9a0d54889d0afc582c78e7f78f6dbb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01bbb0c4c4b55aee796f44db113ba734"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a01bbb0c4c4b55aee796f44db113ba734"></a>
+<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>NCorner</b></td></tr>
+<tr class="separator:a01bbb0c4c4b55aee796f44db113ba734"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ecdd44be95a34d0013b7b9a8f50bf27"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ecdd44be95a34d0013b7b9a8f50bf27"></a>
+class <a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parent</b></td></tr>
+<tr class="separator:a8ecdd44be95a34d0013b7b9a8f50bf27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cb129ddfa789fbea4e08a5f88b540ac"><td class="memItemLeft" align="right" valign="top">DiagonalDir&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a4cb129ddfa789fbea4e08a5f88b540ac">parent_region</a></td></tr>
+<tr class="separator:a4cb129ddfa789fbea4e08a5f88b540ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c44b4a400a9d6cceee4c8820ba27ce8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c44b4a400a9d6cceee4c8820ba27ce8"></a>
+<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>center</b></td></tr>
+<tr class="separator:a8c44b4a400a9d6cceee4c8820ba27ce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a009965ef44e37cad6fad5ddfb4bf3210"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a009965ef44e37cad6fad5ddfb4bf3210"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>width</b></td></tr>
+<tr class="separator:a009965ef44e37cad6fad5ddfb4bf3210"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80a7b6aba8a75ca8b8bc62564b69736e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a80a7b6aba8a75ca8b8bc62564b69736e"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>half</b></td></tr>
+<tr class="separator:a80a7b6aba8a75ca8b8bc62564b69736e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac53096abb01d307a42b5b45cd68a0b00"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac53096abb01d307a42b5b45cd68a0b00"></a>
+<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>chunk</b></td></tr>
+<tr class="separator:ac53096abb01d307a42b5b45cd68a0b00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96e62c89da02d563a80a490041981281"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96e62c89da02d563a80a490041981281"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>depth</b></td></tr>
+<tr class="separator:a96e62c89da02d563a80a490041981281"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Przyjaciele</h2></td></tr>
+<tr class="memitem:aba42f995b812b9baf6e3fbc8d136e602"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba42f995b812b9baf6e3fbc8d136e602"></a>
+ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (ostream &amp;out, const <a class="el" href="class_quad_tree.html">QuadTree</a> &amp;tree)</td></tr>
+<tr class="separator:aba42f995b812b9baf6e3fbc8d136e602"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Klasa reprezentująca <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca QuadTree, zawiera w sobie metody do przekształcania jego struktury.">QuadTree</a>, zawiera w sobie metody do przekształcania jego struktury. </p>
+</div><h2 class="groupheader">Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="a5a8d675822468ee0feb04e48a369987f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QuadTree::balance_tree </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Dzieli drzewo w taki sposób, żeby zrównoważyć wszystkie jego węzły. Metoda wywoływana jest od korzenia i rekursywnie zagłębia się w kolejne dzieci, jeżeli w czasie przechodzenia drzewa nastąpiło podzielenie korzenia, metoda wywoła się ponownie po przejściu całego drzewa, do momentu, gdy nic nie ulegnie zmianie. </p>
+
+</div>
+</div>
+<a class="anchor" id="acca230327665bf4bfad10682aa37057b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QuadTree::create_extended_neighbours </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Otacza węzeł ośmioma sąsiadami tej samej wielkości, poprzez podział węzłów sąsiadujących (o ile nie są już wystarczająco podzielone) z węzłem na którym została wywołana metoda. </p>
+
+</div>
+</div>
+<a class="anchor" id="addf778d24703ba80b279d9ec9d49a2a9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QuadTree::init_mesh </td>
+          <td>(</td>
+          <td class="paramtype">const list&lt; <a class="el" href="class_point.html">Point</a> * &gt; *&#160;</td>
+          <td class="paramname"><em>points_set</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Tworzy początkowy podział drzewa <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca QuadTree, zawiera w sobie metody do przekształcania jego struktury.">QuadTree</a> poprzez dodawanie do niego kolejnych punktów i odpowiedni podział siatki, tak by nie zanjdowały się w jedynm kwadracie dwa punkty. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">points_set</td><td>punkty, które mają zostać dodane do siatki </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="af2b1e4caccd64a68ef998656ac16e5a4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QuadTree::isLeaf </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sprawdzenie czy węzeł jest liściem <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca QuadTree, zawiera w sobie metody do przekształcania jego struktury.">QuadTree</a> </p>
+<dl class="section return"><dt>Zwraca</dt><dd><em>true</em> jeżeli węzeł jest liściem, <em>false</em> w przeciwnym przypadku </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac3d5f012e6bb242c20265f64e6023eb0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QuadTree::set_output_manager </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_output_manager.html">OutputManager</a> *&amp;&#160;</td>
+          <td class="paramname"><em>output_manager</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Ustawia zarządcę zapisywania przebiegu symulacji, w obecnej wersji programu zarządca nie jest używany w wywołaniach metod <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca QuadTree, zawiera w sobie metody do przekształcania jego struktury.">QuadTree</a> </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output_manager</td><td>zarządca wypisywania symulacji </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a1d4cfa1211cbb02591642578b4031d71"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QuadTree::split_too_close_boxes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Dzieli siatkę w taki spoób, żeby nigdy dwa różne punkty nie leżały od siebie bliżej niż <em>2 * sqrt(2) * a</em>, gdzie <em>a</em> to dlugosc boku kwadratu w ktorym znajduje sie punkt </p>
+
+</div>
+</div>
+<a class="anchor" id="abcb01b0d78ee7de218863145bb5f59b3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QuadTree::surround_with_neighbours_ascending </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Dzieli siatkę w taki sposób, że każdy z węzłów zawierający punkt oraz każdy z rodziców tego dziecka, aż do korzenia otoczony jest ośmioma rozszerzonymi sąsiadami tej samej wielkości. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja atrybutów składowych</h2>
+<a class="anchor" id="a30af9f715baf8b6653a357909b92ddaf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">class <a class="el" href="class_quad_tree.html">QuadTree</a>* QuadTree::NEChild</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Dziecko w północno-wschodnim rogu </p>
+
+</div>
+</div>
+<a class="anchor" id="aedbadeadb3b005d8bcf35f3d579c998e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">class <a class="el" href="class_quad_tree.html">QuadTree</a>* QuadTree::NWChild</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Dziecko w północno-zachodnim rogu </p>
+
+</div>
+</div>
+<a class="anchor" id="a4cb129ddfa789fbea4e08a5f88b540ac"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DiagonalDir QuadTree::parent_region</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>w ktorej czesci rodzica znajduje sie dany node. </p>
+
+</div>
+</div>
+<a class="anchor" id="a8b3bc2ca222137666ea98ec2a132bcbe"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::list&lt;<a class="el" href="class_point.html">Point</a>*&gt; QuadTree::points</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Zbiór wszsytkich punktów zawartych w obszarze <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca QuadTree, zawiera w sobie metody do przekształcania jego struktury.">QuadTree</a> dla których jest przeprowadzana triangulacja </p>
+
+</div>
+</div>
+<a class="anchor" id="a0246282c01d482a8cb90add7ad198329"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">class <a class="el" href="class_quad_tree.html">QuadTree</a>* QuadTree::SEChild</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Dziecko w południowo-wschodnim rogu </p>
+
+</div>
+</div>
+<a class="anchor" id="aab2712afc9d2dbd87b46a56a59866630"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">class <a class="el" href="class_quad_tree.html">QuadTree</a>* QuadTree::SWChild</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Dziecko w południowo-zachodnim rogu </p>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+<li><a class="el" href="_quad_tree_8h_source.html">QuadTree.h</a></li>
+<li>QuadTree.cpp</li>
+<li>QuadTreeGeneration.cpp</li>
+<li>transformation.cpp</li>
+<li>triangulation.cpp</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano Wt, 11 gru 2012 13:30:37 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.2
+</small></address>
+</body>
+</html>

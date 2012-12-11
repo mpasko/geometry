@@ -8,6 +8,7 @@
 #ifndef FLUSHTABLE_H
 #define	FLUSHTABLE_H
 
+/** \brief */
 template<class T>
 class FlushTable{
     T** flushtable;

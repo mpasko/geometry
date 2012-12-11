@@ -10,6 +10,7 @@
 
 #include "Point.h"
 
+/** \brief */
 class MergeTable{
 public:
     Point ** reference;

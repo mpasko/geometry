@@ -10,6 +10,9 @@
 
 #include "General_exception.h"
 
+/*
+ * \brief WYjątek rzucany, gdy nastąpi próba nieporzędanego podziału.
+ */
 class Unexpected_subdivision : public General_exception {
     public:
     Unexpected_subdivision() : General_exception(){

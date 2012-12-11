@@ -4,6 +4,7 @@
 #include <exception>
 #include <string>
 
+/** \brief Klasa opisująca dowolny wyjątek, pozwala na podanie opisu przyczyny rzucenia wyjaku w kostruktorze. */
 class General_exception : public std::exception {
 public:
     General_exception();

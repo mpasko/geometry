@@ -1,8 +1,5 @@
-/* 
- * File:   Visualization.h
- * Author: marcin
- *
- * Created on November 29, 2012, 12:18 PM
+/*
+ * \brief metody do zapisywania stanu symulacji
  */
 
 #ifndef VISUALIZATION_H

@@ -3,7 +3,7 @@
 
 //#include "QuadTree.h"
 
-
+/** \brief Klasa reprezentująca punkt */
 class Point {
 public:
     double x;

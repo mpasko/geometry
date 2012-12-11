@@ -1,3 +1,7 @@
+/*
+ * \brief metody do obcinania białych znaków w stringach
+ */
+
 /* 
  * File:   trimmer.h
  * Author: marcin
