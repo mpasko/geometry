@@ -10,83 +10,6 @@ Point* QuadTree::getCrossing(Point*a, Point* b) {
     return NULL;
 }
 
-/* To jest zle! *x/
-QuadTree* QuadTree::slideDown(Direction direction, QuadTree* source) {
-    if ((depth == source->depth) || (isLeaf())) {
-        return this;
-    } else {
-        QuadTree * new_res = NULL;
-        switch (direction) {
-            case Dir_NW:
-                if (source->parent_region == Diag_NW) {
-                    new_res = SEChild;
-                } else if (source->parent_region == Diag_SW) {
-                    new_res = NEChild;
-                } else if (source->parent_region == Diag_NE) {
-                    new_res = SWChild;
-                }
-                break;
-            case Dir_NE:
-                if (source->parent_region == Diag_NE) {
-                    new_res = SWChild;
-                } else if (source->parent_region == Diag_SE) {
-                    new_res = NWChild;
-                } else if (source->parent_region == Diag_NW) {
-                    new_res = SEChild;
-                }
-                break;
-            case Dir_SW:
-                if (source->parent_region == Diag_SW) {
-                    new_res = NEChild;
-                } else if (source->parent_region == Diag_NW) {
-                    new_res = SEChild;
-                } else if (source->parent_region == Diag_SE) {
-                    new_res = NWChild;
-                }
-                break;
-            case Dir_SE:
-                if (source->parent_region == Diag_SE) {
-                    new_res = NWChild;
-                } else if (source->parent_region == Diag_SW) {
-                    new_res = NEChild;
-                } else if (source->parent_region == Diag_NE) {
-                    new_res = SWChild;
-                }
-                break;
-            case Dir_N:
-                if (source->parent_region == Diag_NW) {
-                    new_res = SWChild;
-                } else if (source->parent_region == Diag_NE) {
-                    new_res = SEChild;
-                }
-                break;
-            case Dir_S:
-                if (source->parent_region == Diag_SW) {
-                    new_res = NWChild;
-                } else if (source->parent_region == Diag_SE) {
-                    new_res = NEChild;
-                }
-                break;
-            case Dir_E:
-                if (source->parent_region == Diag_NE) {
-                    new_res = NWChild;
-                } else if (source->parent_region == Diag_SE) {
-                    new_res = SWChild;
-                }
-                break;
-            case Dir_W:
-                if (source->parent_region == Diag_NW) {
-                    new_res = NEChild;
-                } else if (source->parent_region == Diag_SW) {
-                    new_res = SEChild;
-                }
-                break;
-        }
-        return new_res->slideDown(direction, source);
-    }
-}
-/x* x */
-
 /* header *x/
 QuadTree* QuadTree::getChildContainingCoord(PerpendicularDir side, double value) {
 /x* header */
@@ -299,7 +222,11 @@ Polygon* filter(Polygon* p, QuadTree *qt) {
     return p;
 }
 
-void triangulate(std::ostream&out, Polygon* p, QuadTree*qt) {
+void triangulate(std::ostream&out, QuadTree* qt){
+    triangulate(out, qt, green);
+}
+
+void triangulate(std::ostream&out, QuadTree*qt, const char* color) {
     if (qt->isLeaf()) {
         Point * c;
         QuadTree* ENeigh = qt->getNeighbour(Dir_E);
@@ -330,62 +257,61 @@ void triangulate(std::ostream&out, Polygon* p, QuadTree*qt) {
         if (count == 1) {
             if (is_e) {
                 c = qt->ECorner;
-                drawline(out, qt->getNWCorner(), c, green);
-                drawline(out, qt->getSWCorner(), c, green);
+                drawline(out, qt->getNWCorner(), c, color);
+                drawline(out, qt->getSWCorner(), c, color);
             } else if (is_w) {
                 c = qt->WCorner;
-                drawline(out, qt->getNECorner(), c, green);
-                drawline(out, qt->getSECorner(), c, green);
+                drawline(out, qt->getNECorner(), c, color);
+                drawline(out, qt->getSECorner(), c, color);
             } else if (is_s) {
                 c = qt->SCorner;
-                drawline(out, qt->getNWCorner(), c, green);
-                drawline(out, qt->getNECorner(), c, green);
+                drawline(out, qt->getNWCorner(), c, color);
+                drawline(out, qt->getNECorner(), c, color);
             } else if (is_n) {
                 c = qt->NCorner;
-                drawline(out, qt->getSWCorner(), c, green);
-                drawline(out, qt->getSECorner(), c, green);
+                drawline(out, qt->getSWCorner(), c, color);
+                drawline(out, qt->getSECorner(), c, color);
             }
         } else if (count == 0) {
 
-            drawline(out, qt->getNWCorner(), qt->getSECorner(), green);
+            drawline(out, qt->getNWCorner(), qt->getSECorner(), color);
 
         } else {
 
             if (is_e) {
                 c = qt->ECorner;
-                drawline(out, qt->getSteiner(), c, green);
+                drawline(out, qt->getSteiner(), c, color);
                 delete c;
             }
             if (is_w) {
                 c = qt->WCorner;
-                drawline(out, qt->getSteiner(), c, green);
+                drawline(out, qt->getSteiner(), c, color);
                 delete c;
             }
             if (is_s) {
                 c = qt->SCorner;
-                drawline(out, qt->getSteiner(), c, green);
+                drawline(out, qt->getSteiner(), c, color);
                 delete c;
             }
             if (is_n) {
                 c = qt->NCorner;
-                drawline(out, qt->getSteiner(), c, green);
+                drawline(out, qt->getSteiner(), c, color);
                 delete c;
             }
 
-            drawline(out, qt->getSteiner(), qt->getNECorner(), green);
-            drawline(out, qt->getSteiner(), qt->getNWCorner(), green);
-            drawline(out, qt->getSteiner(), qt->getSECorner(), green);
-            drawline(out, qt->getSteiner(), qt->getSWCorner(), green);
+            drawline(out, qt->getSteiner(), qt->getNECorner(), color);
+            drawline(out, qt->getSteiner(), qt->getNWCorner(), color);
+            drawline(out, qt->getSteiner(), qt->getSECorner(), color);
+            drawline(out, qt->getSteiner(), qt->getSWCorner(), color);
         }
         //       }else{
         //           //TODO
         //       }
     } else {
-        Polygon * p2 = filter(p, qt);
-        triangulate(out, p2, qt->NEChild);
-        triangulate(out, p2, qt->NWChild);
-        triangulate(out, p2, qt->SEChild);
-        triangulate(out, p2, qt->SWChild);
+        triangulate(out, qt->NEChild, color);
+        triangulate(out, qt->NWChild, color);
+        triangulate(out, qt->SEChild, color);
+        triangulate(out, qt->SWChild, color);
     }
 }
 

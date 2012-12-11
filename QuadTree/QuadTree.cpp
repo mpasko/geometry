@@ -83,23 +83,24 @@ void QuadTree::subdivide() {
         SWChild->parent_region = Diag_SW;
         SWChild->depth = depth + 1;
         if (chunk != NULL) {
-            QuadTree* child =  match(chunk);
+            QuadTree* child = match(chunk);
             child->chunk = chunk;
             chunk->node = child;
             chunk = NULL;
         }
+//        output_manager->print_simulation_step();
     } else {
         throw Unexpected_subdivision("You cannot split leaf");
     }
 }
 
-string child_to_str(QuadTree* child){
-    return (child == NULL ? "null" : "exists" );
+string child_to_str(QuadTree* child) {
+    return (child == NULL ? "null" : "exists");
 }
 
 void QuadTree::putNextPoint(Point * p) {
-    QuadTree* dest;    
-    
+    QuadTree* dest;
+
     if (isLeaf()) {
         if (chunk == NULL) {
             chunk = p;
@@ -115,25 +116,25 @@ void QuadTree::putNextPoint(Point * p) {
     dest->putNextPoint(p);
 }
 
-ostream& operator<<(ostream& out, const QuadTree& tree) {
+ostream & operator<<(ostream& out, const QuadTree& tree) {
     if (tree.isLeaf()) {
         Point * a = tree.getNECorner();
         Point * b = tree.getNWCorner();
         Point * c = tree.getSECorner();
         Point * d = tree.getSWCorner();
         double bor = 0.0;
-        drawline(out, a->x + bor, a->y + bor, b->x - bor, b->y + bor,red);
-        drawline(out, c->x + bor, c->y - bor, d->x - bor, d->y - bor,red);
-        drawline(out, a->x + bor, a->y + bor, c->x + bor, c->y - bor,red);
-        drawline(out, b->x - bor, b->y + bor, d->x - bor, d->y - bor,red);
+        drawline(out, a->x + bor, a->y + bor, b->x - bor, b->y + bor, red);
+        drawline(out, c->x + bor, c->y - bor, d->x - bor, d->y - bor, red);
+        drawline(out, a->x + bor, a->y + bor, c->x + bor, c->y - bor, red);
+        drawline(out, b->x - bor, b->y + bor, d->x - bor, d->y - bor, red);
 
     } else {
-        
+
         out << *(tree.NEChild);
         out << *(tree.NWChild);
         out << *(tree.SEChild);
         out << *(tree.SWChild);
-        
+
     }
     return out;
 }
@@ -168,4 +169,14 @@ QuadTree::~QuadTree() {
     DEL(SWChild)
     NEChild = NWChild = SEChild = SWChild = NULL;
     delete center;
+}
+
+void QuadTree::set_output_manager(OutputManager*& output_manager) {
+    this->output_manager = output_manager;
+}
+
+void QuadTree::fill_points_list(const list<Point*>& points_set){
+    for (list<Point*>::const_iterator it = points_set.begin(); it != points_set.end(); ++it) {
+        this->points.push_back(*it);
+    }
 }

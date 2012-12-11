@@ -19,6 +19,14 @@ Polygon::Polygon(int size) : index(0), len(size) {
     points = new Point*[size];
 }
 
+Polygon::Polygon(std::list<Point*>* points_list) : index(0), len(points_list->size()){
+    points = new Point*[len];
+    for (std::list<Point*>::iterator it = points_list->begin(); it != points_list->end(); ++it){
+        Point* point = *it;
+        *this += *it;
+    }
+}
+
 Point* Polygon::operator[](int index) const {
     if (index > len) {
         std::cout << "Error! Polygon index out of range!\n";

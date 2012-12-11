@@ -10,7 +10,7 @@
 
 #include "Point.h"
 #include "FlushTable.h"
-#include <vector>
+#include <list>
 #include <iostream>
 #include <fstream>
 
@@ -20,6 +20,7 @@ class Polygon{
     int len;
 public:
     Polygon(int size);
+    Polygon(std::list<Point*>* points_list);
     
     Point* operator[](int index) const;
     

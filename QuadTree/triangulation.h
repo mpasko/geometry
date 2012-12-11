@@ -15,7 +15,8 @@
 
 #define METHOD_1
 
-void triangulate(std::ostream&out, Polygon* p, QuadTree*qt);
+void triangulate(std::ostream&out, QuadTree*qt);
+void triangulate(std::ostream&out, QuadTree*qt, const char* color);
 
 #endif	/* TRIANGULATION_H */
 

@@ -13,6 +13,7 @@
 #include "FlushTable.h"
 #include "Polygon.h"
 #include "MergeTable.h"
+#include "OutputManager.h"
 #include <list>
 
 using namespace std;
@@ -34,6 +35,7 @@ enum PerpendicularDir {
 
 class QuadTree {
     FlushTable<Point> * flush;
+    class OutputManager* output_manager;
 
     Point * NECorner;
     Point * NWCorner;
@@ -44,8 +46,9 @@ class QuadTree {
     QuadTree* slideDown(Direction direction, QuadTree* source);
 
     bool is_unbalanced();
-    void balance_children();
+    bool balance_children();
     void print_as_text(int spaces);
+    bool balance();
 
 public:
     std::list<Point*> points;
@@ -75,6 +78,8 @@ public:
     QuadTree(double cx, double cy, double w, QuadTree* parent);
     bool isLeaf() const;
 
+    void init_mesh(const list<Point*>* points_set);
+
     QuadTree* match(Point* p);
     QuadTree* getChildByRegion(DiagonalDir region);
     QuadTree* getChildContainingCoord(PerpendicularDir side, double value);
@@ -87,7 +92,7 @@ public:
     void subdivide();
     void subdivideOrthogonal(PerpendicularDir side, int target_depth, double side_middle);
     void subdivideDiagonal(DiagonalDir region, QuadTree* source, int target_depth);
-    void preproccess();
+    void surround_with_neighbours_ascending();
     void create_extended_neighbours();
 
     void balance_tree();
@@ -113,6 +118,9 @@ public:
     void mergeCorners(MergeTable* m);
 
     virtual ~QuadTree();
+
+    void set_output_manager(OutputManager*& output_manager);
+    void fill_points_list(const list<Point*>& points_set);
 };
 
 

@@ -6,6 +6,25 @@
 #include "Polygon.h"
 #include "geometry.h"
 
+void QuadTree::init_mesh(const list<Point*>* points_set) {
+    for (list<Point*>::const_iterator it = points_set->begin(); it != points_set->end(); ++it) {
+        points.push_back(*it);
+    }
+
+//    for (list<Point*>::iterator it = this->points.begin(); it != this->points.end(); ++it) {
+//        cout << (*it)->x << " " << (*it)->y << endl;
+//    }
+
+//    int i = 0;
+    for (list<Point*>::iterator it = this->points.begin(); it != this->points.end(); ++it) {
+        putNextPoint(*it);
+        //        cout << endl << ++i << endl;
+        //        for (list<Point*>::iterator it2 = this->points.begin(); it2 != this->points.end(); ++it2) {
+        //            cout << (*it2)->x << " " << (*it2)->y << endl;
+        //        }
+    }
+}
+
 QuadTree* QuadTree::getChildContainingCoord(PerpendicularDir side, double value) {
     if (isLeaf()) {
         return NULL;
@@ -99,7 +118,7 @@ void QuadTree::subdivideDiagonal(DiagonalDir region, QuadTree* source, int targe
             slide_direction = Dir_NE;
             break;
     }
-    
+
     if (!isLeaf()) {
         slideDown(slide_direction, source)->subdivideDiagonal(region, source, target_depth);
     } else {
@@ -108,7 +127,7 @@ void QuadTree::subdivideDiagonal(DiagonalDir region, QuadTree* source, int targe
     }
 }
 
-void QuadTree::preproccess() {
+void QuadTree::surround_with_neighbours_ascending() {
     list<QuadTree*> pointed_nodes(points.size());
     for (list<Point*>::iterator it = points.begin(); it != points.end(); ++it) {
         QuadTree* node = (*it)->node;
@@ -215,22 +234,25 @@ bool QuadTree::is_unbalanced() {
     return false;
 }
 
-void QuadTree::balance_children() {
-    NWChild->balance_tree();
-    NEChild->balance_tree();
-    SEChild->balance_tree();
-    SWChild->balance_tree();
+bool QuadTree::balance_children() {
+    return NWChild->balance() || NEChild->balance() ||
+            SEChild->balance() || SWChild->balance();
 }
 
-void QuadTree::balance_tree() {
+bool QuadTree::balance() {
     if (isLeaf()) {
         if (is_unbalanced()) {
             subdivide();
+            return true;
         } else {
-            return;
+            return false;
         }
     }
-    balance_children();
+    return balance_children();
+}
+
+void QuadTree::balance_tree(){
+    while (balance());
 }
 
 void QuadTree::print_as_text(int spaces) {
