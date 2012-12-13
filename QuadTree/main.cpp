@@ -20,7 +20,7 @@
 #include "triangulation.h"
 #include "General_exception.h"
 #include "OutputManager.h"
-#include "Bad_Conversion.h"
+#include "NumberFormatException.h"
 #include "random_generation.h"
 #include <sstream>
 
@@ -29,8 +29,8 @@ using namespace std;
 /*Zalozenie: os y biegnie do gory*/
 
 /** \brief Wczytuje dane wielokąta z pliku
-* @param filename -nazwa pliku
-*/
+ * @param filename -nazwa pliku
+ */
 Polygon* load_polygon_data(char* filename) {
     ifstream file(filename);
     if (!file.is_open()) {
@@ -65,8 +65,8 @@ Polygon* load_polygon_data(char* filename) {
 }
 
 /** \brief Wczytuje zbiór punktów z pliku
-* @param filename nazwa pliku
-*/
+ * @param filename nazwa pliku
+ */
 list<Point*>* load_points_data(char* filename) {
     list<Point*>* points = new list<Point*>();
     ifstream file(filename);
@@ -99,8 +99,8 @@ list<Point*>* load_points_data(char* filename) {
 }
 
 /** \brief Tworzy początkowy węzeł QuadTree na podstawie listy punktów
-* @param points_list -lista punktów
-*/
+ * @param points_list -lista punktów
+ */
 QuadTree* create_initial_box(const list<Point*>* points_list) {
     double max_x = std::numeric_limits<double>::min();
     double max_y = std::numeric_limits<double>::min();
@@ -138,7 +138,7 @@ inline double string_to_double(string const& s) {
     istringstream i(s);
     double x;
     if (!(i >> x)) {
-        throw Bad_Conversion("string_to_double(\"" + s + "\")");
+        throw NumberFormatException("string_to_double(\"" + s + "\")");
     }
     return x;
 }
@@ -147,7 +147,7 @@ inline int string_to_int(string const& s) {
     istringstream i(s);
     int x;
     if (!(i >> x)) {
-        throw Bad_Conversion("string_to_double(\"" + s + "\"");
+        throw NumberFormatException("string_to_double(\"" + s + "\"");
     }
     return x;
 }
@@ -169,19 +169,19 @@ void help() {
 }
 
 /** \brief Główna metoda programu argumenty:
-* polygon in_file_path [out_file_path] -triangulacja poligonu
-* points in_file_path [out_file_path] -triangulacja zbioru punktów
-* random side_length second_side_length points_number [out_file_path] -generacja losowych punktów wewnątrz prostokata
-* random radius points_number [out_file_path] -generacja losowych punktów wewnątrz koła
-*/
+ * polygon in_file_path [out_file_path] -triangulacja poligonu
+ * points in_file_path [out_file_path] -triangulacja zbioru punktów
+ * random side_length second_side_length points_number [out_file_path] -generacja losowych punktów wewnątrz prostokata
+ * random radius points_number [out_file_path] -generacja losowych punktów wewnątrz koła
+ */
 int main(int argc, char** argv) {
 
     try {
         OutputManager* output_manager;
-        ofstream* out_stream;
-        Polygon* p;
-        QuadTree* qt;
-        list<Point*>* points_list;
+        ofstream* out_stream = NULL;
+        Polygon* p = NULL;
+        QuadTree* qt = NULL;
+        list<Point*>* points_list = NULL;
 
         if (argc >= 1 && strcmp(strlwr(argv[1]), "help") == 0) {
             help();
@@ -193,18 +193,26 @@ int main(int argc, char** argv) {
                 if (argc < 5) {
                     error_imput_handler();
                 }
-                double xrange = string_to_double(argv[3]);
-                double yrange = string_to_double(argv[4]);
-                int points_number = string_to_double(argv[5]);
-                points_list = new list<Point*>();
-                *points_list = generate_points_inside_rectangle(xrange, yrange, points_number);
+
                 if (argc >= 6) {
                     out_stream = new ofstream(argv[6]);
                 } else {
                     out_stream = new ofstream("sim_out.txt");
                 }
+
+                double xrange = string_to_double(argv[3]);
+                double yrange = string_to_double(argv[4]);
+                int points_number = string_to_double(argv[5]);
+                points_list = new list<Point*>();
+                *points_list = generate_points_inside_rectangle(xrange, yrange, points_number);
             } else {
                 if (strcmp(strlwr(argv[2]), "circle") == 0) {
+
+                    if (argc >= 5) {
+                        out_stream = new ofstream(argv[5]);
+                    } else {
+                        out_stream = new ofstream("sim_out.txt");
+                    }
                     if (argc < 4) {
                         error_imput_handler();
                     }
@@ -212,11 +220,6 @@ int main(int argc, char** argv) {
                     double points_number = string_to_int(argv[4]);
                     points_list = new list<Point*>();
                     *points_list = generate_points_inside_circle(r, points_number);
-                    if (argc >= 5) {
-                        out_stream = new ofstream(argv[5]);
-                    } else {
-                        out_stream = new ofstream("sim_out.txt");
-                    }
                 } else {
                     error_imput_handler();
                 }
@@ -227,11 +230,6 @@ int main(int argc, char** argv) {
             if (argc < 3) {
                 error_imput_handler();
             }
-            char* filen;
-            filen = argv[2];
-            points_list = load_points_data(filen);
-            qt = create_initial_box(points_list);
-            qt->set_output_manager(output_manager);
 
             if (strcmp(strlwr(argv[1]), "polygon") == 0) {
                 p = new Polygon(points_list);
@@ -253,36 +251,52 @@ int main(int argc, char** argv) {
                     error_imput_handler();
                 }
             }
+
+            char* filen;
+            filen = argv[2];
+            points_list = load_points_data(filen);
+
+            output_manager->print_simulation_step();
+            qt = create_initial_box(points_list);
+            qt->set_output_manager(output_manager);
         }
 
         ofstream& output_stream = *out_stream;
 
+        output_manager->print_points_set();
         output_manager->print_simulation_step();
 
-        /*stworz poczatkowa siatke poprzez dokladanie do niej kolejnych punktow
-         (dzielac przy tym odpowiednio quadtree tak by dwa punkty nie lezaly
-         w jednym kwadracie*/
+        /*Uteorzenie poczatkowej siatki poprzez dokladanie do niej kolejnych
+         * punktow(dzielac przy tym odpowiednio quadtree tak by dwa punkty nie 
+         * lezaly w jednym kwadracie*/
         qt->init_mesh(points_list);
         output_manager->print_simulation_step();
 
+        /*Podzielenie kwadratów ze względu na warunek odległosći między punktami*/
         qt->split_too_close_boxes();
-        /*Wypisz siatke po podzieleniu kwadratow z punktami zbyt blisko siebie*/
         output_manager->print_simulation_step();
 
+        /*Otoczenie każdy z kwadratów zawierającego punkt oraz wszystkich jego 
+         * rodziców, aż do korzenia, sąsiadami tej samej wielkości*/
         qt->surround_with_neighbours_ascending();
-        /*Wypisz siatke po otoczaniu kwadratow z punktami i och rodzicow
-         * sasaidami o tej samej wiwlkosci*/
         output_manager->print_simulation_step();
 
+        /*Równoważenie drzewa*/
         qt->balance_tree();
-        /*Wypisz siatke po zrownowazeniu drzewa*/
         output_manager->print_simulation_step();
 
         int size = points_list->size();
         MergeTable merge(size * size * 100);
+
+        /*Ustawienie wskaźników na wierzchołki w każdym z kwadratów w taki 
+         * sposób, by każdy z wierzchołków quadtree przechowywany był tylko
+         * pod jednym adresem w pamięci, wcześniej każdy kwadrat przechowywał
+         * lokaną kopię wartości swoich współrzędnych
+         */
         qt->mergeCorners(&merge);
+        /* Naciągnięcie wierzchołków quadtree na punkty dla których generowana 
+         * jest siatka*/
         qt->transform();
-        /*Wypisz siatke po naciagnieciu wierzcholkow QuadTree*/
         output_manager->print_simulation_step();
 
         /*Wypisz triangulacje z siatka quad tree oznaczona osobnym kolorem*/

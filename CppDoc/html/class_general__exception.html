@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Zmienne</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Pliki</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Zmienne</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Wyliczenia</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Wartości wyliczeń</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Przyjaciele</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definicje</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,6 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Metody publiczne</a> &#124;
+<a href="#pri-attribs">Atrybuty prywatne</a> &#124;
 <a href="class_general__exception-members.html">Lista wszystkich składowych</a>  </div>
   <div class="headertitle">
 <div class="title">Dokumentacja klasy General_exception</div>  </div>
@@ -98,35 +99,128 @@ Diagram dziedziczenia dla General_exception</div>
 <div class="dyncontent">
 <div class="center"><img src="class_general__exception__inherit__graph.png" border="0" usemap="#_general__exception_inherit__map" alt="Inheritance graph"/></div>
 <map name="_general__exception_inherit__map" id="_general__exception_inherit__map">
-<area shape="rect" id="node5" href="class_bad___conversion.html" title="Wyjątek rzucany przy niepoprawnej konwersji stringa na wartość określonego typu." alt="" coords="363,5,477,32"/><area shape="rect" id="node7" href="class_empty_node_exception.html" title="Wyjąek rzucany gdy węzeł nie zawiera w środku punktu, mimo, że zakładaliśmy coś przciwnego." alt="" coords="346,56,494,83"/><area shape="rect" id="node9" href="class_unexpected__enum__value__exception.html" title="Wyjątek rzucany, gdy w insrukcji switch wybrany zostanie inny enum niż te z przewidywnej puli..." alt="" coords="337,107,503,149"/><area shape="rect" id="node11" href="class_unexpected__subdivision.html" title="Unexpected_subdivision" alt="" coords="339,173,501,200"/></map>
-<center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
+<area shape="rect" id="node5" href="class_empty_node_exception.html" title="Wyjąek rzucany, gdy węzeł QuadTree wbrew oczekiwaniom nie zawiera punktu." alt="" coords="5,323,173,415"/><area shape="rect" id="node7" href="class_number_format_exception.html" title="Wyjątek rzucany jeżeli nastąpiła błędna konwersja stringa na liczbę." alt="" coords="197,323,384,415"/><area shape="rect" id="node9" href="class_unexpected__enum__value__exception.html" title="Wyjątek rzucany, gdy w insrukcji switch wybrany zostanie inny enum niż te z przewidywnej puli..." alt="" coords="408,301,587,437"/><area shape="rect" id="node11" href="class_unexpected__subdivision.html" title="{Unexpected_subdivision\n||+ Unexpected_subdivision()\l+ Unexpected_subdivision()\l}" alt="" coords="611,323,792,415"/></map>
+</div>
 <div class="dynheader">
 Diagram współpracy dla General_exception:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_general__exception__coll__graph.png" border="0" usemap="#_general__exception_coll__map" alt="Collaboration graph"/></div>
-<map name="_general__exception_coll__map" id="_general__exception_coll__map">
-</map>
-<center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Metody publiczne</h2></td></tr>
-<tr class="memitem:a191b2fd47c10f88026f14eb00e38f79c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a191b2fd47c10f88026f14eb00e38f79c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>General_exception</b> (std::string cause)</td></tr>
+<tr class="memitem:aedfcba2f214e69641f5f03f0dd9b9573"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_general__exception.html#aedfcba2f214e69641f5f03f0dd9b9573">General_exception</a> ()</td></tr>
+<tr class="separator:aedfcba2f214e69641f5f03f0dd9b9573"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a191b2fd47c10f88026f14eb00e38f79c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_general__exception.html#a191b2fd47c10f88026f14eb00e38f79c">General_exception</a> (std::string <a class="el" href="class_general__exception.html#a05e6cf17944dd9f41ec67c4efdca3e0f">cause</a>)</td></tr>
 <tr class="separator:a191b2fd47c10f88026f14eb00e38f79c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3bd9a4a6a48fbc29200cc63ca76dceb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa3bd9a4a6a48fbc29200cc63ca76dceb"></a>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><b>what</b> ()</td></tr>
+<tr class="memitem:a8fae4655a723a177ecf6e23ed54388a6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_general__exception.html#a8fae4655a723a177ecf6e23ed54388a6">~General_exception</a> ()  throw ()</td></tr>
+<tr class="separator:a8fae4655a723a177ecf6e23ed54388a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3bd9a4a6a48fbc29200cc63ca76dceb"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_general__exception.html#aa3bd9a4a6a48fbc29200cc63ca76dceb">what</a> ()</td></tr>
+<tr class="memdesc:aa3bd9a4a6a48fbc29200cc63ca76dceb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wypisanie powodu wyjątku.  <a href="#aa3bd9a4a6a48fbc29200cc63ca76dceb"></a><br/></td></tr>
 <tr class="separator:aa3bd9a4a6a48fbc29200cc63ca76dceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atrybuty prywatne</h2></td></tr>
+<tr class="memitem:a05e6cf17944dd9f41ec67c4efdca3e0f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_general__exception.html#a05e6cf17944dd9f41ec67c4efdca3e0f">cause</a></td></tr>
+<tr class="separator:a05e6cf17944dd9f41ec67c4efdca3e0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
 <div class="textblock"><p>Klasa opisująca dowolny wyjątek, pozwala na podanie opisu przyczyny rzucenia wyjaku w kostruktorze. </p>
-</div><hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+</div><h2 class="groupheader">Dokumentacja konstruktora i destruktora</h2>
+<a class="anchor" id="aedfcba2f214e69641f5f03f0dd9b9573"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">General_exception::General_exception </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a191b2fd47c10f88026f14eb00e38f79c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">General_exception::General_exception </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>cause</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8fae4655a723a177ecf6e23ed54388a6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">General_exception::~General_exception </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td>  throw ()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="aa3bd9a4a6a48fbc29200cc63ca76dceb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * General_exception::what </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wypisanie powodu wyjątku. </p>
+<dl class="section return"><dt>Zwraca</dt><dd>wiadomość dołączona do wyjątku </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja atrybutów składowych</h2>
+<a class="anchor" id="a05e6cf17944dd9f41ec67c4efdca3e0f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string General_exception::cause</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
 <li><a class="el" href="_general__exception_8h_source.html">General_exception.h</a></li>
-<li>General_exception.cpp</li>
+<li><a class="el" href="_general__exception_8cpp.html">General_exception.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Wygenerowano Wt, 11 gru 2012 14:34:28 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
+Wygenerowano Cz, 13 gru 2012 00:54:25 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

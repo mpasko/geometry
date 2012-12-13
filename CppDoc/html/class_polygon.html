@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Zmienne</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Pliki</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Zmienne</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Wyliczenia</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Wartości wyliczeń</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Przyjaciele</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definicje</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,6 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Metody publiczne</a> &#124;
+<a href="#pri-attribs">Atrybuty prywatne</a> &#124;
 <a href="#friends">Przyjaciele</a> &#124;
 <a href="class_polygon-members.html">Lista wszystkich składowych</a>  </div>
   <div class="headertitle">
@@ -94,41 +95,287 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
  <a href="class_polygon.html#details">Więcej...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_polygon_8h_source.html">Polygon.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagram współpracy dla Polygon:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_polygon__coll__graph.png" border="0" usemap="#_polygon_coll__map" alt="Collaboration graph"/></div>
+<map name="_polygon_coll__map" id="_polygon_coll__map">
+<area shape="rect" id="node2" href="class_point.html" title="Klasa reprezentująca punkt." alt="" coords="5,6,109,127"/></map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Metody publiczne</h2></td></tr>
-<tr class="memitem:a2d3baa10765a5d3ad349a9e46e576110"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d3baa10765a5d3ad349a9e46e576110"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Polygon</b> (int size)</td></tr>
+<tr class="memitem:a2d3baa10765a5d3ad349a9e46e576110"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polygon.html#a2d3baa10765a5d3ad349a9e46e576110">Polygon</a> (int <a class="el" href="class_polygon.html#aa1f23948b38e138d66c33cb790e26b35">size</a>)</td></tr>
+<tr class="memdesc:a2d3baa10765a5d3ad349a9e46e576110"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kostruktor wielokąta.  <a href="#a2d3baa10765a5d3ad349a9e46e576110"></a><br/></td></tr>
 <tr class="separator:a2d3baa10765a5d3ad349a9e46e576110"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a551e38ab1d9aa545865b0d14f801cfb1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a551e38ab1d9aa545865b0d14f801cfb1"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Polygon</b> (std::list&lt; <a class="el" href="class_point.html">Point</a> * &gt; *points_list)</td></tr>
+<tr class="memitem:a551e38ab1d9aa545865b0d14f801cfb1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polygon.html#a551e38ab1d9aa545865b0d14f801cfb1">Polygon</a> (std::list&lt; <a class="el" href="class_point.html">Point</a> * &gt; *points_list)</td></tr>
+<tr class="memdesc:a551e38ab1d9aa545865b0d14f801cfb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kostruktor wielokąta nad zbiorem wierzchołków.  <a href="#a551e38ab1d9aa545865b0d14f801cfb1"></a><br/></td></tr>
 <tr class="separator:a551e38ab1d9aa545865b0d14f801cfb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afef95bda7ab174f4ac4199cd3c256990"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afef95bda7ab174f4ac4199cd3c256990"></a>
-<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (int index) const </td></tr>
+<tr class="memitem:afef95bda7ab174f4ac4199cd3c256990"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polygon.html#afef95bda7ab174f4ac4199cd3c256990">operator[]</a> (int <a class="el" href="class_polygon.html#a786e739b52cf61681cab01ec31450726">index</a>) const </td></tr>
+<tr class="memdesc:afef95bda7ab174f4ac4199cd3c256990"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca wierzchołek wielokąta.  <a href="#afef95bda7ab174f4ac4199cd3c256990"></a><br/></td></tr>
 <tr class="separator:afef95bda7ab174f4ac4199cd3c256990"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56412a374c4c51da35d25b194592ba37"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a56412a374c4c51da35d25b194592ba37"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (<a class="el" href="class_point.html">Point</a> *&amp;p)</td></tr>
+<tr class="memitem:a56412a374c4c51da35d25b194592ba37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polygon.html#a56412a374c4c51da35d25b194592ba37">operator+=</a> (<a class="el" href="class_point.html">Point</a> *&amp;p)</td></tr>
+<tr class="memdesc:a56412a374c4c51da35d25b194592ba37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dodaje wierzchołek do wielokąta.  <a href="#a56412a374c4c51da35d25b194592ba37"></a><br/></td></tr>
 <tr class="separator:a56412a374c4c51da35d25b194592ba37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9cdff4b046585a158e6f55323269790"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad9cdff4b046585a158e6f55323269790"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>length</b> () const </td></tr>
-<tr class="separator:ad9cdff4b046585a158e6f55323269790"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1f23948b38e138d66c33cb790e26b35"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polygon.html#aa1f23948b38e138d66c33cb790e26b35">size</a> () const </td></tr>
+<tr class="memdesc:aa1f23948b38e138d66c33cb790e26b35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca liczbę wierzchołków wielokąta.  <a href="#aa1f23948b38e138d66c33cb790e26b35"></a><br/></td></tr>
+<tr class="separator:aa1f23948b38e138d66c33cb790e26b35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace39c67107966db12e13a183f496c3b0"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polygon.html#ace39c67107966db12e13a183f496c3b0">~Polygon</a> ()</td></tr>
+<tr class="separator:ace39c67107966db12e13a183f496c3b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atrybuty prywatne</h2></td></tr>
+<tr class="memitem:aa23777a50318c001d041bb3dd1d9f27d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polygon.html#aa23777a50318c001d041bb3dd1d9f27d">points</a></td></tr>
+<tr class="memdesc:aa23777a50318c001d041bb3dd1d9f27d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wierzchołki.  <a href="#aa23777a50318c001d041bb3dd1d9f27d"></a><br/></td></tr>
+<tr class="separator:aa23777a50318c001d041bb3dd1d9f27d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a786e739b52cf61681cab01ec31450726"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polygon.html#a786e739b52cf61681cab01ec31450726">index</a></td></tr>
+<tr class="separator:a786e739b52cf61681cab01ec31450726"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8767c49c61e052aff3615942e92a19e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polygon.html#ab8767c49c61e052aff3615942e92a19e">len</a></td></tr>
+<tr class="separator:ab8767c49c61e052aff3615942e92a19e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Przyjaciele</h2></td></tr>
-<tr class="memitem:a3c428d1cbd0e9760198fd681d4ec7f9d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3c428d1cbd0e9760198fd681d4ec7f9d"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;out, const <a class="el" href="class_polygon.html">Polygon</a> &amp;tree)</td></tr>
+<tr class="memitem:a3c428d1cbd0e9760198fd681d4ec7f9d"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polygon.html#a3c428d1cbd0e9760198fd681d4ec7f9d">operator&lt;&lt;</a> (std::ostream &amp;out, const <a class="el" href="class_polygon.html">Polygon</a> &amp;tree)</td></tr>
+<tr class="memdesc:a3c428d1cbd0e9760198fd681d4ec7f9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wypisuje sformatowaną reprezentację do strumienia.  <a href="#a3c428d1cbd0e9760198fd681d4ec7f9d"></a><br/></td></tr>
 <tr class="separator:a3c428d1cbd0e9760198fd681d4ec7f9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
 <div class="textblock"><p>Klasa reprezentująca wielokąt. </p>
-</div><hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+</div><h2 class="groupheader">Dokumentacja konstruktora i destruktora</h2>
+<a class="anchor" id="a2d3baa10765a5d3ad349a9e46e576110"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Polygon::Polygon </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Kostruktor wielokąta. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>liczba wierzchołków </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a551e38ab1d9aa545865b0d14f801cfb1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Polygon::Polygon </td>
+          <td>(</td>
+          <td class="paramtype">std::list&lt; <a class="el" href="class_point.html">Point</a> * &gt; *&#160;</td>
+          <td class="paramname"><em>points_list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Kostruktor wielokąta nad zbiorem wierzchołków. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">points_list</td><td>wierzchołki </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ace39c67107966db12e13a183f496c3b0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Polygon::~Polygon </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="a56412a374c4c51da35d25b194592ba37"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Polygon::operator+= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_point.html">Point</a> *&amp;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dodaje wierzchołek do wielokąta. </p>
+
+</div>
+</div>
+<a class="anchor" id="afef95bda7ab174f4ac4199cd3c256990"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_point.html">Point</a> * Polygon::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Zwraca wierzchołek wielokąta. </p>
+
+</div>
+</div>
+<a class="anchor" id="aa1f23948b38e138d66c33cb790e26b35"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Polygon::size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Zwraca liczbę wierzchołków wielokąta. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja przyjaciół i funkcji związanych</h2>
+<a class="anchor" id="a3c428d1cbd0e9760198fd681d4ec7f9d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_polygon.html">Polygon</a> &amp;&#160;</td>
+          <td class="paramname"><em>tree</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wypisuje sformatowaną reprezentację do strumienia. </p>
+<p>Wielokąt jest wypisywany w formacie obsługiwanym przez graficzny symulator. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja atrybutów składowych</h2>
+<a class="anchor" id="a786e739b52cf61681cab01ec31450726"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Polygon::index</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab8767c49c61e052aff3615942e92a19e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Polygon::len</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa23777a50318c001d041bb3dd1d9f27d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_point.html">Point</a>** Polygon::points</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wierzchołki. </p>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
 <li><a class="el" href="_polygon_8h_source.html">Polygon.h</a></li>
-<li>Polygon.cpp</li>
+<li><a class="el" href="_polygon_8cpp.html">Polygon.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Wygenerowano Wt, 11 gru 2012 14:34:28 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
+Wygenerowano Cz, 13 gru 2012 00:54:25 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

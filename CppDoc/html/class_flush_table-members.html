@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Zmienne</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Pliki</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Zmienne</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Wyliczenia</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Wartości wyliczeń</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Przyjaciele</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definicje</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,13 +88,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
 
 <p>To jest kompletna lista składowych dla <a class="el" href="class_flush_table.html">FlushTable&lt; T &gt;</a>, uwzględniająca wszystkie dziedziczone składowe.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>FlushTable</b>(int sz) (zdefiniowana w <a class="el" href="class_flush_table.html">FlushTable&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="class_flush_table.html">FlushTable&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator+=</b>(T *obj) (zdefiniowana w <a class="el" href="class_flush_table.html">FlushTable&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="class_flush_table.html">FlushTable&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>~FlushTable</b>() (zdefiniowana w <a class="el" href="class_flush_table.html">FlushTable&lt; T &gt;</a>)</td><td class="entry"><a class="el" href="class_flush_table.html">FlushTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_flush_table.html#afcbca6ef09ca80c2baf41b650f50cbc8">flushindex</a></td><td class="entry"><a class="el" href="class_flush_table.html">FlushTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_flush_table.html#ae8fa7863716c4d808c119a55f8913211">flushtable</a></td><td class="entry"><a class="el" href="class_flush_table.html">FlushTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_flush_table.html#ab7d65d98d1e218bf308386152d0c0304">FlushTable</a>(int sz)</td><td class="entry"><a class="el" href="class_flush_table.html">FlushTable&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_flush_table.html#a2d023cea1bdf7bbd23a07bb64b91e8b1">operator+=</a>(T *obj)</td><td class="entry"><a class="el" href="class_flush_table.html">FlushTable&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_flush_table.html#ac40c39ce48a841a99484f6ba51e6ccb4">size</a></td><td class="entry"><a class="el" href="class_flush_table.html">FlushTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_flush_table.html#a128a36cb6f620810320e37aa5570dccb">~FlushTable</a>()</td><td class="entry"><a class="el" href="class_flush_table.html">FlushTable&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Wygenerowano Wt, 11 gru 2012 14:34:28 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
+Wygenerowano Cz, 13 gru 2012 00:54:25 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Zmienne</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Pliki</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Zmienne</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Wyliczenia</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Wartości wyliczeń</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Przyjaciele</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definicje</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,17 +88,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
 
 <p>To jest kompletna lista składowych dla <a class="el" href="class_polygon.html">Polygon</a>, uwzględniająca wszystkie dziedziczone składowe.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>length</b>() const  (zdefiniowana w <a class="el" href="class_polygon.html">Polygon</a>)</td><td class="entry"><a class="el" href="class_polygon.html">Polygon</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator+=</b>(Point *&amp;p) (zdefiniowana w <a class="el" href="class_polygon.html">Polygon</a>)</td><td class="entry"><a class="el" href="class_polygon.html">Polygon</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>operator&lt;&lt;</b> (zdefiniowana w <a class="el" href="class_polygon.html">Polygon</a>)</td><td class="entry"><a class="el" href="class_polygon.html">Polygon</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator[]</b>(int index) const  (zdefiniowana w <a class="el" href="class_polygon.html">Polygon</a>)</td><td class="entry"><a class="el" href="class_polygon.html">Polygon</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>Polygon</b>(int size) (zdefiniowana w <a class="el" href="class_polygon.html">Polygon</a>)</td><td class="entry"><a class="el" href="class_polygon.html">Polygon</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>Polygon</b>(std::list&lt; Point * &gt; *points_list) (zdefiniowana w <a class="el" href="class_polygon.html">Polygon</a>)</td><td class="entry"><a class="el" href="class_polygon.html">Polygon</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>~Polygon</b>() (zdefiniowana w <a class="el" href="class_polygon.html">Polygon</a>)</td><td class="entry"><a class="el" href="class_polygon.html">Polygon</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_polygon.html#a786e739b52cf61681cab01ec31450726">index</a></td><td class="entry"><a class="el" href="class_polygon.html">Polygon</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_polygon.html#ab8767c49c61e052aff3615942e92a19e">len</a></td><td class="entry"><a class="el" href="class_polygon.html">Polygon</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_polygon.html#a56412a374c4c51da35d25b194592ba37">operator+=</a>(Point *&amp;p)</td><td class="entry"><a class="el" href="class_polygon.html">Polygon</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_polygon.html#a3c428d1cbd0e9760198fd681d4ec7f9d">operator&lt;&lt;</a>(std::ostream &amp;out, const Polygon &amp;tree)</td><td class="entry"><a class="el" href="class_polygon.html">Polygon</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_polygon.html#afef95bda7ab174f4ac4199cd3c256990">operator[]</a>(int index) const </td><td class="entry"><a class="el" href="class_polygon.html">Polygon</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_polygon.html#aa23777a50318c001d041bb3dd1d9f27d">points</a></td><td class="entry"><a class="el" href="class_polygon.html">Polygon</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_polygon.html#a2d3baa10765a5d3ad349a9e46e576110">Polygon</a>(int size)</td><td class="entry"><a class="el" href="class_polygon.html">Polygon</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_polygon.html#a551e38ab1d9aa545865b0d14f801cfb1">Polygon</a>(std::list&lt; Point * &gt; *points_list)</td><td class="entry"><a class="el" href="class_polygon.html">Polygon</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_polygon.html#aa1f23948b38e138d66c33cb790e26b35">size</a>() const </td><td class="entry"><a class="el" href="class_polygon.html">Polygon</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_polygon.html#ace39c67107966db12e13a183f496c3b0">~Polygon</a>()</td><td class="entry"><a class="el" href="class_polygon.html">Polygon</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Wygenerowano Wt, 11 gru 2012 14:34:28 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
+Wygenerowano Cz, 13 gru 2012 00:54:25 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

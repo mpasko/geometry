@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Zmienne</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Pliki</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Zmienne</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Wyliczenia</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Wartości wyliczeń</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Przyjaciele</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definicje</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -84,6 +84,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
   <div class="summary">
 <a href="#pub-methods">Metody publiczne</a> &#124;
 <a href="#pub-attribs">Atrybuty publiczne</a> &#124;
+<a href="#pri-methods">Metody prywatne</a> &#124;
+<a href="#pri-attribs">Atrybuty prywatne</a> &#124;
 <a href="#friends">Przyjaciele</a> &#124;
 <a href="class_quad_tree-members.html">Lista wszystkich składowych</a>  </div>
   <div class="headertitle">
@@ -91,7 +93,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
 </div><!--header-->
 <div class="contents">
 
-<p>Klasa reprezentująca <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca QuadTree, zawiera w sobie metody do przekształcania jego struktury.">QuadTree</a>, zawiera w sobie metody do przekształcania jego struktury.  
+<p>Klasa reprezentująca węzeł <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca węzeł QuadTree, zawiera w sobie metody do przekształcania jego struktury...">QuadTree</a>, zawiera w sobie metody do przekształcania jego struktury.  
  <a href="class_quad_tree.html#details">Więcej...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_quad_tree_8h_source.html">QuadTree.h</a>&gt;</code></p>
@@ -100,113 +102,303 @@ Diagram współpracy dla QuadTree:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_quad_tree__coll__graph.png" border="0" usemap="#_quad_tree_coll__map" alt="Collaboration graph"/></div>
 <map name="_quad_tree_coll__map" id="_quad_tree_coll__map">
-<area shape="rect" id="node3" href="class_point.html" title="Klasa reprezentująca punkt." alt="" coords="25,214,77,241"/></map>
-<center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
+<area shape="rect" id="node3" href="class_output_manager.html" title="Klasa do zapisywania bierzącego stanu symulacji do pliku." alt="" coords="5,1057,171,1207"/><area shape="rect" id="node6" href="class_point.html" title="Klasa reprezentująca punkt." alt="" coords="254,1071,359,1193"/><area shape="rect" id="node9" href="class_flush_table.html" title="{FlushTable\&lt; Point \&gt;\n|&#45; flushindex\l&#45; size\l|+ FlushTable()\l+ operator+=()\l+ ~FlushTable()\l}" alt="" coords="293,1273,432,1394"/></map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Metody publiczne</h2></td></tr>
-<tr class="memitem:aa39a49db95f90dc271b03249ddd2f453"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa39a49db95f90dc271b03249ddd2f453"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>QuadTree</b> (double cx, double cy, double w, <a class="el" href="class_quad_tree.html">QuadTree</a> *parent)</td></tr>
+<tr class="memitem:aa39a49db95f90dc271b03249ddd2f453"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#aa39a49db95f90dc271b03249ddd2f453">QuadTree</a> (double cx, double cy, double w, <a class="el" href="class_quad_tree.html">QuadTree</a> *<a class="el" href="class_quad_tree.html#a8ecdd44be95a34d0013b7b9a8f50bf27">parent</a>)</td></tr>
 <tr class="separator:aa39a49db95f90dc271b03249ddd2f453"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2b1e4caccd64a68ef998656ac16e5a4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#af2b1e4caccd64a68ef998656ac16e5a4">isLeaf</a> () const </td></tr>
+<tr class="memdesc:af2b1e4caccd64a68ef998656ac16e5a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprawdzenie czy węzeł jest liściem <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca węzeł QuadTree, zawiera w sobie metody do przekształcania jego struktury...">QuadTree</a>.  <a href="#af2b1e4caccd64a68ef998656ac16e5a4"></a><br/></td></tr>
 <tr class="separator:af2b1e4caccd64a68ef998656ac16e5a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addf778d24703ba80b279d9ec9d49a2a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#addf778d24703ba80b279d9ec9d49a2a9">init_mesh</a> (const list&lt; <a class="el" href="class_point.html">Point</a> * &gt; *points_set)</td></tr>
+<tr class="memdesc:addf778d24703ba80b279d9ec9d49a2a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tworzy początkowy podział drzewa <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca węzeł QuadTree, zawiera w sobie metody do przekształcania jego struktury...">QuadTree</a> oraz inicjalizuje jego listę punktami nad którymi tworzona będzie siatka.  <a href="#addf778d24703ba80b279d9ec9d49a2a9"></a><br/></td></tr>
 <tr class="separator:addf778d24703ba80b279d9ec9d49a2a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d4cfa1211cbb02591642578b4031d71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a1d4cfa1211cbb02591642578b4031d71">split_too_close_boxes</a> ()</td></tr>
+<tr class="memdesc:a1d4cfa1211cbb02591642578b4031d71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dzieli siatkę w taki spoób, żeby nigdy dwa różne punkty nie leżały od siebie bliżej niż <em>2 * sqrt(2) * a</em>, gdzie <em>a</em> to dlugosc boku kwadratu w ktorym znajduje sie punkt.  <a href="#a1d4cfa1211cbb02591642578b4031d71"></a><br/></td></tr>
 <tr class="separator:a1d4cfa1211cbb02591642578b4031d71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3cfaf16e257d7836aae394384196371d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3cfaf16e257d7836aae394384196371d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>subdivide</b> ()</td></tr>
+<tr class="memitem:a3cfaf16e257d7836aae394384196371d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a3cfaf16e257d7836aae394384196371d">subdivide</a> ()</td></tr>
+<tr class="memdesc:a3cfaf16e257d7836aae394384196371d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dokonuje podpodziału na mniejsze kwadraty.  <a href="#a3cfaf16e257d7836aae394384196371d"></a><br/></td></tr>
 <tr class="separator:a3cfaf16e257d7836aae394384196371d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcb01b0d78ee7de218863145bb5f59b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#abcb01b0d78ee7de218863145bb5f59b3">surround_with_neighbours_ascending</a> ()</td></tr>
+<tr class="memdesc:abcb01b0d78ee7de218863145bb5f59b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dzieli siatkę w taki sposób, że każdy z węzłów zawierający punkt oraz każdy z rodziców tego dziecka, aż do korzenia otoczony jest ośmioma rozszerzonymi sąsiadami tej samej wielkości.  <a href="#abcb01b0d78ee7de218863145bb5f59b3"></a><br/></td></tr>
 <tr class="separator:abcb01b0d78ee7de218863145bb5f59b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acca230327665bf4bfad10682aa37057b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#acca230327665bf4bfad10682aa37057b">create_extended_neighbours</a> ()</td></tr>
+<tr class="memdesc:acca230327665bf4bfad10682aa37057b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Otacza węzeł ośmioma sąsiadami tej samej wielkości, poprzez podział węzłów sąsiadujących (o ile nie są już wystarczająco podzielone) z węzłem na którym została wywołana metoda.  <a href="#acca230327665bf4bfad10682aa37057b"></a><br/></td></tr>
 <tr class="separator:acca230327665bf4bfad10682aa37057b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a8d675822468ee0feb04e48a369987f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a5a8d675822468ee0feb04e48a369987f">balance_tree</a> ()</td></tr>
+<tr class="memdesc:a5a8d675822468ee0feb04e48a369987f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dzieli drzewo w taki sposób, żeby zrównoważyć wszystkie jego węzły.  <a href="#a5a8d675822468ee0feb04e48a369987f"></a><br/></td></tr>
 <tr class="separator:a5a8d675822468ee0feb04e48a369987f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0732f0f2a754f6325299562d1d20e001"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0732f0f2a754f6325299562d1d20e001"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>putNextPoint</b> (<a class="el" href="class_point.html">Point</a> *p)</td></tr>
+<tr class="memitem:a0732f0f2a754f6325299562d1d20e001"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a0732f0f2a754f6325299562d1d20e001">putNextPoint</a> (<a class="el" href="class_point.html">Point</a> *p)</td></tr>
+<tr class="memdesc:a0732f0f2a754f6325299562d1d20e001"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wkłada kolejny punkt do struktury dokonując podpodziałów w miarę potrzeby.  <a href="#a0732f0f2a754f6325299562d1d20e001"></a><br/></td></tr>
 <tr class="separator:a0732f0f2a754f6325299562d1d20e001"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6aab33fba34e86ec31b7723bbc057ab5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6aab33fba34e86ec31b7723bbc057ab5"></a>
-<a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getNeighbour</b> (Direction direction)</td></tr>
+<tr class="memitem:a6aab33fba34e86ec31b7723bbc057ab5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a6aab33fba34e86ec31b7723bbc057ab5">getNeighbour</a> (<a class="el" href="_quad_tree_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> direction)</td></tr>
+<tr class="memdesc:a6aab33fba34e86ec31b7723bbc057ab5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca sąsiada węzła <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca węzeł QuadTree, zawiera w sobie metody do przekształcania jego struktury...">QuadTree</a>.  <a href="#a6aab33fba34e86ec31b7723bbc057ab5"></a><br/></td></tr>
 <tr class="separator:a6aab33fba34e86ec31b7723bbc057ab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c314bc8223e5d428086f51ef1132766"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c314bc8223e5d428086f51ef1132766"></a>
-<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getNECorner</b> () const </td></tr>
+<tr class="memitem:a2c314bc8223e5d428086f51ef1132766"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a2c314bc8223e5d428086f51ef1132766">getNECorner</a> () const </td></tr>
+<tr class="memdesc:a2c314bc8223e5d428086f51ef1132766"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pobranie północno-wschodniego wierzchołka.  <a href="#a2c314bc8223e5d428086f51ef1132766"></a><br/></td></tr>
 <tr class="separator:a2c314bc8223e5d428086f51ef1132766"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc34ceec161cef2e0f4cfaaac5a41f37"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc34ceec161cef2e0f4cfaaac5a41f37"></a>
-<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getSECorner</b> () const </td></tr>
+<tr class="memitem:acc34ceec161cef2e0f4cfaaac5a41f37"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#acc34ceec161cef2e0f4cfaaac5a41f37">getSECorner</a> () const </td></tr>
+<tr class="memdesc:acc34ceec161cef2e0f4cfaaac5a41f37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pobranie południowo-wschodniego wierzchołka.  <a href="#acc34ceec161cef2e0f4cfaaac5a41f37"></a><br/></td></tr>
 <tr class="separator:acc34ceec161cef2e0f4cfaaac5a41f37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9480059ac1a73725a68c90f67964060"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae9480059ac1a73725a68c90f67964060"></a>
-<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getNWCorner</b> () const </td></tr>
+<tr class="memitem:ae9480059ac1a73725a68c90f67964060"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#ae9480059ac1a73725a68c90f67964060">getNWCorner</a> () const </td></tr>
+<tr class="memdesc:ae9480059ac1a73725a68c90f67964060"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pobranie północno zachodniego wierzchołka.  <a href="#ae9480059ac1a73725a68c90f67964060"></a><br/></td></tr>
 <tr class="separator:ae9480059ac1a73725a68c90f67964060"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb372620bd1fbfe6fe7a525278190ba4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb372620bd1fbfe6fe7a525278190ba4"></a>
-<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getSWCorner</b> () const </td></tr>
+<tr class="memitem:aeb372620bd1fbfe6fe7a525278190ba4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#aeb372620bd1fbfe6fe7a525278190ba4">getSWCorner</a> () const </td></tr>
+<tr class="memdesc:aeb372620bd1fbfe6fe7a525278190ba4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pobranie południowo wschodniego wierzchołka.  <a href="#aeb372620bd1fbfe6fe7a525278190ba4"></a><br/></td></tr>
 <tr class="separator:aeb372620bd1fbfe6fe7a525278190ba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acec30a97954070d11657681e957e8145"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acec30a97954070d11657681e957e8145"></a>
-<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getSteiner</b> ()</td></tr>
+<tr class="memitem:acec30a97954070d11657681e957e8145"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#acec30a97954070d11657681e957e8145">getSteiner</a> ()</td></tr>
+<tr class="memdesc:acec30a97954070d11657681e957e8145"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca współrzędne punktu Steinera.  <a href="#acec30a97954070d11657681e957e8145"></a><br/></td></tr>
 <tr class="separator:acec30a97954070d11657681e957e8145"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0618f3831c582f743e237e4ce5701861"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0618f3831c582f743e237e4ce5701861"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>transform</b> ()</td></tr>
+<tr class="memitem:a0618f3831c582f743e237e4ce5701861"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a0618f3831c582f743e237e4ce5701861">transform</a> ()</td></tr>
+<tr class="memdesc:a0618f3831c582f743e237e4ce5701861"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dokonuje transformację siatki.  <a href="#a0618f3831c582f743e237e4ce5701861"></a><br/></td></tr>
 <tr class="separator:a0618f3831c582f743e237e4ce5701861"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad327e69a9b204d5224bee2eee34a5a5a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad327e69a9b204d5224bee2eee34a5a5a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>mergeCorners</b> (<a class="el" href="class_merge_table.html">MergeTable</a> *m)</td></tr>
+<tr class="memitem:ad327e69a9b204d5224bee2eee34a5a5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#ad327e69a9b204d5224bee2eee34a5a5a">mergeCorners</a> (<a class="el" href="class_merge_table.html">MergeTable</a> *m)</td></tr>
+<tr class="memdesc:ad327e69a9b204d5224bee2eee34a5a5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dokonuje scalania wierzchołków.  <a href="#ad327e69a9b204d5224bee2eee34a5a5a"></a><br/></td></tr>
 <tr class="separator:ad327e69a9b204d5224bee2eee34a5a5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3d5f012e6bb242c20265f64e6023eb0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#ac3d5f012e6bb242c20265f64e6023eb0">set_output_manager</a> (<a class="el" href="class_output_manager.html">OutputManager</a> *&amp;output_manager)</td></tr>
+<tr class="memitem:a236dde2058a3ccf2babbe4a289327b30"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a236dde2058a3ccf2babbe4a289327b30">~QuadTree</a> ()</td></tr>
+<tr class="separator:a236dde2058a3ccf2babbe4a289327b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3d5f012e6bb242c20265f64e6023eb0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#ac3d5f012e6bb242c20265f64e6023eb0">set_output_manager</a> (<a class="el" href="class_output_manager.html">OutputManager</a> *&amp;<a class="el" href="class_quad_tree.html#af04f8c4b3a896ebc41598c2b8a978efe">output_manager</a>)</td></tr>
+<tr class="memdesc:ac3d5f012e6bb242c20265f64e6023eb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ustawia zarządcę zapisywania przebiegu symulacji, w obecnej wersji programu zarządca nie jest używany w wywołaniach metod <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca węzeł QuadTree, zawiera w sobie metody do przekształcania jego struktury...">QuadTree</a>.  <a href="#ac3d5f012e6bb242c20265f64e6023eb0"></a><br/></td></tr>
 <tr class="separator:ac3d5f012e6bb242c20265f64e6023eb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Atrybuty publiczne</h2></td></tr>
 <tr class="memitem:a8b3bc2ca222137666ea98ec2a132bcbe"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="class_point.html">Point</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a8b3bc2ca222137666ea98ec2a132bcbe">points</a></td></tr>
+<tr class="memdesc:a8b3bc2ca222137666ea98ec2a132bcbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zbiór wszsytkich punktów zawartych w obszarze <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca węzeł QuadTree, zawiera w sobie metody do przekształcania jego struktury...">QuadTree</a> dla których jest przeprowadzana triangulacja.  <a href="#a8b3bc2ca222137666ea98ec2a132bcbe"></a><br/></td></tr>
 <tr class="separator:a8b3bc2ca222137666ea98ec2a132bcbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30af9f715baf8b6653a357909b92ddaf"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a30af9f715baf8b6653a357909b92ddaf">NEChild</a></td></tr>
+<tr class="memdesc:a30af9f715baf8b6653a357909b92ddaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wskaźnik na dziecko w północno-wschodnim rogu.  <a href="#a30af9f715baf8b6653a357909b92ddaf"></a><br/></td></tr>
 <tr class="separator:a30af9f715baf8b6653a357909b92ddaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedbadeadb3b005d8bcf35f3d579c998e"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#aedbadeadb3b005d8bcf35f3d579c998e">NWChild</a></td></tr>
+<tr class="memdesc:aedbadeadb3b005d8bcf35f3d579c998e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wskaźnik na dziecko w północno-zachodnim rogu.  <a href="#aedbadeadb3b005d8bcf35f3d579c998e"></a><br/></td></tr>
 <tr class="separator:aedbadeadb3b005d8bcf35f3d579c998e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0246282c01d482a8cb90add7ad198329"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a0246282c01d482a8cb90add7ad198329">SEChild</a></td></tr>
+<tr class="memdesc:a0246282c01d482a8cb90add7ad198329"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wskaźnik na dziecko w południowo-wschodnim rogu.  <a href="#a0246282c01d482a8cb90add7ad198329"></a><br/></td></tr>
 <tr class="separator:a0246282c01d482a8cb90add7ad198329"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab2712afc9d2dbd87b46a56a59866630"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#aab2712afc9d2dbd87b46a56a59866630">SWChild</a></td></tr>
+<tr class="memdesc:aab2712afc9d2dbd87b46a56a59866630"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wskaźnik na dziecko w południowo-zachodnim rogu.  <a href="#aab2712afc9d2dbd87b46a56a59866630"></a><br/></td></tr>
 <tr class="separator:aab2712afc9d2dbd87b46a56a59866630"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fa4ec892941a59163d4163b400de0ea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0fa4ec892941a59163d4163b400de0ea"></a>
-<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ECorner</b></td></tr>
+<tr class="memitem:a0fa4ec892941a59163d4163b400de0ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a0fa4ec892941a59163d4163b400de0ea">ECorner</a></td></tr>
+<tr class="memdesc:a0fa4ec892941a59163d4163b400de0ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wskaźnik na środek wschodniej krawędzi.  <a href="#a0fa4ec892941a59163d4163b400de0ea"></a><br/></td></tr>
 <tr class="separator:a0fa4ec892941a59163d4163b400de0ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a53032ee7b6255efb555ecf6a23d146"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4a53032ee7b6255efb555ecf6a23d146"></a>
-<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>WCorner</b></td></tr>
+<tr class="memitem:a4a53032ee7b6255efb555ecf6a23d146"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a4a53032ee7b6255efb555ecf6a23d146">WCorner</a></td></tr>
+<tr class="memdesc:a4a53032ee7b6255efb555ecf6a23d146"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wskaźnik na środek zachodniej krawędzi.  <a href="#a4a53032ee7b6255efb555ecf6a23d146"></a><br/></td></tr>
 <tr class="separator:a4a53032ee7b6255efb555ecf6a23d146"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9a0d54889d0afc582c78e7f78f6dbb5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad9a0d54889d0afc582c78e7f78f6dbb5"></a>
-<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>SCorner</b></td></tr>
+<tr class="memitem:ad9a0d54889d0afc582c78e7f78f6dbb5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#ad9a0d54889d0afc582c78e7f78f6dbb5">SCorner</a></td></tr>
+<tr class="memdesc:ad9a0d54889d0afc582c78e7f78f6dbb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wskaźnik na środek południowej krawędzi.  <a href="#ad9a0d54889d0afc582c78e7f78f6dbb5"></a><br/></td></tr>
 <tr class="separator:ad9a0d54889d0afc582c78e7f78f6dbb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01bbb0c4c4b55aee796f44db113ba734"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a01bbb0c4c4b55aee796f44db113ba734"></a>
-<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>NCorner</b></td></tr>
+<tr class="memitem:a01bbb0c4c4b55aee796f44db113ba734"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a01bbb0c4c4b55aee796f44db113ba734">NCorner</a></td></tr>
+<tr class="memdesc:a01bbb0c4c4b55aee796f44db113ba734"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wskaźnik na środek północnej krawędzi.  <a href="#a01bbb0c4c4b55aee796f44db113ba734"></a><br/></td></tr>
 <tr class="separator:a01bbb0c4c4b55aee796f44db113ba734"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ecdd44be95a34d0013b7b9a8f50bf27"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ecdd44be95a34d0013b7b9a8f50bf27"></a>
-class <a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>parent</b></td></tr>
+<tr class="memitem:a8ecdd44be95a34d0013b7b9a8f50bf27"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a8ecdd44be95a34d0013b7b9a8f50bf27">parent</a></td></tr>
+<tr class="memdesc:a8ecdd44be95a34d0013b7b9a8f50bf27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wskaźnik na rodzica węzła lub NULL, jeżeli węzeł jest korzeniem.  <a href="#a8ecdd44be95a34d0013b7b9a8f50bf27"></a><br/></td></tr>
 <tr class="separator:a8ecdd44be95a34d0013b7b9a8f50bf27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4cb129ddfa789fbea4e08a5f88b540ac"><td class="memItemLeft" align="right" valign="top">DiagonalDir&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a4cb129ddfa789fbea4e08a5f88b540ac">parent_region</a></td></tr>
+<tr class="memitem:a4cb129ddfa789fbea4e08a5f88b540ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_quad_tree_8h.html#a3447e07885fbbfad367e85805d95c052">DiagonalDir</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a4cb129ddfa789fbea4e08a5f88b540ac">parent_region</a></td></tr>
+<tr class="memdesc:a4cb129ddfa789fbea4e08a5f88b540ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">informacja w ktorej ćwiartce rodzica znajduje sie dany node.  <a href="#a4cb129ddfa789fbea4e08a5f88b540ac"></a><br/></td></tr>
 <tr class="separator:a4cb129ddfa789fbea4e08a5f88b540ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c44b4a400a9d6cceee4c8820ba27ce8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c44b4a400a9d6cceee4c8820ba27ce8"></a>
-<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>center</b></td></tr>
+<tr class="memitem:a8c44b4a400a9d6cceee4c8820ba27ce8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a8c44b4a400a9d6cceee4c8820ba27ce8">center</a></td></tr>
+<tr class="memdesc:a8c44b4a400a9d6cceee4c8820ba27ce8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Współrzędne środka.  <a href="#a8c44b4a400a9d6cceee4c8820ba27ce8"></a><br/></td></tr>
 <tr class="separator:a8c44b4a400a9d6cceee4c8820ba27ce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a009965ef44e37cad6fad5ddfb4bf3210"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a009965ef44e37cad6fad5ddfb4bf3210"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>width</b></td></tr>
+<tr class="memitem:a009965ef44e37cad6fad5ddfb4bf3210"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a009965ef44e37cad6fad5ddfb4bf3210">width</a></td></tr>
+<tr class="memdesc:a009965ef44e37cad6fad5ddfb4bf3210"><td class="mdescLeft">&#160;</td><td class="mdescRight">Szerokość  <a href="#a009965ef44e37cad6fad5ddfb4bf3210"></a><br/></td></tr>
 <tr class="separator:a009965ef44e37cad6fad5ddfb4bf3210"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80a7b6aba8a75ca8b8bc62564b69736e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a80a7b6aba8a75ca8b8bc62564b69736e"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>half</b></td></tr>
+<tr class="memitem:a80a7b6aba8a75ca8b8bc62564b69736e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a80a7b6aba8a75ca8b8bc62564b69736e">half</a></td></tr>
+<tr class="memdesc:a80a7b6aba8a75ca8b8bc62564b69736e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Połowa szerokosci.  <a href="#a80a7b6aba8a75ca8b8bc62564b69736e"></a><br/></td></tr>
 <tr class="separator:a80a7b6aba8a75ca8b8bc62564b69736e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac53096abb01d307a42b5b45cd68a0b00"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac53096abb01d307a42b5b45cd68a0b00"></a>
-<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>chunk</b></td></tr>
+<tr class="memitem:ac53096abb01d307a42b5b45cd68a0b00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#ac53096abb01d307a42b5b45cd68a0b00">chunk</a></td></tr>
+<tr class="memdesc:ac53096abb01d307a42b5b45cd68a0b00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Punkt zawarty wewnątrz liscia.  <a href="#ac53096abb01d307a42b5b45cd68a0b00"></a><br/></td></tr>
 <tr class="separator:ac53096abb01d307a42b5b45cd68a0b00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96e62c89da02d563a80a490041981281"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96e62c89da02d563a80a490041981281"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>depth</b></td></tr>
+<tr class="memitem:a96e62c89da02d563a80a490041981281"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a96e62c89da02d563a80a490041981281">depth</a></td></tr>
+<tr class="memdesc:a96e62c89da02d563a80a490041981281"><td class="mdescLeft">&#160;</td><td class="mdescRight">Głębokość zagłebienia w strukturze <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca węzeł QuadTree, zawiera w sobie metody do przekształcania jego struktury...">QuadTree</a>.  <a href="#a96e62c89da02d563a80a490041981281"></a><br/></td></tr>
 <tr class="separator:a96e62c89da02d563a80a490041981281"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Metody prywatne</h2></td></tr>
+<tr class="memitem:ae16f6679b1fd327aa3e66d5b1fef3177"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#ae16f6679b1fd327aa3e66d5b1fef3177">getNeighbour</a> (<a class="el" href="_quad_tree_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> direction, <a class="el" href="_quad_tree_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> source_dir, <a class="el" href="class_quad_tree.html">QuadTree</a> *source)</td></tr>
+<tr class="memdesc:ae16f6679b1fd327aa3e66d5b1fef3177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Służy do rekurencyjnego wywołania getNeighbour.  <a href="#ae16f6679b1fd327aa3e66d5b1fef3177"></a><br/></td></tr>
+<tr class="separator:ae16f6679b1fd327aa3e66d5b1fef3177"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65c1b56c0d709ec2e62a09fa33f4295c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a65c1b56c0d709ec2e62a09fa33f4295c">slideDown</a> (<a class="el" href="_quad_tree_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> direction, <a class="el" href="class_quad_tree.html">QuadTree</a> *source)</td></tr>
+<tr class="separator:a65c1b56c0d709ec2e62a09fa33f4295c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a061d4a286913537bc2f2977f85cb093f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a061d4a286913537bc2f2977f85cb093f">is_unbalanced</a> ()</td></tr>
+<tr class="memdesc:a061d4a286913537bc2f2977f85cb093f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprawdzenie czy węzeł jest zrównoważony.  <a href="#a061d4a286913537bc2f2977f85cb093f"></a><br/></td></tr>
+<tr class="separator:a061d4a286913537bc2f2977f85cb093f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5a52b55005b339e22f0128b7c1836ae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#ac5a52b55005b339e22f0128b7c1836ae">balance_children</a> ()</td></tr>
+<tr class="memdesc:ac5a52b55005b339e22f0128b7c1836ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wywołuje <a class="el" href="class_quad_tree.html#a91a3be093f6084fa94ea57240a676070" title="Rekursywnie, zstępująco równoważy poddrzewo węzła.">balance()</a> na wszystkich dzieciach węzła.  <a href="#ac5a52b55005b339e22f0128b7c1836ae"></a><br/></td></tr>
+<tr class="separator:ac5a52b55005b339e22f0128b7c1836ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91a3be093f6084fa94ea57240a676070"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a91a3be093f6084fa94ea57240a676070">balance</a> ()</td></tr>
+<tr class="memdesc:a91a3be093f6084fa94ea57240a676070"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rekursywnie, zstępująco równoważy poddrzewo węzła.  <a href="#a91a3be093f6084fa94ea57240a676070"></a><br/></td></tr>
+<tr class="separator:a91a3be093f6084fa94ea57240a676070"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23968369acda85a0f98a203a344267f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a23968369acda85a0f98a203a344267f0">match</a> (<a class="el" href="class_point.html">Point</a> *p)</td></tr>
+<tr class="memdesc:a23968369acda85a0f98a203a344267f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca wskaźnik do dziecko poddrzewa w którym powinien znaleźć się punkt.  <a href="#a23968369acda85a0f98a203a344267f0"></a><br/></td></tr>
+<tr class="separator:a23968369acda85a0f98a203a344267f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd6ee45a70b98b531944413698e1a508"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#abd6ee45a70b98b531944413698e1a508">getChildByRegion</a> (<a class="el" href="_quad_tree_8h.html#a3447e07885fbbfad367e85805d95c052">DiagonalDir</a> region)</td></tr>
+<tr class="memdesc:abd6ee45a70b98b531944413698e1a508"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pobiera dziecko zależnie od wskazanego regionu.  <a href="#abd6ee45a70b98b531944413698e1a508"></a><br/></td></tr>
+<tr class="separator:abd6ee45a70b98b531944413698e1a508"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac20d406cb0d1ce40966994fc7b22960f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#ac20d406cb0d1ce40966994fc7b22960f">getChildContainingCoord</a> (<a class="el" href="_quad_tree_8h.html#afc9fb13476dd8f85a138c3da48d46888">PerpendicularDir</a> side, double value)</td></tr>
+<tr class="memdesc:ac20d406cb0d1ce40966994fc7b22960f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pobiera dziecko znajdujące się przy wskazanej ścianie węzła wg podanej współrzędnych.  <a href="#ac20d406cb0d1ce40966994fc7b22960f"></a><br/></td></tr>
+<tr class="separator:ac20d406cb0d1ce40966994fc7b22960f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7799740af42d63084f77414c12ddfaf3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a7799740af42d63084f77414c12ddfaf3">split_to_maximize_distance</a> (double accepted_distance)  throw (EmptyNodeException)</td></tr>
+<tr class="memdesc:a7799740af42d63084f77414c12ddfaf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rekurencyjnie dzieli węzeł z punktem tak długo, aż jego szerokość będzie mniejsza od zadanej wartości.  <a href="#a7799740af42d63084f77414c12ddfaf3"></a><br/></td></tr>
+<tr class="separator:a7799740af42d63084f77414c12ddfaf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a436571836c71569b8d1025c57bea208e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a436571836c71569b8d1025c57bea208e">split_until_size</a> (double target_size)</td></tr>
+<tr class="memdesc:a436571836c71569b8d1025c57bea208e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rekurencyjnie dzieli węzeł tak długo, aż jego szerokość będzie mniejsza od zadanej wartości.  <a href="#a436571836c71569b8d1025c57bea208e"></a><br/></td></tr>
+<tr class="separator:a436571836c71569b8d1025c57bea208e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae04de86354dd6fc0438421397bfa6f5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#ae04de86354dd6fc0438421397bfa6f5d">create_extended_neighbour</a> (<a class="el" href="_quad_tree_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> direction)</td></tr>
+<tr class="memdesc:ae04de86354dd6fc0438421397bfa6f5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tworzy rozszerzonego sąsiada w jednym z sąsiadów węzła.  <a href="#ae04de86354dd6fc0438421397bfa6f5d"></a><br/></td></tr>
+<tr class="separator:ae04de86354dd6fc0438421397bfa6f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a332056331605df461d20ebc8ca76b1d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a332056331605df461d20ebc8ca76b1d2">subdivideOrthogonal</a> (<a class="el" href="_quad_tree_8h.html#afc9fb13476dd8f85a138c3da48d46888">PerpendicularDir</a> side, int target_depth, double side_middle)</td></tr>
+<tr class="memdesc:a332056331605df461d20ebc8ca76b1d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rekursywnie dzieli pionowy lub poziomego węzeł do ustalone głębokości.  <a href="#a332056331605df461d20ebc8ca76b1d2"></a><br/></td></tr>
+<tr class="separator:a332056331605df461d20ebc8ca76b1d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaf2a606132620f8f53e67106739e371"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#acaf2a606132620f8f53e67106739e371">subdivideDiagonal</a> (<a class="el" href="_quad_tree_8h.html#a3447e07885fbbfad367e85805d95c052">DiagonalDir</a> region, <a class="el" href="class_quad_tree.html">QuadTree</a> *source, int target_depth)</td></tr>
+<tr class="memdesc:acaf2a606132620f8f53e67106739e371"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rekursywnie dzieli węzeł na powęzły, aż do określonej głębokości.  <a href="#acaf2a606132620f8f53e67106739e371"></a><br/></td></tr>
+<tr class="separator:acaf2a606132620f8f53e67106739e371"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff80dee4144576c45eadaae816775e02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#aff80dee4144576c45eadaae816775e02">getCrossing</a> (<a class="el" href="class_point.html">Point</a> *a, <a class="el" href="class_point.html">Point</a> *b)</td></tr>
+<tr class="memdesc:aff80dee4144576c45eadaae816775e02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca punkt przecięcia zadanej krawędzi z elementem siatki <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca węzeł QuadTree, zawiera w sobie metody do przekształcania jego struktury...">QuadTree</a>.  <a href="#aff80dee4144576c45eadaae816775e02"></a><br/></td></tr>
+<tr class="separator:aff80dee4144576c45eadaae816775e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atrybuty prywatne</h2></td></tr>
+<tr class="memitem:a27cbf05fe9518c6fa3cc312ff6f18127"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_flush_table.html">FlushTable</a>&lt; <a class="el" href="class_point.html">Point</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a27cbf05fe9518c6fa3cc312ff6f18127">flush</a></td></tr>
+<tr class="separator:a27cbf05fe9518c6fa3cc312ff6f18127"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af04f8c4b3a896ebc41598c2b8a978efe"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="class_output_manager.html">OutputManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#af04f8c4b3a896ebc41598c2b8a978efe">output_manager</a></td></tr>
+<tr class="separator:af04f8c4b3a896ebc41598c2b8a978efe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a398742b7a42c1ad8b4ddaab389338a39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a398742b7a42c1ad8b4ddaab389338a39">NECorner</a></td></tr>
+<tr class="memdesc:a398742b7a42c1ad8b4ddaab389338a39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wierzchołek północno-wschodni.  <a href="#a398742b7a42c1ad8b4ddaab389338a39"></a><br/></td></tr>
+<tr class="separator:a398742b7a42c1ad8b4ddaab389338a39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a303431b117454845ad455291857fd8ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#a303431b117454845ad455291857fd8ff">NWCorner</a></td></tr>
+<tr class="memdesc:a303431b117454845ad455291857fd8ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wierzchołek północno-zachodni.  <a href="#a303431b117454845ad455291857fd8ff"></a><br/></td></tr>
+<tr class="separator:a303431b117454845ad455291857fd8ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af31a1ffdbe4a1ed516417dc3b6da976d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#af31a1ffdbe4a1ed516417dc3b6da976d">SECorner</a></td></tr>
+<tr class="memdesc:af31a1ffdbe4a1ed516417dc3b6da976d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wierzchołek południowo-wschodni.  <a href="#af31a1ffdbe4a1ed516417dc3b6da976d"></a><br/></td></tr>
+<tr class="separator:af31a1ffdbe4a1ed516417dc3b6da976d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad538532e46c3e0e51f40e3bf61bc2f38"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#ad538532e46c3e0e51f40e3bf61bc2f38">SWCorner</a></td></tr>
+<tr class="memdesc:ad538532e46c3e0e51f40e3bf61bc2f38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wierzchołek południowo-zachodnia.  <a href="#ad538532e46c3e0e51f40e3bf61bc2f38"></a><br/></td></tr>
+<tr class="separator:ad538532e46c3e0e51f40e3bf61bc2f38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Przyjaciele</h2></td></tr>
-<tr class="memitem:aba42f995b812b9baf6e3fbc8d136e602"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba42f995b812b9baf6e3fbc8d136e602"></a>
-ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (ostream &amp;out, const <a class="el" href="class_quad_tree.html">QuadTree</a> &amp;tree)</td></tr>
+<tr class="memitem:aba42f995b812b9baf6e3fbc8d136e602"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quad_tree.html#aba42f995b812b9baf6e3fbc8d136e602">operator&lt;&lt;</a> (ostream &amp;out, const <a class="el" href="class_quad_tree.html">QuadTree</a> &amp;tree)</td></tr>
 <tr class="separator:aba42f995b812b9baf6e3fbc8d136e602"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
-<div class="textblock"><p>Klasa reprezentująca <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca QuadTree, zawiera w sobie metody do przekształcania jego struktury.">QuadTree</a>, zawiera w sobie metody do przekształcania jego struktury. </p>
-</div><h2 class="groupheader">Dokumentacja funkcji składowych</h2>
+<div class="textblock"><p>Klasa reprezentująca węzeł <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca węzeł QuadTree, zawiera w sobie metody do przekształcania jego struktury...">QuadTree</a>, zawiera w sobie metody do przekształcania jego struktury. </p>
+</div><h2 class="groupheader">Dokumentacja konstruktora i destruktora</h2>
+<a class="anchor" id="aa39a49db95f90dc271b03249ddd2f453"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QuadTree::QuadTree </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>cx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>cy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td>
+          <td class="paramname"><em>parent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a236dde2058a3ccf2babbe4a289327b30"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QuadTree::~QuadTree </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="a91a3be093f6084fa94ea57240a676070"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QuadTree::balance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Rekursywnie, zstępująco równoważy poddrzewo węzła. </p>
+<dl class="section return"><dt>Zwraca</dt><dd><em>true</em> jeżeli węzeł lub choć jeden węzeł w poddrzewie został podzielony, <em>false</em> w przeciwnym przypadku. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac5a52b55005b339e22f0128b7c1836ae"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QuadTree::balance_children </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wywołuje <a class="el" href="class_quad_tree.html#a91a3be093f6084fa94ea57240a676070" title="Rekursywnie, zstępująco równoważy poddrzewo węzła.">balance()</a> na wszystkich dzieciach węzła. </p>
+<dl class="section return"><dt>Zwraca</dt><dd><em>true</em> jeżeli choć jeden węzeł w poddrzewie węzła został podzielony, <em>false</em> w przeciwnym przypadku. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a5a8d675822468ee0feb04e48a369987f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -219,7 +411,35 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Dzieli drzewo w taki sposób, żeby zrównoważyć wszystkie jego węzły. Metoda wywoływana jest od korzenia i rekursywnie zagłębia się w kolejne dzieci, jeżeli w czasie przechodzenia drzewa nastąpiło podzielenie korzenia, metoda wywoła się ponownie po przejściu całego drzewa, do momentu, gdy nic nie ulegnie zmianie. </p>
+
+<p>Dzieli drzewo w taki sposób, żeby zrównoważyć wszystkie jego węzły. </p>
+<p>Metoda wywoływana jest od korzenia i rekursywnie zagłębia się w kolejne dzieci, jeżeli w czasie przechodzenia drzewa nastąpiło podzielenie korzenia, metoda wywoła się ponownie po przejściu całego drzewa, do momentu, gdy nic nie ulegnie zmianie. </p>
+
+</div>
+</div>
+<a class="anchor" id="ae04de86354dd6fc0438421397bfa6f5d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QuadTree::create_extended_neighbour </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_quad_tree_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a>&#160;</td>
+          <td class="paramname"><em>direction</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tworzy rozszerzonego sąsiada w jednym z sąsiadów węzła. </p>
 
 </div>
 </div>
@@ -235,7 +455,287 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Otacza węzeł ośmioma sąsiadami tej samej wielkości, poprzez podział węzłów sąsiadujących (o ile nie są już wystarczająco podzielone) z węzłem na którym została wywołana metoda. </p>
+
+</div>
+</div>
+<a class="anchor" id="abd6ee45a70b98b531944413698e1a508"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_quad_tree.html">QuadTree</a> * QuadTree::getChildByRegion </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_quad_tree_8h.html#a3447e07885fbbfad367e85805d95c052">DiagonalDir</a>&#160;</td>
+          <td class="paramname"><em>region</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pobiera dziecko zależnie od wskazanego regionu. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">region</td><td>ćwiartka węzła </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>wskaźnik na dziecko znajdujące się we wskazanej ćwiartce </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac20d406cb0d1ce40966994fc7b22960f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_quad_tree.html">QuadTree</a> * QuadTree::getChildContainingCoord </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_quad_tree_8h.html#afc9fb13476dd8f85a138c3da48d46888">PerpendicularDir</a>&#160;</td>
+          <td class="paramname"><em>side</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pobiera dziecko znajdujące się przy wskazanej ścianie węzła wg podanej współrzędnych. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">side</td><td>przy której ścianie należy szukać dziecka </td></tr>
+    <tr><td class="paramname">value</td><td>wartość jednej ze współrzędnych, która musi zawierać się w dziecku, w przypadku szukania dziecka przy ścianie pionowej kwadratu jest to współrzędna y-kowa, w przypadku sszuaknia przy ścianie poziomej jest to współrzędna x-owa. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>szukane dziecko lub <em>NULL</em> jeżeli węzeł jest liściem. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aff80dee4144576c45eadaae816775e02"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_point.html">Point</a> * QuadTree::getCrossing </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_point.html">Point</a> *&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_point.html">Point</a> *&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Zwraca punkt przecięcia zadanej krawędzi z elementem siatki <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca węzeł QuadTree, zawiera w sobie metody do przekształcania jego struktury...">QuadTree</a>. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>początek krawędzi </td></tr>
+    <tr><td class="paramname">b</td><td>koniec krawędzi </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a2c314bc8223e5d428086f51ef1132766"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_point.html">Point</a> * QuadTree::getNECorner </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pobranie północno-wschodniego wierzchołka. </p>
+
+</div>
+</div>
+<a class="anchor" id="ae16f6679b1fd327aa3e66d5b1fef3177"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_quad_tree.html">QuadTree</a> * QuadTree::getNeighbour </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_quad_tree_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a>&#160;</td>
+          <td class="paramname"><em>direction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_quad_tree_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a>&#160;</td>
+          <td class="paramname"><em>source_dir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td>
+          <td class="paramname"><em>source</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Służy do rekurencyjnego wywołania getNeighbour. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">direction</td><td>aktualny kierunek (może ulegac zmianie w kolejnych wywołaniach) </td></tr>
+    <tr><td class="paramname">source_dir</td><td>początkowy kierunek </td></tr>
+    <tr><td class="paramname">source</td><td>wskaźnik na <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca węzeł QuadTree, zawiera w sobie metody do przekształcania jego struktury...">QuadTree</a> z którego zaczęliśmy poszukiwania </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a6aab33fba34e86ec31b7723bbc057ab5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_quad_tree.html">QuadTree</a> * QuadTree::getNeighbour </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_quad_tree_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a>&#160;</td>
+          <td class="paramname"><em>direction</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Zwraca sąsiada węzła <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca węzeł QuadTree, zawiera w sobie metody do przekształcania jego struktury...">QuadTree</a>. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">direction</td><td>kierunek poszukiwań </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ae9480059ac1a73725a68c90f67964060"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_point.html">Point</a> * QuadTree::getNWCorner </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pobranie północno zachodniego wierzchołka. </p>
+
+</div>
+</div>
+<a class="anchor" id="acc34ceec161cef2e0f4cfaaac5a41f37"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_point.html">Point</a> * QuadTree::getSECorner </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pobranie południowo-wschodniego wierzchołka. </p>
+
+</div>
+</div>
+<a class="anchor" id="acec30a97954070d11657681e957e8145"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_point.html">Point</a> * QuadTree::getSteiner </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Zwraca współrzędne punktu Steinera. </p>
+
+</div>
+</div>
+<a class="anchor" id="aeb372620bd1fbfe6fe7a525278190ba4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_point.html">Point</a> * QuadTree::getSWCorner </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pobranie południowo wschodniego wierzchołka. </p>
 
 </div>
 </div>
@@ -252,13 +752,41 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Tworzy początkowy podział drzewa <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca QuadTree, zawiera w sobie metody do przekształcania jego struktury.">QuadTree</a> poprzez dodawanie do niego kolejnych punktów i odpowiedni podział siatki, tak by nie zanjdowały się w jedynm kwadracie dwa punkty. </p>
+
+<p>Tworzy początkowy podział drzewa <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca węzeł QuadTree, zawiera w sobie metody do przekształcania jego struktury...">QuadTree</a> oraz inicjalizuje jego listę punktami nad którymi tworzona będzie siatka. </p>
+<p>Podział następuje poprzez dodawanie do drzewa kolejnych punktów z listy i odpowiedni podział siatki, tak by żadne dwa punkty nie zanjdowały się one w tym samym kwadracie. </p>
 <dl class="params"><dt>Parametry</dt><dd>
   <table class="params">
     <tr><td class="paramname">points_set</td><td>punkty, które mają zostać dodane do siatki </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a061d4a286913537bc2f2977f85cb093f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool QuadTree::is_unbalanced </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sprawdzenie czy węzeł jest zrównoważony. </p>
+<dl class="section return"><dt>Zwraca</dt><dd><em>true</em> jeżeli sąsiedzi spełniają warunki równowagi dla węzła, <em>false</em> w przeciwnym przypadku. </dd></dl>
 
 </div>
 </div>
@@ -274,8 +802,92 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sprawdzenie czy węzeł jest liściem <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca QuadTree, zawiera w sobie metody do przekształcania jego struktury.">QuadTree</a> </p>
+
+<p>Sprawdzenie czy węzeł jest liściem <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca węzeł QuadTree, zawiera w sobie metody do przekształcania jego struktury...">QuadTree</a>. </p>
 <dl class="section return"><dt>Zwraca</dt><dd><em>true</em> jeżeli węzeł jest liściem, <em>false</em> w przeciwnym przypadku </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a23968369acda85a0f98a203a344267f0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_quad_tree.html">QuadTree</a> * QuadTree::match </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_point.html">Point</a> *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Zwraca wskaźnik do dziecko poddrzewa w którym powinien znaleźć się punkt. </p>
+<p><br/>
+ <b>UWAGA : </b> jeżeli punkt leży poza kwadratem wynik działania funkcji jest nieokreślony. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>sprawdzany punkt </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>dziecko do którego powinien należeć punkt </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad327e69a9b204d5224bee2eee34a5a5a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QuadTree::mergeCorners </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_merge_table.html">MergeTable</a> *&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dokonuje scalania wierzchołków. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>obiekt klasy <a class="el" href="class_merge_table.html" title="Klasa służąca do indeksowania wierzchołków do scalania.">MergeTable</a> indeksujący wierzchołki do scalania </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a0732f0f2a754f6325299562d1d20e001"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QuadTree::putNextPoint </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_point.html">Point</a> *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wkłada kolejny punkt do struktury dokonując podpodziałów w miarę potrzeby. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Wkładany punkt </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -292,10 +904,84 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Ustawia zarządcę zapisywania przebiegu symulacji, w obecnej wersji programu zarządca nie jest używany w wywołaniach metod <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca QuadTree, zawiera w sobie metody do przekształcania jego struktury.">QuadTree</a> </p>
+
+<p>Ustawia zarządcę zapisywania przebiegu symulacji, w obecnej wersji programu zarządca nie jest używany w wywołaniach metod <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca węzeł QuadTree, zawiera w sobie metody do przekształcania jego struktury...">QuadTree</a>. </p>
 <dl class="params"><dt>Parametry</dt><dd>
   <table class="params">
     <tr><td class="paramname">output_manager</td><td>zarządca wypisywania symulacji </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a65c1b56c0d709ec2e62a09fa33f4295c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_quad_tree.html">QuadTree</a> * QuadTree::slideDown </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_quad_tree_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a>&#160;</td>
+          <td class="paramname"><em>direction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td>
+          <td class="paramname"><em>source</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7799740af42d63084f77414c12ddfaf3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QuadTree::split_to_maximize_distance </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>accepted_distance</em></td><td>)</td>
+          <td>  throw (<a class="el" href="class_empty_node_exception.html">EmptyNodeException</a>)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Rekurencyjnie dzieli węzeł z punktem tak długo, aż jego szerokość będzie mniejsza od zadanej wartości. </p>
+<p>Funkcja sprawdza głównie, czy podział jest dozwolony, właściwe dzielenie kwadratu następuje poprzez wenętrzne wywołanie funkcji <a class="el" href="class_quad_tree.html#a436571836c71569b8d1025c57bea208e" title="Rekurencyjnie dzieli węzeł tak długo, aż jego szerokość będzie mniejsza od zadanej wartości...">split_until_size(double)</a>. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">accepted_distance</td><td>- maksymalna szerokość jaką powinien posiadać ostateczny kwadrat </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Wyjątki</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="class_empty_node_exception.html" title="Wyjąek rzucany, gdy węzeł QuadTree wbrew oczekiwaniom nie zawiera punktu.">EmptyNodeException</a></td><td>- jeżeli kwadrat nie zawiera punktu </td></tr>
   </table>
   </dd>
 </dl>
@@ -314,7 +1000,160 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Dzieli siatkę w taki spoób, żeby nigdy dwa różne punkty nie leżały od siebie bliżej niż <em>2 * sqrt(2) * a</em>, gdzie <em>a</em> to dlugosc boku kwadratu w ktorym znajduje sie punkt </p>
+
+<p>Dzieli siatkę w taki spoób, żeby nigdy dwa różne punkty nie leżały od siebie bliżej niż <em>2 * sqrt(2) * a</em>, gdzie <em>a</em> to dlugosc boku kwadratu w ktorym znajduje sie punkt. </p>
+
+</div>
+</div>
+<a class="anchor" id="a436571836c71569b8d1025c57bea208e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QuadTree::split_until_size </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>target_size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Rekurencyjnie dzieli węzeł tak długo, aż jego szerokość będzie mniejsza od zadanej wartości. </p>
+<p>Dzielony node <b>musi</b> zawierać punkt, ponieważ do kolenjych podziałów wybierane jest zawsze dziecko węzła z punktem. Funkcja nie sprawdza czy węzeł na którym jest wywołana jest pusty, zatem przed wywołaniem funkcji należy zapenić, że węzał zawiera punkt. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target_size</td><td>maksymalna szerokość ostatecznego kwadratu, otrzymanego na slkutek podziału </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a3cfaf16e257d7836aae394384196371d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QuadTree::subdivide </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dokonuje podpodziału na mniejsze kwadraty. </p>
+
+</div>
+</div>
+<a class="anchor" id="acaf2a606132620f8f53e67106739e371"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QuadTree::subdivideDiagonal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_quad_tree_8h.html#a3447e07885fbbfad367e85805d95c052">DiagonalDir</a>&#160;</td>
+          <td class="paramname"><em>region</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>target_depth</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Rekursywnie dzieli węzeł na powęzły, aż do określonej głębokości. </p>
+<p>Przy każdym z podziałów na danej głębokości dzielone jest jedno i tylko jedno dziecko </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">region</td><td>skośny kierunek określający w jakim kierunku od najmniejszego podzału powinien znajdwać się węzeł, który wywołał na obecnymw ęźle podział </td></tr>
+    <tr><td class="paramname">węzeł,który</td><td>wywołał na obecnymw węźle podział, wraz z parametrem <b>region</b> pozwala wybrać dziecko, do następnego rekursywnego podziału </td></tr>
+    <tr><td class="paramname">target_depth</td><td>głębokość na jaką ma nastąpić podział </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a332056331605df461d20ebc8ca76b1d2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QuadTree::subdivideOrthogonal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_quad_tree_8h.html#afc9fb13476dd8f85a138c3da48d46888">PerpendicularDir</a>&#160;</td>
+          <td class="paramname"><em>side</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>target_depth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>side_middle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Rekursywnie dzieli pionowy lub poziomego węzeł do ustalone głębokości. </p>
+<p>Przy każdym z podziałów na danej głębokości dzielone jest jedno i tylko jedno dziecko. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">side</td><td>pionowy lub poziomy kierunek w którym mają następować koejne podziały </td></tr>
+    <tr><td class="paramname">target_depth</td><td>głębokość do której ma następować podział </td></tr>
+    <tr><td class="paramname">side_middle</td><td>współrzędna x-owa w przypadku podziałów w kierunku ściany poziomej lub y-kowa w przypadku podziałów w kierunku ściany pioowej, koeljny kwadrat wybierany do do kolejnego podziiału musi znajodwać się możliwie najbliżej ściany wskazywanej przez <b>side</b> i zawierać podaną wspórzędną </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -330,11 +1169,168 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Dzieli siatkę w taki sposób, że każdy z węzłów zawierający punkt oraz każdy z rodziców tego dziecka, aż do korzenia otoczony jest ośmioma rozszerzonymi sąsiadami tej samej wielkości. </p>
 
 </div>
 </div>
+<a class="anchor" id="a0618f3831c582f743e237e4ce5701861"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void QuadTree::transform </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dokonuje transformację siatki. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja przyjaciół i funkcji związanych</h2>
+<a class="anchor" id="aba42f995b812b9baf6e3fbc8d136e602"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_quad_tree.html">QuadTree</a> &amp;&#160;</td>
+          <td class="paramname"><em>tree</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Dokumentacja atrybutów składowych</h2>
+<a class="anchor" id="a8c44b4a400a9d6cceee4c8820ba27ce8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_point.html">Point</a>* QuadTree::center</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Współrzędne środka. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac53096abb01d307a42b5b45cd68a0b00"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_point.html">Point</a>* QuadTree::chunk</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Punkt zawarty wewnątrz liscia. </p>
+
+</div>
+</div>
+<a class="anchor" id="a96e62c89da02d563a80a490041981281"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int QuadTree::depth</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Głębokość zagłebienia w strukturze <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca węzeł QuadTree, zawiera w sobie metody do przekształcania jego struktury...">QuadTree</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="a0fa4ec892941a59163d4163b400de0ea"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_point.html">Point</a>* QuadTree::ECorner</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wskaźnik na środek wschodniej krawędzi. </p>
+
+</div>
+</div>
+<a class="anchor" id="a27cbf05fe9518c6fa3cc312ff6f18127"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_flush_table.html">FlushTable</a>&lt;<a class="el" href="class_point.html">Point</a>&gt;* QuadTree::flush</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a80a7b6aba8a75ca8b8bc62564b69736e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double QuadTree::half</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Połowa szerokosci. </p>
+
+</div>
+</div>
+<a class="anchor" id="a01bbb0c4c4b55aee796f44db113ba734"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_point.html">Point</a>* QuadTree::NCorner</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wskaźnik na środek północnej krawędzi. </p>
+
+</div>
+</div>
 <a class="anchor" id="a30af9f715baf8b6653a357909b92ddaf"></a>
 <div class="memitem">
 <div class="memproto">
@@ -344,7 +1340,30 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Dziecko w północno-wschodnim rogu </p>
+
+<p>Wskaźnik na dziecko w północno-wschodnim rogu. </p>
+
+</div>
+</div>
+<a class="anchor" id="a398742b7a42c1ad8b4ddaab389338a39"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_point.html">Point</a>* QuadTree::NECorner</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wierzchołek północno-wschodni. </p>
 
 </div>
 </div>
@@ -357,7 +1376,64 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Dziecko w północno-zachodnim rogu </p>
+
+<p>Wskaźnik na dziecko w północno-zachodnim rogu. </p>
+
+</div>
+</div>
+<a class="anchor" id="a303431b117454845ad455291857fd8ff"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_point.html">Point</a>* QuadTree::NWCorner</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wierzchołek północno-zachodni. </p>
+
+</div>
+</div>
+<a class="anchor" id="af04f8c4b3a896ebc41598c2b8a978efe"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">class <a class="el" href="class_output_manager.html">OutputManager</a>* QuadTree::output_manager</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8ecdd44be95a34d0013b7b9a8f50bf27"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">class <a class="el" href="class_quad_tree.html">QuadTree</a>* QuadTree::parent</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wskaźnik na rodzica węzła lub NULL, jeżeli węzeł jest korzeniem. </p>
 
 </div>
 </div>
@@ -366,11 +1442,12 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">DiagonalDir QuadTree::parent_region</td>
+          <td class="memname"><a class="el" href="_quad_tree_8h.html#a3447e07885fbbfad367e85805d95c052">DiagonalDir</a> QuadTree::parent_region</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>w ktorej czesci rodzica znajduje sie dany node. </p>
+
+<p>informacja w ktorej ćwiartce rodzica znajduje sie dany node. </p>
 
 </div>
 </div>
@@ -383,7 +1460,22 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Zbiór wszsytkich punktów zawartych w obszarze <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca QuadTree, zawiera w sobie metody do przekształcania jego struktury.">QuadTree</a> dla których jest przeprowadzana triangulacja </p>
+
+<p>Zbiór wszsytkich punktów zawartych w obszarze <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca węzeł QuadTree, zawiera w sobie metody do przekształcania jego struktury...">QuadTree</a> dla których jest przeprowadzana triangulacja. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad9a0d54889d0afc582c78e7f78f6dbb5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_point.html">Point</a>* QuadTree::SCorner</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wskaźnik na środek południowej krawędzi. </p>
 
 </div>
 </div>
@@ -396,7 +1488,30 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Dziecko w południowo-wschodnim rogu </p>
+
+<p>Wskaźnik na dziecko w południowo-wschodnim rogu. </p>
+
+</div>
+</div>
+<a class="anchor" id="af31a1ffdbe4a1ed516417dc3b6da976d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_point.html">Point</a>* QuadTree::SECorner</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wierzchołek południowo-wschodni. </p>
 
 </div>
 </div>
@@ -409,21 +1524,72 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Dziecko w południowo-zachodnim rogu </p>
+
+<p>Wskaźnik na dziecko w południowo-zachodnim rogu. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad538532e46c3e0e51f40e3bf61bc2f38"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_point.html">Point</a>* QuadTree::SWCorner</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wierzchołek południowo-zachodnia. </p>
+
+</div>
+</div>
+<a class="anchor" id="a4a53032ee7b6255efb555ecf6a23d146"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_point.html">Point</a>* QuadTree::WCorner</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wskaźnik na środek zachodniej krawędzi. </p>
+
+</div>
+</div>
+<a class="anchor" id="a009965ef44e37cad6fad5ddfb4bf3210"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double QuadTree::width</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Szerokość </p>
 
 </div>
 </div>
 <hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
 <li><a class="el" href="_quad_tree_8h_source.html">QuadTree.h</a></li>
-<li>QuadTree.cpp</li>
-<li>QuadTreeGeneration.cpp</li>
-<li>transformation.cpp</li>
-<li>triangulation.cpp</li>
+<li><a class="el" href="_quad_tree_8cpp.html">QuadTree.cpp</a></li>
+<li><a class="el" href="_quad_tree_generation_8cpp.html">QuadTreeGeneration.cpp</a></li>
+<li><a class="el" href="transformation_8cpp.html">transformation.cpp</a></li>
+<li><a class="el" href="triangulation_8cpp.html">triangulation.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Wygenerowano Wt, 11 gru 2012 14:34:28 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
+Wygenerowano Cz, 13 gru 2012 00:54:25 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

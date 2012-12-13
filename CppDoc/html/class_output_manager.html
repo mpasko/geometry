@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Zmienne</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Pliki</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Zmienne</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Wyliczenia</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Wartości wyliczeń</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Przyjaciele</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definicje</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -83,31 +83,165 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Metody publiczne</a> &#124;
+<a href="#pri-attribs">Atrybuty prywatne</a> &#124;
 <a href="class_output_manager-members.html">Lista wszystkich składowych</a>  </div>
   <div class="headertitle">
 <div class="title">Dokumentacja klasy OutputManager</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Klasa do zapisywania bierzącego stanu symulacji do pliu.  
+<p>Klasa do zapisywania bierzącego stanu symulacji do pliku.  
  <a href="class_output_manager.html#details">Więcej...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_output_manager_8h_source.html">OutputManager.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagram współpracy dla OutputManager:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_output_manager__coll__graph.png" border="0" usemap="#_output_manager_coll__map" alt="Collaboration graph"/></div>
+<map name="_output_manager_coll__map" id="_output_manager_coll__map">
+<area shape="rect" id="node4" href="class_quad_tree.html" title="Klasa reprezentująca węzeł QuadTree, zawiera w sobie metody do przekształcania jego struktury..." alt="" coords="5,451,213,1291"/><area shape="rect" id="node2" href="class_polygon.html" title="Klasa reprezentująca wielokąt." alt="" coords="57,5,161,171"/></map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Metody publiczne</h2></td></tr>
-<tr class="memitem:a1a1573d0e65808054afe7d58abbecc7e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a1573d0e65808054afe7d58abbecc7e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>OutputManager</b> (<a class="el" href="class_polygon.html">Polygon</a> *polygon, <a class="el" href="class_quad_tree.html">QuadTree</a> *quadtree, std::ofstream *out_stream)</td></tr>
-<tr class="separator:a1a1573d0e65808054afe7d58abbecc7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a516b71714ce4ab0410d5b5893102402a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a516b71714ce4ab0410d5b5893102402a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>OutputManager</b> (std::list&lt; <a class="el" href="class_point.html">Point</a> * &gt; *points_set, <a class="el" href="class_quad_tree.html">QuadTree</a> *quadtree, std::ofstream *out_stream)</td></tr>
-<tr class="separator:a516b71714ce4ab0410d5b5893102402a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33022c5dd792fbe6c2c027c41148d89f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_output_manager.html#a33022c5dd792fbe6c2c027c41148d89f">OutputManager</a> (<a class="el" href="class_polygon.html">Polygon</a> *&amp;<a class="el" href="class_output_manager.html#acfcba613f46a0f9c1a604f202b2f3263">polygon</a>, <a class="el" href="class_quad_tree.html">QuadTree</a> *&amp;quadtree, std::ofstream *&amp;out_stream)</td></tr>
+<tr class="memdesc:a33022c5dd792fbe6c2c027c41148d89f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor output managera nad zbiorem punktów.  <a href="#a33022c5dd792fbe6c2c027c41148d89f"></a><br/></td></tr>
+<tr class="separator:a33022c5dd792fbe6c2c027c41148d89f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbbbd60acb46da765c777899a63687be"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_output_manager.html#acbbbd60acb46da765c777899a63687be">OutputManager</a> (std::list&lt; <a class="el" href="class_point.html">Point</a> * &gt; *&amp;<a class="el" href="class_output_manager.html#a6e74521a9c77eac66c0ec782cf7638df">points_set</a>, <a class="el" href="class_quad_tree.html">QuadTree</a> *&amp;quadtree, std::ofstream *&amp;out_stream)</td></tr>
+<tr class="memdesc:acbbbd60acb46da765c777899a63687be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor output managera nad zbiorem punktów.  <a href="#acbbbd60acb46da765c777899a63687be"></a><br/></td></tr>
+<tr class="separator:acbbbd60acb46da765c777899a63687be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa46f75f100407f4eb668b4e76d240a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_output_manager.html#afa46f75f100407f4eb668b4e76d240a0">print_simulation_step</a> ()</td></tr>
+<tr class="memdesc:afa46f75f100407f4eb668b4e76d240a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zapisanie obecnego stanu symulacji do pliku.  <a href="#afa46f75f100407f4eb668b4e76d240a0"></a><br/></td></tr>
 <tr class="separator:afa46f75f100407f4eb668b4e76d240a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f3c332eef6d532a4fa5373602f76b55"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_output_manager.html#a2f3c332eef6d532a4fa5373602f76b55">print_points_set</a> ()</td></tr>
+<tr class="memdesc:a2f3c332eef6d532a4fa5373602f76b55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zapisuje zbiór punktów(lub wielokąt) do pliku.  <a href="#a2f3c332eef6d532a4fa5373602f76b55"></a><br/></td></tr>
+<tr class="separator:a2f3c332eef6d532a4fa5373602f76b55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atrybuty prywatne</h2></td></tr>
+<tr class="memitem:a0cc12c33c438cdbcc459e6004f7dd42a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_output_manager.html#a0cc12c33c438cdbcc459e6004f7dd42a">draws_points_set</a></td></tr>
+<tr class="memdesc:a0cc12c33c438cdbcc459e6004f7dd42a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informuje co wypisać do pliku.  <a href="#a0cc12c33c438cdbcc459e6004f7dd42a"></a><br/></td></tr>
+<tr class="separator:a0cc12c33c438cdbcc459e6004f7dd42a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52f22f09d32c0ad5f1ddc57cf5665429"><td class="memItemLeft" align="right" valign="top">std::ofstream *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_output_manager.html#a52f22f09d32c0ad5f1ddc57cf5665429">output_stream</a></td></tr>
+<tr class="memdesc:a52f22f09d32c0ad5f1ddc57cf5665429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Strumień wyjściowy.  <a href="#a52f22f09d32c0ad5f1ddc57cf5665429"></a><br/></td></tr>
+<tr class="separator:a52f22f09d32c0ad5f1ddc57cf5665429"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf5c54f6fa43696ba5e5edda9b6e8747"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_output_manager.html#acf5c54f6fa43696ba5e5edda9b6e8747">quad_tree</a></td></tr>
+<tr class="memdesc:acf5c54f6fa43696ba5e5edda9b6e8747"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quadtree, używane do generacji siatki.  <a href="#acf5c54f6fa43696ba5e5edda9b6e8747"></a><br/></td></tr>
+<tr class="separator:acf5c54f6fa43696ba5e5edda9b6e8747"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfcba613f46a0f9c1a604f202b2f3263"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polygon.html">Polygon</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_output_manager.html#acfcba613f46a0f9c1a604f202b2f3263">polygon</a></td></tr>
+<tr class="memdesc:acfcba613f46a0f9c1a604f202b2f3263"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wskaźnik na wielokąt dla którego generowana jest siatka.  <a href="#acfcba613f46a0f9c1a604f202b2f3263"></a><br/></td></tr>
+<tr class="separator:acfcba613f46a0f9c1a604f202b2f3263"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e74521a9c77eac66c0ec782cf7638df"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="class_point.html">Point</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_output_manager.html#a6e74521a9c77eac66c0ec782cf7638df">points_set</a></td></tr>
+<tr class="memdesc:a6e74521a9c77eac66c0ec782cf7638df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wskaźnik na listę punktów dla których generowana jest siatka.  <a href="#a6e74521a9c77eac66c0ec782cf7638df"></a><br/></td></tr>
+<tr class="separator:a6e74521a9c77eac66c0ec782cf7638df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
-<div class="textblock"><p>Klasa do zapisywania bierzącego stanu symulacji do pliu. </p>
-</div><h2 class="groupheader">Dokumentacja funkcji składowych</h2>
+<div class="textblock"><p>Klasa do zapisywania bierzącego stanu symulacji do pliku. </p>
+<p>Klasa zapisuje dane eksperymentu w fomacie, który umożliwia późniejsze wyświetlenie zapisanego stanu w wizualizatorze. </p>
+</div><h2 class="groupheader">Dokumentacja konstruktora i destruktora</h2>
+<a class="anchor" id="a33022c5dd792fbe6c2c027c41148d89f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">OutputManager::OutputManager </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_polygon.html">Polygon</a> *&amp;&#160;</td>
+          <td class="paramname"><em>polygon</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_quad_tree.html">QuadTree</a> *&amp;&#160;</td>
+          <td class="paramname"><em>quadtree</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::ofstream *&amp;&#160;</td>
+          <td class="paramname"><em>out_stream</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Konstruktor output managera nad zbiorem punktów. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">polygon</td><td>wielokąt dla którego jest generowana siatka </td></tr>
+    <tr><td class="paramname">quadtree</td><td>drzewo quadtree użyte do generacji siatki </td></tr>
+    <tr><td class="paramname">out_stream</td><td>strumień wyjściowy, do zapisywania przebiegu symulacji </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="acbbbd60acb46da765c777899a63687be"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">OutputManager::OutputManager </td>
+          <td>(</td>
+          <td class="paramtype">std::list&lt; <a class="el" href="class_point.html">Point</a> * &gt; *&amp;&#160;</td>
+          <td class="paramname"><em>points_set</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_quad_tree.html">QuadTree</a> *&amp;&#160;</td>
+          <td class="paramname"><em>quadtree</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::ofstream *&amp;&#160;</td>
+          <td class="paramname"><em>out_stream</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Konstruktor output managera nad zbiorem punktów. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">points_set</td><td>zbiór punktów dla którego jest generowana siatka </td></tr>
+    <tr><td class="paramname">quadtree</td><td>drzewo quadtree użyte do generacji siatki </td></tr>
+    <tr><td class="paramname">out_stream</td><td>strumień wyjściowy, do zapisywania przebiegu symulacji </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="a2f3c332eef6d532a4fa5373602f76b55"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OutputManager::print_points_set </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Zapisuje zbiór punktów(lub wielokąt) do pliku. </p>
+<p>Dane są zapisane jako nowy krok symulacji. Jeżeli wskaźnik na strumień wyjściowy jest równy NULL funkcja natychmiast wraca. </p>
+
+</div>
+</div>
 <a class="anchor" id="afa46f75f100407f4eb668b4e76d240a0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -120,18 +254,134 @@ Metody publiczne</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Zapisuje obecny stan symulacji do pliku, czyli strukturę <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca QuadTree, zawiera w sobie metody do przekształcania jego struktury.">QuadTree</a> oraz położenie zbioru triangulowanych punktów lub triangulownego wielokąta. </p>
+
+<p>Zapisanie obecnego stanu symulacji do pliku. </p>
+<p>Dane są zapisane jako nowy krok symulacji. Zapisana zostaje struktura <a class="el" href="class_quad_tree.html" title="Klasa reprezentująca węzeł QuadTree, zawiera w sobie metody do przekształcania jego struktury...">QuadTree</a> oraz położenie zbioru triangulowanych punktów lub wielokąta, zależnie od tego co zostało podane na wejściu algorytmu. Jeżeli wskaźnik do któregoś z powyższych elementów jest równy NULL, element nie jest wypisany, jeżeli wskaźnik na strumień wyjściowy jest równy NULL funkcja natychmiast wraca. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja atrybutów składowych</h2>
+<a class="anchor" id="a0cc12c33c438cdbcc459e6004f7dd42a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool OutputManager::draws_points_set</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Informuje co wypisać do pliku. </p>
+<p>Jeżeli pole jest rowne <em>true</em> output manager przyjmuje, że triangulacja odbywa się dla zbioru punktów, w przeciwnym przypadku zakłada, że jako wejście podano wielokąt </p>
+
+</div>
+</div>
+<a class="anchor" id="a52f22f09d32c0ad5f1ddc57cf5665429"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ofstream* OutputManager::output_stream</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Strumień wyjściowy. </p>
+
+</div>
+</div>
+<a class="anchor" id="a6e74521a9c77eac66c0ec782cf7638df"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::list&lt;<a class="el" href="class_point.html">Point</a>*&gt;* OutputManager::points_set</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wskaźnik na listę punktów dla których generowana jest siatka. </p>
+<p>Jeżeli siatka jest generowana dla wielokąta zamiast zbioru punktów pole jest równe NULL. </p>
+
+</div>
+</div>
+<a class="anchor" id="acfcba613f46a0f9c1a604f202b2f3263"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polygon.html">Polygon</a>* OutputManager::polygon</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wskaźnik na wielokąt dla którego generowana jest siatka. </p>
+<p>Jeżeli siatka jest generowana dla zbioru punktów zamiast wielokąta pole jest równe NULL. </p>
+
+</div>
+</div>
+<a class="anchor" id="acf5c54f6fa43696ba5e5edda9b6e8747"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_quad_tree.html">QuadTree</a>* OutputManager::quad_tree</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Quadtree, używane do generacji siatki. </p>
 
 </div>
 </div>
 <hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
 <li><a class="el" href="_output_manager_8h_source.html">OutputManager.h</a></li>
-<li>OutputManager.cpp</li>
+<li><a class="el" href="_output_manager_8cpp.html">OutputManager.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Wygenerowano Wt, 11 gru 2012 14:34:28 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
+Wygenerowano Cz, 13 gru 2012 00:54:25 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

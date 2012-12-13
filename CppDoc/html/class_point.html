@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Zmienne</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Pliki</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Zmienne</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Wyliczenia</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Wartości wyliczeń</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Przyjaciele</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definicje</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -99,40 +99,166 @@ Diagram współpracy dla Point:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_point__coll__graph.png" border="0" usemap="#_point_coll__map" alt="Collaboration graph"/></div>
 <map name="_point_coll__map" id="_point_coll__map">
-<area shape="rect" id="node2" href="class_quad_tree.html" title="Klasa reprezentująca QuadTree, zawiera w sobie metody do przekształcania jego struktury." alt="" coords="23,191,101,217"/></map>
-<center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
+<area shape="rect" id="node2" href="class_quad_tree.html" title="Klasa reprezentująca węzeł QuadTree, zawiera w sobie metody do przekształcania jego struktury..." alt="" coords="5,339,213,1179"/></map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Metody publiczne</h2></td></tr>
-<tr class="memitem:a78b55e8d5466bb8c2cf60fa55f2562ff"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78b55e8d5466bb8c2cf60fa55f2562ff"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Point</b> (double x, double y)</td></tr>
+<tr class="memitem:ad92f2337b839a94ce97dcdb439b4325a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point.html#ad92f2337b839a94ce97dcdb439b4325a">Point</a> ()</td></tr>
+<tr class="memdesc:ad92f2337b839a94ce97dcdb439b4325a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor domyślny.  <a href="#ad92f2337b839a94ce97dcdb439b4325a"></a><br/></td></tr>
+<tr class="separator:ad92f2337b839a94ce97dcdb439b4325a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78b55e8d5466bb8c2cf60fa55f2562ff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point.html#a78b55e8d5466bb8c2cf60fa55f2562ff">Point</a> (double <a class="el" href="class_point.html#ab99c56589bc8ad5fa5071387110a5bc7">x</a>, double <a class="el" href="class_point.html#afa38be143ae800e6ad69ce8ed4df62d8">y</a>)</td></tr>
+<tr class="memdesc:a78b55e8d5466bb8c2cf60fa55f2562ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor punktu o zadanych współrzędnych.  <a href="#a78b55e8d5466bb8c2cf60fa55f2562ff"></a><br/></td></tr>
 <tr class="separator:a78b55e8d5466bb8c2cf60fa55f2562ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae44b1b6182f029c3e7c16da17d4f47af"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae44b1b6182f029c3e7c16da17d4f47af"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_point.html">Point</a> &amp;point)</td></tr>
+<tr class="memitem:ae44b1b6182f029c3e7c16da17d4f47af"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point.html#ae44b1b6182f029c3e7c16da17d4f47af">operator==</a> (const <a class="el" href="class_point.html">Point</a> &amp;point)</td></tr>
+<tr class="memdesc:ae44b1b6182f029c3e7c16da17d4f47af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Porównanie punktów po wartościach współrzędnych.  <a href="#ae44b1b6182f029c3e7c16da17d4f47af"></a><br/></td></tr>
 <tr class="separator:ae44b1b6182f029c3e7c16da17d4f47af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Atrybuty publiczne</h2></td></tr>
-<tr class="memitem:ab99c56589bc8ad5fa5071387110a5bc7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab99c56589bc8ad5fa5071387110a5bc7"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>x</b></td></tr>
+<tr class="memitem:ab99c56589bc8ad5fa5071387110a5bc7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point.html#ab99c56589bc8ad5fa5071387110a5bc7">x</a></td></tr>
+<tr class="memdesc:ab99c56589bc8ad5fa5071387110a5bc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">x-owa współrzędna punktu  <a href="#ab99c56589bc8ad5fa5071387110a5bc7"></a><br/></td></tr>
 <tr class="separator:ab99c56589bc8ad5fa5071387110a5bc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa38be143ae800e6ad69ce8ed4df62d8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa38be143ae800e6ad69ce8ed4df62d8"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>y</b></td></tr>
+<tr class="memitem:afa38be143ae800e6ad69ce8ed4df62d8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point.html#afa38be143ae800e6ad69ce8ed4df62d8">y</a></td></tr>
+<tr class="memdesc:afa38be143ae800e6ad69ce8ed4df62d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">y-owa współrzędna punktu  <a href="#afa38be143ae800e6ad69ce8ed4df62d8"></a><br/></td></tr>
 <tr class="separator:afa38be143ae800e6ad69ce8ed4df62d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe4f11398ba1a0d858d09030eec7c23a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abe4f11398ba1a0d858d09030eec7c23a"></a>
-class <a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>node</b></td></tr>
+<tr class="memitem:abe4f11398ba1a0d858d09030eec7c23a"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="class_quad_tree.html">QuadTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_point.html#abe4f11398ba1a0d858d09030eec7c23a">node</a></td></tr>
+<tr class="memdesc:abe4f11398ba1a0d858d09030eec7c23a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wskazanie na węzeł drzewa quadtree w którym znajduje się węzeł.  <a href="#abe4f11398ba1a0d858d09030eec7c23a"></a><br/></td></tr>
 <tr class="separator:abe4f11398ba1a0d858d09030eec7c23a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
 <div class="textblock"><p>Klasa reprezentująca punkt. </p>
-</div><hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+</div><h2 class="groupheader">Dokumentacja konstruktora i destruktora</h2>
+<a class="anchor" id="ad92f2337b839a94ce97dcdb439b4325a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Point::Point </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Konstruktor domyślny. </p>
+
+</div>
+</div>
+<a class="anchor" id="a78b55e8d5466bb8c2cf60fa55f2562ff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Point::Point </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Konstruktor punktu o zadanych współrzędnych. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>x-owa współrzędna punktu </td></tr>
+    <tr><td class="paramname">y</td><td>y-owa współrzędna punktu </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="ae44b1b6182f029c3e7c16da17d4f47af"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Point::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_point.html">Point</a> &amp;&#160;</td>
+          <td class="paramname"><em>point</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Porównanie punktów po wartościach współrzędnych. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point</td><td>punkt do porównania </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd><em>true</em> wtedy i tylko wtedy, gdy wszyskie współrzędne punktów są równe </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja atrybutów składowych</h2>
+<a class="anchor" id="abe4f11398ba1a0d858d09030eec7c23a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">class <a class="el" href="class_quad_tree.html">QuadTree</a>* Point::node</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wskazanie na węzeł drzewa quadtree w którym znajduje się węzeł. </p>
+<p>Wskaźnik zawsze odnosi się do kwadratu znajdującego się najniżej w hierarchii quadtree, zatem zawsze wskazuje na liść drzewa przechowywujący aktualnie punkt </p>
+
+</div>
+</div>
+<a class="anchor" id="ab99c56589bc8ad5fa5071387110a5bc7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Point::x</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>x-owa współrzędna punktu </p>
+
+</div>
+</div>
+<a class="anchor" id="afa38be143ae800e6ad69ce8ed4df62d8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Point::y</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>y-owa współrzędna punktu </p>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
 <li><a class="el" href="_point_8h_source.html">Point.h</a></li>
-<li>Point.cpp</li>
+<li><a class="el" href="_point_8cpp.html">Point.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Wygenerowano Wt, 11 gru 2012 14:34:28 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
+Wygenerowano Cz, 13 gru 2012 00:54:25 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

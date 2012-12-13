@@ -60,6 +60,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&#160;plików</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Zmienne</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Pliki</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Zmienne</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Wyliczenia</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Wartości wyliczeń</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Przyjaciele</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definicje</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -82,40 +83,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
 <div class="title">Visualization.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<a href="_visualization_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * \brief metody do zapisywania stanu symulacji</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef VISUALIZATION_H</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define VISUALIZATION_H</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define PASKO</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="code" href="_visualization_8h.html#af3e2c57a5c490e1591645345ca9d9ca9">    8</a></span>&#160;<span class="preprocessor">#define PASKO</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;Point.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_point_8h.html">Point.h</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define red &quot;ff0000&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define green &quot;00ff00&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define blue &quot;0000ff&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define black &quot;000000&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="_visualization_8h.html#ab435487e41a1d42d4379464e35f873b4">   14</a></span>&#160;<span class="preprocessor">#define red &quot;ff0000&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="_visualization_8h.html#a7027592d032f7d20b38a1304ae3da2a2">   15</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define green &quot;00ff00&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="_visualization_8h.html#a679c8f05bd397c3b2ad08274a1e5e752">   16</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define blue &quot;0000ff&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="_visualization_8h.html#ac28df5fb2095879dde9f0798fea73623">   17</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define black &quot;000000&quot;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">void</span> drawpoint(std::ostream&amp; out, <span class="keyword">const</span> <span class="keywordtype">float</span> x1, <span class="keyword">const</span> <span class="keywordtype">float</span> y1, <span class="keyword">const</span> <span class="keywordtype">char</span>*color);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> drawline(std::ostream&amp; out, <span class="keyword">const</span> <span class="keywordtype">float</span> x1, <span class="keyword">const</span> <span class="keywordtype">float</span> y1, <span class="keyword">const</span> <span class="keywordtype">float</span> x2, <span class="keyword">const</span> <span class="keywordtype">float</span> y2, <span class="keyword">const</span> <span class="keywordtype">char</span>*color);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> drawline(std::ostream&amp; out, <span class="keyword">const</span> <a class="code" href="class_point.html" title="Klasa reprezentująca punkt.">Point</a>*p1, <span class="keyword">const</span> <span class="keywordtype">char</span>*color);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> drawline(std::ostream&amp; out, <span class="keyword">const</span> <a class="code" href="class_point.html" title="Klasa reprezentująca punkt.">Point</a>*p1, <span class="keyword">const</span> <a class="code" href="class_point.html" title="Klasa reprezentująca punkt.">Point</a>*p2, <span class="keyword">const</span> <span class="keywordtype">char</span>*color);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_visualization_8cpp.html#aeef31b898d8c25ddbcc086e98f2b2c92" title="Formatuje pojedynczy punkt w celu wizualizacji.">drawpoint</a>(std::ostream&amp; out, <span class="keyword">const</span> <span class="keywordtype">float</span> x1, <span class="keyword">const</span> <span class="keywordtype">float</span> y1, <span class="keyword">const</span> <span class="keywordtype">char</span>*color);</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span> step(std::ostream&amp; out);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* VISUALIZATION_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_visualization_8cpp.html#a254fd27fbf5c05723192318609b13eb4" title="Formatuje odcinek złożony z dwóch punktów w celu wizualizacji.">drawline</a>(std::ostream&amp; out, <span class="keyword">const</span> <span class="keywordtype">float</span> x1, <span class="keyword">const</span> <span class="keywordtype">float</span> y1, <span class="keyword">const</span> <span class="keywordtype">float</span> x2, <span class="keyword">const</span> <span class="keywordtype">float</span> y2, <span class="keyword">const</span> <span class="keywordtype">char</span>*color);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_visualization_8cpp.html#a254fd27fbf5c05723192318609b13eb4" title="Formatuje odcinek złożony z dwóch punktów w celu wizualizacji.">drawline</a>(std::ostream&amp; out, <span class="keyword">const</span> <a class="code" href="class_point.html" title="Klasa reprezentująca punkt.">Point</a>*p1, <span class="keyword">const</span> <span class="keywordtype">char</span>*color);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_visualization_8cpp.html#a254fd27fbf5c05723192318609b13eb4" title="Formatuje odcinek złożony z dwóch punktów w celu wizualizacji.">drawline</a>(std::ostream&amp; out, <span class="keyword">const</span> <a class="code" href="class_point.html" title="Klasa reprezentująca punkt.">Point</a>*p1, <span class="keyword">const</span> <a class="code" href="class_point.html" title="Klasa reprezentująca punkt.">Point</a>*p2, <span class="keyword">const</span> <span class="keywordtype">char</span>*color);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_visualization_8cpp.html#a9106c21d7db04945346f7f1f9daa1a3c" title="Separuje kroki algorytmu, czyści obszar graficzny wizualizatora.">step</a>(std::ostream&amp; out);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* VISUALIZATION_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Wygenerowano Wt, 11 gru 2012 14:34:28 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
+Wygenerowano Cz, 13 gru 2012 00:54:23 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

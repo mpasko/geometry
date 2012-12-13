@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Zmienne</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Pliki</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Zmienne</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Wyliczenia</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Wartości wyliczeń</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Przyjaciele</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definicje</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -89,52 +89,235 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
 <div class="title">Dokumentacja klasy MergeTable</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Klasa służąca do indeksowania wierzchołków do scalania.  
+ <a href="class_merge_table.html#details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_merge_table_8h_source.html">MergeTable.h</a>&gt;</code></p>
 <div class="dynheader">
 Diagram współpracy dla MergeTable:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_merge_table__coll__graph.png" border="0" usemap="#_merge_table_coll__map" alt="Collaboration graph"/></div>
 <map name="_merge_table_coll__map" id="_merge_table_coll__map">
-<area shape="rect" id="node2" href="class_point.html" title="Klasa reprezentująca punkt." alt="" coords="111,5,163,32"/><area shape="rect" id="node4" href="class_quad_tree.html" title="Klasa reprezentująca QuadTree, zawiera w sobie metody do przekształcania jego struktury." alt="" coords="149,191,227,217"/></map>
-<center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
+<area shape="rect" id="node2" href="class_point.html" title="Klasa reprezentująca punkt." alt="" coords="11,6,116,127"/></map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Metody publiczne</h2></td></tr>
-<tr class="memitem:a20a25e7e1092f68135a2f3598682ddf6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20a25e7e1092f68135a2f3598682ddf6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MergeTable</b> (int sz)</td></tr>
+<tr class="memitem:a20a25e7e1092f68135a2f3598682ddf6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_merge_table.html#a20a25e7e1092f68135a2f3598682ddf6">MergeTable</a> (int sz)</td></tr>
+<tr class="memdesc:a20a25e7e1092f68135a2f3598682ddf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor.  <a href="#a20a25e7e1092f68135a2f3598682ddf6"></a><br/></td></tr>
 <tr class="separator:a20a25e7e1092f68135a2f3598682ddf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcfc562fe4e60b583e81a80fc25f369e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adcfc562fe4e60b583e81a80fc25f369e"></a>
-<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>get</b> (double x, double y)</td></tr>
+<tr class="memitem:adcfc562fe4e60b583e81a80fc25f369e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_merge_table.html#adcfc562fe4e60b583e81a80fc25f369e">get</a> (double <a class="el" href="class_merge_table.html#a4aed2fc6f2b0399721d774a7aa31469e">x</a>, double <a class="el" href="class_merge_table.html#a83dd2e38d2bc814d9b5725df759afeea">y</a>)</td></tr>
+<tr class="memdesc:adcfc562fe4e60b583e81a80fc25f369e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca wskaźnik na punkt o podanych współrzędnych.  <a href="#adcfc562fe4e60b583e81a80fc25f369e"></a><br/></td></tr>
 <tr class="separator:adcfc562fe4e60b583e81a80fc25f369e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7000524bbecb77b8960c3c7c379d9de9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7000524bbecb77b8960c3c7c379d9de9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>merge</b> (<a class="el" href="class_point.html">Point</a> **p, <a class="el" href="class_point.html">Point</a> **d)</td></tr>
+<tr class="memitem:a7000524bbecb77b8960c3c7c379d9de9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_merge_table.html#a7000524bbecb77b8960c3c7c379d9de9">merge</a> (<a class="el" href="class_point.html">Point</a> **p, <a class="el" href="class_point.html">Point</a> **d)</td></tr>
+<tr class="memdesc:a7000524bbecb77b8960c3c7c379d9de9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scala dwa wskaźniki na punkty.  <a href="#a7000524bbecb77b8960c3c7c379d9de9"></a><br/></td></tr>
 <tr class="separator:a7000524bbecb77b8960c3c7c379d9de9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78c2f9aba556cac608060b6506c12394"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78c2f9aba556cac608060b6506c12394"></a>
-<a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>set</b> (<a class="el" href="class_point.html">Point</a> *p)</td></tr>
+<tr class="memitem:a78c2f9aba556cac608060b6506c12394"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_merge_table.html#a78c2f9aba556cac608060b6506c12394">set</a> (<a class="el" href="class_point.html">Point</a> *p)</td></tr>
+<tr class="memdesc:a78c2f9aba556cac608060b6506c12394"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wstawia punkt do indeksu.  <a href="#a78c2f9aba556cac608060b6506c12394"></a><br/></td></tr>
 <tr class="separator:a78c2f9aba556cac608060b6506c12394"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f6172ec65b8600df3ca7cc1c996831d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_merge_table.html#a5f6172ec65b8600df3ca7cc1c996831d">~MergeTable</a> ()</td></tr>
+<tr class="separator:a5f6172ec65b8600df3ca7cc1c996831d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Atrybuty publiczne</h2></td></tr>
-<tr class="memitem:ab9f3a1a931083e9e595a36faa5eb8045"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9f3a1a931083e9e595a36faa5eb8045"></a>
-<a class="el" href="class_point.html">Point</a> **&#160;</td><td class="memItemRight" valign="bottom"><b>reference</b></td></tr>
+<tr class="memitem:ab9f3a1a931083e9e595a36faa5eb8045"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_point.html">Point</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_merge_table.html#ab9f3a1a931083e9e595a36faa5eb8045">reference</a></td></tr>
 <tr class="separator:ab9f3a1a931083e9e595a36faa5eb8045"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4aed2fc6f2b0399721d774a7aa31469e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4aed2fc6f2b0399721d774a7aa31469e"></a>
-double *&#160;</td><td class="memItemRight" valign="bottom"><b>x</b></td></tr>
+<tr class="memitem:a4aed2fc6f2b0399721d774a7aa31469e"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_merge_table.html#a4aed2fc6f2b0399721d774a7aa31469e">x</a></td></tr>
 <tr class="separator:a4aed2fc6f2b0399721d774a7aa31469e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83dd2e38d2bc814d9b5725df759afeea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a83dd2e38d2bc814d9b5725df759afeea"></a>
-double *&#160;</td><td class="memItemRight" valign="bottom"><b>y</b></td></tr>
+<tr class="memitem:a83dd2e38d2bc814d9b5725df759afeea"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_merge_table.html#a83dd2e38d2bc814d9b5725df759afeea">y</a></td></tr>
 <tr class="separator:a83dd2e38d2bc814d9b5725df759afeea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73928181cb7da5fa5f65cd41e0e0cd94"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a73928181cb7da5fa5f65cd41e0e0cd94"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>max</b></td></tr>
+<tr class="memitem:a73928181cb7da5fa5f65cd41e0e0cd94"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_merge_table.html#a73928181cb7da5fa5f65cd41e0e0cd94">max</a></td></tr>
 <tr class="separator:a73928181cb7da5fa5f65cd41e0e0cd94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Klasa służąca do indeksowania wierzchołków do scalania. </p>
+</div><h2 class="groupheader">Dokumentacja konstruktora i destruktora</h2>
+<a class="anchor" id="a20a25e7e1092f68135a2f3598682ddf6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MergeTable::MergeTable </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sz</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Konstruktor. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sz</td><td>rozmiar </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a5f6172ec65b8600df3ca7cc1c996831d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MergeTable::~MergeTable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="adcfc562fe4e60b583e81a80fc25f369e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_point.html">Point</a> * MergeTable::get </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Zwraca wskaźnik na punkt o podanych współrzędnych. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>odcięta </td></tr>
+    <tr><td class="paramname">y</td><td>rzędna </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a7000524bbecb77b8960c3c7c379d9de9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MergeTable::merge </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_point.html">Point</a> **&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_point.html">Point</a> **&#160;</td>
+          <td class="paramname"><em>d</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Scala dwa wskaźniki na punkty. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>referencja na pierwszy wskaźnik </td></tr>
+    <tr><td class="paramname">q</td><td>referencja na drugi wskaźnik </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a78c2f9aba556cac608060b6506c12394"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_point.html">Point</a> * MergeTable::set </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_point.html">Point</a> *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wstawia punkt do indeksu. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja atrybutów składowych</h2>
+<a class="anchor" id="a73928181cb7da5fa5f65cd41e0e0cd94"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MergeTable::max</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab9f3a1a931083e9e595a36faa5eb8045"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_point.html">Point</a>** MergeTable::reference</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4aed2fc6f2b0399721d774a7aa31469e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double* MergeTable::x</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a83dd2e38d2bc814d9b5725df759afeea"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double* MergeTable::y</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
 <li><a class="el" href="_merge_table_8h_source.html">MergeTable.h</a></li>
-<li>MergeTable.cpp</li>
+<li><a class="el" href="_merge_table_8cpp.html">MergeTable.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Wygenerowano Wt, 11 gru 2012 14:34:28 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
+Wygenerowano Cz, 13 gru 2012 00:54:25 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

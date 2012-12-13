@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Zmienne</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Pliki</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Zmienne</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Wyliczenia</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Wartości wyliczeń</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Przyjaciele</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definicje</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,13 +88,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
 
 <p>To jest kompletna lista składowych dla <a class="el" href="class_output_manager.html">OutputManager</a>, uwzględniająca wszystkie dziedziczone składowe.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>OutputManager</b>(Polygon *polygon, QuadTree *quadtree, std::ofstream *out_stream) (zdefiniowana w <a class="el" href="class_output_manager.html">OutputManager</a>)</td><td class="entry"><a class="el" href="class_output_manager.html">OutputManager</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>OutputManager</b>(std::list&lt; Point * &gt; *points_set, QuadTree *quadtree, std::ofstream *out_stream) (zdefiniowana w <a class="el" href="class_output_manager.html">OutputManager</a>)</td><td class="entry"><a class="el" href="class_output_manager.html">OutputManager</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_output_manager.html#afa46f75f100407f4eb668b4e76d240a0">print_simulation_step</a>()</td><td class="entry"><a class="el" href="class_output_manager.html">OutputManager</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_output_manager.html#a0cc12c33c438cdbcc459e6004f7dd42a">draws_points_set</a></td><td class="entry"><a class="el" href="class_output_manager.html">OutputManager</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_output_manager.html#a52f22f09d32c0ad5f1ddc57cf5665429">output_stream</a></td><td class="entry"><a class="el" href="class_output_manager.html">OutputManager</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_output_manager.html#a33022c5dd792fbe6c2c027c41148d89f">OutputManager</a>(Polygon *&amp;polygon, QuadTree *&amp;quadtree, std::ofstream *&amp;out_stream)</td><td class="entry"><a class="el" href="class_output_manager.html">OutputManager</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_output_manager.html#acbbbd60acb46da765c777899a63687be">OutputManager</a>(std::list&lt; Point * &gt; *&amp;points_set, QuadTree *&amp;quadtree, std::ofstream *&amp;out_stream)</td><td class="entry"><a class="el" href="class_output_manager.html">OutputManager</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_output_manager.html#a6e74521a9c77eac66c0ec782cf7638df">points_set</a></td><td class="entry"><a class="el" href="class_output_manager.html">OutputManager</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_output_manager.html#acfcba613f46a0f9c1a604f202b2f3263">polygon</a></td><td class="entry"><a class="el" href="class_output_manager.html">OutputManager</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_output_manager.html#a2f3c332eef6d532a4fa5373602f76b55">print_points_set</a>()</td><td class="entry"><a class="el" href="class_output_manager.html">OutputManager</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_output_manager.html#afa46f75f100407f4eb668b4e76d240a0">print_simulation_step</a>()</td><td class="entry"><a class="el" href="class_output_manager.html">OutputManager</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_output_manager.html#acf5c54f6fa43696ba5e5edda9b6e8747">quad_tree</a></td><td class="entry"><a class="el" href="class_output_manager.html">OutputManager</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Wygenerowano Wt, 11 gru 2012 14:34:28 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
+Wygenerowano Cz, 13 gru 2012 00:54:25 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>

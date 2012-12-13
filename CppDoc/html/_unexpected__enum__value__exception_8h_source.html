@@ -60,6 +60,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&#160;plików</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Zmienne</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Pliki</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Zmienne</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Wyliczenia</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Wartości wyliczeń</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Przyjaciele</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Definicje</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -82,17 +83,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
 <div class="title">Unexpected_enum_value_exception.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef UNEXPECTED_ENUM_VALUE_EXCEPTION_H</span></div>
+<a href="_unexpected__enum__value__exception_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef UNEXPECTED_ENUM_VALUE_EXCEPTION_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define UNEXPECTED_ENUM_VALUE_EXCEPTION_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;General_exception.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_general__exception_8h.html">General_exception.h</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
 <div class="line"><a name="l00009"></a><span class="lineno"><a class="code" href="class_unexpected__enum__value__exception.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_unexpected__enum__value__exception.html" title="Wyjątek rzucany, gdy w insrukcji switch wybrany zostanie inny enum niż te z przewidywnej puli...">Unexpected_enum_value_exception</a> : <span class="keyword">public</span> <a class="code" href="class_general__exception.html" title="Klasa opisująca dowolny wyjątek, pozwala na podanie opisu przyczyny rzucenia wyjaku w kostruktorze...">General_exception</a> {</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_unexpected__enum__value__exception.html" title="Wyjątek rzucany, gdy w insrukcji switch wybrany zostanie inny enum niż te z przewidywnej puli...">Unexpected_enum_value_exception</a>() : <a class="code" href="class_general__exception.html" title="Klasa opisująca dowolny wyjątek, pozwala na podanie opisu przyczyny rzucenia wyjaku w kostruktorze...">General_exception</a>(){</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="code" href="class_unexpected__enum__value__exception.html#a8fce70385494caed464568c5f01a55f2">   11</a></span>&#160;    <a class="code" href="class_unexpected__enum__value__exception.html#a8fce70385494caed464568c5f01a55f2">Unexpected_enum_value_exception</a>() : <a class="code" href="class_general__exception.html" title="Klasa opisująca dowolny wyjątek, pozwala na podanie opisu przyczyny rzucenia wyjaku w kostruktorze...">General_exception</a>(){</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    }</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="class_unexpected__enum__value__exception.html" title="Wyjątek rzucany, gdy w insrukcji switch wybrany zostanie inny enum niż te z przewidywnej puli...">Unexpected_enum_value_exception</a>(std::string cause) : <a class="code" href="class_general__exception.html" title="Klasa opisująca dowolny wyjątek, pozwala na podanie opisu przyczyny rzucenia wyjaku w kostruktorze...">General_exception</a>(cause){</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="class_unexpected__enum__value__exception.html#ae7e11c48a5d1d0107d914e3c689b25ea">   14</a></span>&#160;    <a class="code" href="class_unexpected__enum__value__exception.html#ae7e11c48a5d1d0107d914e3c689b25ea">Unexpected_enum_value_exception</a>(std::string <a class="code" href="class_general__exception.html#a05e6cf17944dd9f41ec67c4efdca3e0f">cause</a>) : <a class="code" href="class_general__exception.html" title="Klasa opisująca dowolny wyjątek, pozwala na podanie opisu przyczyny rzucenia wyjaku w kostruktorze...">General_exception</a>(cause){</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    }</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
@@ -103,7 +104,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Wygenerowano Wt, 11 gru 2012 14:34:28 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
+Wygenerowano Cz, 13 gru 2012 00:54:23 dla Triangulacja metodą QuadTree programem &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.2
 </small></address>
