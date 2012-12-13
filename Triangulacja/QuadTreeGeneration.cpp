@@ -49,7 +49,7 @@ QuadTree* QuadTree::getChildContainingCoord(PerpendicularDir side, double value)
 }
 
 void QuadTree::split_until_size(double target_size) {
-    if (this->width < target_size) {
+    if (this->side < target_size) {
         return;
     }
     Point* p = new Point;

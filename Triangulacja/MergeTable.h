@@ -31,7 +31,7 @@ public:
     
     /** Scala dwa wskaźniki na punkty 
     * @param p referencja na pierwszy wskaźnik
-    * @param q referencja na drugi wskaźnik
+    * @param d referencja na drugi wskaźnik
     */
     void merge(Point ** p, Point ** d);
     

@@ -23,7 +23,7 @@ QuadTree* QuadTree::slideDown(Direction direction, QuadTree* source) {
         //double maxx = center->x+half;
         double miny = center->y - half;
         double maxy = center->y + half;
-        double src_h = source->width;
+        double src_h = source->side;
         double src_y = source->center->y;
         double src_x = source->center->x;
         switch (direction) {
@@ -256,19 +256,19 @@ void triangulate(std::ostream&out, QuadTree*qt, const char* color) {
 
         if (count == 1) {
             if (is_e) {
-                c = qt->ECorner;
+                c = qt->ESplit;
                 drawline(out, qt->getNWCorner(), c, color);
                 drawline(out, qt->getSWCorner(), c, color);
             } else if (is_w) {
-                c = qt->WCorner;
+                c = qt->WSplit;
                 drawline(out, qt->getNECorner(), c, color);
                 drawline(out, qt->getSECorner(), c, color);
             } else if (is_s) {
-                c = qt->SCorner;
+                c = qt->SSplit;
                 drawline(out, qt->getNWCorner(), c, color);
                 drawline(out, qt->getNECorner(), c, color);
             } else if (is_n) {
-                c = qt->NCorner;
+                c = qt->NSplit;
                 drawline(out, qt->getSWCorner(), c, color);
                 drawline(out, qt->getSECorner(), c, color);
             }
@@ -279,22 +279,22 @@ void triangulate(std::ostream&out, QuadTree*qt, const char* color) {
         } else {
 
             if (is_e) {
-                c = qt->ECorner;
+                c = qt->ESplit;
                 drawline(out, qt->getSteiner(), c, color);
                 delete c;
             }
             if (is_w) {
-                c = qt->WCorner;
+                c = qt->WSplit;
                 drawline(out, qt->getSteiner(), c, color);
                 delete c;
             }
             if (is_s) {
-                c = qt->SCorner;
+                c = qt->SSplit;
                 drawline(out, qt->getSteiner(), c, color);
                 delete c;
             }
             if (is_n) {
-                c = qt->NCorner;
+                c = qt->NSplit;
                 drawline(out, qt->getSteiner(), c, color);
                 delete c;
             }

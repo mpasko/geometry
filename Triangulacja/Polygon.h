@@ -18,8 +18,10 @@
 class Polygon{
     /** Wierzchołki*/
     Point** points;
+    /** Indeks wskazujący na wolne miejsce w tablicy wierzchołków*/
     int index;
-    int len;
+    /** Liczba wierzchołków*/
+    int vertices_number;
 public:
     /**
      * Kostruktor wielokąta

@@ -148,7 +148,7 @@ class QuadTree {
      * z podziałów na danej głębokości dzielone jest jedno i tylko jedno dziecko
      * @param region skośny kierunek określający w jakim kierunku od najmniejszego podzału
      * powinien znajdwać się węzeł, który wywołał na obecnymw ęźle podział
-     * @param węzeł, który wywołał na obecnymw węźle podział, wraz z parametrem
+     * @param source węzeł, który wywołał na obecnymw węźle podział, wraz z parametrem
      * <b>region</b> pozwala wybrać dziecko, do następnego rekursywnego podziału
      * @param target_depth głębokość na jaką ma nastąpić podział
      */
@@ -173,14 +173,14 @@ public:
     /** Wskaźnik na dziecko w południowo-zachodnim rogu*/
     class QuadTree* SWChild;
 
-    /** Wskaźnik na środek wschodniej krawędzi */
-    Point * ECorner;
-    /** Wskaźnik na środek zachodniej krawędzi */
-    Point * WCorner;
-    /** Wskaźnik na środek południowej krawędzi */
-    Point * SCorner;
-    /** Wskaźnik na środek północnej krawędzi */
-    Point * NCorner;
+    /** Wskaźnik na środek wschodniej ściany */
+    Point * ESplit;
+    /** Wskaźnik na środek zachodniej ściany */
+    Point * WSplit;
+    /** Wskaźnik na środek południowej ściany */
+    Point * SSplit;
+    /** Wskaźnik na środek północnej ściany */
+    Point * NSplit;
 
     /** Wskaźnik na rodzica węzła lub NULL, jeżeli węzeł jest korzeniem.*/
     class QuadTree* parent;
@@ -191,17 +191,24 @@ public:
     /** Współrzędne środka */
     Point* center;
     
-    /** Szerokość */
-    double width;
+    /** Długość boku*/
+    double side;
     /** Połowa szerokosci */
     double half;
     /** Punkt zawarty wewnątrz liscia */
     Point* chunk;
 
-    /** Głębokość zagłebienia w strukturze QuadTree */
+    /** Głębokość w strukturze QuadTree. Głębokość roota jest równa 0. */
     int depth;
 
-    QuadTree(double cx, double cy, double w, QuadTree* parent);
+    /**
+     *
+     * @param center_x x-owa współrzędna środka kwadratu
+     * @param center_y y-owa współrzędna środka kwadratu
+     * @param side_length długość boku
+     * @param parent rodzic węzła, jeżeli węzeł ma być korzeniem należy podać NULL
+     */
+    QuadTree(double center_x, double center_y, double side_length, QuadTree* parent);
 
     /**
      * Sprawdzenie czy węzeł jest liściem QuadTree

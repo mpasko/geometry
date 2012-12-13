@@ -10,8 +10,8 @@
 
 #include "General_exception.h"
 
-/*
- * \brief WYjątek rzucany, gdy nastąpi próba nieporządanego podziału.
+/**
+ * Wyjątek rzucany, gdy nastąpi próba nieporządanego podziału kwadratu.
  */
 class Unexpected_subdivision : public General_exception {
     public:

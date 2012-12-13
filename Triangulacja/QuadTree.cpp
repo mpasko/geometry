@@ -41,7 +41,7 @@ QuadTree::QuadTree(double cx, double cy, double w, QuadTree * par) :
 NEChild(NULL), NWChild(NULL), SEChild(NULL), SWChild(NULL), parent(par) {
     center = new Point(cx, cy);
     half = w / 2.0;
-    width = w;
+    side = w;
     chunk = NULL;
     depth = 0;
     flush = new FlushTable<Point > (20);
@@ -53,14 +53,14 @@ NEChild(NULL), NWChild(NULL), SEChild(NULL), SWChild(NULL), parent(par) {
     *flush += NWCorner;
     SWCorner = new Point(cx - half, cy - half);
     *flush += SWCorner;
-    ECorner = getcenter(NECorner, SECorner);
-    WCorner = getcenter(NWCorner, SWCorner);
-    SCorner = getcenter(SWCorner, SECorner);
-    NCorner = getcenter(NECorner, NWCorner);
-    *flush += ECorner;
-    *flush += WCorner;
-    *flush += SCorner;
-    *flush += NCorner;
+    ESplit = getcenter(NECorner, SECorner);
+    WSplit = getcenter(NWCorner, SWCorner);
+    SSplit = getcenter(SWCorner, SECorner);
+    NSplit = getcenter(NECorner, NWCorner);
+    *flush += ESplit;
+    *flush += WSplit;
+    *flush += SSplit;
+    *flush += NSplit;
 }
 
 bool QuadTree::isLeaf() const {
@@ -69,7 +69,7 @@ bool QuadTree::isLeaf() const {
 
 void QuadTree::subdivide() {
     if (isLeaf()) {
-        double cntr = width / 4;
+        double cntr = side / 4;
         NEChild = new QuadTree(center->x + cntr, center->y + cntr, half, this);
         NEChild->parent_region = Diag_NE;
         NEChild->depth = depth + 1;

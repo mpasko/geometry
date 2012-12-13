@@ -30,9 +30,34 @@ double pitagoras(Point point1, Point point2);
  */
 double pitagoras(double x1, double y1, double x2, double y2);
 
+/**
+ * Bada czy punkt C znajduje się po lewej czy prawej odcinka utworzonego przez
+ * punkty A, B.
+ * @param pointA punkt A
+ * @param pointB punkt B
+ * @param pointC punkt C
+ * @return 1 jeżeli punkt C znajduje się po prawej odcinka, -1 jeżeli po lewej, 0 jeżeli jest współliniowy,
+ */
 double orientation2d(Point pointA, Point pointB, Point pointC);
+
+/**
+ * Bada czy punkt C znajduje się po lewej czy prawej odcinka utworzonego przez
+ * punkty A, B.
+ * @param pointA punkt A
+ * @param pointB punkt B
+ * @param pointC punkt C
+ * @return 1 jeżeli punkt C znajduje się po prawej odcinka, -1 jeżeli po lewej, 0 jeżeli jest współliniowy,
+ */
 double orientation2D(Point pointA, Point pointB, Point pointC);
 
+/**
+ * Porónuje dwa punkty, czy mają te same współrzędne. Punkty są porównywane przy użyciu
+ * wartości EPSILON, zdefuiniowane w plioku
+ * @param a pierwszy z punktów
+ * @param b drugi punkt
+ * @return <i>true</i> jezęli róznica pomiędzy każdą ze współrzędnych punktów jest
+ * mniejsza od wartości EPSILON
+ */
 bool are_points_equal(const Point& a, const Point& b);
 
 /**

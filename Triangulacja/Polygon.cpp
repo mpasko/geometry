@@ -13,23 +13,23 @@
 #include "Polygon.h"
 #include "Visualization.h"
 #include "geometry.h"
+#include "General_exception.h"
 #include <vector>
 
-Polygon::Polygon(int size) : index(0), len(size) {
-    points = new Point*[size];
+Polygon::Polygon(int size) : index(0), vertices_number(size) {
+    points = new Point*[vertices_number];
 }
 
-Polygon::Polygon(std::list<Point*>* points_list) : index(0), len(points_list->size()){
-    points = new Point*[len];
+Polygon::Polygon(std::list<Point*>* points_list) : index(0), vertices_number(points_list->size()){
+    points = new Point*[vertices_number];
     for (std::list<Point*>::iterator it = points_list->begin(); it != points_list->end(); ++it){
         *this += *it;
     }
 }
 
 Point* Polygon::operator[](int index) const {
-    if (index > len) {
-        std::cout << "Error! Polygon index out of range!\n";
-        throw len;
+    if (index > vertices_number) {
+        throw General_exception("Error! Polygon index out of range!\n");
     }
     return points[index];
 }
@@ -37,9 +37,8 @@ Point* Polygon::operator[](int index) const {
 void Polygon::operator+=(Point*& p) {
     points[index] = p;
     ++index;
-    if (index > len) {
-        std::cout << "Error! Polygon overflow!\n";
-        throw len;
+    if (index > vertices_number) {
+        throw General_exception("Error! Polygon overflow!\n");
     }
 }
 
@@ -54,7 +53,7 @@ std::ostream& operator<<(std::ostream& out, const Polygon& polygon) {
 }
 
 int Polygon::size() const {
-    return len;
+    return vertices_number;
 }
 
 Polygon::~Polygon() {
